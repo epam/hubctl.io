@@ -1,0 +1,31 @@
+site_name: HubCTL
+site_url: https://hubctl.io
+site_description: Hub CTL is stack composition and lifecycle tool
+site_author: EPAM Systems, Inc.
+
+copyright: |
+  © 2023 EPAM Systems, Inc.
+  All Rights Reserved.
+
+repo_url: https://github.com/epam/hubctl
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: black
+    accent: cyan
+  features:
+    - header.autohide
+
+extra:
+  version:
+    provider: mike
+
+nav:
+  - Home: index.md
+
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
