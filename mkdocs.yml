@@ -1,14 +1,12 @@
+site_author: EPAM Systems, Inc.
+site_description: Hub CTL is stack composition and lifecycle tool
 site_name: HubCTL
 site_url: https://hubctl.io
-site_description: Hub CTL is stack composition and lifecycle tool
-site_author: EPAM Systems, Inc.
 
-copyright: |
-  © 2023 EPAM Systems, Inc.
-  All Rights Reserved.
+copyright: © 2023 EPAM Systems, Inc. All Rights Reserved.
 
+repo_name: epam/hubctl
 repo_url: https://github.com/epam/hubctl
-edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -17,7 +15,17 @@ theme:
     primary: black
     accent: cyan
   features:
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-header/#automatic-hiding
     - header.autohide
+
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
+    - navigation.instant
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#anchor-tracking
+    - navigation.tracking
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs
+    - navigation.tabs
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button
+    - navigation.top
 
 extra:
   version:
@@ -25,7 +33,15 @@ extra:
 
 nav:
   - Home: index.md
+  - Getting Started: getting-started.md
+  - Hub CTL:
+      - Overview: hubctl/overview.md
+  - Stacks:
+      - Overview: stacks/overview.md
+  - Components:
+      - Overview: components/overview.md
 
 plugins:
-  - git-revision-date-localized:
-      enable_creation_date: true
+  - git-revision-date-localized
+  - search:
+      lang: en

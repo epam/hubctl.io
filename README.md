@@ -19,7 +19,3 @@ To run site locally just call command:
 ```shell
 mkdocs serve
 ```
-
-## Build and publish to github pages
-
-This is done via GitHub Actions.
