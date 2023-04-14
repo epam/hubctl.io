@@ -12,21 +12,27 @@
         <meta name="author" content="EPAM Systems, Inc.">
       
       
+        <link rel="canonical" href="https://hubctl.io/hubctl/cli/hubctl-stack/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../hubctl-stack-init/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Hubctl</title>
+        <title>hubctl stack - Hubctl</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -42,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#command-hubctl-stack" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -80,7 +91,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../../.." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -99,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              hubctl stack
             
           </span>
         </div>
@@ -177,7 +188,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -187,13 +198,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="/hubctl/" class="md-tabs__link">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Hubctl
       </a>
     </li>
@@ -209,7 +222,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/tutorials/" class="md-tabs__link">
+      <a href="../../../tutorials/" class="md-tabs__link">
         Getting Started
       </a>
     </li>
@@ -237,7 +250,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../../.." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -290,7 +303,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/.">Home</a>
+          <a href="../../..">Home</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -313,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/install/" class="md-nav__link">
+      <a href="../../../install/" class="md-nav__link">
         Install
       </a>
     </li>
@@ -327,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/use-cases/" class="md-nav__link">
+      <a href="../../../use-cases/" class="md-nav__link">
         Use Cases
       </a>
     </li>
@@ -347,14 +360,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
         
@@ -373,7 +388,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/hubctl/">Hubctl</a>
+          <a href="../../">Hubctl</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -381,7 +396,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Hubctl
@@ -394,14 +409,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
       
       
         
@@ -436,7 +453,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/hubctl/cli/">CLI hubctl</a>
+          <a href="../">CLI hubctl</a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -444,7 +461,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           CLI hubctl
@@ -457,11 +474,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          hubctl stack
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         hubctl stack
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sub-commands" class="md-nav__link">
+    Sub-commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-commands" class="md-nav__link">
+    Advanced Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-flags" class="md-nav__link">
+    Common Flags
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -473,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-init/" class="md-nav__link">
+      <a href="../hubctl-stack-init/" class="md-nav__link">
         hubctl stack init
       </a>
     </li>
@@ -487,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-configure/" class="md-nav__link">
+      <a href="../hubctl-stack-configure/" class="md-nav__link">
         hubctl stack configure
       </a>
     </li>
@@ -501,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-deploy/" class="md-nav__link">
+      <a href="../hubctl-stack-deploy/" class="md-nav__link">
         hubctl stack deploy
       </a>
     </li>
@@ -515,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-undeploy/" class="md-nav__link">
+      <a href="../hubctl-stack-undeploy/" class="md-nav__link">
         hubctl stack undeploy
       </a>
     </li>
@@ -529,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-ls/" class="md-nav__link">
+      <a href="../hubctl-stack-ls/" class="md-nav__link">
         hubctl stack ls
       </a>
     </li>
@@ -543,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-set/" class="md-nav__link">
+      <a href="../hubctl-stack-set/" class="md-nav__link">
         hubctl stack set
       </a>
     </li>
@@ -557,7 +629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-rm/" class="md-nav__link">
+      <a href="../hubctl-stack-rm/" class="md-nav__link">
         hubctl stack rm
       </a>
     </li>
@@ -571,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-elaborate/" class="md-nav__link">
+      <a href="../hubctl-stack-elaborate/" class="md-nav__link">
         hubctl stack elaborate
       </a>
     </li>
@@ -585,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-show/" class="md-nav__link">
+      <a href="../hubctl-show/" class="md-nav__link">
         hubctl show
       </a>
     </li>
@@ -599,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-toolbox/" class="md-nav__link">
+      <a href="../hubctl-toolbox/" class="md-nav__link">
         hubctl toolbox
       </a>
     </li>
@@ -652,7 +724,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/hubctl/components/">Components</a>
+          <a href="../../components/">Components</a>
           
             <label for="__nav_2_3">
               <span class="md-nav__icon md-icon"></span>
@@ -675,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/components/terraform2/" class="md-nav__link">
+      <a href="../../components/terraform2/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -689,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/components/kubernetes/" class="md-nav__link">
+      <a href="../../components/kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -703,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/components/helm/" class="md-nav__link">
+      <a href="../../components/helm/" class="md-nav__link">
         Helm
       </a>
     </li>
@@ -717,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/components/kustomize/" class="md-nav__link">
+      <a href="../../components/kustomize/" class="md-nav__link">
         Kustomize
       </a>
     </li>
@@ -731,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/components/shell.md" class="md-nav__link">
+      <a href="../../components/shell.md" class="md-nav__link">
         Shell
       </a>
     </li>
@@ -745,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/components/terraform/" class="md-nav__link">
+      <a href="../../components/terraform/" class="md-nav__link">
         Makefile
       </a>
     </li>
@@ -759,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/components/terraform/" class="md-nav__link">
+      <a href="../../components/terraform/" class="md-nav__link">
         ARM
       </a>
     </li>
@@ -780,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/components/terraform.md" class="md-nav__link">
+      <a href="../../../components/terraform.md" class="md-nav__link">
         Design and Architecture
       </a>
     </li>
@@ -824,7 +896,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/tutorials/">Getting Started</a>
+          <a href="../../../tutorials/">Getting Started</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -847,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tutorials/020-shell-component/" class="md-nav__link">
+      <a href="../../../tutorials/020-shell-component/" class="md-nav__link">
         DIY Component
       </a>
     </li>
@@ -878,6 +950,37 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sub-commands" class="md-nav__link">
+    Sub-commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-commands" class="md-nav__link">
+    Advanced Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-flags" class="md-nav__link">
+    Common Flags
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -889,8 +992,126 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="command-hubctl-stack">Command: <code>hubctl stack</code></h1>
+<p>Helps you to manage your stack deployments</p>
+<h2 id="sub-commands">Sub-commands</h2>
+<p>Extensions provides following commands:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../hubctl-stack-init"><code>hubctl stack init</code></a></td>
+<td>Initialise a new stack deployment in the working directory</td>
+</tr>
+<tr>
+<td><a href="../hubctl-stack-configure"><code>hubctl stack configure</code></a></td>
+<td>Manage configuration before the deployment</td>
+</tr>
+<tr>
+<td><a href="../hubctl-stack-deploy"><code>hubctl stack deploy</code></a></td>
+<td>Apply deployment to target infrastructure</td>
+</tr>
+<tr>
+<td><a href="../hubctl-stack-undeploy"><code>hubctl stack undeploy</code></a></td>
+<td>Reverse deployment action</td>
+</tr>
+<tr>
+<td><a href="../hubctl-stack-ls"><code>hubctl stack ls</code></a></td>
+<td>See other stacks that has been initialized for the working directory</td>
+</tr>
+<tr>
+<td><a href="../hubctl-stack-set"><code>hubctl stack set</code></a></td>
+<td>Change a different current stack</td>
+</tr>
+<tr>
+<td><a href="../hubctl-stack-rm"><code>hubctl stack rm</code></a></td>
+<td>Delete configuration of a stack from working directory. This commands is irreversive, and <strong>doesn't run <a href="../hubctl-stack-undeploy."><code>undeploy</code></a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="advanced-commands">Advanced Commands</h2>
+<p>These commands intended for advanced usage</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hubctl stack backup</code></td>
+<td>Stack backup/restore management (*if "backup" verb supported by at least one component in the stack)</td>
+</tr>
+<tr>
+<td><code>hubctl stack elaborate</code></td>
+<td>Reconcile defined parameters and a state</td>
+</tr>
+<tr>
+<td><code>hubctl stack deploy</code></td>
+<td>Apply deployment to target infrastructure</td>
+</tr>
+<tr>
+<td><code>hubctl stack invoke</code></td>
+<td>Execute other verb rather than <code>deploy</code>, <code>undeploy</code> or <code>backup</code>. (*if verb supported by at least one component in the stack)</td>
+</tr>
+<tr>
+<td><code>hubctl stack explain</code></td>
+<td>Command reserved for state and parameters diagnostics</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-flags">Common Flags</h2>
+<p>These parameters applies across all extension commands</p>
+<table>
+<thead>
+<tr>
+<th align="left">Flag</th>
+<th align="left">Description</th>
+<th align="center">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-V --verbose</code></td>
+<td align="left">extra verbosity for diagnostics</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left"><code>-h --help</code></td>
+<td align="left">print help and usage message</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 14, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -931,10 +1152,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes"], "search": "/assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
     
   </body>
