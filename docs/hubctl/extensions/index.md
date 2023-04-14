@@ -1,3 +1,3 @@
-# Stacks
+# Extensions
 
 Lorem ipsum...

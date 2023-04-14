@@ -7,9 +7,9 @@ Runs deployment for entire stack or updates deployment of one or few components
 | Flag   | Description | Required
 | :-------- | :-------- | :-: |
 | `-c --component <component>` | Run deployment for one  component or multiple (supplied as comma separated value) | |
-| `-o --offset <component>` | Start deployment from specific component (handy when you want to restart deployment, and want to skip few from the beginning in the runlist)  | |
-| `-l --limit <component>` | Stop deployment after desired (opposite to `--offset` flag)  | |
-| `--profile` | Choose a specific deployment provider (defaults to `HUB_PROFILE` in `.env` file)  | |
+| `-o --offset <component>` | Start deployment from specific component (handy when you want to restart deployment, and want to skip few from the beginning in the runlist) | |
+| `-l --limit <component>` | Stop deployment after desired (opposite to `--offset` flag) | |
+| `--profile` | Choose a specific deployment provider (defaults to `HUB_PROFILE` in `.env` file) | |
 | `--tty` or `--no-tty` | Instructs if user wants to group deployment outputs per component | |
 
 ## Common Parameters
@@ -111,7 +111,6 @@ This profile has been preferable when user wants to run all automation from thei
 
 If you have a docker locally then you may not want to install all provisioning tools. Instead `toolbox` profile will run a special Docker container with all tools installed and then mount your working diretory inside. This deployment profile is handy to work in a team and  address __works on my workstation__ issues as every team member will work with exactly the same toolchain that comes with toolbox container
 
-
 ### Executor: `pod`
 
 This is evolution of a toolbox profile. Instead, if you have a Kubernetes cluster at your disposal, you may want to run an automation task as a Kubernetes native pod. This pod will do the following
@@ -140,7 +139,6 @@ To deploy specific components with order defined in the runlist
 ```bash
 hubctl stack deploy -c "external-dns,cert-manager"
 ```
-
 
 ## See also
 

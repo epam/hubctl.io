@@ -15,13 +15,13 @@ To install hubctl follow the instructions on the installation [page](/install/).
 
 ## Getting started
 
-To get started with hubctl, follow the [quickstart](/quickstart/) guide.
+To get started with hubctl, follow the [quickstart](/tutorials/) guide.
 
 ## Documentation
 
-* [Hubctl overview](/hubctl/design/)
-* [Components](/hubctl/components/)
-* [Stacks](/hubctl/stacks/)
-* [Extensions](/hubctl/extensions/)
-* [Toolbox](/hubctl/toolbox/)
-* [Hooks](/hubctl/hooks/)
+* [Hubctl overview](hubctl/)
+* [Components](hubctl/components/)
+* [Stacks](stacks/)
+* [Extensions](hubctl/extensions/)
+* [Toolbox](toolbox/)
+* [Hooks](hubctl/hooks/)

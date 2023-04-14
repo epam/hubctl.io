@@ -13,4 +13,4 @@ Hubctl core experience is about connecting various pieces of software - called c
 
 In real life we rarely deploy just a single component. We usually need to take several components and _stack_ them together into a coherent deployment unit that actually makes sense to deploy
 
-To deploy a stack hubctl needs a `hub.yaml` file that lists the components and parameters that are needed to deploy the stack. 
+To deploy a stack hubctl needs a `hub.yaml` file that lists the components and parameters that are needed to deploy the stack.

@@ -26,20 +26,22 @@ theme:
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button
     - navigation.top
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#section-index-pages
-    - navigation.indexes    
+    - navigation.indexes
+    # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-copy-button
+    - content.code.copy
 
 extra:
   version:
     provider: mike
 
 nav:
-  - Home: 
+  - Home:
     - index.md
     - install.md
     - Use Cases: use-cases.md
   - Hubctl:
       - Overview: hubctl/index.md
-      - CLI hubctl: 
+      - CLI hubctl:
         - hubctl/cli/index.md
         - hubctl stack: hubctl/cli/hubctl-stack.md
         - hubctl stack init: hubctl/cli/hubctl-stack-init.md
@@ -54,19 +56,18 @@ nav:
         - hubctl toolbox: hubctl/cli/hubctl-toolbox.md
       - Components:
         - hubctl/components/index.md
-        # - Terraform: hubctl/components/terraform.md
-        - Terraform: hubctl/components/terraform2.md
+        - Terraform: hubctl/components/terraform.md
         - Kubernetes: hubctl/components/kubernetes.md
         - Helm: hubctl/components/helm.md
         - Kustomize: hubctl/components/kustomize.md
         - Shell: hubctl/components/shell.md
-        - Makefile: hubctl/components/terraform.md
-        - ARM: hubctl/components/terraform.md
-      - Design and Architecture: components/terraform.md
-  - Getting Started: 
+        - Makefile: hubctl/components/makefile.md
+        - ARM: hubctl/components/arm.md
+      - Design and Architecture:
+        - hubctl/design-and-architecture/index.md
+  - Getting Started:
     - tutorials/index.md
     - tutorials/020-shell-component/README.md
-  # - Documentation: reference/index.md
 
 plugins:
   - git-revision-date-localized

@@ -4,7 +4,7 @@ Helm is a popular packaging technology for Kubernetes applications. We do provid
 
 ## Component Conventions
 
-If component follows the conventions below, then hubctl will know how to deploy  it.
+If component follows the conventions below, then hubctl will know how to deploy it.
 
 ### Helm Detection
 
@@ -16,7 +16,7 @@ requires:
 - helm
 ```
 
-and place one one of the following files in the component directory:  `values.yaml`, `values.yaml.template` or `values.yaml.gotemplate`
+and place one one of the following files in the component directory: `values.yaml`, `values.yaml.template` or `values.yaml.gotemplate`
 
 Then hubctl will be able detect this component as helm component and call provisioning script: [helm-component-deploy](https://github.com/epam/hub-extensions/blob/master/hub-component-helm-deploy) .
 
@@ -58,7 +58,7 @@ User can define pre and post deployment
 
 ### Custom Resources
 
-We do advise not to deploy CRD with the helm chart. Because component `undeploy` (and `helm delete` correspondingly) will also delete CRDs. Deletion of CRD will also delete custom resources that may have been deployed by the user after this component has been deployed. Instead we advise to put your CRDs in to the  `<component root>/crds` directory. In this case, CRDs will be managed separately from the helm chart
+We do advise not to deploy CRD with the helm chart. Because component `undeploy` (and `helm delete` correspondingly) will also delete CRDs. Deletion of CRD will also delete custom resources that may have been deployed by the user after this component has been deployed. Instead we advise to put your CRDs in to the `<component root>/crds` directory. In this case, CRDs will be managed separately from the helm chart
 
 1. CRDs will be deploymed before the helm chart
 2. CRDs will not be deleted after component will be undeployed. Which means you can redeploy the component without dropping user custom resources
@@ -122,5 +122,5 @@ templates:
 
 ## See also
 
-* [Hub Components](../components)
+* [Hub Components](../)
 * [Kubernetes Configuration](../kubernetes)

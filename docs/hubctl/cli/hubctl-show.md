@@ -31,7 +31,7 @@ hubctl show
 
 To show domain name of a stack
 
-```
+```bash
 hubctl show -q '.parameters.dns.domain'
 ```
 

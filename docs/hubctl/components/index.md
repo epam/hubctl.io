@@ -7,7 +7,7 @@ Component is a piece of software that can be _deployed_ and _undeployed_ that ac
 
 Optionally component could have:
 
-- `Template` - probably  way how to inject parameters from `hub-componet.yaml` to automation. Hubctl supports both string replacement and go-templates. 
+- `Template` - probably  way how to inject parameters from `hub-componet.yaml` to automation. Hubctl supports both string replacement and go-templates.
 - `pre-deploy` and `post-deploy` hooks - scripts that will be executed before and after component deployment.
 
 ## Automation Code
@@ -18,8 +18,8 @@ By design hubctl is not tied to any particular automation technology. However we
 
 Most flexible way and the most simple one. You only need to define a two scripts and pass parameters via environment variables.
 
-* `deploy.sh` - script that will be executed during component deployment
-* `undeploy.sh` - script that will reverse deployment. Every component should have undeploy script.
+- `deploy.sh` - script that will be executed during component deployment
+- `undeploy.sh` - script that will reverse deployment. Every component should have undeploy script.
 
 Configuration can be passwd via environment variables defined in `hub-component.yaml` file. Hubctl will not pass any arguments to the scripts
 

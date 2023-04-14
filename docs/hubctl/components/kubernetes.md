@@ -4,7 +4,7 @@ Kubenretes is a far popular technology to run containers. We do love Kubernetes 
 
 ## When component requires kubenretes
 
-Here we provide conventions required for component if it requires kubenretes. These conventions repeat conventions for [helm extensions](hub-component-helm.md) and [kustomize extensions](hub-component-kustomize.md)
+Here we provide conventions required for component if it requires kubenretes. These conventions repeat conventions for [helm component](../helm) and [kustomize component](../kustomize)
 
 File `hub-component.yaml` of the component should require `kubernetes` and expose few of the parameters as the environment variabels
 
@@ -64,6 +64,6 @@ outputs:
 
 ## See also
 
-* [Hub Components](../components)
+* [Hub Components](../)
 * [Component Helm](../helm)
 * [Component Kustomize](../kustomize)

@@ -7,8 +7,8 @@ Initialize a new stack configuration in the user working directory
 | Flag   | Description | Required
 | :-------- | :-------- | :-: |
 | `-f --file <hubfile>` | path (or URL) to hubfile with stack definitions. This argument can repeat multile times | x |
-| `-s --state <statefile>` | Path or URL to  |
-| `--force` | Specify this fag if current stack has been already initialized. This flag will overwrite existing configuration  |
+| `-s --state <statefile>` | Path or URL to |
+| `--force` | Specify this fag if current stack has been already initialized. This flag will overwrite existing configuration |
 
 ## Common Parameters
 

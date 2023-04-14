@@ -23,4 +23,4 @@ hubctl stack ls
 * [`hubctl stack init`](../hubctl-stack-init)
 * [`hubctl stack configure`](../hubctl-stack-configure)
 * [`hubctl stack ls`](../hubctl-stack-ls)
-* [`hubctl stack rm`](../hubctl-stack-unconfigure)
+* [`hubctl stack rm`](../hubctl-stack-rm)

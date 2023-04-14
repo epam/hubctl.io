@@ -28,7 +28,7 @@ In the nutshell - parameters defined in `hub-component.yaml` abstracts user from
 ### Deploy a minimalistic component
 
 1. Create a new directory `components/hello-shell`
-2. Create a file `components/hello-shell/hub-component.yaml` and add minimalistic content
+1. Create a file `components/hello-shell/hub-component.yaml` and add minimalistic content
 
 ```yaml
 kind: component
@@ -38,7 +38,7 @@ parameters:
   env: COMPONENT_NAME
 ```
 
-3. Create a `deploy.sh` file and add execution rights to it. Here is an example
+1. Create a `deploy.sh` file and add execution rights to it. Here is an example
 
 ```bash
 cat << EOF > `components/hello-shell/deploy.sh`
@@ -48,7 +48,7 @@ EOF
 chmod +x `components/hello-shell/deploy.sh`
 ```
 
-3. Create deployment reverse script: `undeploy.sh`
+1. Create deployment reverse script: `undeploy.sh`
 
 ```bash
 cat << EOF > `components/hello-shell/undeploy.sh`
@@ -58,7 +58,7 @@ EOF
 chmod +x `components/hello-shell/undeploy.sh`
 ```
 
-4. Add a component reference to Hubfile (`hub.yaml`)
+1. Add a component reference to Hubfile (`hub.yaml`)
 
 ```yaml
 kind: stack
@@ -69,7 +69,7 @@ components:
     dir: components/hello-shell
 ```
 
-5. And we are ready to deploy
+1. And we are ready to deploy
 
 ```bash
 hubctl stack init -f `hub.yaml`
@@ -91,7 +91,7 @@ parameters:
   env: MESSAGE
 ```
 
-2. Modify `components/hello-shell/deploy.sh` script. You should get something like
+1. Modify `components/hello-shell/deploy.sh` script. You should get something like
 
 ```bash
 #!/bin/sh
@@ -99,7 +99,7 @@ echo "Component $COMPONENT_NAME is saying: $MESSAGE"
 echo "Component $COMPONENT_NAME deployed successfully!"
 ```
 
-3. Add parameters to the hubfile (`hub.yaml`) to include parameter
+1. Add parameters to the hubfile (`hub.yaml`) to include parameter
 
 ```yaml
 kind: stack
@@ -115,7 +115,7 @@ parameters:
   value: bar
 ```
 
-4. Run a deployment
+1. Run a deployment
 
 ```bash
 hubctl stack deploy
@@ -148,7 +148,7 @@ parameters:
   value: baz
 ```
 
-2. Run deployment
+1. Run deployment
 
 ```bash
 hubctl stack deploy
@@ -168,7 +168,7 @@ The cryptic message says: ${message}
 EOF
 ```
 
-2. Update `components/hello-shell/hub-component.yaml` so it would look like:
+1. Update `components/hello-shell/hub-component.yaml` so it would look like:
 
 ```yaml
 kind: component
@@ -184,7 +184,8 @@ templates:
   - "*.template"
 ```
 
-3. Modify `components/hello-shell/deploy.sh` so it would look like the following
+1. Modify `components/hello-shell/deploy.sh` so it would look like the following
+
 ```bash
 #!/bin/sh
 echo "Component $COMPONENT_NAME is saying: $MESSAGE"
@@ -194,9 +195,9 @@ cat "message.txt"
 echo "Component $COMPONENT_NAME deployed successfully!"
 ```
 
-4. Deploy the stack
+1. Deploy the stack
 
-```
+```bash
 hubctl stack deploy
 # Component my-first-component is saying: bar
 # The cryptic message says: bar
@@ -212,7 +213,7 @@ This article is not a reference guide, we do skip many things... Now we will jum
 
 At present we support following technologies
 
-* [Component Helm](hub-component-helm.md)
-* [Component Kustomize](hub-component-kustomize.md)
-* [Component Terraform](hub-component-terraform.md)
-* [Component ARM Deployment Template](hub-component-arm.md)
+* [Component Helm](../../hubctl/components/helm)
+* [Component Kustomize](../../hubctl/components/kustomize)
+* [Component Terraform](../../hubctl/components/terraform)
+* [Component ARM Deployment Template](../../hubctl/components/arm)

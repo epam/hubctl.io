@@ -1,4 +1,4 @@
-## Installation
+# Install
 
 This page will show how to install hubctl on your local workstation
 
@@ -7,25 +7,25 @@ There are few ways to install hubctl:
 1. Download binary
 2. Homebrew Formula
 
-### Download binary
+## Download binary
 
-To download the latest of hubctl run the following 
+To download the latest of hubctl run the following
 
-#### cURL
+### cURL
 
 ```shell
 curl -LJ "https://github.com/epam/hubctl/releases/latest/download/hubctl_$(uname -s)_$(uname -m).tar.gz" \|
   tar xz -C /tmp && sudo mv /tmp/hubctl /usr/local/bin
 ```
 
-#### Wget
+### Wget
 
 ```shell
 wget "https://github.com/epam/hubctl/releases/latest/download/hubctl_$(uname -s)_$(uname -m).tar.gz" -O - |\
   tar xz -C /tmp && sudo mv /tmp/hubctl /usr/local/bin
 ```
 
-### [Homebrew](https://brew.sh/) Formula
+## [Homebrew](https://brew.sh/) Formula
 
 ```shell
 brew tap epam/tap
@@ -40,18 +40,18 @@ Extensions are the plugins for hubctl. It provides additional functionality to h
 hubctl extensions install
 ```
 
-There are few common tools used across all extensions. Other tools are component specific 
+There are few common tools used across all extensions. Other tools are component specific
 
 * [bash]
 * [curl]
 * [jq]
 * [yq v4]
 
-#### Optional dependencies
+### Optional dependencies
 
 Some components and extensions requires additional tools to be installed:
 
-* [AWS CLI] - for components that requires `aws` 
+* [AWS CLI] - for components that requires `aws`
 * [Azure CLI] - for component that requires `azure`
 * [Gcloud SDK] - for component that requires `gcp`
 * [kubectl] - for components that requires `kubernetes`
@@ -65,7 +65,7 @@ Some components and extensions requires additional tools to be installed:
 
 ## What's Next
 
-* See our Getting Started [guide](/getting-started/)
+* See our Getting Started [guide](/tutorials/)
 
 [AWS CLI]: https://aws.amazon.com/cli/
 [Azure CLI]: https://docs.microsoft.com/en-us/cli/azure/
