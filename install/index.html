@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#install" class="md-skip">
           Skip to content
         </a>
       
@@ -334,6 +334,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Install
@@ -350,6 +352,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -358,14 +362,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#download-binary" class="md-nav__link">
     Download binary
   </a>
@@ -391,16 +387,11 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#homebrew-formula" class="md-nav__link">
     Homebrew Formula
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -794,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/components/terraform2/" class="md-nav__link">
+      <a href="../hubctl/components/terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -850,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/components/shell.md" class="md-nav__link">
+      <a href="../hubctl/components/shell/" class="md-nav__link">
         Shell
       </a>
     </li>
@@ -864,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/components/terraform/" class="md-nav__link">
+      <a href="../hubctl/components/makefile/" class="md-nav__link">
         Makefile
       </a>
     </li>
@@ -878,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/components/terraform/" class="md-nav__link">
+      <a href="../hubctl/components/arm/" class="md-nav__link">
         ARM
       </a>
     </li>
@@ -898,10 +889,40 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../components/terraform.md" class="md-nav__link">
-        Design and Architecture
-      </a>
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../hubctl/design-and-architecture/">Design and Architecture</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Design and Architecture
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -997,6 +1018,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1005,14 +1028,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#download-binary" class="md-nav__link">
     Download binary
   </a>
@@ -1038,16 +1053,11 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#homebrew-formula" class="md-nav__link">
     Homebrew Formula
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1096,26 +1106,24 @@
   
 
 
-  <h1>Install</h1>
-
-<h2 id="installation">Installation</h2>
+<h1 id="install">Install</h1>
 <p>This page will show how to install hubctl on your local workstation</p>
 <p>There are few ways to install hubctl:</p>
 <ol>
 <li>Download binary</li>
 <li>Homebrew Formula</li>
 </ol>
-<h3 id="download-binary">Download binary</h3>
-<p>To download the latest of hubctl run the following </p>
-<h4 id="curl">cURL</h4>
+<h2 id="download-binary">Download binary</h2>
+<p>To download the latest of hubctl run the following</p>
+<h3 id="curl">cURL</h3>
 <pre><code class="language-shell">curl -LJ &quot;https://github.com/epam/hubctl/releases/latest/download/hubctl_$(uname -s)_$(uname -m).tar.gz&quot; \|
   tar xz -C /tmp &amp;&amp; sudo mv /tmp/hubctl /usr/local/bin
 </code></pre>
-<h4 id="wget">Wget</h4>
+<h3 id="wget">Wget</h3>
 <pre><code class="language-shell">wget &quot;https://github.com/epam/hubctl/releases/latest/download/hubctl_$(uname -s)_$(uname -m).tar.gz&quot; -O - |\
   tar xz -C /tmp &amp;&amp; sudo mv /tmp/hubctl /usr/local/bin
 </code></pre>
-<h3 id="homebrew-formula"><a href="https://brew.sh/">Homebrew</a> Formula</h3>
+<h2 id="homebrew-formula"><a href="https://brew.sh/">Homebrew</a> Formula</h2>
 <pre><code class="language-shell">brew tap epam/tap
 brew install epam/tap/hubctl
 </code></pre>
@@ -1123,17 +1131,17 @@ brew install epam/tap/hubctl
 <p>Extensions are the plugins for hubctl. It provides additional functionality to hubctl. To install extensions run:</p>
 <pre><code class="language-shell">hubctl extensions install
 </code></pre>
-<p>There are few common tools used across all extensions. Other tools are component specific </p>
+<p>There are few common tools used across all extensions. Other tools are component specific</p>
 <ul>
 <li><a href="https://www.gnu.org/software/bash">bash</a></li>
 <li><a href="https://curl.se">curl</a></li>
 <li><a href="https://stedolan.github.io/jq/">jq</a></li>
 <li><a href="https://github.com/mikefarah/yq">yq v4</a></li>
 </ul>
-<h4 id="optional-dependencies">Optional dependencies</h4>
+<h3 id="optional-dependencies">Optional dependencies</h3>
 <p>Some components and extensions requires additional tools to be installed:</p>
 <ul>
-<li><a href="https://aws.amazon.com/cli/">AWS CLI</a> - for components that requires <code>aws</code> </li>
+<li><a href="https://aws.amazon.com/cli/">AWS CLI</a> - for components that requires <code>aws</code></li>
 <li><a href="https://docs.microsoft.com/en-us/cli/azure/">Azure CLI</a> - for component that requires <code>azure</code></li>
 <li><a href="https://cloud.google.com/sdk/docs/install">Gcloud SDK</a> - for component that requires <code>gcp</code></li>
 <li><a href="https://kubernetes.io/docs/reference/kubectl/overview/">kubectl</a> - for components that requires <code>kubernetes</code></li>
@@ -1148,7 +1156,7 @@ brew install epam/tap/hubctl
 </blockquote>
 <h2 id="whats-next">What's Next</h2>
 <ul>
-<li>See our Getting Started <a href="/getting-started/">guide</a></li>
+<li>See our Getting Started <a href="/tutorials/">guide</a></li>
 </ul>
 
   <hr>
@@ -1207,7 +1215,7 @@ brew install epam/tap/hubctl
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>

@@ -816,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/terraform2/" class="md-nav__link">
+      <a href="../../components/terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -872,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/shell.md" class="md-nav__link">
+      <a href="../../components/shell/" class="md-nav__link">
         Shell
       </a>
     </li>
@@ -886,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/terraform/" class="md-nav__link">
+      <a href="../../components/makefile/" class="md-nav__link">
         Makefile
       </a>
     </li>
@@ -900,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../components/terraform/" class="md-nav__link">
+      <a href="../../components/arm/" class="md-nav__link">
         ARM
       </a>
     </li>
@@ -920,10 +920,40 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../components/terraform.md" class="md-nav__link">
-        Design and Architecture
-      </a>
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../design-and-architecture/">Design and Architecture</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Design and Architecture
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1140,7 +1170,7 @@
 <p>Reads configuration information in one or multiple hubfiles referenced by the command <code>hubctl stack init</code> and applies configuration before the stack deployment.</p>
 <p>When hubfile will require parameter supplied bia environment variable (<code>fromEnv</code>) ,for instance passwords or access credentials, then this command will save value for this variable in <code>.env</code> file. You can change this value later by modifying <code>.env</code> file.</p>
 <p>Upon completion of configure command execution will ensure that all stack input parameters has been defined.</p>
-<h3 id="configuration-requirements">Configuration requirements</h3>
+<h2 id="configuration-requirements">Configuration requirements</h2>
 <p>Input parameters can be supplied by various scripts. Which exactly and it's order has been defined in hubfile via requirements</p>
 <pre><code class="language-yaml">extensions:
   configure:
@@ -1182,7 +1212,7 @@
 </tr>
 <tr>
 <td align="left"><code>backup</code></td>
-<td align="left">Activate backup/restore functionality for the stack (note that at least one component should accept verb <code>backup</code></td>
+<td align="left">Activate backup/restore functionality for the stack (note that at least one component should accept verb <code>backup</code>)</td>
 </tr>
 </tbody>
 </table>
@@ -1266,12 +1296,12 @@
 </tr>
 <tr>
 <td align="left"><code>--aws-profile &lt;arg&gt;</code></td>
-<td align="left">Use specific AWS profile (otherwise current or default profile will be used</td>
+<td align="left">Use specific AWS profile (otherwise current or default profile will be used)</td>
 <td align="center"></td>
 </tr>
 <tr>
 <td align="left"><code>--aws-profile &lt;arg&gt;</code></td>
-<td align="left">Use specific AWS profile (otherwise current or default profile will be used</td>
+<td align="left">Use specific AWS profile (otherwise current or default profile will be used)</td>
 <td align="center"></td>
 </tr>
 <tr>
@@ -1394,7 +1424,7 @@
 <td align="center"></td>
 </tr>
 <tr>
-<td align="left"><code>--current-kubecontext</code> <br> or <code>--kubecontext _</code></td>
+<td align="left"><code>--current-kubecontext</code> or <code>--kubecontext _</code></td>
 <td align="left">Explicitly says to use current kube-context</td>
 <td align="center"></td>
 </tr>
@@ -1525,7 +1555,7 @@ chmod +x &quot;.hub/mysuperextension/configure&quot;
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>

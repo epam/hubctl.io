@@ -111,17 +111,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hubctl.io/hubctl/components/shell/</loc>
+         <lastmod>2023-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hubctl.io/hubctl/components/terraform/</loc>
          <lastmod>2023-04-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hubctl.io/hubctl/components/terraform2/</loc>
+         <loc>https://hubctl.io/hubctl/design-and-architecture/</loc>
+         <lastmod>2023-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/hubctl/extensions/</loc>
+         <lastmod>2023-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/hubctl/hooks/</loc>
          <lastmod>2023-04-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/stacks/</loc>
+         <lastmod>2023-04-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/toolbox/</loc>
          <lastmod>2023-04-14</lastmod>
          <changefreq>daily</changefreq>
     </url>

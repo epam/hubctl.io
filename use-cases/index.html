@@ -745,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/components/terraform2/" class="md-nav__link">
+      <a href="../hubctl/components/terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -801,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/components/shell.md" class="md-nav__link">
+      <a href="../hubctl/components/shell/" class="md-nav__link">
         Shell
       </a>
     </li>
@@ -815,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/components/terraform/" class="md-nav__link">
+      <a href="../hubctl/components/makefile/" class="md-nav__link">
         Makefile
       </a>
     </li>
@@ -829,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/components/terraform/" class="md-nav__link">
+      <a href="../hubctl/components/arm/" class="md-nav__link">
         ARM
       </a>
     </li>
@@ -849,10 +849,40 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../components/terraform.md" class="md-nav__link">
-        Design and Architecture
-      </a>
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../hubctl/design-and-architecture/">Design and Architecture</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Design and Architecture
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -998,14 +1028,14 @@
 
 <h1 id="when-do-you-need-hubctl">When do you need hubctl?</h1>
 <p>When we created a Hubctl we had an idea to promote the best practices for infrastructure as code. We wanted to create a tool that would help us to manage our infrastructure as code in a consistent and repeatable way.</p>
-<h3 id="package-manager-for-the-cloud">Package manager for the Cloud</h3>
-<p>Operating Systems have got a package managers for ages now like <code>homebrew</code> for Mac and <code>choco</code> for Windows. It is able to download and install packages, resolve dependencies etc. But there is no such package manager for the cloud deployments. </p>
+<h2 id="package-manager-for-the-cloud">Package manager for the Cloud</h2>
+<p>Operating Systems have got a package managers for ages now like <code>homebrew</code> for Mac and <code>choco</code> for Windows. It is able to download and install packages, resolve dependencies etc. But there is no such package manager for the cloud deployments.</p>
 <p>Today we organize our infrastructure as code in the form of Terraform, Kustomize, Helm, ARM etc. Each of these tools solves solves a specific problem. When you find yourself in the situation when you need to multiple tools for your deployment, you end up with a lot of boilerplate code. Hubctl solves this problem by these integrations and provides a single interface to manage your infrastructure.</p>
-<h3 id="break-up-monolithic-deployments">Break-up monolithic deployments</h3>
+<h2 id="break-up-monolithic-deployments">Break-up monolithic deployments</h2>
 <p>We have seen when application deployment code was 60% of entire codebase. This makes deployment code a biggest component of your entire application. Similar to applications today split into microservices, we can also split our infrastructure into multiple components. This makes it easier to manage and maintain.</p>
 <p>Hubctl provides mechanisms to manage your deployment as a stack of components. Each component can be deployed and managed independently and can use it's own deployment tool.</p>
-<h3 id="disposable-infrastructure">Disposable Infrastructure</h3>
-<p>Hubctl provides you with a single place where you can deploy multiple environments for your application and dispose it when you don't need it. </p>
+<h2 id="disposable-infrastructure">Disposable Infrastructure</h2>
+<p>Hubctl provides you with a single place where you can deploy multiple environments for your application and dispose it when you don't need it.</p>
 
   <hr>
 <div class="md-source-file">
@@ -1063,7 +1093,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>

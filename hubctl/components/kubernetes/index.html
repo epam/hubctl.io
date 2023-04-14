@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://hubctl.io/hubctl/components/kubernetes/">
       
       
-        <link rel="prev" href="../terraform2/">
+        <link rel="prev" href="../terraform/">
       
       
         <link rel="next" href="../helm/">
@@ -692,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../terraform2/" class="md-nav__link">
+      <a href="../terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -836,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../shell.md" class="md-nav__link">
+      <a href="../shell/" class="md-nav__link">
         Shell
       </a>
     </li>
@@ -850,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../terraform/" class="md-nav__link">
+      <a href="../makefile/" class="md-nav__link">
         Makefile
       </a>
     </li>
@@ -864,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../terraform/" class="md-nav__link">
+      <a href="../arm/" class="md-nav__link">
         ARM
       </a>
     </li>
@@ -884,10 +884,40 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../components/terraform.md" class="md-nav__link">
-        Design and Architecture
-      </a>
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../design-and-architecture/">Design and Architecture</a>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Design and Architecture
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1067,7 +1097,7 @@
 <h1 id="kubernetes-component">Kubernetes Component</h1>
 <p>Kubenretes is a far popular technology to run containers. We do love Kubernetes and provide  first class support with the <code>hubctl</code>. So <code>hubctl</code> will manage access credentials and provide naming conventions for Kubernetes.</p>
 <h2 id="when-component-requires-kubenretes">When component requires kubenretes</h2>
-<p>Here we provide conventions required for component if it requires kubenretes. These conventions repeat conventions for <a href="hub-component-helm.md">helm extensions</a> and <a href="hub-component-kustomize.md">kustomize extensions</a></p>
+<p>Here we provide conventions required for component if it requires kubenretes. These conventions repeat conventions for <a href="../helm">helm component</a> and <a href="../kustomize">kustomize component</a></p>
 <p>File <code>hub-component.yaml</code> of the component should require <code>kubernetes</code> and expose few of the parameters as the environment variabels</p>
 <pre><code class="language-yaml">requires:
 - kubernetes
@@ -1130,7 +1160,7 @@ outputs:
 </code></pre>
 <h2 id="see-also">See also</h2>
 <ul>
-<li><a href="../components">Hub Components</a></li>
+<li><a href="../">Hub Components</a></li>
 <li><a href="../helm">Component Helm</a></li>
 <li><a href="../kustomize">Component Kustomize</a></li>
 </ul>
@@ -1191,7 +1221,7 @@ outputs:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>

@@ -12,20 +12,20 @@
         <meta name="author" content="EPAM Systems, Inc.">
       
       
-        <link rel="canonical" href="https://hubctl.io/hubctl/components/helm/">
+        <link rel="canonical" href="https://hubctl.io/hubctl/components/shell/">
       
       
-        <link rel="prev" href="../kubernetes/">
+        <link rel="prev" href="../kustomize/">
       
       
-        <link rel="next" href="../kustomize/">
+        <link rel="next" href="../makefile/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Helm - Hubctl</title>
+        <title>Shell - Hubctl</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#helm-component" class="md-skip">
+        <a href="#shell-component" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Helm
+              Shell
             
           </span>
         </div>
@@ -718,113 +718,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Helm
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../helm/" class="md-nav__link">
         Helm
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#component-conventions" class="md-nav__link">
-    Component Conventions
-  </a>
-  
-    <nav class="md-nav" aria-label="Component Conventions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#helm-detection" class="md-nav__link">
-    Helm Detection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input-parameters" class="md-nav__link">
-    Input parameters
-  </a>
-  
-    <nav class="md-nav" aria-label="Input parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-variable-helm_chart" class="md-nav__link">
-    Environment variable: HELM_CHART
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deployment-hooks" class="md-nav__link">
-    Deployment hooks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-resources" class="md-nav__link">
-    Custom Resources
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    See also
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -848,11 +746,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../shell/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Shell
       </a>
+      
     </li>
   
 
@@ -1030,82 +938,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#component-conventions" class="md-nav__link">
-    Component Conventions
-  </a>
-  
-    <nav class="md-nav" aria-label="Component Conventions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#helm-detection" class="md-nav__link">
-    Helm Detection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input-parameters" class="md-nav__link">
-    Input parameters
-  </a>
-  
-    <nav class="md-nav" aria-label="Input parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-variable-helm_chart" class="md-nav__link">
-    Environment variable: HELM_CHART
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deployment-hooks" class="md-nav__link">
-    Deployment hooks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-resources" class="md-nav__link">
-    Custom Resources
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    See also
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1122,164 +954,8 @@
   
 
 
-<h1 id="helm-component">Helm Component</h1>
-<p>Helm is a popular packaging technology for Kubernetes applications. We do provide our own opinionated way how to deploy helm components.</p>
-<h2 id="component-conventions">Component Conventions</h2>
-<p>If component follows the conventions below, then hubctl will know how to deploy it.</p>
-<h3 id="helm-detection">Helm Detection</h3>
-<p>When you want to use helm deployment add the following definition to the <code>hub-component.yaml</code></p>
-<pre><code class="language-yaml">requires:
-- kubernetes
-- helm
-</code></pre>
-<p>and place one one of the following files in the component directory: <code>values.yaml</code>, <code>values.yaml.template</code> or <code>values.yaml.gotemplate</code></p>
-<p>Then hubctl will be able detect this component as helm component and call provisioning script: <a href="https://github.com/epam/hub-extensions/blob/master/hub-component-helm-deploy">helm-component-deploy</a> .</p>
-<h3 id="input-parameters">Input parameters</h3>
-<p>As every script, helm deployment scripts has been controlled via set off well-known environment variables. These variables should be defined in parameters section of <code>hub-component.yaml</code>. List of expected environment variables</p>
-<table>
-<thead>
-<tr>
-<th align="left">Variable</th>
-<th align="left">Description</th>
-<th align="center">Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>DOMAIN_NAME</code></td>
-<td align="left"><a href="https://en.wikipedia.org/wiki/Fully_qualified_domain_name">FQDN</a> of a stack. We use this parameter as a natural id of the deployment (defaults to implicit variable <code>HUB_DOMAIN_NAME</code>). Usage of this variables requires user to define a parameter <code>dns.domain</code> in <code>hub-component.yaml</code>. Yet we advice to use instead an implicit variable <code>HUB_DOMAIN_NAME</code> instead</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"><code>COMPONENT_NAME</code></td>
-<td align="left">Corresponds to parameter <code>hub.componentName</code> parameter, however can be overriden in <code>hub-component.yaml</code>. Hub will use this variable as a helm release name</td>
-<td align="center">x</td>
-</tr>
-<tr>
-<td align="left"><code>NAMESPACE</code></td>
-<td align="left">Target kubernetes namespace</td>
-<td align="center">x</td>
-</tr>
-<tr>
-<td align="left"><code>HELM_CHART</code></td>
-<td align="left">This can have multiple values, that corresponds to the helm chart location. Corresponds to the helm chart tarball, directory or a chart name in the repository</td>
-<td align="center">x</td>
-</tr>
-<tr>
-<td align="left"><code>HELM_REPO</code></td>
-<td align="left">Instructs hubctl to download helm chart from the helm repository</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"><code>HELM_CHART_VERSION</code></td>
-<td align="left">Addes a version constraint to the helm chart install. This variable works in conjunction with <code>HELM_REPO</code></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"><code>HELM_CHART_USERNAME</code> and <code>HELM_CHART_PASSWORD</code></td>
-<td align="left">Username and password for helm chart repository basic auth</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"><code>CHART_VALUES_FILE</code></td>
-<td align="left">Instructs hubctl that it must use concrete values file inside of the helm chart as the base and only override with parameters from <code>values.yaml</code> in the component root directory. Alternatively if this variable has prefix <code>http</code> or <code>https</code> then the file. Additional values files can be referenced by adding a whitespace (or new line) separated reference</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"><code>CRD</code></td>
-<td align="left">URL or local path to the CRD file (if not located in <code>&lt;component root&gt;/crds</code> directory)</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="left"><code>HELM_OPTS</code></td>
-<td align="left">Helm command arguments, defautls to <code>--create-namespace --wait</code></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-<h4 id="environment-variable-helm_chart">Environment variable: <code>HELM_CHART</code></h4>
-<p>Helm chart which user wants to deploy can be resolved via variable <code>HELM_CHART</code>. This variable corresponds to the following value:</p>
-<ul>
-<li>Path to the local directory with the helm chart (relative to the <code>&lt;component root&gt;</code> or <code>&lt;component root&gt;/charts</code> directory)</li>
-<li>Path to the local directory with the helm chart (relative to the <code>&lt;component root&gt;</code> or <code>&lt;component root&gt;/charts</code> directory )</li>
-<li>Name of the helm chart in the helm repository (requires user to define: <code>HELM_REPO</code> and <code>HELM_CHART_VERSION</code>)</li>
-</ul>
-<h3 id="deployment-hooks">Deployment hooks</h3>
-<p>User can define pre and post deployment</p>
-<ul>
-<li><code>pre-deploy</code> or <code>pre-deploy.sh</code> to trigger action before helm install</li>
-<li><code>post-deploy</code> or <code>post-deploy.sh</code> to trigter action after successful helm install</li>
-<li><code>pre-undeploy</code> or <code>pre-undeploy.sh</code> to trigger action before helm delete</li>
-<li><code>post-undeploy</code> or <code>post-undeploy.sh</code> to trigger action after helm successful delete</li>
-</ul>
-<blockquote>
-<p>Note: pre and post deployment scripts should have execution rights</p>
-</blockquote>
-<h3 id="custom-resources">Custom Resources</h3>
-<p>We do advise not to deploy CRD with the helm chart. Because component <code>undeploy</code> (and <code>helm delete</code> correspondingly) will also delete CRDs. Deletion of CRD will also delete custom resources that may have been deployed by the user after this component has been deployed. Instead we advise to put your CRDs in to the <code>&lt;component root&gt;/crds</code> directory. In this case, CRDs will be managed separately from the helm chart</p>
-<ol>
-<li>CRDs will be deploymed before the helm chart</li>
-<li>CRDs will not be deleted after component will be undeployed. Which means you can redeploy the component without dropping user custom resources</li>
-</ol>
-<h2 id="examples">Examples</h2>
-<p>Nginx web server example. This is an example of a <code>hub-component.yaml</code> that will install a helm chart without any modifications. Complete code for nginx component can be found <a href="https://github.com/epam/hub-google-components/tree/main/nginx">here</a></p>
-<pre><code class="language-yaml">---
-version: 1
-kind: component
-
-requires:
-  - helm
-
-provides:
-  - nginx
-  - ingress
-
-parameters:
-  - name: component.ingress
-    parameters:
-      - name: namespace
-        value: ingress
-        env: NAMESPACE
-      - name: class
-        value: nginx
-
-  - name: component.nginx
-    parameters:
-      - name: isDefaultIngress
-        value: false
-      - name: replicaCount
-        value: 1
-      - name: serviceType
-        value: LoadBalancer
-      - name: image
-        value: nginx/nginx-ingress
-      - name: imageTag
-        value: 2.2.2
-
-  - name: component.nginx.helm
-    parameters:
-      - name: chart
-        value: &quot;nginx-ingress&quot;
-        env: HELM_CHART
-      - name: repo
-        value: https://helm.nginx.com/stable
-        env: HELM_REPO
-      - name: version
-        value: 0.13.2
-        env: HELM_CHART_VERSION
-
-templates:
-  files:
-    - &quot;*.template&quot;
-</code></pre>
-<blockquote>
-<p>Note: helm chart parameters values must be defined in the <code>values.yaml</code>, <code>values.yaml.template</code> or <code>values.yaml.gotemplate</code> file</p>
-</blockquote>
-<h2 id="see-also">See also</h2>
-<ul>
-<li><a href="../">Hub Components</a></li>
-<li><a href="../kubernetes">Kubernetes Configuration</a></li>
-</ul>
+<h1 id="shell-component">Shell Component</h1>
+<p>Lorem ipsum...</p>
 
   <hr>
 <div class="md-source-file">
