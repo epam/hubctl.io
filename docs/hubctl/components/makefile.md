@@ -1,0 +1,3 @@
+# Makefile Component
+
+Lorem ipsum...

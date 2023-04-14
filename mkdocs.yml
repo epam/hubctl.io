@@ -1,6 +1,6 @@
 site_author: EPAM Systems, Inc.
-site_description: Hub CTL is stack composition and lifecycle tool
-site_name: HubCTL
+site_description: Hubctl is stack composition and lifecycle tool
+site_name: Hubctl
 site_url: https://hubctl.io
 
 copyright: © 2023 EPAM Systems, Inc. All Rights Reserved.
@@ -17,7 +17,6 @@ theme:
   features:
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-header/#automatic-hiding
     - header.autohide
-
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
     - navigation.instant
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#anchor-tracking
@@ -26,20 +25,48 @@ theme:
     - navigation.tabs
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button
     - navigation.top
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#section-index-pages
+    - navigation.indexes    
 
 extra:
   version:
     provider: mike
 
 nav:
-  - Home: index.md
-  - Getting Started: getting-started.md
-  - Hub CTL:
-      - Overview: hubctl/overview.md
-  - Stacks:
-      - Overview: stacks/overview.md
-  - Components:
-      - Overview: components/overview.md
+  - Home: 
+    - index.md
+    - install.md
+    - Use Cases: use-cases.md
+  - Hubctl:
+      - Overview: hubctl/index.md
+      - CLI hubctl: 
+        - hubctl/cli/index.md
+        - hubctl stack: hubctl/cli/hubctl-stack.md
+        - hubctl stack init: hubctl/cli/hubctl-stack-init.md
+        - hubctl stack configure: hubctl/cli/hubctl-stack-configure.md
+        - hubctl stack deploy: hubctl/cli/hubctl-stack-deploy.md
+        - hubctl stack undeploy: hubctl/cli/hubctl-stack-undeploy.md
+        - hubctl stack ls: hubctl/cli/hubctl-stack-ls.md
+        - hubctl stack set: hubctl/cli/hubctl-stack-set.md
+        - hubctl stack rm: hubctl/cli/hubctl-stack-rm.md
+        - hubctl stack elaborate: hubctl/cli/hubctl-stack-elaborate.md
+        - hubctl show: hubctl/cli/hubctl-show.md
+        - hubctl toolbox: hubctl/cli/hubctl-toolbox.md
+      - Components:
+        - hubctl/components/index.md
+        # - Terraform: hubctl/components/terraform.md
+        - Terraform: hubctl/components/terraform2.md
+        - Kubernetes: hubctl/components/kubernetes.md
+        - Helm: hubctl/components/helm.md
+        - Kustomize: hubctl/components/kustomize.md
+        - Shell: hubctl/components/shell.md
+        - Makefile: hubctl/components/terraform.md
+        - ARM: hubctl/components/terraform.md
+      - Design and Architecture: components/terraform.md
+  - Getting Started: 
+    - tutorials/index.md
+    - tutorials/020-shell-component/README.md
+  # - Documentation: reference/index.md
 
 plugins:
   - git-revision-date-localized

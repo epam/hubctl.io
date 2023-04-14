@@ -1,0 +1,3 @@
+# Command: `hubctl stack elaborate`
+
+Lorem ipsum...

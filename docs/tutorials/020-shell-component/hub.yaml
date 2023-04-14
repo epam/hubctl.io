@@ -1,0 +1,6 @@
+kind: stack
+version: 1
+components:
+- name: my-first-component
+  source:
+    dir: components/hello-shell
