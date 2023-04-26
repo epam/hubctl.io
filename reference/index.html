@@ -1,0 +1,1719 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hubctl is stack composition and lifecycle tool">
+      
+      
+        <meta name="author" content="EPAM Systems, Inc.">
+      
+      
+        <link rel="canonical" href="https://hubctl.io/reference/">
+      
+      
+        <link rel="prev" href="../hubctl/cli/hubctl-toolbox/">
+      
+      
+        <link rel="next" href="manifests/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>Hubfile - Hubctl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hubfile" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hubctl
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hubfile
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/epam/hubctl" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    epam/hubctl
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../hubctl/" class="md-tabs__link">
+        Hubctl
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Reference documentation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tutorials/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Hubctl
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/epam/hubctl" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    epam/hubctl
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="..">Home</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Install
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/" class="md-nav__link">
+        Use Cases
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../hubctl/">Hubctl</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hubctl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../hubctl/cli/">Command Line Interface (CLI)</a>
+          
+            <label for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Command Line Interface (CLI)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-stack/" class="md-nav__link">
+        hubctl stack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-stack-init/" class="md-nav__link">
+        hubctl stack init
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-stack-configure/" class="md-nav__link">
+        hubctl stack configure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-stack-deploy/" class="md-nav__link">
+        hubctl stack deploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-stack-undeploy/" class="md-nav__link">
+        hubctl stack undeploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-stack-ls/" class="md-nav__link">
+        hubctl stack ls
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-stack-set/" class="md-nav__link">
+        hubctl stack set
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-stack-rm/" class="md-nav__link">
+        hubctl stack rm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-stack-elaborate/" class="md-nav__link">
+        hubctl stack elaborate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-show/" class="md-nav__link">
+        hubctl show
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hubctl/cli/hubctl-toolbox/" class="md-nav__link">
+        hubctl toolbox
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Reference documentation</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reference documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="manifests/">Manifest files</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Manifest files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="manifests/stack/">Stack</a>
+          
+            <label for="__nav_3_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Stack
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/stack/meta/" class="md-nav__link">
+        meta
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/stack/requires/" class="md-nav__link">
+        requires
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/stack/components/" class="md-nav__link">
+        components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/parameters/" class="md-nav__link">
+        parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/stack/outputs.md" class="md-nav__link">
+        outputs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/stack/lifecycle/" class="md-nav__link">
+        lifecycle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="manifests/component/">Component</a>
+          
+            <label for="__nav_3_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Component
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/component/meta/" class="md-nav__link">
+        meta
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/component/requires/" class="md-nav__link">
+        requires
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/component/provides/" class="md-nav__link">
+        provides
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/parameters/" class="md-nav__link">
+        parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="manifests/component/outputs.md" class="md-nav__link">
+        outputs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="components/">Components</a>
+          
+            <label for="__nav_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="components/terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="components/kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="components/helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="components/kustomize/" class="md-nav__link">
+        Kustomize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="components/shell/" class="md-nav__link">
+        Shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="components/makefile/" class="md-nav__link">
+        Makefile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="components/arm/" class="md-nav__link">
+        ARM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../tutorials/">Getting Started</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/020-shell-component/" class="md-nav__link">
+        DIY Component
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#component-manifest" class="md-nav__link">
+    Component Manifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-manifest" class="md-nav__link">
+    Stack manifest
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack manifest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directory-hierarchy" class="md-nav__link">
+    Directory Hierarchy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-hooks" class="md-nav__link">
+    Deployment Hooks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manifest-composition" class="md-nav__link">
+    Manifest composition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provides" class="md-nav__link">
+    Provides
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-kind" class="md-nav__link">
+    Parameter kind
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-file" class="md-nav__link">
+    Parameters file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-from-environment-variable" class="md-nav__link">
+    Parameter from environment variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-from-file" class="md-nav__link">
+    Parameter from file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs_1" class="md-nav__link">
+    Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#securing-outputs" class="md-nav__link">
+    Securing outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle" class="md-nav__link">
+    Lifecycle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="hubfile">Hubfile</h1>
+<p>Hubfile is a YAML file that describes a stack or component. It is a source of truth for hubctl deployment. There are two types of Hubfiles:</p>
+<ul>
+<li>Component manifest: <code>hub-component.yaml</code></li>
+<li>Stack manifest: <code>hub.yaml</code>, <code>params.yaml</code></li>
+</ul>
+<h2 id="component-manifest">Component Manifest</h2>
+<p>Component manifest describes how to deploy a component:</p>
+<ul>
+<li>Requirements, that the component expects from environment or another (upstream) component</li>
+<li>What are the component input and output parameters</li>
+<li>Additional verbs (besides <code>deploy</code> and <code>undeploy</code>) that can be executed on the component</li>
+<li>Describes templates used by the component</li>
+</ul>
+<h2 id="stack-manifest">Stack manifest</h2>
+<p>Stack manifest describes how one or multiple components are deployed together:</p>
+<ul>
+<li>Requirements from environment</li>
+<li>Defines components list and dependencies between them</li>
+<li>Defines stack input and output parameters</li>
+<li>Defines deployment hooks</li>
+</ul>
+<h3 id="directory-hierarchy">Directory Hierarchy</h3>
+<p>Here is the typical directory hierarchy for a stack:</p>
+<pre><code class="language-text">├── bin
+│   └── deployment-hook.sh       
+├── components
+│   ├── component1
+│   │   ├── hub-component.yaml
+│   │   ├── deploy.sh
+│   │   └── undeploy.sh
+│   └── component2
+│       ├── hub-component.yaml
+│       └── main.tf
+├── hub.yaml
+└── params.yaml
+</code></pre>
+<p>Above you can see a stack manifest files: <code>hub.yaml</code> and <code>params.yaml</code>. Also, there are two components: <code>component1</code> and <code>component2</code>. Both components have a component manifest files <code>hub-component.yaml</code>. </p>
+<p>We can see that the <code>component1</code> has <code>deploy.sh</code> and <code>undeploy.sh</code> scripts that are used by <code>hubctl</code> to deploy and undeploy the component. </p>
+<p>THe <code>component2</code> has <code>main.tf</code> which means <code>hubctl</code> will use Terraform to deploy <code>component2</code>.</p>
+<blockquote>
+<p>Note: this is a good practice to split parameters from <code>hub.yaml</code> into it's own file <code>params.yaml</code> or even a series of <code>params.yaml</code> files. The parameter files can be referenced in <code>hub.yaml</code> as the following</p>
+</blockquote>
+<pre><code class="language-yaml">extension:
+  inclue:
+  - params.yaml
+</code></pre>
+<h2 id="deployment-hooks">Deployment Hooks</h2>
+<p>Sometimes before or after a component deployment, SREs need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:</p>
+<pre><code class="language-yaml">components:
+- name: external-dns
+  source:
+    dir: components/external-dns
+    git:
+      remote: 'https://github.com/agilestacks/components.git'
+      ref: master
+      subDir: external-dns
+  hooks:
+  - file: bin/pre-deploy-hook
+    error: ignore
+    triggers:
+    - pre-deploy
+  - file: bin/post-deploy-hook
+    triggers:
+    - post-deploy
+</code></pre>
+<p>There are 2 hooks in the example:</p>
+<ul>
+<li>File <code>pre-deploy-hook</code> from the <code>.hub</code> directory relative to the directory where the Hub manifest file is located (<code>hub.yaml</code>) will be executed BEFORE <code>external-dns</code> component is deployed. <code>error: ignore</code> means that stack deployment will continue even if there is an error in the hook (it exits with non 0 exit code)</li>
+<li>File <code>post-deploy-hook</code> from the <code>.hub</code> directory relative to the directory where the Hub manifest file is located (<code>hub.yaml</code>) will be executed AFTER <code>external-dns</code> component is deployed.</li>
+</ul>
+<blockquote>
+<p>Note: <code>triggers</code> array also supports regular expressions, such as <code>*-deploy</code> or <code>post-*</code></p>
+</blockquote>
+<p>Hooks will be executed in the order they are defined in the manifest file.</p>
+<h2 id="outputs">Outputs</h2>
+<p>When more than a single instance of the same component is deployed in the stack - think two PostgreSQL databases, then there is an ambiguity because both components provides same outputs, ie. <code>endpoint</code> and <code>password</code>.</p>
+<p>To bind input parameters of the <code>pgweb</code> to specific PostgreSQL, use <code>depends</code>:</p>
+<pre><code class="language-yaml">components:
+- name: pg1:
+  source: components/postgresql
+- name: pg2:
+  source: components/postgresql
+- name: pgweb1:
+  source: components/pgweb
+  depends:
+  - pg1
+</code></pre>
+<p>The outputs of <code>depends</code> are searched in turn, then the <em>global</em> outputs pool.</p>
+<h2 id="inputs">Inputs</h2>
+<p>To set parameters for a specific component instance use <code>component</code>:</p>
+<pre><code class="language-yaml">parameters:
+- name: component.postgresql
+  component: pg1
+  parameters:
+</code></pre>
+<p>The component <code>&lt;name&gt;</code> first looks for parameters that are qualified with <code>component: &lt;name&gt;</code>, then <em>global</em> parameters space.</p>
+<h2 id="manifest-composition">Manifest composition</h2>
+<p><code>hub.yaml.elaborate</code> manifest is composed by joining <code>hub.yaml</code> and <code>hub-component.yaml</code> files with [YAML] delimiter literal <code>---\n</code>. Thus the first document in the <code>hub.yaml.elaborate</code> is special.</p>
+<h2 id="requirements">Requirements</h2>
+<p>Both stack and component may describe dependencies that must be satisfied - <em>requires</em>, before (fully parameterized) stack could be deployed. Some examples of requirements:</p>
+<ul>
+<li>Cloud kind: AWS, Azure, GCP;</li>
+<li>Kubernetes</li>
+<li>What other types of components (<em>provides</em>) must be already deployed in the environment or will be deployed with the stack.</li>
+</ul>
+<p>This is a high-level check which is possible to perform by checking the environment and tools or short-circuiting in-stack requirements to <em>provides</em>.</p>
+<p>For example:</p>
+<pre><code class="language-yaml">requires:
+- aws
+- kubernetes
+- postgresql
+</code></pre>
+<h2 id="provides">Provides</h2>
+<p>Stack and components declares <em>provides</em> - a capability that is added to the stack and provided by it after deployment.</p>
+<pre><code class="language-yaml">provides:
+- kubernetes
+- tls-ingress
+</code></pre>
+<p>The requires and provides are arbitrary literals. It could be the name of a product installed or generic capability e.g. <code>ingress</code>.</p>
+<h2 id="components">Components</h2>
+<p>Components are building blocks of a stack. There could be multiple instances of the same component in the stack:</p>
+<pre><code class="language-yaml">components:
+- name: backend-ecr
+  source:
+    dir: components/ecr
+    git:
+      remote: 'https://github.com/agilestacks/components.git'
+      ref: master
+      subDir: ecr
+- name: frontend-ecr
+  source:
+    dir: components/ecr
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<p>Parameters declarations form a tree-like structure where leafs have values and nodes should have nested parameters:</p>
+<pre><code class="language-yaml">parameters:
+- name: cloud
+  brief: Cloud Parameters
+  kind: user
+  description: ...
+  parameters:
+  - name: kind
+    value: aws                 # set to value provided by user
+    default: gcp               # use default, if not provided
+  - name: account
+    fromEnv: CLOUD_ACCOUNT
+  - name: regions
+    value: [us-east-1, us-east-2]
+- name: component
+  parameters: [{name: kubernetes.worker.size, value: m5.large,}]
+- name: deployment
+  value: standalone
+</code></pre>
+<p>Native YAML syntax could be used to short-circuit nested declarations. The above is effectively flattened into list of parameters:</p>
+<pre><code class="language-text">cloud.kind
+cloud.account
+cloud.regions
+component.kubernetes.worker.size
+deployment
+</code></pre>
+<p>The values are in most cases plain text / scalar type, yet we support arrays and maps - datatypes native to JSON and YAML.</p>
+<h3 id="parameter-kind">Parameter kind</h3>
+<p>There are high-level user-provided parameters - the facts user do care about: which cloud and cloud account to use, what region to deploy to, etc.</p>
+<p>There are also lower-level technical parameters, which Hub CLI must derive from other places, such as backend service endpoint which may come from another stack or from component output.</p>
+<h3 id="parameters-file">Parameters file</h3>
+<p>Stack parameters should be placed in <code>params.yaml</code> file - separately from <code>hub.yaml</code>. It is possible to merge them though. There could be any number of parameters files.</p>
+<h3 id="parameter-from-environment-variable">Parameter from environment variable</h3>
+<p>Parameters that are environment specific and managed with <a href="https://direnv.net"><code>.envrc</code></a> or <a href="https://pypi.org/project/python-dotenv/"><code>.env</code></a> could be captured from OS environment by <code>fromEnv: AWS_REGION</code>.</p>
+<h3 id="parameter-from-file">Parameter from file</h3>
+<p>Parameter value could be read from file <code>fromFile: config/stage/password</code>.</p>
+<h2 id="outputs_1">Outputs</h2>
+<p>Outputs are scalar or structured values produced by component or stack.</p>
+<pre><code class="language-yaml">outputs:
+- cloud.avalabilityZones
+- dns.domain
+  value: ${dns.name}.${dns.baseDomain}
+</code></pre>
+<h3 id="securing-outputs">Securing outputs</h3>
+<p>Output could be a secret that should not be leaked to deployment log. Such outputs could be captured with <code>hub util otp</code> one-time pad or read from a file.</p>
+<h2 id="lifecycle">Lifecycle</h2>
+<p>Every part of the stack has a lifecycle is optional and can be omitted.</p>
+<p>Standard verbs are: deploy, undeploy. Additional verbs could be: backup, connect, etc. Verbs are delegated to implementations in the component source code. There is additional support for Terraform, Make, and Helm see <a href="/hubctl/components">more</a></p>
+<pre><code class="language-yaml">lifecycle:
+  verbs:
+  - deploy
+  - undeploy
+  order:
+  - postgresql
+  - api
+  - nginx-api
+  - nginx-frontend
+  readyCondition:
+    dns: ${dns.domain}
+    url: https://${dns.domain}/api/v1/
+    waitSeconds: 600
+</code></pre>
+<p><code>readyCondition</code> specifies additional checks that must complete successfully within <code>waitSeconds</code> duration for stack deployment to succeed.</p>
+<blockquote>
+<p>Note: if you omit verbs. then It assumes stack limited to [deploy, undeploy] verbs</p>
+</blockquote>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="/hubctl">Hub CLI</a></li>
+<li><a href="/hubctl/components">Hub Components</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 26, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2023 EPAM Systems, Inc. All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>
