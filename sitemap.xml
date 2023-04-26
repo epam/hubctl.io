@@ -151,7 +151,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hubctl.io/hubctl/reference/hubfile/</loc>
+         <loc>https://hubctl.io/hubctl/reference/manifests/</loc>
+         <lastmod>2023-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/hubctl/reference/manifests/component/</loc>
+         <lastmod>2023-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/hubctl/reference/manifests/params/</loc>
+         <lastmod>2023-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/hubctl/reference/manifests/stack/</loc>
          <lastmod>2023-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>

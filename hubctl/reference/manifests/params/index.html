@@ -12,27 +12,27 @@
         <meta name="author" content="EPAM Systems, Inc.">
       
       
-        <link rel="canonical" href="https://hubctl.io/hubctl/reference/hubfile/">
+        <link rel="canonical" href="https://hubctl.io/hubctl/reference/manifests/params/">
       
       
-        <link rel="prev" href="../../components/">
+        <link rel="prev" href="../component/">
       
       
-        <link rel="next" href="../../../tutorials/">
+        <link rel="next" href="../../../components/">
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Hubfile Reference - Hubctl</title>
+        <title>Parameters - Hubctl</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c4a75a56.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hubfile-reference" class="md-skip">
+        <a href="#parameters-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../../../.." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hubfile Reference
+              Parameters
             
           </span>
         </div>
@@ -188,7 +188,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -204,7 +204,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link">
+      <a href="../../../" class="md-tabs__link">
         Hubctl
       </a>
     </li>
@@ -222,7 +222,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Reference documentation
       </a>
     </li>
@@ -238,7 +238,23 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../tutorials/" class="md-tabs__link">
+      <a href="../../../components/" class="md-tabs__link">
+        Components
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../tutorials/" class="md-tabs__link">
         Getting Started
       </a>
     </li>
@@ -266,7 +282,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../../../.." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -319,7 +335,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../..">Home</a>
+          <a href="../../../..">Home</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -342,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../install/" class="md-nav__link">
+      <a href="../../../../install/" class="md-nav__link">
         Install
       </a>
     </li>
@@ -356,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../use-cases/" class="md-nav__link">
+      <a href="../../../../use-cases/" class="md-nav__link">
         Use Cases
       </a>
     </li>
@@ -393,14 +409,12 @@
         
           
         
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Hubctl</a>
+          <a href="../../../">Hubctl</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -463,7 +477,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../cli/">Command Line Interface (CLI)</a>
+          <a href="../../../cli/">Command Line Interface (CLI)</a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -486,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-stack/" class="md-nav__link">
+      <a href="../../../cli/hubctl-stack/" class="md-nav__link">
         hubctl stack
       </a>
     </li>
@@ -500,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-stack-init/" class="md-nav__link">
+      <a href="../../../cli/hubctl-stack-init/" class="md-nav__link">
         hubctl stack init
       </a>
     </li>
@@ -514,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-stack-configure/" class="md-nav__link">
+      <a href="../../../cli/hubctl-stack-configure/" class="md-nav__link">
         hubctl stack configure
       </a>
     </li>
@@ -528,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-stack-deploy/" class="md-nav__link">
+      <a href="../../../cli/hubctl-stack-deploy/" class="md-nav__link">
         hubctl stack deploy
       </a>
     </li>
@@ -542,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-stack-undeploy/" class="md-nav__link">
+      <a href="../../../cli/hubctl-stack-undeploy/" class="md-nav__link">
         hubctl stack undeploy
       </a>
     </li>
@@ -556,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-stack-ls/" class="md-nav__link">
+      <a href="../../../cli/hubctl-stack-ls/" class="md-nav__link">
         hubctl stack ls
       </a>
     </li>
@@ -570,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-stack-set/" class="md-nav__link">
+      <a href="../../../cli/hubctl-stack-set/" class="md-nav__link">
         hubctl stack set
       </a>
     </li>
@@ -584,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-stack-rm/" class="md-nav__link">
+      <a href="../../../cli/hubctl-stack-rm/" class="md-nav__link">
         hubctl stack rm
       </a>
     </li>
@@ -598,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-stack-elaborate/" class="md-nav__link">
+      <a href="../../../cli/hubctl-stack-elaborate/" class="md-nav__link">
         hubctl stack elaborate
       </a>
     </li>
@@ -612,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-show/" class="md-nav__link">
+      <a href="../../../cli/hubctl-show/" class="md-nav__link">
         hubctl show
       </a>
     </li>
@@ -626,156 +640,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/hubctl-toolbox/" class="md-nav__link">
+      <a href="../../../cli/hubctl-toolbox/" class="md-nav__link">
         hubctl toolbox
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-          Components
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          Components
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../components/terraform/" class="md-nav__link">
-        Terraform
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../components/kubernetes/" class="md-nav__link">
-        Kubernetes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../components/helm/" class="md-nav__link">
-        Helm
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../components/kustomize/" class="md-nav__link">
-        Kustomize
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../components/shell/" class="md-nav__link">
-        Shell
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../components/makefile/" class="md-nav__link">
-        Makefile
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../components/arm/" class="md-nav__link">
-        ARM
       </a>
     </li>
   
@@ -819,17 +685,13 @@
           
         
           
-            
-          
-        
-          
         
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Reference documentation</a>
+          <a href="../../">Reference documentation</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -850,10 +712,73 @@
               
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Manifest files</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Manifest files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
-      <a href="../../components/" class="md-nav__link">
-        Components
+      <a href="../stack/" class="md-nav__link">
+        Stack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component/" class="md-nav__link">
+        Component
       </a>
     </li>
   
@@ -875,10 +800,103 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Parameters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Hubfile Reference
+        Parameters
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameter-types" class="md-nav__link">
+    Parameter types
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-fromenv" class="md-nav__link">
+    Parameter fromEnv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-env" class="md-nav__link">
+    Parameter env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-fromfile" class="md-nav__link">
+    Parameter fromFile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-kind" class="md-nav__link">
+    Parameter kind
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping" class="md-nav__link">
+    Mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cel-expressions" class="md-nav__link">
+    CEL expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See also
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -912,7 +930,17 @@
           
         
           
-            
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
           
         
       
@@ -920,7 +948,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../tutorials/">Getting Started</a>
+          <a href="../../../components/">Components</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -930,6 +958,157 @@
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../components/terraform/" class="md-nav__link">
+        Terraform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../components/kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../components/helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../components/kustomize/" class="md-nav__link">
+        Kustomize
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../components/shell/" class="md-nav__link">
+        Shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../components/makefile/" class="md-nav__link">
+        Makefile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../components/arm/" class="md-nav__link">
+        ARM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../tutorials/">Getting Started</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Getting Started
         </label>
@@ -943,7 +1122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tutorials/020-shell-component/" class="md-nav__link">
+      <a href="../../../../tutorials/020-shell-component/" class="md-nav__link">
         DIY Component
       </a>
     </li>
@@ -977,6 +1156,76 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parameter-types" class="md-nav__link">
+    Parameter types
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-fromenv" class="md-nav__link">
+    Parameter fromEnv
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-env" class="md-nav__link">
+    Parameter env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-fromfile" class="md-nav__link">
+    Parameter fromFile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter-kind" class="md-nav__link">
+    Parameter kind
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapping" class="md-nav__link">
+    Mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cel-expressions" class="md-nav__link">
+    CEL expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See also
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -993,282 +1242,68 @@
   
 
 
-<h1 id="hubfile-reference">Hubfile Reference</h1>
-<p>On top level stack manifest contains following sections:</p>
-<pre><code class="language-yaml">meta:
-    kind: stack 
-    version: 1
-requires:                              # optional, list of requirements for stacj
-    - kubernetes
-components:
-    - name: cert-manager               # mandatory, name of the component
-      source:
-        dir: components/cert-manager   # mandatory, local path where to find component
-    - name: knative-serving
-        source:
-            dir: components/knative-serving
-        git:                                      # optional, git source to download component from
-            remote: https://github.com/agilestacks/kubeflow-components.git # git repository remote url
-            subDir: knative-serving               # mandatory, subdirectory in the repository
-            ref: develop                          # optional, git reference (branch, tag, commit)
-        depends:                                  # optional, component dependency
-        - cert-manager
-    lifecycle:                                    # optional, lifecycle verbs
-        verbs:
-            - deploy                              # mandatory, deploy verb
-            - undeploy                            # mandatory, undeploy verb
-            - custom-verb                         # optional, custom verb
-        order:                                    # optional, order of deployment
-            - cert-manager
-            - knative-serving
-    parameters:
-        - name: dns.domain                         # mandatory, parameter name
-          value: localhost                         # mandatory, parameter name
-        - name: certmanager.namespace
-          component: cert-manager                  # optional, component name, if not defined then parameter is global for all components
-          brief: Define namespace for cert-manager # optional, brief description for parameter
-          default: v1.11.0                         # optional, default value for parameter
-          fromEnv: CERTMANAGER_NAMESPACE           # optional, parameter value is taken from environment variable, this approach allows not to store exact value in version control. Useful for sensitive parameters.
-    outputs:                                    # optional, stack outputs
-    - name: foo                                 # mandatory, output name
-      value: http://localhost:${pgweb.port}     # mandatory, output value
-      brief: foo endpoint                       # optional, brief description for output       
-</code></pre>
-<ul>
-<li>meta: name, brief</li>
-<li>components references: what and where are the components</li>
-<li>requires and provides</li>
-<li>lifecycle: verbs, optional and mandatory components, conditional deployment</li>
-<li>parameters: stack inputs, mappings</li>
-<li>stack outputs</li>
-</ul>
-<h1 id="component-manifest">Component manifest:</h1>
-<ul>
-<li>meta: name, description, version, etc.</li>
-<li>requires and provides</li>
-<li>lifecycle: verbs, fine-tuning for Hub CLI</li>
-<li>parameters: inputs, defaults, mapping to OS environment</li>
-<li>component outputs</li>
-<li>templates: where are the templates</li>
-</ul>
-<p>Hub CLI <code>elaborate</code> verifies manifests according to the <a href="https://github.com/epam/hubctl/blob/master/meta/manifest.schema.json">schema</a>.</p>
-<p>For high-level introduction see [[Manifest]].</p>
-<h2 id="stack-manifest">Stack manifest</h2>
-<p><code>hub.yaml</code> is a canonical name for stack manifest.</p>
-<h3 id="meta">Meta</h3>
-<pre><code class="language-yaml">version: 1
-kind: stack
-meta:
-  name: happy-meal
-  title: Happy Meal
-  brief: Kubernetes with monitoring and DevOps tools
-  description: &gt;
-    ...
-  fromStack: ../../stacks/base-stack  # see FromStack
-</code></pre>
-<h3 id="component-references">Component references</h3>
-<pre><code class="language-yaml">components:
-- name: storage-class
-  source:
-    dir: components/storage-class
-    git:  # optional, to maintain `dir` as subtree of the Git repo with `hub pull`
-      remote: 'https://github.com/agilestacks/components.git'
-      ref: master
-      subDir: storage-class
-  depends:  # optional, search order to match parameters to outputs
-  - kubernetes
-</code></pre>
-<h3 id="component-lifecycle-hooks">Component lifecycle hooks</h3>
-<p>Sometimes before or after a component deployment, SREs need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:</p>
-<pre><code class="language-yaml">components:
-- name: external-dns
-  hooks:
-  - file: bin/do-something              # relative to the directory where the hugctl manifest file is located (`hub.yaml`)
-    brief: Some description of my hook  # optional, brief description for hook
-    error: ignore                       # optional, default is `error: fail`
-    triggers:                           # optional, default is `triggers: [pre-deploy, post-deploy]`
-    - pre-deploy
-    - post-undeploy
-  source:
-    dir: components/external-dns
-</code></pre>
-<p>There are 2 hooks in the example:</p>
-<ul>
-<li>File <code>pre-deploy-hook</code> from the <code>.hub</code> directory relative to the directory where the Hub manifest file is located (<code>hub.yaml</code>) will be executed BEFORE <code>external-dns</code> component is deployed. <code>error: ignore</code> means that stack deployment will continue even if there is an error in the hook (it exits with non 0 exit code)</li>
-<li>File <code>post-deploy-hook</code> from the <code>.hub</code> directory relative to the directory where the Hub manifest file is located (<code>hub.yaml</code>) will be executed AFTER <code>external-dns</code> component is deployed.</li>
-</ul>
-<p>Additionally,</p>
-<ul>
-<li><code>triggers</code> array also supports regular expressions, such as <code>*-deploy</code> or <code>post-*</code></li>
-<li>All hooks matching the expression will be executed, and hook order from the <code>hooks</code> list will be maintained.</li>
-</ul>
-<h3 id="requires-and-provides">Requires and provides</h3>
-<pre><code class="language-yaml">requires:
-- aws
-
-provides:
-- devops
-</code></pre>
-<h3 id="lifecycle">Lifecycle</h3>
-<pre><code class="language-yaml">lifecycle:
-  verbs:
-  - deploy
-  - undeploy
-  order:
-  - kubernetes
-  - traefik
-  - kube-dashboard
-  # by default every component is mandatory until `mandatory` block exist,
-  #     then everything else is optional
-  # so use either `mandatory` or `optional`
-  mandatory:
-  - kubernetes
-  optional:
-  - kube-dashboard
-  requires:
-    optional:  # see Lifecycle &gt; Deploy &gt; Optional requirements
-    - vault
-  readyConditions:
-  - dns: api.${dns.domain}              # resolvable
-    url:  https://api.${dns.domain}/v1  # returns something other than HTTP 500
-    waitSeconds: 600  # how long to wait for the condition
-    pauseSeconds: 0   # pause before starting poll loop
-</code></pre>
-<h3 id="parameters">Parameters</h3>
+<h1 id="parameters-reference">Parameters Reference</h1>
+<p>Parameters are used to configure stack and components in both stack manifest (<code>hub.yaml</code>) and component manifest (<code>hub-component.yaml</code>).</p>
+<p>Parameters have a tree-like structure where leafs have values and nodes should have nested parameters:</p>
 <pre><code class="language-yaml">parameters:
-- name: cloud.region
-  brief: Cloud region
-  value: us-east-2
-  # parameter value might be set separately for each component
-  component: external-dns
-  kind: user    # if value is not set then user will be asked interactivelly to provide value
-  default: aws  # if user parameter value is not provided then the default will be used
-  empty: allow  # if value is not set then it is not an error, empty string is assigned
-  fromEnv: AWS_REGION  # capture user parameter value from OS environment
-  # read from file
-  fromFile: config/secret
-  # a special case to read file pointed by OS env var `ENV` or `hub deploy -e ENV=...`
-  # this is not an expression, only $ as first character triggers redirection
-  fromFile: $ENV
-
-# final name is `cloud.kind` and the kind is `user`
-- name: cloud
-  kind: user
-  parameters:
-  - name: kind
-    value: aws
+- name: cloud.kind
+  value: aws                          # set to value provided by user
+- name: cloud.regions                 # this parameter is only set for component `foo`
+  component: foo                      
+  value: [us-east-1, us-east-2]
+- name: kubernetes                    # nested parameters for kubernetes 
+  parameters: 
+  - name: worker.size
+    fromEnv: KUBERNETES_WORKER_SIZE   # Source value form environment variable
+    default: m5.large                 # Use default if value not provided
 </code></pre>
-<p>For convenience, <code>parameters</code> could be nested so that parent <code>name</code> is prepended and attributes such as <code>empty: allow</code> and <code>kind: user</code> are inherited. <code>elaborate</code> will annotate <code>fromEnv</code> parameters with <code>kind: user</code>.</p>
-<p><code>value</code> supports substitution expressions such as <code>${cloud.region}</code> or <code>1 ${var2} 3 ${var4}</code> and <code>#{}</code> [CEL expressions], see Component manifest &gt; Parameters below.</p>
-<h4 id="mapping">Mapping</h4>
+<p>Native YAML syntax could be used to short-circuit nested declarations. The above is effectively flattened into list of parameters:</p>
+<pre><code class="language-text">cloud.kind
+cloud.regions
+kubernetes.worker.size
+</code></pre>
+<p>The values are in most cases plain text / scalar type, yet we support arrays and maps - data types native to JSON and YAML.</p>
+<h2 id="parameter-types">Parameter types</h2>
+<p>Here we specify parameter types and their interpretation.</p>
+<h3 id="parameter-fromenv">Parameter <code>fromEnv</code></h3>
+<p>This parameter only forks for stack manifests (<code>hub.yaml</code> and <code>params-*.yaml</code>). It allows to set parameter value from environment variable:</p>
+<pre><code class="language-yaml">
+```yaml
+- name: kubernetes.namespace
+  fromEnv: NAMESPACE
+  default: kube-system
+</code></pre>
+<p>Parameter above will set value of parameter <code>kubernetes.namespace</code> to value of environment variable <code>NAMESPACE</code></p>
+<p>During <code>hubctl stack configure</code> user will be prompted to provide value for parameter <code>kubernetes.namespace</code> with default value <code>kube-system</code>. </p>
+<h3 id="parameter-env">Parameter <code>env</code></h3>
+<p>This parameter only works for component manifests (<code>hub-component.yaml</code>). It allows to set environment variables from parameter value:</p>
+<pre><code class="language-yaml">parameters:
+- name: kubernetes.namespace
+  env: NAMESPACE
+  value: kube-system
+</code></pre>
+<p>Parameter above will define environment variable <code>NAMESPACE</code> with value <code>kube-system</code> as a default (unless stack will provide different name)</p>
+<h3 id="parameter-fromfile">Parameter <code>fromFile</code></h3>
+<p>Parameter value could be read from file <code>fromFile: config/stage/password</code>.</p>
+<h3 id="parameter-kind">Parameter <code>kind</code></h3>
+<p>There are high-level user-provided parameters - the facts <code>user</code> do care about: which cloud and cloud account to use, what region to deploy to, etc.</p>
+<p>There are also lower-level technical parameters, which hubctl must derive from other places, such as backend service endpoint which may come from another stack or from component output.</p>
+<p>By default all parameters are technical</p>
+<h2 id="mapping">Mapping</h2>
 <p>Some parameters cannot be resolved at beginning of the deployment. To map output to a different name use <code>kind: link</code> parameter. The interpretation of <code>value</code> will be deferred until parameter is used:</p>
 <pre><code class="language-yaml">- name: component.backend.image
   value: ${backend-ecr:component.ecr.image}
   kind: link
 </code></pre>
 <p><code>backend-ecr</code> is a component deployed prior to <code>backend</code>. There are several ECRs thus output is fully qualified.</p>
-<h3 id="stack-outputs">Stack outputs</h3>
-<pre><code class="language-yaml">outputs:
-- name: component,ingress.fqdn
-  brief: Ingress FQDN
-  description: &gt;
-    ...
-  value: ${component,ingress.fqdn}  # optional, defaults to `${name}`
-  kind: secret/token  # optional, secret/&lt;kind&gt; is the only supported variation
-# or from a specific component
-- name: kubernetes:dns.domain
-</code></pre>
-<h3 id="extensions">Extensions</h3>
-<p>This section is used by <a href="https://github.com/epam/hub-extensions">Hub CLI extensions</a>. Hub CLI will verify the structure of this block but will ignore it.</p>
-<pre><code class="language-yaml">extensions:
-  include:
-  - params.yaml
-  - params/env.yaml
-  configure:
-  - aws
-  - kubernetes
-  deploy:
-    before:
-    after:
-    - inventory-configmap
-  undeploy:
-    before:
-    after:
-</code></pre>
-<h2 id="component-manifest_1">Component manifest</h2>
-<p><code>hub-component.yaml</code> is a canonical name for component manifest.</p>
-<h3 id="meta_1">Meta</h3>
-<pre><code class="language-yaml">version: 1
-kind: component
-meta:
-  name: dex
-  title: Dex
-  brief: Dex OIDC and OAuth2 provider
-  description: &gt;
-    ...
-  category: Edge Proxy
-  version: 2.26.0
-  maturity: ga  # beta alpha
-  license: Apache 2.0
-</code></pre>
-<h3 id="requires-and-provides_1">Requires and provides</h3>
-<pre><code class="language-yaml">requires:
-- kubernetes
-
-provides:
-- ingress
-</code></pre>
-<h3 id="lifecycle_1">Lifecycle</h3>
-<pre><code class="language-yaml">lifecycle:
-  verbs:  # add custom verbs for `hub invoke`
-  - deploy
-  - undeploy
-  bare: true  # set to allow components without deploy or undeploy implementation
-              # usefull for creating synthetic outputs
-  readyConditions:
-  - dns: api.${dns.domain}              # resolvable
-    url:  https://api.${dns.domain}/v1  # returns something other than HTTP 500
-    waitSeconds: 600  # how long to wait for the condition
-    pauseSeconds: 0   # pause before starting poll loop
-  options:
-    random:
-      bytes: 128  # see Manifest &gt; Outputs &gt; Securing outputs
-</code></pre>
-<h3 id="parameters_1">Parameters</h3>
-<pre><code class="language-yaml">parameters:
-- name: cloud.region
-  brief: Cloud region
-  value: us-east-2  # default value to use if not passed from stack level parameter
-  empty: allow      # if value is not set then it is not an error, empty string is assigned
-  env: AWS_REGION   # set OS environment
-</code></pre>
-<h4 id="cel-expressions">CEL expressions</h4>
-<p>Parameter <code>value</code> support <a href="https://github.com/google/cel-go">CEL</a> expressions enclosed in <code>#{}</code> such as `Cloud region is ${cloud.region} and number of availability zones is #{len(cloud.availabilityZones)}.</p>
+<h2 id="cel-expressions">CEL expressions</h2>
+<p>Parameter <code>value</code> support [CEL] expressions enclosed in <code>#{}</code> such as `Cloud region is ${cloud.region} and number of availability zones is #{len(cloud.availabilityZones)}.</p>
 <p>CEL has some unexpected results for corner cases, use <code>hub cel</code> to debug.</p>
-<h3 id="component-outputs">Component outputs</h3>
-<pre><code class="language-yaml">outputs:
-- name: component,ingress.fqdn
-  brief: Ingress FQDN
-  value: ${dns.name}.${dns.baseDomain}
-  fromTfVar: fqdn  # either `value` or `fromTfVar` must be defined
-  kind: secret/token  # optional, secret/&lt;kind&gt; is the only supported variation
-</code></pre>
-<p><code>brief</code> and <code>kind</code> will be propagated to stack level outputs if <code>component:output</code> syntax is used on <code>hub.yaml</code> level.</p>
-<h3 id="templates">Templates</h3>
-<pre><code class="language-yaml">templates:
-  kind: curly  # mustache go
-  directories:
-  - config
-  files:
-  - &quot;*.template&quot;
-  extra:
-  - kind: mustache
-    files:
-    - terraform/*.tf.template
-  - kind: go
-    files:
-    - helm/values*.yaml.gotemplate
-</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../stack/">Stack Manifest</a></li>
+<li><a href="../component/">Component Manifest</a></li>
+</ul>
 
   <hr>
 <div class="md-source-file">
@@ -1326,10 +1361,10 @@ provides:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
     
   </body>
