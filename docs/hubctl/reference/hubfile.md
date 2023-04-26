@@ -1,4 +1,4 @@
-# Hubctl Manifest
+# Hubfile Reference
 
 On top level stack manifest contains following sections:
 

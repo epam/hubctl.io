@@ -2,41 +2,62 @@
 
 Hubfile is a YAML file that describes a stack or component. It is a source of truth for hubctl deployment. There are two types of Hubfiles:
 
-* `hub.yaml` for stack
-* `hub-component.yaml` for component
+* Component manifest: `hub-component.yaml`
+* Stack manifest: `hub.yaml`, `params.yaml`
 
-`hub.yaml.elaborate` is a Hub CLI assembled manifest which is self-sufficient (contains multiple YAML documents) - fully describing the stack.
+## Component Manifest
 
-See [[Manifest reference]] for details.
+Component manifest describes how to deploy a component:
 
-## Component manifest
-
-[[Component manifest|Manifest reference#component-manifest]] defines component interface: input parameters, requirements and provides, available lifecycle verbs, templates location, and outputs.
+* Requirements, that the component expects from environment or another (upstream) component
+* What are the component input and output parameters
+* Additional verbs (besides `deploy` and `undeploy`) that can be executed on the component
+* Describes templates used by the component
 
 ## Stack manifest
 
-[[Stack manifest|Manifest reference#stack-manifest]] binds components together. It enumerate components, define deployment order, requirements, mapping of outputs and parameters, etc.
+Stack manifest describes how one or multiple components are deployed together:
+
+* Requirements from environment
+* Defines components list and dependencies between them
+* Defines stack input and output parameters
+* Defines deployment hooks
+
 
 ### Directory Hierarchy
 
-`hub.yaml` is placed into top-most directory of the stack and `hub-components.yaml` into top-most directory of the component, for example:
+Here is the typical directory hierarchy for a stack:
 
 ```text
-Root of the Stack
-  hub.yaml
-  /etc
-    ...
-  /databases  ## stack specific setup
-    hub-component.yaml
-  /secrets
-    hub-component.yaml
-  /components  # reusable software
-    /eks
-    /nginxing
-      hub-component.yaml
+├── bin
+│   └── deployment-hook.sh       
+├── components
+│   ├── component1
+│   │   ├── hub-component.yaml
+│   │   ├── deploy.sh
+│   │   └── undeploy.sh
+│   └── component2
+│       ├── hub-component.yaml
+│       └── main.tf
+├── hub.yaml
+└── params.yaml
 ```
 
-### Component source location
+Above you can see a stack manifest files: `hub.yaml` and `params.yaml`. Also, there are two components: `component1` and `component2`. Both components have a component manifest files `hub-component.yaml`. 
+
+We can see that the `component1` has `deploy.sh` and `undeploy.sh` scripts that are used by `hubctl` to deploy and undeploy the component. 
+
+THe `component2` has `main.tf` which means `hubctl` will use Terraform to deploy `component2`.
+
+> Note: this is a good practice to split parameters from `hub.yaml` into it's own file `params.yaml` or even a series of `params.yaml` files. The parameter files can be referenced in `hub.yaml` as the following
+
+```yaml
+extension:
+  inclue:
+  - params.yaml
+```
+
+### Component Source 
 
 ```yaml
 components:
@@ -46,34 +67,33 @@ components:
     git:
       remote: 'https://github.com/agilestacks/components.git'
       ref: master
-      subDir: edns
+      subDir: external-dns
 ```
 
-`external-dns` component sources are under `./components/external-dns/` directory. Optional `source.git` is to manage updates from upstream with [[Pull extension]].
+Above you can see `external-dns` component sources are under `./components/external-dns/` directory. Optional `source.git` to specify git repository and branch to pull the component from during `hubctl stack init`.
 
-### Component lifecycle hooks
+
+## Deployment Hooks
 
 Sometimes before or after a component deployment, SREs need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:
 
 ```yaml
 components:
 - name: external-dns
-  hooks:
-  - file: .hub/pre-deploy-hook
-    brief: Some description of my hook
-    error: ignore
-    triggers:
-    - pre-deploy
-  - file: .hub/post-deploy-hook
-    brief: Some description of my hook
-    triggers:
-    - post-deploy
   source:
     dir: components/external-dns
     git:
       remote: 'https://github.com/agilestacks/components.git'
       ref: master
-      subDir: edns
+      subDir: external-dns
+  hooks:
+  - file: bin/pre-deploy-hook
+    error: ignore
+    triggers:
+    - pre-deploy
+  - file: bin/post-deploy-hook
+    triggers:
+    - post-deploy
 ```
 
 There are 2 hooks in the example:
@@ -81,14 +101,11 @@ There are 2 hooks in the example:
 - File `pre-deploy-hook` from the `.hub` directory relative to the directory where the Hub manifest file is located (`hub.yaml`) will be executed BEFORE `external-dns` component is deployed. `error: ignore` means that stack deployment will continue even if there is an error in the hook (it exits with non 0 exit code)
 - File `post-deploy-hook` from the `.hub` directory relative to the directory where the Hub manifest file is located (`hub.yaml`) will be executed AFTER `external-dns` component is deployed.
 
-Additionally,
+> Note: `triggers` array also supports regular expressions, such as `*-deploy` or `post-*`
 
-- `triggers` array also supports regular expressions, such as `*-deploy` or `post-*`
-- All hooks matching the expression will be executed, and hook order from the `hooks` list will be maintained.
+Hooks will be executed in the order they are defined in the manifest file.
 
-### Parameters ambiguity
-
-#### Outputs
+## Outputs
 
 When more than a single instance of the same component is deployed in the stack - think two PostgreSQL databases, then there is an ambiguity because both components provides same outputs, ie. `endpoint` and `password`.
 
@@ -108,7 +125,7 @@ components:
 
 The outputs of `depends` are searched in turn, then the _global_ outputs pool.
 
-#### Inputs
+## Inputs
 
 To set parameters for a specific component instance use `component`:
 
@@ -245,7 +262,9 @@ Output could be a secret that should not be leaked to deployment log. Such outpu
 
 ## Lifecycle
 
-Standard verbs are: deploy, undeploy. Additional verbs could be: backup, connect, etc. Verbs are delegated to implementations in the component source code. There is additional support for Terraform, Make, and Helm in [[Deployment extensions]].
+Every part of the stack has a lifecycle is optional and can be omitted.
+
+Standard verbs are: deploy, undeploy. Additional verbs could be: backup, connect, etc. Verbs are delegated to implementations in the component source code. There is additional support for Terraform, Make, and Helm see [more](/hubctl/components)
 
 ```yaml
 lifecycle:
@@ -265,24 +284,9 @@ lifecycle:
 
 `readyCondition` specifies additional checks that must complete successfully within `waitSeconds` duration for stack deployment to succeed.
 
-## Well-known parameters
+> Note: if you omit verbs. then It assumes stack limited to [deploy, undeploy] verbs
 
-_(a feature subject to removal)_
+## See Also
 
-To decrease verbosity of parameters manifests, `brief`, `description`, and defaults could be offloaded to `meta/hub-well-known-parameters.yaml` file which is built into Hub CLI binary:
-
-```yaml
-parameters:
-- name: cloud.kind
-  brief: Cloud kind
-  kind: user
-  description: ...
-  default: aws
-- name: cloud.region
-  brief: Cloud region
-  kind: user
-  description: ...
-  default: us-east-2
-```
-
-[YAML]: https://en.wikipedia.org/wiki/YAML
+* [Hub CLI](/hubctl)
+* [Hub Components](/hubctl/components)

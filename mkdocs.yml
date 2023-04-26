@@ -65,7 +65,8 @@ nav:
       #   - hubctl/design-and-architecture/index.md
   - Reference documentation: 
     - hubctl/reference/index.md
-    - Design and Architecture: hubctl/components/index.md
+    - hubctl/components/index.md
+    - hubctl/reference/hubfile.md
   - Getting Started: 
     - tutorials/index.md
     - tutorials/020-shell-component/README.md
