@@ -56,21 +56,33 @@ nav:
         - hubctl toolbox: hubctl/cli/hubctl-toolbox.md
       #   - hubctl/design-and-architecture/index.md
   - Reference documentation:
-    - hubctl/reference/index.md
+    - reference/index.md
     - Manifest files:
-      - hubctl/reference/manifests/index.md
-      - Stack: hubctl/reference/manifests/stack.md
-      - Component: hubctl/reference/manifests/component.md
-      - Parameters: hubctl/reference/manifests/params.md
-  - Components:
-      - hubctl/components/index.md
-      - Terraform: hubctl/components/terraform.md
-      - Kubernetes: hubctl/components/kubernetes.md
-      - Helm: hubctl/components/helm.md
-      - Kustomize: hubctl/components/kustomize.md
-      - Shell: hubctl/components/shell.md
-      - Makefile: hubctl/components/makefile.md
-      - ARM: hubctl/components/arm.md
+      - reference/manifests/index.md
+      - Stack:
+        - reference/manifests/stack/index.md
+        - meta: reference/manifests/stack/meta.md
+        - requires: reference/manifests/stack/requires.md
+        - components: reference/manifests/stack/components.md
+        - parameters: reference/manifests/parameters.md
+        - outputs: reference/manifests/stack/outputs.md
+        - lifecycle: reference/manifests/stack/lifecycle.md
+      - Component:
+        - reference/manifests/component/index.md
+        - meta: reference/manifests/component/meta.md
+        - requires: reference/manifests/component/requires.md
+        - provides: reference/manifests/component/provides.md
+        - parameters: reference/manifests/parameters.md
+        - outputs: reference/manifests/component/outputs.md
+    - Components:
+        - reference/components/index.md
+        - Terraform: reference/components/terraform.md
+        - Kubernetes: reference/components/kubernetes.md
+        - Helm: reference/components/helm.md
+        - Kustomize: reference/components/kustomize.md
+        - Shell: reference/components/shell.md
+        - Makefile: reference/components/makefile.md
+        - ARM: reference/components/arm.md
   - Getting Started:
     - tutorials/index.md
     - tutorials/020-shell-component/README.md

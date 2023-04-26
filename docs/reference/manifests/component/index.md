@@ -1,82 +1,59 @@
-# Hub Manifests
+# Hubfile Reference
 
-Hub manifest (sometimes called Hubfile) is a YAML file that describes a stack or a component. It is a source of truth for hubctl deployment. There are two types of manifests:
+On top level stack manifest contains following sections:
 
-* Component manifest: `hub-component.yaml`
-* Stack manifest: `hub.yaml`, `params.yaml`
+```yaml
+meta:
+    kind: stack 
+    version: 1
+requires:                              # optional, list of requirements for stack
+    - kubernetes
+components:
+    - name: cert-manager               # mandatory, name of the component
+      source:
+        dir: components/cert-manager   # mandatory, local path where to find component
+    - name: knative-serving
+        source:
+            dir: components/knative-serving
+        git:                                      # optional, git source to download component from
+            remote: https://github.com/agilestacks/kubeflow-components.git # git repository remote url
+            subDir: knative-serving               # mandatory, subdirectory in the repository
+            ref: develop                          # optional, git reference (branch, tag, commit)
+        depends:                                  # optional, component dependency
+        - cert-manager
+    lifecycle:                                    # optional, lifecycle verbs
+        verbs:
+            - deploy                              # mandatory, deploy verb
+            - undeploy                            # mandatory, undeploy verb
+            - custom-verb                         # optional, custom verb
+        order:                                    # optional, order of deployment
+            - cert-manager
+            - knative-serving
+    parameters:
+        - name: dns.domain                         # mandatory, parameter name
+          value: localhost                         # mandatory, parameter name
+        - name: certmanager.namespace
+          component: cert-manager                  # optional, component name, if not defined then parameter is global for all components
+          brief: Define namespace for cert-manager # optional, brief description for parameter
+          default: v1.11.0                         # optional, default value for parameter
+          fromEnv: CERTMANAGER_NAMESPACE           # optional, parameter value is taken from environment variable, this approach allows not to store exact value in version control. Useful for sensitive parameters.
+    outputs:                                    # optional, stack outputs
+    - name: foo                                 # mandatory, output name
+      value: http://localhost:${pgweb.port}     # mandatory, output value
+      brief: foo endpoint                       # optional, brief description for output       
+```
 
 # Component manifest:
 
-Component manifest describes how to deploy a component:
+- [meta](./meta): name, description, version, etc.
+- [requires](./requires) and [provides](./provides)
+- [parameters](../parameters.md): inputs, defaults, mapping to OS environment
+- [outputs](./outputs)
+- [templates](./templates): where are the templates
+- [lifecycle](./lifecycle): verbs, fine-tuning for hubctl
 
-* Component `requires` (that the component expects from environment or another (upstream) component)
-* Component `provides` what capability component will add to the stack (e.g. `kubernetes` or `bucket`)
-* Component input `parameters`:
-  - names, defines interface for the component
-  - defaults 
-  - mapping to OS environment variables (to the deployment scripts)
-* Component `outputs` (to be used as inputs by downstream components)
-* Component `lifecycle`
-  - verbs (besides `deploy` and `undeploy`) that can be executed on the component
-  - readiness probes
-* Describes `templates` used by the component
 
-See more about component manifest in [here](component.md).
 
-## Stack manifest
-
-Stack manifest describes how one or multiple components are deployed together:
-
-* Stack `requires` from environment
-* Describes `components` list and dependencies between them
-* Describes stack input `parameters`
-  - names
-  - values,
-  - Mapping from OS environment variables and default values
-* Describes deployment `hooks`
-
-### Component references
-
-```yaml
-components:
-- name: storage-class
-  source:
-    dir: components/storage-class
-    git:  # optional, to maintain `dir` as subtree of the Git repo with `hub pull`
-      remote: 'https://github.com/agilestacks/components.git'
-      ref: master
-      subDir: storage-class
-  depends:  # optional, search order to match parameters to outputs
-  - kubernetes
-```
-
-### Component lifecycle hooks
-
-Sometimes before or after a component deployment, SREs need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:
-
-```yaml
-components:
-- name: external-dns
-  hooks:
-  - file: bin/do-something              # relative to the directory where the hugctl manifest file is located (`hub.yaml`)
-    brief: Some description of my hook  # optional, brief description for hook
-    error: ignore                       # optional, default is `error: fail`
-    triggers:                           # optional, default is `triggers: [pre-deploy, post-deploy]`
-    - pre-deploy
-    - post-undeploy
-  source:
-    dir: components/external-dns
-```
-
-There are 2 hooks in the example:
-
-* File `pre-deploy-hook` from the `.hub` directory relative to the directory where the Hub manifest file is located (`hub.yaml`) will be executed BEFORE `external-dns` component is deployed. `error: ignore` means that stack deployment will continue even if there is an error in the hook (it exits with non 0 exit code)
-* File `post-deploy-hook` from the `.hub` directory relative to the directory where the Hub manifest file is located (`hub.yaml`) will be executed AFTER `external-dns` component is deployed.
-
-Additionally,
-
-* `triggers` array also supports regular expressions, such as `*-deploy` or `post-*`
-* All hooks matching the expression will be executed, and hook order from the `hooks` list will be maintained.
 
 ### Requires and provides
 
@@ -147,17 +124,7 @@ For convenience, `parameters` could be nested so that parent `name` is prepended
 
 `value` supports substitution expressions such as `${cloud.region}` or `1 ${var2} 3 ${var4}` and `#{}` [CEL expressions], see Component manifest > Parameters below.
 
-#### Mapping
 
-Some parameters cannot be resolved at beginning of the deployment. To map output to a different name use `kind: link` parameter. The interpretation of `value` will be deferred until parameter is used:
-
-```yaml
-- name: component.backend.image
-  value: ${backend-ecr:component.ecr.image}
-  kind: link
-```
-
-`backend-ecr` is a component deployed prior to `backend`. There are several ECRs thus output is fully qualified.
 
 ### Stack outputs
 
@@ -292,5 +259,6 @@ templates:
     - helm/values*.yaml.gotemplate
 ```
 
-[Hubctl extensions]: https://github.com/epam/hub-extensions
-[CEL]: https://github.com/google/cel-go
+## See Also
+
+* [Stack Manifest](../stack)

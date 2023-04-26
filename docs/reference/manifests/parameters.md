@@ -28,17 +28,44 @@ kubernetes.worker.size
 
 The values are in most cases plain text / scalar type, yet we support arrays and maps - data types native to JSON and YAML.
 
-## Parameter types
+## Resolve parameter value
 
 Here we specify parameter types and their interpretation.
+
+This is the most common type of parameter. It is used to set parameter value to a literal:
+
+```yaml
+parameters:
+- name: kubernetes.namespace
+  value: kube-system
+```
+
+with interpolation
+```yaml
+parameters:
+- name: dns.domain
+  value: example.com
+- name: ingress.hosts
+  value: www.${dns.domain}
+  # resolves to: www.example.com
+```
+
+or multiline parameters 
+
+```yaml
+parameters:
+- name: ingress.hosts
+  value: |
+    example.com
+    www.example.com
+```
 
 ### Parameter `fromEnv`
 
 This parameter only forks for stack manifests (`hub.yaml` and `params-*.yaml`). It allows to set parameter value from environment variable:
 
 ```yaml
-
-```yaml
+parameters
 - name: kubernetes.namespace
   fromEnv: NAMESPACE
   default: kube-system
@@ -65,33 +92,46 @@ Parameter above will define environment variable `NAMESPACE` with value `kube-sy
 
 Parameter value could be read from file `fromFile: config/stage/password`.
 
-### Parameter `kind`
+## CEL expressions
+
+Parameter `value` support [CEL expressions](https://github.com/google/cel-go) enclosed in `#{}` such as:
+
+```yaml
+parameters:
+- name: cloud.availabilityZones
+- name: cloud.availabilityZones.count
+  value: "#{len(cloud.availabilityZones)}"
+```
+
+> CEL has some unexpected results for corner cases, use `hubctl cel` to debug.
+
+## Parameter `kind`
+
+All parameters can be derived from primarily from values or other components. These parameters resolved during the deployment. 
+
+However there are special case parameters. In this case you define a special attribute `kind` to specify how parameter should be resolved.
+
+### Parameter `kind: user`
 
 There are high-level user-provided parameters - the facts `user` do care about: which cloud and cloud account to use, what region to deploy to, etc.
 
-There are also lower-level technical parameters, which hubctl must derive from other places, such as backend service endpoint which may come from another stack or from component output.
+### Parameter `kind: link`
 
-By default all parameters are technical
+In general, preferred approach to resolve parameters provided as outputs from the component is through `components.depends` attribute. However sometimes you need to change parameter name as they are not match. 
 
-## Mapping
-
-Some parameters cannot be resolved at beginning of the deployment. To map output to a different name use `kind: link` parameter. The interpretation of `value` will be deferred until parameter is used:
+To map output to a different name use `kind: link` parameter. The interpretation of `value` will be deferred until parameter is used:
 
 ```yaml
-- name: component.backend.image
-  value: ${backend-ecr:component.ecr.image}
+parameters:
+- name: backend.image
+  value: ${ecr:docker.image}
   kind: link
 ```
 
-`backend-ecr` is a component deployed prior to `backend`. There are several ECRs thus output is fully qualified.
-
-## CEL expressions
-
-Parameter `value` support [CEL] expressions enclosed in `#{}` such as `Cloud region is ${cloud.region} and number of availability zones is #{len(cloud.availabilityZones)}.
-
-CEL has some unexpected results for corner cases, use `hub cel` to debug.
+`ecr` is a component deployed prior to `backend`. There are several ECRs thus output is fully qualified.
 
 ## See also
 
 * [Stack Manifest](stack.md)
 * [Component Manifest](component.md)
+* [CEL expressions](https://github.com/google/cel-go)

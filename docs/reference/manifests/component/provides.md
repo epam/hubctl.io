@@ -1,0 +1,3 @@
+# Section `provides`
+
+Lorem ipsum...
