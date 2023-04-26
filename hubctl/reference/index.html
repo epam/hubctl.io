@@ -822,6 +822,8 @@
             
           
         
+          
+        
       
       
         
@@ -851,7 +853,21 @@
   
     <li class="md-nav__item">
       <a href="../components/" class="md-nav__link">
-        Design and Architecture
+        Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hubfile/" class="md-nav__link">
+        Hubfile Reference
       </a>
     </li>
   
@@ -959,7 +975,7 @@
       
         <li class="md-nav__item">
   <a href="#component-manifest" class="md-nav__link">
-    Component manifest
+    Component Manifest
   </a>
   
 </li>
@@ -980,48 +996,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#component-source-location" class="md-nav__link">
-    Component source location
+  <a href="#component-source" class="md-nav__link">
+    Component Source
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#component-lifecycle-hooks" class="md-nav__link">
-    Component lifecycle hooks
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-hooks" class="md-nav__link">
+    Deployment Hooks
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters-ambiguity" class="md-nav__link">
-    Parameters ambiguity
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameters ambiguity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#outputs" class="md-nav__link">
     Outputs
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#inputs" class="md-nav__link">
     Inputs
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1122,8 +1125,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#well-known-parameters" class="md-nav__link">
-    Well-known parameters
+  <a href="#see-also" class="md-nav__link">
+    See Also
   </a>
   
 </li>
@@ -1149,31 +1152,51 @@
 <h1 id="hubfile">Hubfile</h1>
 <p>Hubfile is a YAML file that describes a stack or component. It is a source of truth for hubctl deployment. There are two types of Hubfiles:</p>
 <ul>
-<li><code>hub.yaml</code> for stack</li>
-<li><code>hub-component.yaml</code> for component</li>
+<li>Component manifest: <code>hub-component.yaml</code></li>
+<li>Stack manifest: <code>hub.yaml</code>, <code>params.yaml</code></li>
 </ul>
-<p><code>hub.yaml.elaborate</code> is a Hub CLI assembled manifest which is self-sufficient (contains multiple YAML documents) - fully describing the stack.</p>
-<p>See [[Manifest reference]] for details.</p>
-<h2 id="component-manifest">Component manifest</h2>
-<p>[[Component manifest|Manifest reference#component-manifest]] defines component interface: input parameters, requirements and provides, available lifecycle verbs, templates location, and outputs.</p>
+<h2 id="component-manifest">Component Manifest</h2>
+<p>Component manifest describes how to deploy a component:</p>
+<ul>
+<li>Requirements, that the component expects from environment or another (upstream) component</li>
+<li>What are the component input and output parameters</li>
+<li>Additional verbs (besides <code>deploy</code> and <code>undeploy</code>) that can be executed on the component</li>
+<li>Describes templates used by the component</li>
+</ul>
 <h2 id="stack-manifest">Stack manifest</h2>
-<p>[[Stack manifest|Manifest reference#stack-manifest]] binds components together. It enumerate components, define deployment order, requirements, mapping of outputs and parameters, etc.</p>
+<p>Stack manifest describes how one or multiple components are deployed together:</p>
+<ul>
+<li>Requirements from environment</li>
+<li>Defines components list and dependencies between them</li>
+<li>Defines stack input and output parameters</li>
+<li>Defines deployment hooks</li>
+</ul>
 <h3 id="directory-hierarchy">Directory Hierarchy</h3>
-<p><code>hub.yaml</code> is placed into top-most directory of the stack and <code>hub-components.yaml</code> into top-most directory of the component, for example:</p>
-<pre><code class="language-text">Root of the Stack
-  hub.yaml
-  /etc
-    ...
-  /databases  ## stack specific setup
-    hub-component.yaml
-  /secrets
-    hub-component.yaml
-  /components  # reusable software
-    /eks
-    /nginxing
-      hub-component.yaml
+<p>Here is the typical directory hierarchy for a stack:</p>
+<pre><code class="language-text">├── bin
+│   └── deployment-hook.sh       
+├── components
+│   ├── component1
+│   │   ├── hub-component.yaml
+│   │   ├── deploy.sh
+│   │   └── undeploy.sh
+│   └── component2
+│       ├── hub-component.yaml
+│       └── main.tf
+├── hub.yaml
+└── params.yaml
 </code></pre>
-<h3 id="component-source-location">Component source location</h3>
+<p>Above you can see a stack manifest files: <code>hub.yaml</code> and <code>params.yaml</code>. Also, there are two components: <code>component1</code> and <code>component2</code>. Both components have a component manifest files <code>hub-component.yaml</code>. </p>
+<p>We can see that the <code>component1</code> has <code>deploy.sh</code> and <code>undeploy.sh</code> scripts that are used by <code>hubctl</code> to deploy and undeploy the component. </p>
+<p>THe <code>component2</code> has <code>main.tf</code> which means <code>hubctl</code> will use Terraform to deploy <code>component2</code>.</p>
+<blockquote>
+<p>Note: this is a good practice to split parameters from <code>hub.yaml</code> into it's own file <code>params.yaml</code> or even a series of <code>params.yaml</code> files. The parameter files can be referenced in <code>hub.yaml</code> as the following</p>
+</blockquote>
+<pre><code class="language-yaml">extension:
+  inclue:
+  - params.yaml
+</code></pre>
+<h3 id="component-source">Component Source</h3>
 <pre><code class="language-yaml">components:
 - name: external-dns
   source:
@@ -1181,42 +1204,38 @@
     git:
       remote: 'https://github.com/agilestacks/components.git'
       ref: master
-      subDir: edns
+      subDir: external-dns
 </code></pre>
-<p><code>external-dns</code> component sources are under <code>./components/external-dns/</code> directory. Optional <code>source.git</code> is to manage updates from upstream with [[Pull extension]].</p>
-<h3 id="component-lifecycle-hooks">Component lifecycle hooks</h3>
+<p>Above you can see <code>external-dns</code> component sources are under <code>./components/external-dns/</code> directory. Optional <code>source.git</code> to specify git repository and branch to pull the component from during <code>hubctl stack init</code>.</p>
+<h2 id="deployment-hooks">Deployment Hooks</h2>
 <p>Sometimes before or after a component deployment, SREs need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:</p>
 <pre><code class="language-yaml">components:
 - name: external-dns
-  hooks:
-  - file: .hub/pre-deploy-hook
-    brief: Some description of my hook
-    error: ignore
-    triggers:
-    - pre-deploy
-  - file: .hub/post-deploy-hook
-    brief: Some description of my hook
-    triggers:
-    - post-deploy
   source:
     dir: components/external-dns
     git:
       remote: 'https://github.com/agilestacks/components.git'
       ref: master
-      subDir: edns
+      subDir: external-dns
+  hooks:
+  - file: bin/pre-deploy-hook
+    error: ignore
+    triggers:
+    - pre-deploy
+  - file: bin/post-deploy-hook
+    triggers:
+    - post-deploy
 </code></pre>
 <p>There are 2 hooks in the example:</p>
 <ul>
 <li>File <code>pre-deploy-hook</code> from the <code>.hub</code> directory relative to the directory where the Hub manifest file is located (<code>hub.yaml</code>) will be executed BEFORE <code>external-dns</code> component is deployed. <code>error: ignore</code> means that stack deployment will continue even if there is an error in the hook (it exits with non 0 exit code)</li>
 <li>File <code>post-deploy-hook</code> from the <code>.hub</code> directory relative to the directory where the Hub manifest file is located (<code>hub.yaml</code>) will be executed AFTER <code>external-dns</code> component is deployed.</li>
 </ul>
-<p>Additionally,</p>
-<ul>
-<li><code>triggers</code> array also supports regular expressions, such as <code>*-deploy</code> or <code>post-*</code></li>
-<li>All hooks matching the expression will be executed, and hook order from the <code>hooks</code> list will be maintained.</li>
-</ul>
-<h3 id="parameters-ambiguity">Parameters ambiguity</h3>
-<h4 id="outputs">Outputs</h4>
+<blockquote>
+<p>Note: <code>triggers</code> array also supports regular expressions, such as <code>*-deploy</code> or <code>post-*</code></p>
+</blockquote>
+<p>Hooks will be executed in the order they are defined in the manifest file.</p>
+<h2 id="outputs">Outputs</h2>
 <p>When more than a single instance of the same component is deployed in the stack - think two PostgreSQL databases, then there is an ambiguity because both components provides same outputs, ie. <code>endpoint</code> and <code>password</code>.</p>
 <p>To bind input parameters of the <code>pgweb</code> to specific PostgreSQL, use <code>depends</code>:</p>
 <pre><code class="language-yaml">components:
@@ -1230,7 +1249,7 @@
   - pg1
 </code></pre>
 <p>The outputs of <code>depends</code> are searched in turn, then the <em>global</em> outputs pool.</p>
-<h4 id="inputs">Inputs</h4>
+<h2 id="inputs">Inputs</h2>
 <p>To set parameters for a specific component instance use <code>component</code>:</p>
 <pre><code class="language-yaml">parameters:
 - name: component.postgresql
@@ -1239,7 +1258,7 @@
 </code></pre>
 <p>The component <code>&lt;name&gt;</code> first looks for parameters that are qualified with <code>component: &lt;name&gt;</code>, then <em>global</em> parameters space.</p>
 <h2 id="manifest-composition">Manifest composition</h2>
-<p><code>hub.yaml.elaborate</code> manifest is composed by joining <code>hub.yaml</code> and <code>hub-component.yaml</code> files with <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> delimiter literal <code>---\n</code>. Thus the first document in the <code>hub.yaml.elaborate</code> is special.</p>
+<p><code>hub.yaml.elaborate</code> manifest is composed by joining <code>hub.yaml</code> and <code>hub-component.yaml</code> files with [YAML] delimiter literal <code>---\n</code>. Thus the first document in the <code>hub.yaml.elaborate</code> is special.</p>
 <h2 id="requirements">Requirements</h2>
 <p>Both stack and component may describe dependencies that must be satisfied - <em>requires</em>, before (fully parameterized) stack could be deployed. Some examples of requirements:</p>
 <ul>
@@ -1322,7 +1341,8 @@ deployment
 <h3 id="securing-outputs">Securing outputs</h3>
 <p>Output could be a secret that should not be leaked to deployment log. Such outputs could be captured with <code>hub util otp</code> one-time pad or read from a file.</p>
 <h2 id="lifecycle">Lifecycle</h2>
-<p>Standard verbs are: deploy, undeploy. Additional verbs could be: backup, connect, etc. Verbs are delegated to implementations in the component source code. There is additional support for Terraform, Make, and Helm in [[Deployment extensions]].</p>
+<p>Every part of the stack has a lifecycle is optional and can be omitted.</p>
+<p>Standard verbs are: deploy, undeploy. Additional verbs could be: backup, connect, etc. Verbs are delegated to implementations in the component source code. There is additional support for Terraform, Make, and Helm see <a href="/hubctl/components">more</a></p>
 <pre><code class="language-yaml">lifecycle:
   verbs:
   - deploy
@@ -1338,21 +1358,14 @@ deployment
     waitSeconds: 600
 </code></pre>
 <p><code>readyCondition</code> specifies additional checks that must complete successfully within <code>waitSeconds</code> duration for stack deployment to succeed.</p>
-<h2 id="well-known-parameters">Well-known parameters</h2>
-<p><em>(a feature subject to removal)</em></p>
-<p>To decrease verbosity of parameters manifests, <code>brief</code>, <code>description</code>, and defaults could be offloaded to <code>meta/hub-well-known-parameters.yaml</code> file which is built into Hub CLI binary:</p>
-<pre><code class="language-yaml">parameters:
-- name: cloud.kind
-  brief: Cloud kind
-  kind: user
-  description: ...
-  default: aws
-- name: cloud.region
-  brief: Cloud region
-  kind: user
-  description: ...
-  default: us-east-2
-</code></pre>
+<blockquote>
+<p>Note: if you omit verbs. then It assumes stack limited to [deploy, undeploy] verbs</p>
+</blockquote>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="/hubctl">Hub CLI</a></li>
+<li><a href="/hubctl/components">Hub Components</a></li>
+</ul>
 
   <hr>
 <div class="md-source-file">
