@@ -2,7 +2,7 @@
 
 Reverse deployment operation for entire stack or particular components
 
-Because `undeploy` is a reverse operation to `deploy`, you might want to check out article for [`hubctl stack deploy`](../hubctl-stack-deploy) sections about __executors__ and __deployment hooks__.
+Because `undeploy` is a reverse operation to `deploy`, you might want to check out article for [`hubctl stack deploy`](/hubctl/cli/hubctl-stack-deploy) sections about __executors__ and __deployment hooks__.
 
 ## Command Parameters
 
@@ -39,7 +39,9 @@ hubctl stack undeploy -c "external-dns,cert-manager"
 
 ## See also
 
-* [`hubctl stack deploy`](../hubctl-stack-deploy)
-* [`hubctl stack init`](../hubctl-stack-init)
-* [`hubctl stack configure`](../hubctl-stack-configure)
-* [`hubctl stack rm`](../hubctl-stack-rm)
+* [`hubctl stack deploy`](/hubctl/cli/hubctl-stack-deploy)
+* [`hubctl stack init`](/hubctl/cli/hubctl-stack-init)
+* [`hubctl stack configure`](/hubctl/cli/hubctl-stack-configure)
+* [`hubctl stack ls`](/hubctl/cli/hubctl-stack-ls)
+* [`hubctl stack set`](/hubctl/cli/hubctl-stack-set)
+* [`hubctl stack rm`](/hubctl/cli/hubctl-stack-unconfigure)

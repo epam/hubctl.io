@@ -40,5 +40,4 @@ There are number of well-known parameters that can be used to configure ARM depl
 
 ## See also
 
-* [Hub Components](../)
-* [Hub Component Terraform](../terraform)
+* [Hub Components](/hubctl/components)

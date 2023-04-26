@@ -41,7 +41,7 @@ nav:
     - Use Cases: use-cases.md
   - Hubctl:
       - Overview: hubctl/index.md
-      - CLI hubctl:
+      - Command Line Interface (CLI): 
         - hubctl/cli/index.md
         - hubctl stack: hubctl/cli/hubctl-stack.md
         - hubctl stack init: hubctl/cli/hubctl-stack-init.md
@@ -55,7 +55,6 @@ nav:
         - hubctl show: hubctl/cli/hubctl-show.md
         - hubctl toolbox: hubctl/cli/hubctl-toolbox.md
       - Components:
-        - hubctl/components/index.md
         - Terraform: hubctl/components/terraform.md
         - Kubernetes: hubctl/components/kubernetes.md
         - Helm: hubctl/components/helm.md
@@ -63,9 +62,11 @@ nav:
         - Shell: hubctl/components/shell.md
         - Makefile: hubctl/components/makefile.md
         - ARM: hubctl/components/arm.md
-      - Design and Architecture:
-        - hubctl/design-and-architecture/index.md
-  - Getting Started:
+      #   - hubctl/design-and-architecture/index.md
+  - Reference documentation: 
+    - hubctl/reference/index.md
+    - Design and Architecture: hubctl/components/index.md
+  - Getting Started: 
     - tutorials/index.md
     - tutorials/020-shell-component/README.md
 

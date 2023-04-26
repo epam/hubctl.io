@@ -31,7 +31,7 @@ hubctl stack init -f "https://raw.githubusercontent.com/epam/hubctl-google-stack
 
 ## See also
 
-* [`hubctl stack configure`](../hubctl-stack-configure)
-* [`hubctl stack deploy`](../hubctl-stack-deploy)
-* [`hubctl stack ls`](../hubctl-stack-ls)
-* [`hubctl stack rm`](../hubctl-stack-rm)
+* [`hubctl stack configure`](/hubctl/cli/hubctl-stack-configure)
+* [`hubctl stack deploy`](/hubctl/cli/hubctl-stack-deploy)
+* [`hubctl stack ls`](/hubctl/cli/hubctl-stack-ls)
+* [`hubctl stack rm`](/hubctl/cli/hubctl-stack-rm)

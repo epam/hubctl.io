@@ -122,5 +122,5 @@ templates:
 
 ## See also
 
-* [Hub Components](../)
-* [Kubernetes Configuration](../kubernetes)
+* [Hub Components](/hubctl/components/)
+* [Kubernetes Configuration](/hubctl/components/kubernetes/)

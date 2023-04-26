@@ -43,5 +43,5 @@ hubctl show -c 'mysql' -q '.outputs.component.mysql.password'
 
 ## See also
 
-* [`hubctl stack`](../hubctl-stack)
-* [`hubctl toolbox`](../hubctl-toolbox)
+* [`hubctl stack`](/hubctl/cli/hubctl-stack)
+* [`hubctl toolbox`](/hubctl/cli/hubctl-toolbox)

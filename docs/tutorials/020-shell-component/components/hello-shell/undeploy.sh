@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo "Component $COMPONENT_NAME undeployed successfully!"
+echo "Component $HUB_COMPONENT_NAME undeployed successfully!"
