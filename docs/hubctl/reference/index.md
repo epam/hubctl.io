@@ -57,22 +57,6 @@ extension:
   - params.yaml
 ```
 
-### Component Source 
-
-```yaml
-components:
-- name: external-dns
-  source:
-    dir: components/external-dns
-    git:
-      remote: 'https://github.com/agilestacks/components.git'
-      ref: master
-      subDir: external-dns
-```
-
-Above you can see `external-dns` component sources are under `./components/external-dns/` directory. Optional `source.git` to specify git repository and branch to pull the component from during `hubctl stack init`.
-
-
 ## Deployment Hooks
 
 Sometimes before or after a component deployment, SREs need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:

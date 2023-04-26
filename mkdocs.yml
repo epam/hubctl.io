@@ -41,7 +41,7 @@ nav:
     - Use Cases: use-cases.md
   - Hubctl:
       - Overview: hubctl/index.md
-      - Command Line Interface (CLI): 
+      - Command Line Interface (CLI):
         - hubctl/cli/index.md
         - hubctl stack: hubctl/cli/hubctl-stack.md
         - hubctl stack init: hubctl/cli/hubctl-stack-init.md
@@ -54,20 +54,24 @@ nav:
         - hubctl stack elaborate: hubctl/cli/hubctl-stack-elaborate.md
         - hubctl show: hubctl/cli/hubctl-show.md
         - hubctl toolbox: hubctl/cli/hubctl-toolbox.md
-      - Components:
-        - Terraform: hubctl/components/terraform.md
-        - Kubernetes: hubctl/components/kubernetes.md
-        - Helm: hubctl/components/helm.md
-        - Kustomize: hubctl/components/kustomize.md
-        - Shell: hubctl/components/shell.md
-        - Makefile: hubctl/components/makefile.md
-        - ARM: hubctl/components/arm.md
       #   - hubctl/design-and-architecture/index.md
-  - Reference documentation: 
+  - Reference documentation:
     - hubctl/reference/index.md
-    - hubctl/components/index.md
-    - hubctl/reference/hubfile.md
-  - Getting Started: 
+    - Manifest files:
+      - hubctl/reference/manifests/index.md
+      - Stack: hubctl/reference/manifests/stack.md
+      - Component: hubctl/reference/manifests/component.md
+      - Parameters: hubctl/reference/manifests/params.md
+  - Components:
+      - hubctl/components/index.md
+      - Terraform: hubctl/components/terraform.md
+      - Kubernetes: hubctl/components/kubernetes.md
+      - Helm: hubctl/components/helm.md
+      - Kustomize: hubctl/components/kustomize.md
+      - Shell: hubctl/components/shell.md
+      - Makefile: hubctl/components/makefile.md
+      - ARM: hubctl/components/arm.md
+  - Getting Started:
     - tutorials/index.md
     - tutorials/020-shell-component/README.md
 

@@ -40,4 +40,4 @@ There are number of well-known parameters that can be used to configure ARM depl
 
 ## See also
 
-* [Hub Components](/hubctl/components)
+* [Hub Components](../../components)

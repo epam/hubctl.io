@@ -1,86 +1,39 @@
-# Hubfile Reference
+# Hub Manifests
 
-On top level stack manifest contains following sections:
+Hub manifest (sometimes called Hubfile) is a YAML file that describes a stack or a component. It is a source of truth for hubctl deployment. There are two types of manifests:
 
-```yaml
-meta:
-    kind: stack 
-    version: 1
-requires:                              # optional, list of requirements for stacj
-    - kubernetes
-components:
-    - name: cert-manager               # mandatory, name of the component
-      source:
-        dir: components/cert-manager   # mandatory, local path where to find component
-    - name: knative-serving
-        source:
-            dir: components/knative-serving
-        git:                                      # optional, git source to download component from
-            remote: https://github.com/agilestacks/kubeflow-components.git # git repository remote url
-            subDir: knative-serving               # mandatory, subdirectory in the repository
-            ref: develop                          # optional, git reference (branch, tag, commit)
-        depends:                                  # optional, component dependency
-        - cert-manager
-    lifecycle:                                    # optional, lifecycle verbs
-        verbs:
-            - deploy                              # mandatory, deploy verb
-            - undeploy                            # mandatory, undeploy verb
-            - custom-verb                         # optional, custom verb
-        order:                                    # optional, order of deployment
-            - cert-manager
-            - knative-serving
-    parameters:
-        - name: dns.domain                         # mandatory, parameter name
-          value: localhost                         # mandatory, parameter name
-        - name: certmanager.namespace
-          component: cert-manager                  # optional, component name, if not defined then parameter is global for all components
-          brief: Define namespace for cert-manager # optional, brief description for parameter
-          default: v1.11.0                         # optional, default value for parameter
-          fromEnv: CERTMANAGER_NAMESPACE           # optional, parameter value is taken from environment variable, this approach allows not to store exact value in version control. Useful for sensitive parameters.
-    outputs:                                    # optional, stack outputs
-    - name: foo                                 # mandatory, output name
-      value: http://localhost:${pgweb.port}     # mandatory, output value
-      brief: foo endpoint                       # optional, brief description for output       
-```
-
-* meta: name, brief
-* components references: what and where are the components
-* requires and provides
-* lifecycle: verbs, optional and mandatory components, conditional deployment
-* parameters: stack inputs, mappings
-* stack outputs
+* Component manifest: `hub-component.yaml`
+* Stack manifest: `hub.yaml`, `params.yaml`
 
 # Component manifest:
 
-- meta: name, description, version, etc.
-- requires and provides
-- lifecycle: verbs, fine-tuning for Hub CLI
-- parameters: inputs, defaults, mapping to OS environment
-- component outputs
-- templates: where are the templates
+Component manifest describes how to deploy a component:
 
-Hub CLI `elaborate` verifies manifests according to the [schema](https://github.com/epam/hubctl/blob/master/meta/manifest.schema.json).
+* Component `requires` (that the component expects from environment or another (upstream) component)
+* Component `provides` what capability component will add to the stack (e.g. `kubernetes` or `bucket`)
+* Component input `parameters`:
+  - names, defines interface for the component
+  - defaults 
+  - mapping to OS environment variables (to the deployment scripts)
+* Component `outputs` (to be used as inputs by downstream components)
+* Component `lifecycle`
+  - verbs (besides `deploy` and `undeploy`) that can be executed on the component
+  - readiness probes
+* Describes `templates` used by the component
 
-For high-level introduction see [[Manifest]].
-
+See more about component manifest in [here](component.md).
 
 ## Stack manifest
 
-`hub.yaml` is a canonical name for stack manifest.
+Stack manifest describes how one or multiple components are deployed together:
 
-### Meta
-
-```yaml
-version: 1
-kind: stack
-meta:
-  name: happy-meal
-  title: Happy Meal
-  brief: Kubernetes with monitoring and DevOps tools
-  description: >
-    ...
-  fromStack: ../../stacks/base-stack  # see FromStack
-```
+* Stack `requires` from environment
+* Describes `components` list and dependencies between them
+* Describes stack input `parameters`
+  - names
+  - values,
+  - Mapping from OS environment variables and default values
+* Describes deployment `hooks`
 
 ### Component references
 
@@ -339,5 +292,5 @@ templates:
     - helm/values*.yaml.gotemplate
 ```
 
-[Hub CLI extensions]: https://github.com/epam/hub-extensions
+[Hubctl extensions]: https://github.com/epam/hub-extensions
 [CEL]: https://github.com/google/cel-go
