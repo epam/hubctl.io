@@ -25,7 +25,7 @@
     
     
       
-        <title>Hub Manifests - Hubctl</title>
+        <title>Hubfile - Hubctl</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hub-manifests" class="md-skip">
+        <a href="#hubfile" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hub Manifests
+              Hubfile
             
           </span>
         </div>
@@ -842,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="parameters/" class="md-nav__link">
+      <a href="stack/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -856,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="stack/outputs.md" class="md-nav__link">
+      <a href="stack/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -902,6 +902,8 @@
         
           
             
+          
+        
           
         
           
@@ -984,7 +986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="parameters/" class="md-nav__link">
+      <a href="component/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -998,7 +1000,21 @@
   
   
     <li class="md-nav__item">
-      <a href="component/outputs.md" class="md-nav__link">
+      <a href="component/templates/" class="md-nav__link">
+        templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="component/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -1273,6 +1289,150 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#component-manifest" class="md-nav__link">
+    Component manifest
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-manifest" class="md-nav__link">
+    Stack manifest
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack manifest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-references" class="md-nav__link">
+    Component references
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires-and-provides" class="md-nav__link">
+    Requires and provides
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping" class="md-nav__link">
+    Mapping
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stack-outputs" class="md-nav__link">
+    Stack outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    Extensions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-manifest_1" class="md-nav__link">
+    Component manifest
+  </a>
+  
+    <nav class="md-nav" aria-label="Component manifest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    Meta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requires-and-provides_1" class="md-nav__link">
+    Requires and provides
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle" class="md-nav__link">
+    Lifecycle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cel-expressions" class="md-nav__link">
+    CEL expressions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-outputs" class="md-nav__link">
+    Component outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    Templates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1289,13 +1449,14 @@
   
 
 
-<h1 id="hub-manifests">Hub Manifests</h1>
-<p>Hub manifest (sometimes called Hubfile) is a YAML file that describes a stack or a component. It is a source of truth for hubctl deployment. There are two types of manifests:</p>
+<h1 id="hubfile">Hubfile</h1>
+<p>Sometimes called as hub manifest. is a YAML file that describes a stack or a component. It is a source of truth for hubctl deployment. We will use both names interchangeably.</p>
+<p>There are two types of manifests:</p>
 <ul>
 <li>Component manifest: <code>hub-component.yaml</code></li>
 <li>Stack manifest: <code>hub.yaml</code>, <code>params.yaml</code></li>
 </ul>
-<h1 id="component-manifest">Component manifest:</h1>
+<h2 id="component-manifest"><a href="./component">Component manifest</a></h2>
 <p>Component manifest describes how to deploy a component:</p>
 <ul>
 <li>Component <code>requires</code> (that the component expects from environment or another (upstream) component)</li>
@@ -1311,7 +1472,7 @@
 <li>Describes <code>templates</code> used by the component</li>
 </ul>
 <p>See more about component manifest in <a href="component.md">here</a>.</p>
-<h2 id="stack-manifest">Stack manifest</h2>
+<h2 id="stack-manifest"><a href="./stack">Stack manifest</a></h2>
 <p>Stack manifest describes how one or multiple components are deployed together:</p>
 <ul>
 <li>Stack <code>requires</code> from environment</li>
@@ -1482,7 +1643,7 @@ provides:
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2023</span>
       
     
   </small>

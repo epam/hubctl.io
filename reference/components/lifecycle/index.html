@@ -832,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manifests/parameters/" class="md-nav__link">
+      <a href="../../manifests/stack/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -846,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manifests/stack/outputs.md" class="md-nav__link">
+      <a href="../../manifests/stack/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -892,6 +892,8 @@
         
           
             
+          
+        
           
         
           
@@ -974,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manifests/parameters/" class="md-nav__link">
+      <a href="../../manifests/component/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -988,7 +990,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manifests/component/outputs.md" class="md-nav__link">
+      <a href="../../manifests/component/templates/" class="md-nav__link">
+        templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manifests/component/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -1281,28 +1297,19 @@
 
 <h1 id="section-lifecycle">Section <code>lifecycle</code></h1>
 <pre><code class="language-yaml">lifecycle:
-  verbs:
+  verbs:  # add custom verbs for `hub invoke`
   - deploy
   - undeploy
-  order:
-  - kubernetes
-  - traefik
-  - kube-dashboard
-  # by default every component is mandatory until `mandatory` block exist,
-  #     then everything else is optional
-  # so use either `mandatory` or `optional`
-  mandatory:
-  - kubernetes
-  optional:
-  - kube-dashboard
-  requires:
-    optional:  # see Lifecycle &gt; Deploy &gt; Optional requirements
-    - vault
+  bare: true  # set to allow components without deploy or undeploy implementation
+              # usefull for creating synthetic outputs
   readyConditions:
   - dns: api.${dns.domain}              # resolvable
     url:  https://api.${dns.domain}/v1  # returns something other than HTTP 500
     waitSeconds: 600  # how long to wait for the condition
     pauseSeconds: 0   # pause before starting poll loop
+  options:
+    random:
+      bytes: 128  # see Manifest &gt; Outputs &gt; Securing outputs
 </code></pre>
 
   <hr>
@@ -1310,7 +1317,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2023</span>
       
     
   </small>

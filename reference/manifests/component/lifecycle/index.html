@@ -832,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parameters/" class="md-nav__link">
+      <a href="../../stack/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -846,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stack/outputs.md" class="md-nav__link">
+      <a href="../../stack/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -892,6 +892,8 @@
         
           
             
+          
+        
           
         
           
@@ -974,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parameters/" class="md-nav__link">
+      <a href="../parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -988,7 +990,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../outputs.md" class="md-nav__link">
+      <a href="../templates/" class="md-nav__link">
+        templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -1263,6 +1279,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See Also
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1280,14 +1311,31 @@
 
 
 <h1 id="section-lifecycle">Section <code>lifecycle</code></h1>
-<p>Lorem ipsum...</p>
+<p>Lifecycle, is a set of instructions to hubctl to control component deployment</p>
+<pre><code class="language-yaml">lifecycle:
+  verbs:                                # optional, add custom verbs for `hub invoke`. Defaults to [deploy, undeploy]
+  - deploy
+  - undeploy
+  bare: true                            # optional, instruction to allow component without deploy or undeploy implementation
+  readyConditions:                      # optional, conditions to check before declaring component deployed
+  - dns: api.${dns.domain}              # optional, checks if dns name has been resolved
+    url:  https://api.${dns.domain}/v1  # optional, uses http ping GET to check if url is available
+    pauseSeconds: 0                     # optional, pause in seconds before starting poll loop
+  options:                              # optional
+    random:                             # optional
+      bytes: 128                        # optional, see Manifest &gt; Outputs &gt; Securing outputs
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Component Manifest</a></li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2023</span>
       
     
   </small>

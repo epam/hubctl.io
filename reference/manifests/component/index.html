@@ -842,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../parameters/" class="md-nav__link">
+      <a href="../stack/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -856,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../stack/outputs.md" class="md-nav__link">
+      <a href="../stack/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -904,6 +904,8 @@
         
           
             
+          
+        
           
         
           
@@ -986,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../parameters/" class="md-nav__link">
+      <a href="parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -1000,7 +1002,21 @@
   
   
     <li class="md-nav__item">
-      <a href="outputs.md" class="md-nav__link">
+      <a href="templates/" class="md-nav__link">
+        templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -1294,7 +1310,7 @@
 <h1 id="hubfile-reference">Hubfile Reference</h1>
 <p>On top level stack manifest contains following sections:</p>
 <pre><code class="language-yaml">meta:
-    kind: stack 
+    kind: component 
     version: 1
 requires:                              # optional, list of requirements for stack
     - kubernetes
@@ -1336,7 +1352,7 @@ components:
 <ul>
 <li><a href="./meta">meta</a>: name, description, version, etc.</li>
 <li><a href="./requires">requires</a> and <a href="./provides">provides</a></li>
-<li><a href="../parameters/">parameters</a>: inputs, defaults, mapping to OS environment</li>
+<li><a href="../parameters.md">parameters</a>: inputs, defaults, mapping to OS environment</li>
 <li><a href="./outputs">outputs</a></li>
 <li><a href="./templates">templates</a>: where are the templates</li>
 <li><a href="./lifecycle">lifecycle</a>: verbs, fine-tuning for hubctl</li>
@@ -1511,7 +1527,7 @@ provides:
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2023</span>
       
     
   </small>
