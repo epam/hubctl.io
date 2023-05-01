@@ -17,3 +17,8 @@ Some examples of requirements:
 - `kubernetes`
 
 This list is not fixed we work on continuously expanding it.
+
+## See Also
+
+* [Stack Manifest](../)
+* [Component Requires](../../component/requires)

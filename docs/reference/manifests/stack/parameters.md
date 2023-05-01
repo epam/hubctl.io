@@ -1,4 +1,4 @@
-# Parameters Reference
+# Section `parameters`
 
 Parameters are used to configure stack and components in both stack manifest (`hub.yaml`) and component manifest (`hub-component.yaml`).
 
@@ -60,7 +60,9 @@ parameters:
     www.example.com
 ```
 
-### Parameter `fromEnv`
+### Parameter `fromEnv` 
+
+> __Stack Level only__
 
 This parameter only forks for stack manifests (`hub.yaml` and `params-*.yaml`). It allows to set parameter value from environment variable:
 
@@ -76,6 +78,8 @@ Parameter above will set value of parameter `kubernetes.namespace` to value of e
 During `hubctl stack configure` user will be prompted to provide value for parameter `kubernetes.namespace` with default value `kube-system`. 
 
 ### Parameter `env`
+
+> __Component Level only__
 
 This parameter only works for component manifests (`hub-component.yaml`). It allows to set environment variables from parameter value:
 
@@ -107,7 +111,7 @@ parameters:
 
 ## Parameter `kind`
 
-All parameters can be derived from primarily from values or other components. These parameters resolved during the deployment. 
+All parameters can be derived from primarily from values or other components. These parameters resolved during the deployment. Until you are not care for specific parameter __kind__ then leave it out.
 
 However there are special case parameters. In this case you define a special attribute `kind` to specify how parameter should be resolved.
 

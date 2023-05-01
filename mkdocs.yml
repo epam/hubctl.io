@@ -39,22 +39,6 @@ nav:
     - index.md
     - install.md
     - Use Cases: use-cases.md
-  - Hubctl:
-      - Overview: hubctl/index.md
-      - Command Line Interface (CLI):
-        - hubctl/cli/index.md
-        - hubctl stack: hubctl/cli/hubctl-stack.md
-        - hubctl stack init: hubctl/cli/hubctl-stack-init.md
-        - hubctl stack configure: hubctl/cli/hubctl-stack-configure.md
-        - hubctl stack deploy: hubctl/cli/hubctl-stack-deploy.md
-        - hubctl stack undeploy: hubctl/cli/hubctl-stack-undeploy.md
-        - hubctl stack ls: hubctl/cli/hubctl-stack-ls.md
-        - hubctl stack set: hubctl/cli/hubctl-stack-set.md
-        - hubctl stack rm: hubctl/cli/hubctl-stack-rm.md
-        - hubctl stack elaborate: hubctl/cli/hubctl-stack-elaborate.md
-        - hubctl show: hubctl/cli/hubctl-show.md
-        - hubctl toolbox: hubctl/cli/hubctl-toolbox.md
-      #   - hubctl/design-and-architecture/index.md
   - Reference documentation:
     - reference/index.md
     - Manifest files:
@@ -66,6 +50,7 @@ nav:
         - components: reference/manifests/stack/components.md
         - parameters: reference/manifests/stack/parameters.md
         - outputs: reference/manifests/stack/outputs.md
+        - extensions: reference/manifests/stack/extensions.md
         - lifecycle: reference/manifests/stack/lifecycle.md
       - Component:
         - reference/manifests/component/index.md
@@ -84,6 +69,21 @@ nav:
         - Shell: reference/components/shell.md
         - Makefile: reference/components/makefile.md
         - ARM: reference/components/arm.md
+  - hubctl:
+      # - Overview: hubctl/index.md
+        - hubctl: hubctl/cli/index.md
+        - hubctl stack: hubctl/cli/hubctl-stack.md
+        - hubctl stack init: hubctl/cli/hubctl-stack-init.md
+        - hubctl stack configure: hubctl/cli/hubctl-stack-configure.md
+        - hubctl stack deploy: hubctl/cli/hubctl-stack-deploy.md
+        - hubctl stack undeploy: hubctl/cli/hubctl-stack-undeploy.md
+        - hubctl stack ls: hubctl/cli/hubctl-stack-ls.md
+        - hubctl stack set: hubctl/cli/hubctl-stack-set.md
+        - hubctl stack rm: hubctl/cli/hubctl-stack-rm.md
+        - hubctl stack elaborate: hubctl/cli/hubctl-stack-elaborate.md
+        - hubctl show: hubctl/cli/hubctl-show.md
+        - hubctl toolbox: hubctl/cli/hubctl-toolbox.md
+      #   - hubctl/design-and-architecture/index.md
   - Getting Started:
     - tutorials/index.md
     - tutorials/020-shell-component/README.md

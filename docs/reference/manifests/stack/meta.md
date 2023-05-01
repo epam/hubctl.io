@@ -15,3 +15,7 @@ meta:                                 # optional
 Every stack must define at least manifest `version` and `kind`. Other fields are optional.
 
 Section `meta.fromStack` can enable inheritance of stack manifest from another stack. This will enable stack to inherit parameters values from another stack.
+
+## See Also
+
+* [Stack Manifest](../)
