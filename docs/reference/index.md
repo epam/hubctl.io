@@ -5,7 +5,7 @@ Hubfile is a YAML file that describes a stack or component. It is a source of tr
 * Component manifest: `hub-component.yaml`
 * Stack manifest: `hub.yaml`, `params.yaml`
 
-## Component Manifest
+## [Component Manifest](./manifests/component)
 
 Component manifest describes how to deploy a component:
 
@@ -14,7 +14,7 @@ Component manifest describes how to deploy a component:
 * Additional verbs (besides `deploy` and `undeploy`) that can be executed on the component
 * Describes templates used by the component
 
-## Stack manifest
+## [Stack manifest](./manifests/stack/)
 
 Stack manifest describes how one or multiple components are deployed together:
 

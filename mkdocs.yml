@@ -64,7 +64,7 @@ nav:
         - meta: reference/manifests/stack/meta.md
         - requires: reference/manifests/stack/requires.md
         - components: reference/manifests/stack/components.md
-        - parameters: reference/manifests/parameters.md
+        - parameters: reference/manifests/stack/parameters.md
         - outputs: reference/manifests/stack/outputs.md
         - lifecycle: reference/manifests/stack/lifecycle.md
       - Component:
@@ -72,7 +72,8 @@ nav:
         - meta: reference/manifests/component/meta.md
         - requires: reference/manifests/component/requires.md
         - provides: reference/manifests/component/provides.md
-        - parameters: reference/manifests/parameters.md
+        - parameters: reference/manifests/component/parameters.md
+        - templates: reference/manifests/component/templates.md
         - outputs: reference/manifests/component/outputs.md
     - Components:
         - reference/components/index.md

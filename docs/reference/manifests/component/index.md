@@ -4,7 +4,7 @@ On top level stack manifest contains following sections:
 
 ```yaml
 meta:
-    kind: stack 
+    kind: component 
     version: 1
 requires:                              # optional, list of requirements for stack
     - kubernetes
@@ -51,9 +51,6 @@ components:
 - [outputs](./outputs)
 - [templates](./templates): where are the templates
 - [lifecycle](./lifecycle): verbs, fine-tuning for hubctl
-
-
-
 
 ### Requires and provides
 

@@ -1,11 +1,13 @@
-# Hub Manifests
+# Hubfile
 
-Hub manifest (sometimes called Hubfile) is a YAML file that describes a stack or a component. It is a source of truth for hubctl deployment. There are two types of manifests:
+Sometimes called as hub manifest. is a YAML file that describes a stack or a component. It is a source of truth for hubctl deployment. We will use both names interchangeably.
+
+There are two types of manifests:
 
 * Component manifest: `hub-component.yaml`
 * Stack manifest: `hub.yaml`, `params.yaml`
 
-# Component manifest:
+## [Component manifest](./component)
 
 Component manifest describes how to deploy a component:
 
@@ -23,7 +25,7 @@ Component manifest describes how to deploy a component:
 
 See more about component manifest in [here](component.md).
 
-## Stack manifest
+## [Stack manifest](./stack)
 
 Stack manifest describes how one or multiple components are deployed together:
 

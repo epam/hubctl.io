@@ -22,3 +22,4 @@ lifecycle:                             # optional
     waitSeconds: 600                    # how long to wait for the condition
     pauseSeconds: 0                     # pause before starting poll loop
 ```
+
