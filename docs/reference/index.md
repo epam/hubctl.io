@@ -89,7 +89,7 @@ Stack parameters should be placed in `params.yaml` file - separately from `hub.y
 
 ```yaml
 extension:
-  inclue:
+  include:
   - params.yaml
 ```
 
