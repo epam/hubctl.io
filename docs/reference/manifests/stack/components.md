@@ -22,22 +22,22 @@ Section `components.depends` defines dependency between components. This takes e
 - Components deployment run-list `hubctl` will schedule component deployment in the order of dependency and then in order of declaration. User can overwrite order by declaring section `lifecycle.order` in stack manifest.
 - Parameters resolution. Let's say there are two components who output the same parameter. Section `depends` will tell to `hubctl` which component parameters must be taken as input.
 
-## Component lifecycle hooks
+## Component Deployment Hooks
 
-Sometimes before or after a component deployment, SREs need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:
+Sometimes before or after a component deployment, User need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:
 
 ```yaml
 components:
 - name: external-dns
-  hooks:
-  - file: bin/do-something              # relative to the directory where the hugctl manifest file is located (`hub.yaml`)
-    brief: Some description of my hook  # optional, brief description for hook
-    error: ignore                       # optional, default is `error: fail`
-    triggers:                           # optional, default is `triggers: [pre-deploy, post-deploy]`
-    - pre-deploy
-    - post-undeploy
   source:
     dir: components/external-dns
+  hooks:                                # optional
+  - file: bin/do-something              # rmandatory, relative to stack manifest file
+    brief: Some description of my hook  # optional, brief description for hook
+    error: ignore                       # optional, default is `error: fail`
+    triggers:                           # mandatory, when hook should be triggered. Accepts wildcards sich as `*-deploy` or `post-*`
+    - pre-deploy
+    - post-undeploy
 ```
 
 There are 2 hooks in the example:
