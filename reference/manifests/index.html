@@ -1303,37 +1303,26 @@
 <h1 id="hubfile">Hubfile</h1>
 <p>Sometimes called as hub manifest. is a YAML file that describes a stack or a component. It is a source of truth for hubctl deployment. We will use both names interchangeably.</p>
 <p>There are two types of manifests:</p>
-<ul>
-<li>Component manifest: <code>hub-component.yaml</code></li>
-<li>Stack manifest: <code>hub.yaml</code>, <code>params.yaml</code></li>
-</ul>
 <h2 id="component-manifest"><a href="./component">Component manifest</a></h2>
-<p>Component manifest describes how to deploy a component:</p>
+<p><strong>Defined as</strong> <code>hub-component.yaml</code></p>
+<p>Located in the component directory. This file has the following structure:</p>
 <ul>
-<li>Component <code>requires</code> (that the component expects from environment or another (upstream) component)</li>
-<li>Component <code>provides</code> what capability component will add to the stack (e.g. <code>kubernetes</code> or <code>bucket</code>)</li>
-<li>Component input <code>parameters</code>:</li>
-<li>names, defines interface for the component</li>
-<li>defaults </li>
-<li>mapping to OS environment variables (to the deployment scripts)</li>
-<li>Component <code>outputs</code> (to be used as inputs by downstream components)</li>
-<li>Component <code>lifecycle</code></li>
-<li>verbs (besides <code>deploy</code> and <code>undeploy</code>) that can be executed on the component</li>
-<li>readiness probes</li>
-<li>Describes <code>templates</code> used by the component</li>
+<li>Requirements, that the component expects from environment or another (upstream) component</li>
+<li>What are the component input and output parameters</li>
+<li>Additional verbs (besides <code>deploy</code> and <code>undeploy</code>) that can be executed on the component</li>
+<li>Describes templates used by the component</li>
 </ul>
-<p>See more about component manifest in <a href="component.md">here</a>.</p>
+<p>See more about component manifest in <a href="./component">here</a>.</p>
 <h2 id="stack-manifest"><a href="./stack">Stack manifest</a></h2>
-<p>Stack manifest describes how one or multiple components are deployed together:</p>
+<p><strong>Defined as</strong>: <code>hub.yaml</code>, <code>params.yaml</code>, <code>params-*.yaml</code>. </p>
+<p>Stack manifest describes how one or multiple components are deployed together. It has the following structure:</p>
 <ul>
-<li>Stack <code>requires</code> from environment</li>
-<li>Describes <code>components</code> list and dependencies between them</li>
-<li>Describes stack input <code>parameters</code></li>
-<li>names</li>
-<li>values,</li>
-<li>Mapping from OS environment variables and default values</li>
-<li>Describes deployment <code>hooks</code></li>
+<li>Requirements from environment</li>
+<li>Defines components list and dependencies between them</li>
+<li>Defines stack input and output parameters</li>
+<li>Defines deployment hooks</li>
 </ul>
+<p>See more about stack manifest in <a href="./stack">here</a>.</p>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="./component">Component manifest</a></li>

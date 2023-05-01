@@ -1260,49 +1260,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#component-manifest" class="md-nav__link">
-    Component Manifest
+  <a href="#directory-structure" class="md-nav__link">
+    Directory Structure
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#stack-manifest" class="md-nav__link">
-    Stack manifest
+  <a href="#best-practice" class="md-nav__link">
+    Best Practice
   </a>
-  
-    <nav class="md-nav" aria-label="Stack manifest">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#directory-hierarchy" class="md-nav__link">
-    Directory Hierarchy
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment-hooks" class="md-nav__link">
-    Deployment Hooks
-  </a>
-  
-    <nav class="md-nav" aria-label="Deployment Hooks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameters-file" class="md-nav__link">
-    Parameters file
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1332,29 +1299,13 @@
 
 
 <h1 id="hubfile">Hubfile</h1>
-<p>Hubfile is a YAML file that describes a stack or component. It is a source of truth for hubctl deployment. There are two types of Hubfiles:</p>
+<p><a href="./manifests">Hubfiles</a> defines a stack, parameters and components. Each component has it's own manifest. </p>
 <ul>
-<li>Component manifest: <code>hub-component.yaml</code></li>
-<li>Stack manifest: <code>hub.yaml</code>, <code>params.yaml</code></li>
+<li>Stack manifest file <code>hub.yaml</code> and optional <code>param.yaml</code> defined on the top level. </li>
+<li>Components are defined in the <code>components</code> directory. Each have a hubfile <code>hub-component.yaml</code> that defines the structure of the component and rules how to deploy it. </li>
 </ul>
-<h2 id="component-manifest"><a href="./manifests/component">Component Manifest</a></h2>
-<p>Component manifest describes how to deploy a component:</p>
-<ul>
-<li>Requirements, that the component expects from environment or another (upstream) component</li>
-<li>What are the component input and output parameters</li>
-<li>Additional verbs (besides <code>deploy</code> and <code>undeploy</code>) that can be executed on the component</li>
-<li>Describes templates used by the component</li>
-</ul>
-<h2 id="stack-manifest"><a href="./manifests/stack/">Stack manifest</a></h2>
-<p>Stack manifest describes how one or multiple components are deployed together:</p>
-<ul>
-<li>Requirements from environment</li>
-<li>Defines components list and dependencies between them</li>
-<li>Defines stack input and output parameters</li>
-<li>Defines deployment hooks</li>
-</ul>
-<h3 id="directory-hierarchy">Directory Hierarchy</h3>
-<p>Here is the typical directory hierarchy for a stack:</p>
+<h2 id="directory-structure">Directory Structure</h2>
+<p>While directory structure has not been fixed. yet we recommend the following:</p>
 <pre><code class="language-text">├── bin
 │   └── deployment-hook.sh       
 ├── components
@@ -1368,49 +1319,23 @@
 ├── hub.yaml
 └── params.yaml
 </code></pre>
-<p>Above you can see a stack manifest files: <code>hub.yaml</code> and <code>params.yaml</code>. Also, there are two components: <code>component1</code> and <code>component2</code>. Both components have a component manifest files <code>hub-component.yaml</code>. </p>
-<p>We can see that the <code>component1</code> has <code>deploy.sh</code> and <code>undeploy.sh</code> scripts that are used by <code>hubctl</code> to deploy and undeploy the component. </p>
-<p>THe <code>component2</code> has <code>main.tf</code> which means <code>hubctl</code> will use Terraform to deploy <code>component2</code>.</p>
-<h2 id="deployment-hooks">Deployment Hooks</h2>
-<p>Sometimes before or after a component deployment, SREs need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:</p>
-<pre><code class="language-yaml">components:
-- name: external-dns
-  source:
-    dir: components/external-dns
-    git:
-      remote: 'https://github.com/agilestacks/components.git'
-      ref: master
-      subDir: external-dns
-  hooks:
-  - file: bin/pre-deploy-hook
-    error: ignore
-    triggers:
-    - pre-deploy
-  - file: bin/post-deploy-hook
-    triggers:
-    - post-deploy
-</code></pre>
-<p>There are 2 hooks in the example:</p>
-<ul>
-<li>File <code>pre-deploy-hook</code> from the <code>.hub</code> directory relative to the directory where the Hub manifest file is located (<code>hub.yaml</code>) will be executed BEFORE <code>external-dns</code> component is deployed. <code>error: ignore</code> means that stack deployment will continue even if there is an error in the hook (it exits with non 0 exit code)</li>
-<li>File <code>post-deploy-hook</code> from the <code>.hub</code> directory relative to the directory where the Hub manifest file is located (<code>hub.yaml</code>) will be executed AFTER <code>external-dns</code> component is deployed.</li>
-</ul>
-<blockquote>
-<p>Note: <code>triggers</code> array also supports regular expressions, such as <code>*-deploy</code> or <code>post-*</code></p>
-</blockquote>
-<p>Hooks will be executed in the order they are defined in the manifest file.</p>
-<h3 id="parameters-file">Parameters file</h3>
-<p>Stack parameters should be placed in <code>params.yaml</code> file - separately from <code>hub.yaml</code>. It is possible to merge them though. There could be any number of parameters files.</p>
-<blockquote>
-<p>Note: this is a good practice to split parameters from <code>hub.yaml</code> into it's own file <code>params.yaml</code> or even a series of <code>params.yaml</code> files. The parameter files can be referenced in <code>hub.yaml</code> as the following</p>
-</blockquote>
+<p>In this example the<code>component1</code> uses <a href="../components/shell">shell</a> to deploy. It <code>deploy.sh</code> and <code>undeploy.sh</code>. </p>
+<p>The <code>component2</code> is using Terraform, and contains <code>*.tf</code> file (or files)</p>
+<p>Hubfile <code>hub.yaml</code> can define a deployment hooks, something that needs to be executed before or after individual component deployment. This webhook has been placed in the <code>bin</code> directory.</p>
+<h2 id="best-practice">Best Practice</h2>
+<p>Parameter definitions for entire stack can be quite large. For convinience parameters of the stack into the <code>params.yaml</code> or in the group of <code>params-*.yaml</code> files. Then you can refer aditional files in the <code>hub.yaml</code> as the following:</p>
 <pre><code class="language-yaml">extension:
   include:
   - params.yaml
 </code></pre>
+<p>See more in <a href="./stack/extensions">hubctl extensions</a></p>
+<blockquote>
+<p>Note: this is a good practice to split parameters from <code>hub.yaml</code> into it's own file <code>params.yaml</code> or even a series of <code>params.yaml</code> files. The parameter files can be referenced in <code>hub.yaml</code> as the following</p>
+</blockquote>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="./manifests">Hubfiles</a></li>
+<li><a href="./stack/extensions">Stack Extensions</a></li>
 </ul>
 
   <hr>
