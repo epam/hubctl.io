@@ -1291,64 +1291,8 @@
     Deployment Hooks
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outputs" class="md-nav__link">
-    Outputs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
-    Inputs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manifest-composition" class="md-nav__link">
-    Manifest composition
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#provides" class="md-nav__link">
-    Provides
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameters">
+    <nav class="md-nav" aria-label="Deployment Hooks">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameter-kind" class="md-nav__link">
-    Parameter kind
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#parameters-file" class="md-nav__link">
@@ -1357,49 +1301,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#parameter-from-environment-variable" class="md-nav__link">
-    Parameter from environment variable
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameter-from-file" class="md-nav__link">
-    Parameter from file
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outputs_1" class="md-nav__link">
-    Outputs
-  </a>
-  
-    <nav class="md-nav" aria-label="Outputs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#securing-outputs" class="md-nav__link">
-    Securing outputs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lifecycle" class="md-nav__link">
-    Lifecycle
-  </a>
   
 </li>
       
@@ -1468,13 +1371,6 @@
 <p>Above you can see a stack manifest files: <code>hub.yaml</code> and <code>params.yaml</code>. Also, there are two components: <code>component1</code> and <code>component2</code>. Both components have a component manifest files <code>hub-component.yaml</code>. </p>
 <p>We can see that the <code>component1</code> has <code>deploy.sh</code> and <code>undeploy.sh</code> scripts that are used by <code>hubctl</code> to deploy and undeploy the component. </p>
 <p>THe <code>component2</code> has <code>main.tf</code> which means <code>hubctl</code> will use Terraform to deploy <code>component2</code>.</p>
-<blockquote>
-<p>Note: this is a good practice to split parameters from <code>hub.yaml</code> into it's own file <code>params.yaml</code> or even a series of <code>params.yaml</code> files. The parameter files can be referenced in <code>hub.yaml</code> as the following</p>
-</blockquote>
-<pre><code class="language-yaml">extension:
-  inclue:
-  - params.yaml
-</code></pre>
 <h2 id="deployment-hooks">Deployment Hooks</h2>
 <p>Sometimes before or after a component deployment, SREs need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:</p>
 <pre><code class="language-yaml">components:
@@ -1503,136 +1399,18 @@
 <p>Note: <code>triggers</code> array also supports regular expressions, such as <code>*-deploy</code> or <code>post-*</code></p>
 </blockquote>
 <p>Hooks will be executed in the order they are defined in the manifest file.</p>
-<h2 id="outputs">Outputs</h2>
-<p>When more than a single instance of the same component is deployed in the stack - think two PostgreSQL databases, then there is an ambiguity because both components provides same outputs, ie. <code>endpoint</code> and <code>password</code>.</p>
-<p>To bind input parameters of the <code>pgweb</code> to specific PostgreSQL, use <code>depends</code>:</p>
-<pre><code class="language-yaml">components:
-- name: pg1:
-  source: components/postgresql
-- name: pg2:
-  source: components/postgresql
-- name: pgweb1:
-  source: components/pgweb
-  depends:
-  - pg1
-</code></pre>
-<p>The outputs of <code>depends</code> are searched in turn, then the <em>global</em> outputs pool.</p>
-<h2 id="inputs">Inputs</h2>
-<p>To set parameters for a specific component instance use <code>component</code>:</p>
-<pre><code class="language-yaml">parameters:
-- name: component.postgresql
-  component: pg1
-  parameters:
-</code></pre>
-<p>The component <code>&lt;name&gt;</code> first looks for parameters that are qualified with <code>component: &lt;name&gt;</code>, then <em>global</em> parameters space.</p>
-<h2 id="manifest-composition">Manifest composition</h2>
-<p><code>hub.yaml.elaborate</code> manifest is composed by joining <code>hub.yaml</code> and <code>hub-component.yaml</code> files with [YAML] delimiter literal <code>---\n</code>. Thus the first document in the <code>hub.yaml.elaborate</code> is special.</p>
-<h2 id="requirements">Requirements</h2>
-<p>Both stack and component may describe dependencies that must be satisfied - <em>requires</em>, before (fully parameterized) stack could be deployed. Some examples of requirements:</p>
-<ul>
-<li>Cloud kind: AWS, Azure, GCP;</li>
-<li>Kubernetes</li>
-<li>What other types of components (<em>provides</em>) must be already deployed in the environment or will be deployed with the stack.</li>
-</ul>
-<p>This is a high-level check which is possible to perform by checking the environment and tools or short-circuiting in-stack requirements to <em>provides</em>.</p>
-<p>For example:</p>
-<pre><code class="language-yaml">requires:
-- aws
-- kubernetes
-- postgresql
-</code></pre>
-<h2 id="provides">Provides</h2>
-<p>Stack and components declares <em>provides</em> - a capability that is added to the stack and provided by it after deployment.</p>
-<pre><code class="language-yaml">provides:
-- kubernetes
-- tls-ingress
-</code></pre>
-<p>The requires and provides are arbitrary literals. It could be the name of a product installed or generic capability e.g. <code>ingress</code>.</p>
-<h2 id="components">Components</h2>
-<p>Components are building blocks of a stack. There could be multiple instances of the same component in the stack:</p>
-<pre><code class="language-yaml">components:
-- name: backend-ecr
-  source:
-    dir: components/ecr
-    git:
-      remote: 'https://github.com/agilestacks/components.git'
-      ref: master
-      subDir: ecr
-- name: frontend-ecr
-  source:
-    dir: components/ecr
-</code></pre>
-<h2 id="parameters">Parameters</h2>
-<p>Parameters declarations form a tree-like structure where leafs have values and nodes should have nested parameters:</p>
-<pre><code class="language-yaml">parameters:
-- name: cloud
-  brief: Cloud Parameters
-  kind: user
-  description: ...
-  parameters:
-  - name: kind
-    value: aws                 # set to value provided by user
-    default: gcp               # use default, if not provided
-  - name: account
-    fromEnv: CLOUD_ACCOUNT
-  - name: regions
-    value: [us-east-1, us-east-2]
-- name: component
-  parameters: [{name: kubernetes.worker.size, value: m5.large,}]
-- name: deployment
-  value: standalone
-</code></pre>
-<p>Native YAML syntax could be used to short-circuit nested declarations. The above is effectively flattened into list of parameters:</p>
-<pre><code class="language-text">cloud.kind
-cloud.account
-cloud.regions
-component.kubernetes.worker.size
-deployment
-</code></pre>
-<p>The values are in most cases plain text / scalar type, yet we support arrays and maps - datatypes native to JSON and YAML.</p>
-<h3 id="parameter-kind">Parameter kind</h3>
-<p>There are high-level user-provided parameters - the facts user do care about: which cloud and cloud account to use, what region to deploy to, etc.</p>
-<p>There are also lower-level technical parameters, which Hub CLI must derive from other places, such as backend service endpoint which may come from another stack or from component output.</p>
 <h3 id="parameters-file">Parameters file</h3>
 <p>Stack parameters should be placed in <code>params.yaml</code> file - separately from <code>hub.yaml</code>. It is possible to merge them though. There could be any number of parameters files.</p>
-<h3 id="parameter-from-environment-variable">Parameter from environment variable</h3>
-<p>Parameters that are environment specific and managed with <a href="https://direnv.net"><code>.envrc</code></a> or <a href="https://pypi.org/project/python-dotenv/"><code>.env</code></a> could be captured from OS environment by <code>fromEnv: AWS_REGION</code>.</p>
-<h3 id="parameter-from-file">Parameter from file</h3>
-<p>Parameter value could be read from file <code>fromFile: config/stage/password</code>.</p>
-<h2 id="outputs_1">Outputs</h2>
-<p>Outputs are scalar or structured values produced by component or stack.</p>
-<pre><code class="language-yaml">outputs:
-- cloud.avalabilityZones
-- dns.domain
-  value: ${dns.name}.${dns.baseDomain}
-</code></pre>
-<h3 id="securing-outputs">Securing outputs</h3>
-<p>Output could be a secret that should not be leaked to deployment log. Such outputs could be captured with <code>hub util otp</code> one-time pad or read from a file.</p>
-<h2 id="lifecycle">Lifecycle</h2>
-<p>Every part of the stack has a lifecycle is optional and can be omitted.</p>
-<p>Standard verbs are: deploy, undeploy. Additional verbs could be: backup, connect, etc. Verbs are delegated to implementations in the component source code. There is additional support for Terraform, Make, and Helm see <a href="/hubctl/components">more</a></p>
-<pre><code class="language-yaml">lifecycle:
-  verbs:
-  - deploy
-  - undeploy
-  order:
-  - postgresql
-  - api
-  - nginx-api
-  - nginx-frontend
-  readyCondition:
-    dns: ${dns.domain}
-    url: https://${dns.domain}/api/v1/
-    waitSeconds: 600
-</code></pre>
-<p><code>readyCondition</code> specifies additional checks that must complete successfully within <code>waitSeconds</code> duration for stack deployment to succeed.</p>
 <blockquote>
-<p>Note: if you omit verbs. then It assumes stack limited to [deploy, undeploy] verbs</p>
+<p>Note: this is a good practice to split parameters from <code>hub.yaml</code> into it's own file <code>params.yaml</code> or even a series of <code>params.yaml</code> files. The parameter files can be referenced in <code>hub.yaml</code> as the following</p>
 </blockquote>
+<pre><code class="language-yaml">extension:
+  inclue:
+  - params.yaml
+</code></pre>
 <h2 id="see-also">See Also</h2>
 <ul>
-<li><a href="/hubctl">Hub CLI</a></li>
-<li><a href="/hubctl/components">Hub Components</a></li>
+<li><a href="./manifests">Hubfiles</a></li>
 </ul>
 
   <hr>
