@@ -41,4 +41,4 @@ hubctl stack undeploy -c "external-dns,cert-manager"
 
 * [`hubctl stack deploy`](../hubctl-stack-deploy)
 * [`hubctl stack rm`](../hubctl-stack-rm)
-* [`hubctl stack`](..)
+* [`hubctl stack`](../../stack)

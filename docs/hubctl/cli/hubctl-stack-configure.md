@@ -161,4 +161,4 @@ hubctl stack configure -r "kubernetes"
 
 * [`hubctl stack init`](../hubctl-stack-init)
 * [`hubctl stack deploy`](../hubctl-stack-deploy)
-* [`hubctl stack`](..)
+* [`hubctl stack`](../../stack)

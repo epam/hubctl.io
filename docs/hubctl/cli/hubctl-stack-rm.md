@@ -8,4 +8,4 @@ Common usage scenario is actually a clean up your working directory from stacks 
 
 ## See also
 
-* [`hubctl stack`](..)
+* [`hubctl stack`](../../stack)

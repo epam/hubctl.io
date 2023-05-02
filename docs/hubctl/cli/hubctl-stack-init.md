@@ -32,4 +32,4 @@ hubctl stack init -f "https://raw.githubusercontent.com/epam/hubctl-google-stack
 ## See also
 
 * [`hubctl stack configure`](../hubctl-stack-configure)
-* [`hubctl stack`](..)
+* [`hubctl stack`](../../stack)

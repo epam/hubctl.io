@@ -37,5 +37,4 @@ exit
 
 ## See also
 
-* [`hubctl stack`](/hubctl/cli/hubctl-stack)
-* [`hubctl show`](/hubctl/cli/hubctl-stack-deploy)
+* [`hubctl`](../../hubctl)

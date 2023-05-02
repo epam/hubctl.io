@@ -35,3 +35,7 @@ These parameters applies across all extension commands
 | :-------- | :-------- | :-: |
 | `-V --verbose` | extra verbosity for diagnostics | |
 | `-h --help` | print help and usage message | |
+
+## See Also
+
+* [`hubctl`](../../hubctl)

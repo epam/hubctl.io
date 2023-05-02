@@ -136,6 +136,6 @@ parameters:
 
 ## See also
 
-* [Stack Manifest](stack.md)
-* [Component Manifest](component.md)
+* [Stack Manifest](../../stack)
+* [Component Manifest](../../component)
 * [CEL expressions](https://github.com/google/cel-go)
