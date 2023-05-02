@@ -54,3 +54,11 @@ Both hubctl and components requires tools to be installed on a machine. This mak
 
 See how to run toolbox by running [`hubctl toolbox`](../../hubctl/cli/hubctl-toolbox).
 
+
+## DNS Bubbles
+
+After stack has been deployed user will want to access it. The most straightforward way is to use a DNS name. To access it with DNS name. 
+
+DNS Bubbles is a web service that can grant a temporary random DNS name. These domain names are garbage collected every 72 hours unless refreshed. This makes it useful for ephemeral environments. Environment that user will discard after they do not need it anymore. Development or test environments are perfect examples of such environments.
+
+See more on how to configure DNS Bubbles in the [DNS Bubbles configuration](../dns).
