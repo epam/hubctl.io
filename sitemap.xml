@@ -251,11 +251,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hubctl.io/toolbox/</loc>
-         <lastmod>2023-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://hubctl.io/tutorials/</loc>
          <lastmod>2023-05-02</lastmod>
          <changefreq>daily</changefreq>
@@ -267,26 +262,6 @@
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/020-shell-component/</loc>
-         <lastmod>2023-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hubctl.io/user-guide/aws/</loc>
-         <lastmod>2023-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hubctl.io/user-guide/azure/</loc>
-         <lastmod>2023-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hubctl.io/user-guide/gke/</loc>
-         <lastmod>2023-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hubctl.io/user-guide/kubernetes/</loc>
          <lastmod>2023-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
