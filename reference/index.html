@@ -1320,10 +1320,10 @@
 └── params.yaml
 </code></pre>
 <p>In this example the<code>component1</code> uses <a href="../components/shell">shell</a> to deploy. It <code>deploy.sh</code> and <code>undeploy.sh</code>. </p>
-<p>The <code>component2</code> is using Terraform, and contains <code>*.tf</code> file (or files)</p>
+<p>The <code>component2</code> is using <a href="../components/terraform">Terraform</a>, and contains <code>*.tf</code> file (or files)</p>
 <p>Hubfile <code>hub.yaml</code> can define a deployment hooks, something that needs to be executed before or after individual component deployment. This webhook has been placed in the <code>bin</code> directory.</p>
 <h2 id="best-practice">Best Practice</h2>
-<p>Parameter definitions for entire stack can be quite large. For convinience parameters of the stack into the <code>params.yaml</code> or in the group of <code>params-*.yaml</code> files. Then you can refer aditional files in the <code>hub.yaml</code> as the following:</p>
+<p>Parameter definitions for entire stack can be quite large. For convenience parameters of the stack into the <code>params.yaml</code> or in the group of <code>params-*.yaml</code> files. Then you can refer additional files in the <code>hub.yaml</code> as the following:</p>
 <pre><code class="language-yaml">extension:
   include:
   - params.yaml
@@ -1335,6 +1335,7 @@
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="./manifests">Hubfiles</a></li>
+<li><a href="./components">Hubctl Components</a></li>
 <li><a href="./stack/extensions">Stack Extensions</a></li>
 </ul>
 
@@ -1343,7 +1344,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 2, 2023</span>
       
     
   </small>
