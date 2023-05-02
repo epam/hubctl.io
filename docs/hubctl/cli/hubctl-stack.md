@@ -22,9 +22,9 @@ These commands intended for advanced usage
 
 | Command   | Description
 | --------- | ---------
-| [`hubctl stack backup`](/hubctl/cli/hubctl-stack-backup) | Stack backup/restore management (*if "backup" verb supported by at least one component in the stack)|
-| [`hubctl stack elaborate`](/hubctl/cli/hubctl-stack-elaborate) | Reconcile defined parameters and a state |
-| [`hubctl stack invoke`](/hubctl/cli/hubctl-stack-invoke) | Execute other verb rather than `deploy`, `undeploy` or `backup`. (*if verb supported by at least one component in the stack)|
+| [`hubctl stack backup`](../hubctl-stack-backup) | Stack backup/restore management (*if "backup" verb supported by at least one component in the stack)|
+| [`hubctl stack elaborate`](../hubctl-stack-elaborate) | Reconcile defined parameters and a state |
+| [`hubctl stack invoke`](../hubctl-stack-invoke) | Execute other verb rather than `deploy`, `undeploy` or `backup`. (*if verb supported by at least one component in the stack)|
 | `hubctl stack explain` | Command reserved for state and parameters diagnostics |
 
 ## Common Flags

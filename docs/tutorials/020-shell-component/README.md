@@ -213,7 +213,7 @@ This article is not a reference guide, we do skip many things... Now we will jum
 
 At present we support following technologies
 
-* [Component Helm](../../hubctl/components/helm)
-* [Component Kustomize](../../hubctl/components/kustomize)
-* [Component Terraform](../../hubctl/components/terraform)
-* [Component ARM Deployment Template](../../hubctl/components/arm)
+* [Component Helm](../../reference/components/helm)
+* [Component Kustomize](../../reference/components/kustomize)
+* [Component Terraform](../../reference/components/terraform)
+* [Component ARM Deployment Template](../../reference/components/arm)
