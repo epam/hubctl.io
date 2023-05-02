@@ -8,7 +8,4 @@ Common usage scenario is actually a clean up your working directory from stacks 
 
 ## See also
 
-* [`hubctl stack init`](/hubctl/cli/hubctl-stack-init)
-* [`hubctl stack configure`](/hubctl/cli/hubctl-stack-configure)
-* [`hubctl stack ls`](/hubctl/cli/hubctl-stack-ls)
-* [`hubctl stack set`](/hubctl/cli/hubctl-stack-set)
+* [`hubctl stack`](..)

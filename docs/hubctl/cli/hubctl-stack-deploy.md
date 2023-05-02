@@ -142,8 +142,6 @@ hubctl stack deploy -c "external-dns,cert-manager"
 
 ## See also
 
-* [`hubctl stack undeploy`](/hubctl/cli/hubctl-stack-undeploy)
-* [`hubctl stack configure`](/hubctl/cli/hubctl-stack-configure)
-* [`hubctl stack init`](/hubctl/cli/hubctl-stack-init)
-* [`hubctl stack ls`](/hubctl/cli/hubctl-stack-ls)
-* [`hubctl stack rm`](/hubctl/cli/hubctl-stack-rm)
+* [`hubctl stack undeploy`](../hubctl-stack-undeploy)
+* [`hubctl stack configure`](../hubctl-stack-configure)
+* [`hubctl stack`](..)

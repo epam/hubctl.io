@@ -20,9 +20,5 @@ hubctl stack ls
 
 ## See also
 
-* [`hubctl stack init`](/hubctl/cli/hubctl-stack-init)
-* [`hubctl stack configure`](/hubctl/cli/hubctl-stack-configure)
-* [`hubctl stack ls`](/hubctl/cli/hubctl-stack-ls)
-* [`hubctl stack rm`](/hubctl/cli/hubctl-stack-unconfigure)
-* [`hubctl stack deploy`](/hubctl/cli/hubctl-stack-deploy)
-* [`hubctl stack undeploy`](/hubctl/cli/hubctl-stack-undeploy)
+* [`hubctl stack ls`](../hubctl-stack-ls)
+* [`hubctl stack`](..)

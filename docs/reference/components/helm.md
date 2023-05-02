@@ -71,40 +71,22 @@ Nginx web server example. This is an example of a `hub-component.yaml` that will
 ---
 version: 1
 kind: component
-
 requires:
+  - kubernetes
   - helm
-
 provides:
   - nginx
   - ingress
-
 parameters:
-  - name: component.ingress
-    parameters:
-      - name: namespace
-        value: ingress
-        env: NAMESPACE
-      - name: class
-        value: nginx
-
-  - name: component.nginx
-    parameters:
-      - name: isDefaultIngress
-        value: false
-      - name: replicaCount
-        value: 1
-      - name: serviceType
-        value: LoadBalancer
-      - name: image
-        value: nginx/nginx-ingress
-      - name: imageTag
-        value: 2.2.2
-
-  - name: component.nginx.helm
+  - name: ingress.namespace
+    value: ingress
+    env: NAMESPACE
+  - name: ingress.class
+    value: nginx
+  - name: helm
     parameters:
       - name: chart
-        value: "nginx-ingress"
+        value: nginx-ingress
         env: HELM_CHART
       - name: repo
         value: https://helm.nginx.com/stable
@@ -112,13 +94,12 @@ parameters:
       - name: version
         value: 0.13.2
         env: HELM_CHART_VERSION
-
 templates:
   files:
-    - "*.template"
+    - values.yaml.template
 ```
 
-> Note: helm chart parameters values must be defined in the `values.yaml`, `values.yaml.template` or `values.yaml.gotemplate` file
+> Note: helm chart parameters values must be defined in the `values.yaml.template` alternatively you can run `values.yaml.gotemplate` file
 
 ## See also
 

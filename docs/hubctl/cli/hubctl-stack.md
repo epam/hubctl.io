@@ -8,13 +8,13 @@ Extensions provides following commands:
 
 | Command   | Description
 | --------- | ---------
-| [`hubctl stack init`](/hubbctl/cli/hubctl-stack-init) | Initialise a new stack deployment in the working directory |
-| [`hubctl stack configure`](/hubbctl/cli/hubctl-stack-configure) | Manage configuration before the deployment |
-| [`hubctl stack deploy`](/hubbctl/cli/hubctl-stack-deploy) | Apply deployment to target infrastructure |
-| [`hubctl stack undeploy`](/hubbctl/cli/hubctl-stack-undeploy) | Reverse deployment action |
-| [`hubctl stack ls`](/hubbctl/cli/hubctl-stack-ls) | See other stacks that has been initialized for the working directory |
-| [`hubctl stack set`](/hubbctl/cli/hubctl-stack-set) | Change a different current stack |
-| [`hubctl stack rm`](/hubbctl/cli/hubctl-stack-rm) | Delete configuration of a stack from working directory. This commands is non-reversible, and __doesn't run [`undeploy`](/hubbctl/cli/hubctl-stack-undeploy)__
+| [`hubctl stack init`](../hubctl-stack-init) | Initialise a new stack deployment in the working directory |
+| [`hubctl stack configure`](../hubctl-stack-configure) | Manage configuration before the deployment |
+| [`hubctl stack deploy`](../hubctl-stack-deploy) | Apply deployment to target infrastructure |
+| [`hubctl stack undeploy`](../hubctl-stack-undeploy) | Reverse deployment action |
+| [`hubctl stack ls`](../hubctl-stack-ls) | See other stacks that has been initialized for the working directory |
+| [`hubctl stack set`](../hubctl-stack-set) | Change a different current stack |
+| [`hubctl stack rm`](../hubctl-stack-rm) | Delete configuration of a stack from working directory. This commands is non-reversible, and __doesn't run [`undeploy`](../hubctl-stack-undeploy)__
 
 ## Advanced Commands
 
