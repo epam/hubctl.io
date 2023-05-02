@@ -69,6 +69,8 @@ nav:
         - Shell: reference/components/shell.md
         - Makefile: reference/components/makefile.md
         - ARM: reference/components/arm.md
+    - Design:
+      - reference/design/index.md
   - hubctl:
       # - Overview: hubctl/index.md
         - hubctl: hubctl/cli/index.md
