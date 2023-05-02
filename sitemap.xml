@@ -161,6 +161,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hubctl.io/reference/design/dns/</loc>
+         <lastmod>2023-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/reference/design/env/</loc>
+         <lastmod>2023-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hubctl.io/reference/manifests/</loc>
          <lastmod>2023-05-02</lastmod>
          <changefreq>daily</changefreq>

@@ -18,7 +18,7 @@
         <link rel="prev" href="../components/arm/">
       
       
-        <link rel="next" href="../../hubctl/cli/">
+        <link rel="next" href="env/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
@@ -958,22 +958,58 @@
             
           
         
+          
+        
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Design</a>
+          <a href="./">Configuration</a>
+          
+            <label for="__nav_2_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
-          Design
+          Configuration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="env/" class="md-nav__link">
+        Environment Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dns/" class="md-nav__link">
+        Domain Name Configuration
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -1349,6 +1385,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#dns-bubbles" class="md-nav__link">
+    DNS Bubbles
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1404,6 +1447,10 @@
 <h2 id="toolbox">Toolbox</h2>
 <p>Both hubctl and components requires tools to be installed on a machine. This makes it hard to standartize the tool chain across all members of the team. Toolbox is a docker container that contains all required tools to run hubctl and components. </p>
 <p>See how to run toolbox by running <a href="../../hubctl/cli/hubctl-toolbox"><code>hubctl toolbox</code></a>.</p>
+<h2 id="dns-bubbles">DNS Bubbles</h2>
+<p>After stack has been deployed user will want to access it. The most straightforward way is to use a DNS name. To access it with DNS name. </p>
+<p>DNS Bubbles is a web service that can grant a temporary random DNS name. These domain names are garbage collected every 72 hours unless refreshed. This makes it useful for ephemeral environments. Environment that user will discard after they do not need it anymore. Development or test environments are perfect examples of such environments.</p>
+<p>See more on how to configure DNS Bubbles in the <a href="../dns">DNS Bubbles configuration</a>.</p>
 
   <hr>
 <div class="md-source-file">
