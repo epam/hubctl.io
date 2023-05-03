@@ -25,7 +25,7 @@
     
     
       
-        <title>Environment Variables - Hubctl</title>
+        <title>Environment Configuration - Hubctl</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#environment-variables" class="md-skip">
+        <a href="#environment-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Environment Variables
+              Environment Configuration
             
           </span>
         </div>
@@ -1000,12 +1000,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Environment Variables
+          Environment Configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Environment Variables
+        Environment Configuration
       </a>
       
         
@@ -1024,15 +1024,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#initialize-env-file" class="md-nav__link">
-    Initialize .env file
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-switch-between-configurations" class="md-nav__link">
+    How to Switch Between Configurations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-programmatically" class="md-nav__link">
+    Configure Programmatically
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-environment-variables" class="md-nav__link">
-    Configure environment variables
+  <a href="#see-also" class="md-nav__link">
+    See Also
   </a>
   
 </li>
@@ -1053,7 +1073,7 @@
   
     <li class="md-nav__item">
       <a href="../dns/" class="md-nav__link">
-        Domain Name Configuration
+        Domain Names
       </a>
     </li>
   
@@ -1392,15 +1412,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#initialize-env-file" class="md-nav__link">
-    Initialize .env file
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-switch-between-configurations" class="md-nav__link">
+    How to Switch Between Configurations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-programmatically" class="md-nav__link">
+    Configure Programmatically
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-environment-variables" class="md-nav__link">
-    Configure environment variables
+  <a href="#see-also" class="md-nav__link">
+    See Also
   </a>
   
 </li>
@@ -1423,29 +1463,66 @@
   
 
 
-<h1 id="environment-variables">Environment Variables</h1>
+<h1 id="environment-configuration">Environment Configuration</h1>
 <p>Values in hubfile can be stored in the version control system such as git. However not all parameter should be available in the repository. For example, credentials should be stored in a secure place. Hubctl allows to store values in environment variables.</p>
-<p>Passwords is another example of such parameters. Passwords should not be committed to the repository. Instead they should be passed in a separate way to the users. Don't store keys from the front door under the mat.</p>
-<h2 id="initialize-env-file">Initialize <code>.env</code> file</h2>
-<p>When stack has been initialized with the new command hubctl will create a <code>.env</code> file (simlink to the <code>.hub/&lt;stack-name&gt;.env</code> file) in the current directory. This file will contain environment variables for all parameters defined in the stack.</p>
-<h2 id="configure-environment-variables">Configure environment variables</h2>
-<p>When user run <code>hubctl stack configure</code> command for the first time, hubctl will ask user to provide values for all parameters marked with <code>fromEnv</code>. Hubctl will prompt user and add suggestion based on the following algorithm:
-1. If environment variable is defined, then use it
-3. If environment variable is not defined, then use <code>default</code> value
-3. If parameter has <code>empty: allow</code> then use empty value
-4. Use previously provided value from the same environment variable
-4. Use random value </p>
+<p><strong>Environment</strong> configuration is a perfect example. Cloud credentials, Kubernetes, etc are the good examples</p>
+<p><strong>Passwords</strong> and other <strong>Secrets</strong> is another example of such parameters. Passwords should not be committed to the repository. Instead they should be passed in a separate way to the users. Don't store keys from the front door under the mat.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Environment variables are not stored in the hubfile. Instead they are stored in the <code>.env</code> file. This file is a symlink to the <code>.hub/&lt;deployment-name&gt;.env</code> file. This way allows to switch between different deployments of a stack and use different environment variables.</p>
+<ol>
+<li>To <strong>initialize</strong> such configuration run</li>
+</ol>
+<pre><code class="language-bash">hubctl stack init
+</code></pre>
+<p>Or if current directory already have an initialized stack. This is extra protection from accidentally overwriting existing configuration.</p>
+<pre><code class="language-bash">hubctl stack init --help
+</code></pre>
+<ol>
+<li>To <strong>configure</strong> environment variables run</li>
+</ol>
+<pre><code class="language-bash">hubctl stack configure
+</code></pre>
+<p>Or if you want to trigger only environment variables checks run the following command </p>
+<pre><code class="language-bash">hubctl stack configure -r &quot;env&quot;
+</code></pre>
+<p>Command above will check all parameters marked with <code>fromEnv</code> and will ask user to provide values for them. Hubctl will see if variable is not exist in <code>.env</code> file and prompt user. Hubctl will also provide convenience suggestion to the user based on the following algorithm</p>
+<ol>
+<li>If environment variable is defined, then use it</li>
+<li>If environment variable is not defined, then use <code>default</code> value</li>
+<li>If parameter has <code>empty: allow</code> then use empty value</li>
+<li>Use previously provided value from the same environment variable</li>
+<li>Use random value </li>
+</ol>
 <p>You can change the value prompted by the hubctl.</p>
 <blockquote>
 <p><strong>Note:</strong> After value has been set, you can always change it in <code>.env</code> file.</p>
 </blockquote>
+<h3 id="how-to-switch-between-configurations">How to Switch Between Configurations</h3>
+<p>Hubctl allows to switch between different configurations. For example, you can have different configurations for different environments. </p>
+<pre><code class="language-bash">hubctl stack ls # list all available stacks
+hubctl stack set &lt;stack-name&gt; # switch to the stack
+</code></pre>
+<h2 id="configure-programmatically">Configure Programmatically</h2>
+<p>Hubctl extensions contains a <code>.env</code> parser written in bash. It has been available in <code>~/.hub/bin/dotenv</code> and automatically added to the <code>PATH</code> during the <code>hubctl stack &lt;any&gt;</code> command. You can use it to parse or set environment variables from your deployment hooks</p>
+<p>For more details check</p>
+<pre><code class="language-bash">~/.hub/bin/dotenv --help
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> <code>dotenv</code> parser maybe in the different if you decided to install hubctl extensions in the different location</p>
+</blockquote>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../../../hubctl/cli/hubctl-stack">hubctl stack</a> command</li>
+<li><a href="../../manifests/stack/parameters">Parameters</a> - reference guide</li>
+<li><a href="../../design">Hubctl Key Concepts</a></li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 2, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 3, 2023</span>
       
     
   </small>
