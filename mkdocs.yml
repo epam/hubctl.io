@@ -72,7 +72,7 @@ nav:
     - Configuration:
       - reference/design/index.md
       - reference/design/env.md
-      - reference/design/dns.md
+      - Domain Names: reference/design/dns.md
   - hubctl:
       # - Overview: hubctl/index.md
         - hubctl: hubctl/cli/index.md
