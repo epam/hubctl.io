@@ -87,6 +87,10 @@ nav:
         - hubctl stack elaborate: hubctl/cli/hubctl-stack-elaborate.md
         - hubctl show: hubctl/cli/hubctl-show.md
         - hubctl toolbox: hubctl/cli/hubctl-toolbox.md
+        - hubctl extensions: hubctl/cli/hubctl-extensions.md
+        - hubctl extensions install: hubctl/cli/hubctl-extensions-install.md
+        - hubctl extensions update: hubctl/cli/hubctl-extensions-update.md
+        - hubctl ext: hubctl/cli/hubctl-ext.md
       #   - hubctl/design-and-architecture/index.md
   - Getting Started:
     - tutorials/index.md

@@ -7,6 +7,8 @@ By default hubctl is a CLI tool that provides a set of commands to manage stacks
 | [`hubctl stack`](./hubctl-stack) | Commands to manage your deployment |
 | [`hubctl show`](./hubctl-show) | Show parameters of a deployed stack |
 | [`hubctl toolbox`](./hubctl-toolbox) | Starts a local toolbox container and mounts current file system inside |
+| [`hubctl extensions`](./hubctl-extensions) | Manage hubctl extensions |
+| [`hubctl ext`](./hubctl-ext) | Manage hubctl extensions |
 
 ## Common Flags
 
