@@ -1618,7 +1618,7 @@
 </tr>
 <tr>
 <td align="left"><code>-o --offset &lt;component&gt;</code></td>
-<td align="left">Start deployment from specific component (handy when you want to restart deployment, and want to skip few from the beginning in the runlist)</td>
+<td align="left">Start deployment from specific component (handy when you want to restart deployment, and want to skip few from the beginning in the run-list)</td>
 <td align="center"></td>
 </tr>
 <tr>
@@ -1680,7 +1680,7 @@
     after:
     - inventory-configmap
 </code></pre>
-<p>Example above will run a kubernetes extension before the deployment to check connectivity to the desired cluster. It will also instruct a <code>hub</code> to save deployment state inside of the kubenretes cluster as a <code>configmap</code>. This is viable alternative to the object storage and can be handy to store copy of a state for on-prem deployments.</p>
+<p>Example above will run a kubernetes extension before the deployment to check connectivity to the desired cluster. It will also instruct a <code>hub</code> to save deployment state inside of the Kubernetes cluster as a <code>configmap</code>. This is viable alternative to the object storage and can be handy to store copy of a state for on-prem deployments.</p>
 <p>At the moment there are few extensions that supports before deployment or after deployemnt</p>
 <table>
 <thead>
@@ -1785,7 +1785,7 @@ A: Make sure you follow the naming convention for file name</p>
 <p>To deploy all components in the run-list:</p>
 <pre><code class="language-bash">hubctl stack deploy
 </code></pre>
-<p>To deploy specific components with order defined in the runlist</p>
+<p>To deploy specific components with order defined in the run-list</p>
 <pre><code class="language-bash">hubctl stack deploy -c &quot;external-dns,cert-manager&quot;
 </code></pre>
 <h2 id="see-also">See also</h2>
@@ -1800,7 +1800,7 @@ A: Make sure you follow the naming convention for file name</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 2, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 4, 2023</span>
       
     
   </small>
