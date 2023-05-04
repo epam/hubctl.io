@@ -7,7 +7,7 @@ Runs deployment for entire stack or updates deployment of one or few components
 | Flag   | Description | Required
 | :-------- | :-------- | :-: |
 | `-c --component <component>` | Run deployment for one  component or multiple (supplied as comma separated value) | |
-| `-o --offset <component>` | Start deployment from specific component (handy when you want to restart deployment, and want to skip few from the beginning in the runlist) | |
+| `-o --offset <component>` | Start deployment from specific component (handy when you want to restart deployment, and want to skip few from the beginning in the run-list) | |
 | `-l --limit <component>` | Stop deployment after desired (opposite to `--offset` flag) | |
 | `--profile` | Choose a specific deployment provider (defaults to `HUB_PROFILE` in `.env` file) | |
 | `--tty` or `--no-tty` | Instructs if user wants to group deployment outputs per component | |
@@ -49,7 +49,7 @@ extensions:
     - inventory-configmap
 ```
 
-Example above will run a kubernetes extension before the deployment to check connectivity to the desired cluster. It will also instruct a `hub` to save deployment state inside of the kubenretes cluster as a `configmap`. This is viable alternative to the object storage and can be handy to store copy of a state for on-prem deployments.
+Example above will run a kubernetes extension before the deployment to check connectivity to the desired cluster. It will also instruct a `hub` to save deployment state inside of the Kubernetes cluster as a `configmap`. This is viable alternative to the object storage and can be handy to store copy of a state for on-prem deployments.
 
 At the moment there are few extensions that supports before deployment or after deployemnt
 
@@ -134,7 +134,7 @@ To deploy all components in the run-list:
 hubctl stack deploy
 ```
 
-To deploy specific components with order defined in the runlist
+To deploy specific components with order defined in the run-list
 
 ```bash
 hubctl stack deploy -c "external-dns,cert-manager"

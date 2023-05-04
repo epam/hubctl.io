@@ -25,7 +25,7 @@ These parameters applies across all extension commands
 
 ## Usage Example
 
-To un-deploy all components in the runlist:
+To un-deploy all components in the run-list:
 
 ```bash
 hubctl stack undeploy
