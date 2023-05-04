@@ -26,6 +26,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hubctl.io/hubctl/cli/hubctl-ext/</loc>
+         <lastmod>2023-05-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/hubctl/cli/hubctl-extensions-install/</loc>
+         <lastmod>2023-05-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/hubctl/cli/hubctl-extensions-update/</loc>
+         <lastmod>2023-05-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/hubctl/cli/hubctl-extensions/</loc>
+         <lastmod>2023-05-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-show/</loc>
          <lastmod>2023-05-04</lastmod>
          <changefreq>daily</changefreq>
