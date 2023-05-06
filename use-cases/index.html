@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://hubctl.io/use-cases/">
       
       
-        <link rel="prev" href="../install/">
+        <link rel="prev" href="../what-is/">
       
       
         <link rel="next" href="../reference/">
@@ -316,6 +316,8 @@
         
           
         
+          
+        
       
       
         
@@ -346,6 +348,20 @@
     <li class="md-nav__item">
       <a href="../install/" class="md-nav__link">
         Install
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is/" class="md-nav__link">
+        What Is Hubctl
       </a>
     </li>
   
@@ -406,8 +422,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disposable-infrastructure" class="md-nav__link">
-    Disposable Infrastructure
+  <a href="#ephemeral-environments" class="md-nav__link">
+    Ephemeral Environments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-from-automation" class="md-nav__link">
+    Run from Automation
   </a>
   
 </li>
@@ -1475,8 +1498,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disposable-infrastructure" class="md-nav__link">
-    Disposable Infrastructure
+  <a href="#ephemeral-environments" class="md-nav__link">
+    Ephemeral Environments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-from-automation" class="md-nav__link">
+    Run from Automation
   </a>
   
 </li>
@@ -1499,7 +1529,7 @@
   
 
 
-<h1 id="when-do-you-need-hubctl">When do you need hubctl?</h1>
+<h1 id="when-do-you-need-hubctl">When do You Need Hubctl?</h1>
 <p>When we created a Hubctl we had an idea to promote the best practices for infrastructure as code. We wanted to create a tool that would help us to manage our infrastructure as code in a consistent and repeatable way.</p>
 <h2 id="package-manager-for-the-cloud">Package manager for the Cloud</h2>
 <p>Operating Systems have got a package managers for ages now like <code>homebrew</code> for Mac and <code>choco</code> for Windows. It is able to download and install packages, resolve dependencies etc. But there is no such package manager for the cloud deployments.</p>
@@ -1507,15 +1537,18 @@
 <h2 id="break-up-monolithic-deployments">Break-up monolithic deployments</h2>
 <p>We have seen when application deployment code was 60% of entire codebase. This makes deployment code a biggest component of your entire application. Similar to applications today split into microservices, we can also split our infrastructure into multiple components. This makes it easier to manage and maintain.</p>
 <p>Hubctl provides mechanisms to manage your deployment as a stack of components. Each component can be deployed and managed independently and can use it's own deployment tool.</p>
-<h2 id="disposable-infrastructure">Disposable Infrastructure</h2>
-<p>Hubctl provides you with a single place where you can deploy multiple environments for your application and dispose it when you don't need it.</p>
+<h2 id="ephemeral-environments">Ephemeral Environments</h2>
+<p>Hubctl gives you a single place to deploy your environments. You can deploy your environments on demand and dispose them when you don't need them. This allows you to save money on your cloud bills.</p>
+<h2 id="run-from-automation">Run from Automation</h2>
+<p>Hubctl is designed to be used in automation. CI/CD pipelines, GitHub Actions, GitLab CI, Jenkins, ArgoCD, FluxCD, Tekton, Spinnaker, you name it. Hubctl can 
+also send a call backs to your IT Service System so it can track the progress of your deployments.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 14, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 6, 2023</span>
       
     
   </small>

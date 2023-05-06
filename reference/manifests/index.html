@@ -314,6 +314,8 @@
         
           
         
+          
+        
       
       
         
@@ -344,6 +346,20 @@
     <li class="md-nav__item">
       <a href="../../install/" class="md-nav__link">
         Install
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what-is/" class="md-nav__link">
+        What Is Hubctl
       </a>
     </li>
   
@@ -1419,6 +1435,19 @@
     Stack manifest
   </a>
   
+    <nav class="md-nav" aria-label="Stack manifest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-parameters-into-separate-files" class="md-nav__link">
+    Split Parameters into Separate Files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1469,6 +1498,17 @@
 <li>Defines deployment hooks</li>
 </ul>
 <p>See more about stack manifest in <a href="./stack">here</a>.</p>
+<h3 id="split-parameters-into-separate-files">Split Parameters into Separate Files</h3>
+<p>This considered as a good practice for Stack Manifests.</p>
+<p>Parameter definitions for entire stack can be quite large. For convenience parameters of the stack into the <code>params.yaml</code> or in the group of <code>params-*.yaml</code> files. Then you can refer additional files in the <code>hub.yaml</code> as the following:</p>
+<pre><code class="language-yaml">extension:
+  include:
+  - params.yaml
+</code></pre>
+<p>See more in <a href="./stack/extensions">hubctl extensions</a></p>
+<blockquote>
+<p>Note: this is a good practice to split parameters from <code>hub.yaml</code> into it's own file <code>params.yaml</code> or even a series of <code>params.yaml</code> files. The parameter files can be referenced in <code>hub.yaml</code> as the following</p>
+</blockquote>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="./component">Component manifest</a></li>
@@ -1480,7 +1520,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 6, 2023</span>
       
     
   </small>
