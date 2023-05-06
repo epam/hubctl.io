@@ -4,10 +4,10 @@ This page will show how to install hubctl on your local workstation
 
 There are few ways to install hubctl:
 
-1. Download binary
-2. Homebrew Formula
+1. [Download binary](#download-binary)
+2. [Homebrew Formula](#homebrew-formula)
 
-## Download binary
+## Download Binary
 
 To download the latest of hubctl run the following
 

@@ -1,4 +1,4 @@
-# When do you need hubctl?
+# When do You Need Hubctl?
 
 When we created a Hubctl we had an idea to promote the best practices for infrastructure as code. We wanted to create a tool that would help us to manage our infrastructure as code in a consistent and repeatable way.
 
@@ -14,6 +14,12 @@ We have seen when application deployment code was 60% of entire codebase. This m
 
 Hubctl provides mechanisms to manage your deployment as a stack of components. Each component can be deployed and managed independently and can use it's own deployment tool.
 
-## Disposable Infrastructure
+## Ephemeral Environments
 
-Hubctl provides you with a single place where you can deploy multiple environments for your application and dispose it when you don't need it.
+Hubctl gives you a single place to deploy your environments. You can deploy your environments on demand and dispose them when you don't need them. This allows you to save money on your cloud bills.
+
+## Run from Automation
+
+Hubctl is designed to be used in automation. CI/CD pipelines, GitHub Actions, GitLab CI, Jenkins, ArgoCD, FluxCD, Tekton, Spinnaker, you name it. Hubctl can 
+also send a call backs to your IT Service System so it can track the progress of your deployments.
+

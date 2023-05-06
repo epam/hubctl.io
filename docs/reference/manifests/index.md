@@ -30,6 +30,22 @@ Stack manifest describes how one or multiple components are deployed together. I
 
 See more about stack manifest in [here](./stack).
 
+### Split Parameters into Separate Files
+
+This considered as a good practice for Stack Manifests.
+
+Parameter definitions for entire stack can be quite large. For convenience parameters of the stack into the `params.yaml` or in the group of `params-*.yaml` files. Then you can refer additional files in the `hub.yaml` as the following:
+
+```yaml
+extension:
+  include:
+  - params.yaml
+```
+
+See more in [hubctl extensions](./stack/extensions)
+
+> Note: this is a good practice to split parameters from `hub.yaml` into it's own file `params.yaml` or even a series of `params.yaml` files. The parameter files can be referenced in `hub.yaml` as the following
+
 ## See Also
 
 * [Component manifest](./component)
