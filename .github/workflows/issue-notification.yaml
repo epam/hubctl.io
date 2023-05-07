@@ -41,3 +41,8 @@ jobs:
               }
             }
           }'  -f project=$PROJECT_ID -f content=${{env.issue_node_id}}
+    - uses: alex-page/github-project-automation-plus@v0.8.3
+      with:
+        project: ${{ env.PROJECT_NAME }}
+        column: Todo
+        repo-token: ${{ secrets.GH_TOKEN }}
