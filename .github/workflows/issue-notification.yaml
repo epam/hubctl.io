@@ -62,17 +62,18 @@ jobs:
         echo 'STATUS_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
         echo 'TODO_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .options[] | select(.name=="Todo") |.id' project_data.json) >> $GITHUB_ENV
     - name: get issue id
-      run: echo ITEM_ID=$(gh api -q '.node_id' "repos/epam/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}") >> $GITHUB_ENV
+      run: echo ISSUE_NUMBER=$(gh api -q '.node_id' "repos/epam/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}") >> $GITHUB_ENV
     - name: Add issue to project
       run: |
-        gh api graphql -f query='
+        item_id="$( gh api graphql -f query='
           mutation($project:ID!, $content:ID!) {
             addProjectV2ItemById(input: {projectId: $project contentId: $content}) {
               item {
                 id
               }
             }
-          }'  -f project=$PROJECT_ID -f content=${{env.ITEM_ID}}
+          }' -f project=$PROJECT_ID -f content=$ISSUE_NUMBER --jq '.data.addProjectV2ItemById.item.id')"
+          echo 'ITEM_ID='$item_id >> $GITHUB_ENV
     - name: current date
       run: echo "CURR_DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
     - name: set status
