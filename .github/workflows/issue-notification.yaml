@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PROJECT_ID: PVT_kwDOABhCKs4AJzMQ
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - name: get issue id
       run: echo issue_node_id=$(gh api -q '.node_id' "repos/epam/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}") >> $GITHUB_ENV
