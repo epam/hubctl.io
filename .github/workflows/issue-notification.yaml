@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PROJECT_ID: MDU6SXNzdWU5MjAxMjg5MjQ=
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - name: get issue id
       run: echo issue_node_id=$(gh api -q '.node_id' "repos/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}") >> $GITHUB_ENV
