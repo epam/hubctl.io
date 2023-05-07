@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: aliencube/microsoft-teams-actions@v0.8.0
       with:
-        webhook_uri: ${{ secrets.MICROSOFT_TEAMS_WEBHOOK_URI }}
+        webhook_uri: ${{ secrets.TEAMS_WEBHOOK_URI }}
         title: "@{{github.event.issue.actor}} {{github.event.issue.event}} issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}"
         summary: ${{ github.event.issue.body }}
         actions: '[{ "@type": "OpenUri", "name": "Link", "targets": [{ "os": "default", "uri": "${{ github.event.issue.url }}" }] }]'
