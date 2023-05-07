@@ -17,7 +17,7 @@ jobs:
         webhook_uri: ${{ secrets.TEAMS_WEBHOOK_URI }}
         title: "@${{github.event.issue.actor.display_login}} ${{github.event.issue.event}} ${{ github.event.repository.name }}#${{ github.event.issue.number }}: ${{ github.event.issue.title }}"
         text: ${{ github.event.issue.body }}
-        actions: '[{ "@type": "OpenUri", "name": "Link", "targets": [{ "os": "default", "uri": "http://github.com/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}" }] }]'
+        actions: '[{ "@type": "OpenUri", "name": "Link", "targets": [{ "os": "default", "uri": "http://github.com/epam/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}" }] }]'
   assign-project:
     name: Assign Project
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - name: get issue id
-      run: echo issue_node_id=$(gh api -q '.node_id' "repos/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}") >> $GITHUB_ENV
+      run: echo issue_node_id=$(gh api -q '.node_id' "repos/epam/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}") >> $GITHUB_ENV
     - name: Add issue to project
       run: |
         gh api graphql -f query='
