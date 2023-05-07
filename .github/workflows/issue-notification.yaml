@@ -4,7 +4,8 @@ on:
   issues:
     types: [opened, edited, closed, reopened, assigned]
 permissions:
-  issues: read
+  contents: read
+  issues: write
   repository-projects: write
 jobs:
   notify-teams:
@@ -24,7 +25,6 @@ jobs:
     env:
       PROJECT_ID: PVT_kwDOABhCKs4AJzMQ
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - name: get issue id
       run: echo issue_node_id=$(gh api -q '.node_id' "repos/epam/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}") >> $GITHUB_ENV
