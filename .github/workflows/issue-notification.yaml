@@ -1,7 +1,8 @@
 name: Issue Notification
+run-name: "Notify #${{ github.event.issue.number }} ${{github.event.issue.event}}"
 on:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, closed, reopened, assigned]
 jobs:
   notify-teams:
     runs-on: ubuntu-latest
@@ -9,6 +10,6 @@ jobs:
     - uses: aliencube/microsoft-teams-actions@v0.8.0
       with:
         webhook_uri: ${{ secrets.TEAMS_WEBHOOK_URI }}
-        title: "@{{github.event.issue.actor}} {{github.event.issue.event}} issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}"
-        summary: ${{ github.event.issue.body }}
-        actions: '[{ "@type": "OpenUri", "name": "Link", "targets": [{ "os": "default", "uri": "${{ github.event.issue.url }}" }] }]'
+        title: "@${{github.event.issue.actor}} ${{github.event.issue.event}} issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}"
+        text: ${{ github.event.issue.body }}
+        actions: '[{ "@type": "OpenUri", "name": "Link", "targets": [{ "os": "default", "uri": "http://github.com/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}" }] }]'
