@@ -10,6 +10,7 @@ permissions:
 jobs:
   notify-teams:
     name: Notify Teams
+    environment: hubctl-gh-project
     runs-on: ubuntu-latest
     steps:
     - name: send notification
@@ -22,8 +23,10 @@ jobs:
   assign-project:
     name: Assign Project
     runs-on: ubuntu-latest
+    environment: hubctl-gh-project
     env:
-      PROJECT_ID: PVT_kwDOABhCKs4AJzMQ
+      PROJECT_ID: ${{ vars.PROJECT_ID}}
+      COLUMN_ID: ${{ vars.DEFAULT_COLUMN_ID}}
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - name: get issue id
