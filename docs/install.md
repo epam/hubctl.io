@@ -14,7 +14,7 @@ To download the latest of hubctl run the following
 ### cURL
 
 ```shell
-curl -LJ "https://github.com/epam/hubctl/releases/latest/download/hubctl_$(uname -s)_$(uname -m).tar.gz" \|
+curl -LJ "https://github.com/epam/hubctl/releases/latest/download/hubctl_$(uname -s)_$(uname -m).tar.gz" |\
   tar xz -C /tmp && sudo mv /tmp/hubctl /usr/local/bin
 ```
 
@@ -79,3 +79,4 @@ Some components and extensions requires additional tools to be installed:
 [Terraform]: http://terraform.io
 [Helm]: https://helm.sh
 [Kustomize]: https://kustomize.io
+[Docker CLI]: https://www.docker.com/
