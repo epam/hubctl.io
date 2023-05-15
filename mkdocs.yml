@@ -43,6 +43,7 @@ nav:
   - Getting Started:
     - tutorials/index.md
     - tutorials/010-hello-hubctl/README.md
+    - tutorials/015-hello-hubctl-configure/README.md
     - tutorials/020-shell-component/README.md
   - Reference documentation:
     - reference/index.md
