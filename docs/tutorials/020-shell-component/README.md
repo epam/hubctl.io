@@ -1,4 +1,4 @@
-# DIY Component
+# Create Your First Component
 
 This tutorial will show you how to create a component from scratch. We will start with a minimalistic component and then we will add more features to it.
 

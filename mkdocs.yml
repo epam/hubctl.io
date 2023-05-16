@@ -41,10 +41,12 @@ nav:
     - what-is.md
     - Use Cases: use-cases.md
   - Getting Started:
-    - tutorials/index.md
-    - tutorials/010-hello-hubctl/README.md
-    - tutorials/015-hello-hubctl-configure/README.md
-    - tutorials/020-shell-component/README.md
+    - Basics:
+      - tutorials/index.md
+      - tutorials/010-hubctl-stack-init/README.md
+      - tutorials/015-hubctl-stack-configure/README.md
+      - tutorials/017-hubctl-stack-ls/README.md
+      - tutorials/020-shell-component/README.md
   - Reference documentation:
     - reference/index.md
     - Manifest files:

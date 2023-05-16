@@ -7,7 +7,7 @@ components:
   source:
     dir: components/hello-hubctl
      git:
-      remote: https://github.com/epam/hubctl.io/tree/main/docs/tutorials/010-hello-hubctl/components/hello-hubctl
+      remote: https://github.com/epam/hubctl.io/tree/main/docs/tutorials/010-hubctl-stack-init/components/hello-hubctl
       ref: main
       subDir: hello-hubctl
 parameters:
