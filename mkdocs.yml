@@ -40,6 +40,13 @@ nav:
     - install.md
     - what-is.md
     - Use Cases: use-cases.md
+  - Getting Started:
+    - Basics:
+      - tutorials/index.md
+      - tutorials/010-hubctl-stack-init/README.md
+      - tutorials/015-hubctl-stack-configure/README.md
+      - tutorials/017-hubctl-stack-ls/README.md
+      - tutorials/020-shell-component/README.md
   - Reference documentation:
     - reference/index.md
     - Manifest files:
@@ -93,9 +100,6 @@ nav:
         - hubctl extensions update: hubctl/cli/hubctl-extensions-update.md
         - hubctl ext: hubctl/cli/hubctl-ext.md
       #   - hubctl/design-and-architecture/index.md
-  - Getting Started:
-    - tutorials/index.md
-    - tutorials/020-shell-component/README.md
 
 plugins:
   - git-revision-date-localized
