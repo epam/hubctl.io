@@ -12,27 +12,27 @@
         <meta name="author" content="EPAM Systems, Inc.">
       
       
-        <link rel="canonical" href="https://hubctl.io/reference/manifests/stack/lifecycle/">
+        <link rel="canonical" href="https://hubctl.io/tutorials/017-hubctl-stack-ls/">
       
       
-        <link rel="prev" href="../extensions/">
+        <link rel="prev" href="../015-hubctl-stack-configure/">
       
       
-        <link rel="next" href="../../component/">
+        <link rel="next" href="../020-shell-component/">
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>lifecycle - Hubctl</title>
+        <title>Manage Multiple Deployments - Hubctl</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#section-lifecycle" class="md-skip">
+        <a href="#manage-multiple-deployments" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../.." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              lifecycle
+              Manage Multiple Deployments
             
           </span>
         </div>
@@ -188,7 +188,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -197,6 +197,8 @@
       
         
   
+  
+    
   
 
 
@@ -209,7 +211,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../tutorials/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Getting Started
       </a>
     </li>
@@ -221,15 +223,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../reference/" class="md-tabs__link">
         Reference documentation
       </a>
     </li>
@@ -245,7 +245,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../hubctl/cli/" class="md-tabs__link">
+      <a href="../../hubctl/cli/" class="md-tabs__link">
         hubctl
       </a>
     </li>
@@ -273,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../.." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -328,7 +328,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../..">Home</a>
+          <a href="../..">Home</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -351,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../install/" class="md-nav__link">
+      <a href="../../install/" class="md-nav__link">
         Install
       </a>
     </li>
@@ -365,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../what-is/" class="md-nav__link">
+      <a href="../../what-is/" class="md-nav__link">
         What Is Hubctl
       </a>
     </li>
@@ -379,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../use-cases/" class="md-nav__link">
+      <a href="../../use-cases/" class="md-nav__link">
         Use Cases
       </a>
     </li>
@@ -399,14 +399,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
         
@@ -419,7 +421,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Getting Started
@@ -430,14 +432,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
       
       
         
@@ -466,7 +470,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../tutorials/">Basics</a>
+          <a href="../">Basics</a>
           
             <label for="__nav_2_1">
               <span class="md-nav__icon md-icon"></span>
@@ -474,7 +478,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           Basics
@@ -489,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/010-hubctl-stack-init/" class="md-nav__link">
+      <a href="../010-hubctl-stack-init/" class="md-nav__link">
         First Deployment
       </a>
     </li>
@@ -503,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/015-hubctl-stack-configure/" class="md-nav__link">
+      <a href="../015-hubctl-stack-configure/" class="md-nav__link">
         Multiple Components
       </a>
     </li>
@@ -515,11 +519,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../tutorials/017-hubctl-stack-ls/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Manage Multiple Deployments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Manage Multiple Deployments
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-this-tutorial" class="md-nav__link">
+    In This Tutorial
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -531,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tutorials/020-shell-component/" class="md-nav__link">
+      <a href="../020-shell-component/" class="md-nav__link">
         Create Your First Component
       </a>
     </li>
@@ -558,16 +603,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
         
@@ -586,7 +629,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../">Reference documentation</a>
+          <a href="../../reference/">Reference documentation</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -594,7 +637,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Reference documentation
@@ -607,16 +650,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
       
       
         
@@ -633,7 +674,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Manifest files</a>
+          <a href="../../reference/manifests/">Manifest files</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -641,7 +682,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           Manifest files
@@ -654,16 +695,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
       
       
         
@@ -690,7 +729,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Stack</a>
+          <a href="../../reference/manifests/stack/">Stack</a>
           
             <label for="__nav_3_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -698,7 +737,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_2_2">
           <span class="md-nav__icon md-icon"></span>
           Stack
@@ -713,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/meta/" class="md-nav__link">
         meta
       </a>
     </li>
@@ -727,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../requires/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/requires/" class="md-nav__link">
         requires
       </a>
     </li>
@@ -741,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../components/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/components/" class="md-nav__link">
         components
       </a>
     </li>
@@ -755,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../parameters/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -769,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../outputs/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -783,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extensions/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/extensions/" class="md-nav__link">
         extensions
       </a>
     </li>
@@ -795,21 +834,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reference/manifests/stack/lifecycle/" class="md-nav__link">
         lifecycle
       </a>
-      
     </li>
   
 
@@ -858,7 +887,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../component/">Component</a>
+          <a href="../../reference/manifests/component/">Component</a>
           
             <label for="__nav_3_2_3">
               <span class="md-nav__icon md-icon"></span>
@@ -881,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../component/meta/" class="md-nav__link">
+      <a href="../../reference/manifests/component/meta/" class="md-nav__link">
         meta
       </a>
     </li>
@@ -895,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../component/requires/" class="md-nav__link">
+      <a href="../../reference/manifests/component/requires/" class="md-nav__link">
         requires
       </a>
     </li>
@@ -909,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../component/provides/" class="md-nav__link">
+      <a href="../../reference/manifests/component/provides/" class="md-nav__link">
         provides
       </a>
     </li>
@@ -923,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../component/parameters/" class="md-nav__link">
+      <a href="../../reference/manifests/component/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -937,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../component/templates/" class="md-nav__link">
+      <a href="../../reference/manifests/component/templates/" class="md-nav__link">
         templates
       </a>
     </li>
@@ -951,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../component/outputs/" class="md-nav__link">
+      <a href="../../reference/manifests/component/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -1011,7 +1040,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../components/">Components</a>
+          <a href="../../reference/components/">Components</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1034,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../components/terraform/" class="md-nav__link">
+      <a href="../../reference/components/terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -1048,7 +1077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../components/kubernetes/" class="md-nav__link">
+      <a href="../../reference/components/kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -1062,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../components/helm/" class="md-nav__link">
+      <a href="../../reference/components/helm/" class="md-nav__link">
         Helm
       </a>
     </li>
@@ -1076,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../components/kustomize/" class="md-nav__link">
+      <a href="../../reference/components/kustomize/" class="md-nav__link">
         Kustomize
       </a>
     </li>
@@ -1090,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../components/shell/" class="md-nav__link">
+      <a href="../../reference/components/shell/" class="md-nav__link">
         Shell
       </a>
     </li>
@@ -1104,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../components/makefile/" class="md-nav__link">
+      <a href="../../reference/components/makefile/" class="md-nav__link">
         Makefile
       </a>
     </li>
@@ -1118,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../components/arm/" class="md-nav__link">
+      <a href="../../reference/components/arm/" class="md-nav__link">
         ARM
       </a>
     </li>
@@ -1161,7 +1190,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../design/">Configuration</a>
+          <a href="../../reference/design/">Configuration</a>
           
             <label for="__nav_3_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1184,7 +1213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/env/" class="md-nav__link">
+      <a href="../../reference/design/env/" class="md-nav__link">
         Environment Configuration
       </a>
     </li>
@@ -1198,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../design/dns/" class="md-nav__link">
+      <a href="../../reference/design/dns/" class="md-nav__link">
         Domain Names
       </a>
     </li>
@@ -1275,7 +1304,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../hubctl/cli/">hubctl</a>
+          <a href="../../hubctl/cli/">hubctl</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1298,7 +1327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-stack/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack/" class="md-nav__link">
         hubctl stack
       </a>
     </li>
@@ -1312,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-stack-init/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-init/" class="md-nav__link">
         hubctl stack init
       </a>
     </li>
@@ -1326,7 +1355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-stack-configure/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-configure/" class="md-nav__link">
         hubctl stack configure
       </a>
     </li>
@@ -1340,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-stack-deploy/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-deploy/" class="md-nav__link">
         hubctl stack deploy
       </a>
     </li>
@@ -1354,7 +1383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-stack-undeploy/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-undeploy/" class="md-nav__link">
         hubctl stack undeploy
       </a>
     </li>
@@ -1368,7 +1397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-stack-ls/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-ls/" class="md-nav__link">
         hubctl stack ls
       </a>
     </li>
@@ -1382,7 +1411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-stack-set/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-set/" class="md-nav__link">
         hubctl stack set
       </a>
     </li>
@@ -1396,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-stack-rm/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-rm/" class="md-nav__link">
         hubctl stack rm
       </a>
     </li>
@@ -1410,7 +1439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-stack-elaborate/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-elaborate/" class="md-nav__link">
         hubctl stack elaborate
       </a>
     </li>
@@ -1424,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-show/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-show/" class="md-nav__link">
         hubctl show
       </a>
     </li>
@@ -1438,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-toolbox/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-toolbox/" class="md-nav__link">
         hubctl toolbox
       </a>
     </li>
@@ -1452,7 +1481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-extensions/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-extensions/" class="md-nav__link">
         hubctl extensions
       </a>
     </li>
@@ -1466,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-extensions-install/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-extensions-install/" class="md-nav__link">
         hubctl extensions install
       </a>
     </li>
@@ -1480,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-extensions-update/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-extensions-update/" class="md-nav__link">
         hubctl extensions update
       </a>
     </li>
@@ -1494,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../hubctl/cli/hubctl-ext/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-ext/" class="md-nav__link">
         hubctl ext
       </a>
     </li>
@@ -1528,6 +1557,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-this-tutorial" class="md-nav__link">
+    In This Tutorial
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1544,35 +1588,22 @@
   
 
 
-<h1 id="section-lifecycle">Section <code>lifecycle</code></h1>
-<pre><code class="language-yaml">lifecycle:                             # optional
-  verbs:                               # optional, verbs supported by stack (if omited, then limited to verbs deploy and undeploy)
-  - deploy          
-  - undeploy
-  order:                               # optional, user defined order of components in which it must be deployed. If omitted then order will be derived form component dependencies followed by component order in stack manifest
-  - kubernetes                         # example names of components
-  - traefik
-  - kube-dashboard
-  mandatory:                           # optional, list of mandatory components. by default all components are optional
-  - kubernetes
-  optional:                             # optional, list of optional components. by default all components are optional
-  - kube-dashboard
-  requires:                             # optional, section to define optional rquirements
-    optional:                           # see Lifecycle &gt; Deploy &gt; Optional requirements
-    - vault
-  readyConditions:                      # optional, list of conditions to check before component is considered ready
-  - dns: api.${dns.domain}              # resolvable
-    url:  https://api.${dns.domain}/v1  # returns something other than HTTP 500
-    waitSeconds: 600                    # how long to wait for the condition
-    pauseSeconds: 0                     # pause before starting poll loop
-</code></pre>
+<h1 id="manage-multiple-deployments">Manage Multiple Deployments</h1>
+<p>This tutorial explains how to manage multiple deployment of the same stack with different configurations.</p>
+<h2 id="in-this-tutorial">In This Tutorial</h2>
+<p>This tutorial covers the following topics:</p>
+<ul>
+<li>How to deploy a several stacks </li>
+<li>How to inspect configuration of the stack</li>
+<li>How to deploy switch between stacks</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 17, 2023</span>
       
     
   </small>
@@ -1623,10 +1654,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
     
   </body>

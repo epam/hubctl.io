@@ -15,15 +15,17 @@
         <link rel="canonical" href="https://hubctl.io/tutorials/020-shell-component/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../017-hubctl-stack-ls/">
       
+      
+        <link rel="next" href="../../reference/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>DIY Component - Hubctl</title>
+        <title>Create Your First Component - Hubctl</title>
       
     
     
@@ -71,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#diy-component" class="md-skip">
+        <a href="#create-your-first-component" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DIY Component
+              Create Your First Component
             
           </span>
         </div>
@@ -196,6 +198,31 @@
         
   
   
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Getting Started
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
 
 
   
@@ -220,24 +247,6 @@
     <li class="md-tabs__item">
       <a href="../../hubctl/cli/" class="md-tabs__link">
         hubctl
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-    
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
-        Getting Started
       </a>
     </li>
   
@@ -390,6 +399,251 @@
 
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Basics</a>
+          
+            <label for="__nav_2_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010-hubctl-stack-init/" class="md-nav__link">
+        First Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../015-hubctl-stack-configure/" class="md-nav__link">
+        Multiple Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../017-hubctl-stack-ls/" class="md-nav__link">
+        Manage Multiple Deployments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Create Your First Component
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Create Your First Component
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#component-structure" class="md-nav__link">
+    Component structure
+  </a>
+  
+    <nav class="md-nav" aria-label="Component structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-a-minimalistic-component" class="md-nav__link">
+    Deploy a minimalistic component
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-parameter" class="md-nav__link">
+    Add a parameter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-second-component-and-override-the-parameter" class="md-nav__link">
+    Add a second component and override the parameter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-template-to-the-component" class="md-nav__link">
+    Add a template to the component
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technology-specific-components" class="md-nav__link">
+    Technology specific components
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     
     <li class="md-nav__item md-nav__item--nested">
@@ -397,7 +651,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
         
@@ -418,14 +672,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../reference/">Reference documentation</a>
           
-            <label for="__nav_2">
+            <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Reference documentation
         </label>
@@ -444,7 +698,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
       
       
         
@@ -463,14 +717,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../reference/manifests/">Manifest files</a>
           
-            <label for="__nav_2_2">
+            <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           Manifest files
         </label>
@@ -489,7 +743,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
       
       
         
@@ -518,14 +772,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../reference/manifests/stack/">Stack</a>
           
-            <label for="__nav_2_2_2">
+            <label for="__nav_3_2_2">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_2_2">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2_2">
           <span class="md-nav__icon md-icon"></span>
           Stack
         </label>
@@ -649,7 +903,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
       
       
         
@@ -676,14 +930,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../reference/manifests/component/">Component</a>
           
-            <label for="__nav_2_2_3">
+            <label for="__nav_3_2_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_2_3">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2_3">
           <span class="md-nav__icon md-icon"></span>
           Component
         </label>
@@ -800,7 +1054,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
       
       
         
@@ -829,14 +1083,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../reference/components/">Components</a>
           
-            <label for="__nav_2_3">
+            <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_3">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
           Components
         </label>
@@ -960,7 +1214,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
       
       
         
@@ -979,14 +1233,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../reference/design/">Configuration</a>
           
-            <label for="__nav_2_4">
+            <label for="__nav_3_4">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_2_4">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
           Configuration
         </label>
@@ -1048,7 +1302,7 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
         
@@ -1093,14 +1347,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../hubctl/cli/">hubctl</a>
           
-            <label for="__nav_3">
+            <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           hubctl
         </label>
@@ -1324,157 +1578,6 @@
   
 
     
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-      
-      
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Getting Started</a>
-          
-            <label for="__nav_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Getting Started
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          DIY Component
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        DIY Component
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#component-structure" class="md-nav__link">
-    Component structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Component structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deploy-a-minimalistic-component" class="md-nav__link">
-    Deploy a minimalistic component
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-a-parameter" class="md-nav__link">
-    Add a parameter
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-a-second-component-and-override-the-parameter" class="md-nav__link">
-    Add a second component and override the parameter
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-a-template-to-the-component" class="md-nav__link">
-    Add a template to the component
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technology-specific-components" class="md-nav__link">
-    Technology specific components
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -1567,7 +1670,7 @@
   
 
 
-<h1 id="diy-component">DIY Component</h1>
+<h1 id="create-your-first-component">Create Your First Component</h1>
 <p>This tutorial will show you how to create a component from scratch. We will start with a minimalistic component and then we will add more features to it.</p>
 <p>Component is the minimal deployment unit that hubctl can manage. Good component should have few properties:</p>
 <ul>
@@ -1765,7 +1868,7 @@ echo &quot;Component $COMPONENT_NAME deployed successfully!&quot;
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 2, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 17, 2023</span>
       
     
   </small>

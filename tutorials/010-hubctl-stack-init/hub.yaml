@@ -1,0 +1,16 @@
+kind: stack
+version: 1
+meta:
+  name: My first deployment
+components:
+- name: hello-hubctl
+  source:
+    dir: components/hello-hubctl
+     git:
+      remote: https://github.com/epam/hubctl.io/tree/main/docs/tutorials/010-hubctl-stack-init/components/hello-hubctl
+      ref: main
+      subDir: hello-hubctl
+parameters:
+- name: message
+  value: hello-hubctl
+  
