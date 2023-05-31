@@ -22,8 +22,6 @@ This tutorial explains how to manage multiple deployment with different configur
 
 Here we learn how to create a first component using most simple component type: shell.
 
-## Kubernetes Tutorials
+## [Kubernetes Tutorials](030-kubernetes-rancher-desktop)
 
 This is a set of tutorials that describes how to use hubctl to deploy a stack on existing Kubernetes cluster.
-
-`// TODO: add tutorials`
