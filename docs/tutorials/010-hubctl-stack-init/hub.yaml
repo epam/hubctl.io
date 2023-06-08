@@ -3,14 +3,18 @@ version: 1
 meta:
   name: My first deployment
 components:
-- name: hello-hubctl
-  source:
-    dir: components/hello-hubctl
-     git:
-      remote: https://github.com/epam/hubctl.io/tree/main/docs/tutorials/010-hubctl-stack-init/components/hello-hubctl
-      ref: main
-      subDir: hello-hubctl
+  - name: hello-hubctl
+    source:
+      dir: components/hello-hubctl
+      git:
+        remote: https://github.com/epam/hubctl.io.git
+        subDir: docs/tutorials/010-hubctl-stack-init/components/hello-hubctl
+        ref: main
+
 parameters:
-- name: message
-  value: hello-hubctl
-  
+  - name: hello-hubctl
+    parameters:
+      - name: hub.componentName
+        env: HUB_COMPONENT_NAME
+      - name: message
+        env: MESSAGE

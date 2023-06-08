@@ -4,5 +4,4 @@ parameters:
 - name: hub.componentName
   env: HUB_COMPONENT_NAME
 - name: message
-  value: foo
   env: MESSAGE
