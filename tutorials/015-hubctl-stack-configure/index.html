@@ -1666,83 +1666,59 @@
 </ul>
 <h2 id="deploy-stack-with-one-component">Deploy Stack with one Component</h2>
 <p>Similar to the tutorial the <a href="../../../tutorials/010-hello-hubctl/">previous</a> tutorial, we will deploy a stack with one component.</p>
-<ol>
-<li>
-<p>Create an empty directory and change your working directory to it.</p>
-</li>
-<li>
-<p>Initialize a stack with <a href="../../../hubctl/cli/hubctl-stack-init/"><code>hubctl stack init</code></a> command.</p>
-</li>
-</ol>
+<p>1) Create an empty directory and change your working directory to it.</p>
+<p>2) Initialize a stack with <a href="../../../hubctl/cli/hubctl-stack-init/"><code>hubctl stack init</code></a> command.</p>
 <pre><code class="language-shell">hubctl stack init -f &quot;https://hutctl.io/tutorials/015-hubctl-stack-configure/hub.yaml&quot;
 </code></pre>
 <p>Wait when stack will be initialized and component will be downloaded in the directory <code>components/hello-hubctl</code></p>
-<ol>
-<li>Now let's deploy this stack with the following commands:</li>
-</ol>
-<pre><code class="language-bash">hubctl stack configure
-hubctl stack deploy
+<p>3) Now let's deploy this stack with the following command:</p>
+<pre><code class="language-bash">hubctl stack deploy
 </code></pre>
-<ol>
-<li>You can confirm stack has been deployed with command</li>
-</ol>
+<p>4) You can confirm stack has been deployed with command </p>
 <pre><code class="language-shell">hubctl show 
 ## ...
 ## status;
 ##   status: deployed
 </code></pre>
+<p>As a result, you will see the deployment components with parameters and status.</p>
 <h2 id="add-a-new-component">Add a New Component</h2>
-<p>In this step we will add </p>
-<ol>
-<li>Open the hubfile (hub.yaml) and add following:
- to <code>components</code> field: </li>
-</ol>
-<pre><code class="language-hub.yaml">
-- name: my-second-component
+<p>5) Let's open the hubfile "hub.yaml" and add following to <code>components</code> field: </p>
+<pre><code class="language-hub.yaml"> - name: my-second-component
   source:
     dir: components/hello-hubctl
 </code></pre>
-<p>to <code>parameters</code> field: </p>
-<pre><code class="language-hub.yaml">
-- name: message
+<p>and add following to <code>parameters</code> field of the hubfile "hub.yaml": </p>
+<pre><code class="language-hub.yaml"> - name: message
   component: my-second-component
   value: baz
-
 </code></pre>
-<ol>
-<li>Repeat deployment command</li>
-</ol>
+<p>6) Repeat deployment command</p>
 <pre><code class="language-shell">hubctl stack deploy
-# Component my-first-component is saying: bar
-# Component my-first-component deployed successfully!
-# Component my-second-component is saying: baz
-# Component my-second-component deployed successfully!
 
 </code></pre>
-<ol>
-<li>Inspect parameters for both components</li>
-</ol>
+<p>As a result, you will see the deployment components <code>my-first-component</code> and <code>my-second-component</code>.</p>
+<pre><code class="language-results">#--- File: deploy.sh
+#Component my-first-component is saying: foo
+#Component my-first-component deployed successfully!
+
+#Component my-second-component is saying: baz
+#Component my-second-component deployed successfully!
+</code></pre>
+<p>7) Inspect parameters for both components</p>
 <pre><code class="language-shell">hubctl show -c &quot;my-first-component&quot;
-# add parameter value here
-
-hubctl sshow -c &quot;my-second-component&quot;
-# add parameter value here
 </code></pre>
-<ol>
-<li>Now let's undeploy the second component and run the echo command.
-To start undeploying for one or more components (provided as a comma-separated value), run the following command.</li>
-</ol>
+<pre><code class="language-shell">hubctl show -c &quot;my-second-component&quot;
+</code></pre>
+<p>8) Now let's undeploy the second component and run the echo command.
+To start undeploying for one or more components (provided as a comma-separated value), run the following command.</p>
 <pre><code class="language-shell">hubctl stack undeploy -c &quot;my-second-component&quot;
-
 </code></pre>
 <p>Read more about undeploy <a href="../../../hubctl/cli/hubctl-stack-undeploy/">here</a></p>
-<ol>
-<li>Observe the result</li>
-</ol>
+<p>9) Observe the result</p>
 <pre><code class="language-shell">hubctl show 
 # status: incomplete
 </code></pre>
-<p>After we undeployed a second component, the stack status is changed from <code>deployed</code> to <code>incomplete</code>. This means one or more components are not deployed.</p>
+<p>After we undeploy a second component, the stack status is changed from <code>deployed</code> to <code>incomplete</code>. This means one or more components are not deployed.</p>
 <blockquote>
 <p>Note: on the contrary, status <code>deployed</code> means all components of a stack are deployed.</p>
 </blockquote>
@@ -1757,7 +1733,7 @@ Go to the <a href="../../../tutorials/020-shell-component/">next tutorial</a></p
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 17, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 12, 2023</span>
       
     
   </small>
