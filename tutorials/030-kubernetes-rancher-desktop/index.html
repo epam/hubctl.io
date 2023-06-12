@@ -12,27 +12,23 @@
         <meta name="author" content="EPAM Systems, Inc.">
       
       
-        <link rel="canonical" href="https://hubctl.io/tutorials/">
+        <link rel="canonical" href="https://hubctl.io/tutorials/030-kubernetes-rancher-desktop/">
       
       
-        <link rel="prev" href="../use-cases/">
       
-      
-        <link rel="next" href="010-hubctl-stack-init/">
-      
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Getting Started - Hubctl</title>
+        <title>Kubernetes Tutorials - Hubctl</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -48,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started" class="md-skip">
+        <a href="#kubernetes-tutorials" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +87,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../.." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -110,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              Kubernetes Tutorials
             
           </span>
         </div>
@@ -188,7 +184,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -197,8 +193,6 @@
       
         
   
-  
-    
   
 
 
@@ -211,7 +205,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link">
         Getting Started
       </a>
     </li>
@@ -229,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../reference/" class="md-tabs__link">
+      <a href="../../reference/" class="md-tabs__link">
         Reference documentation
       </a>
     </li>
@@ -245,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../hubctl/cli/" class="md-tabs__link">
+      <a href="../../hubctl/cli/" class="md-tabs__link">
         hubctl
       </a>
     </li>
@@ -273,7 +267,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../.." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -328,7 +322,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="..">Home</a>
+          <a href="../..">Home</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -351,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
+      <a href="../../install/" class="md-nav__link">
         Install
       </a>
     </li>
@@ -365,7 +359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../what-is/" class="md-nav__link">
+      <a href="../../what-is/" class="md-nav__link">
         What Is Hubctl
       </a>
     </li>
@@ -379,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use-cases/" class="md-nav__link">
+      <a href="../../use-cases/" class="md-nav__link">
         Use Cases
       </a>
     </li>
@@ -399,16 +393,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
         
@@ -421,7 +413,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Getting Started
@@ -432,16 +424,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
       
       
         
@@ -469,8 +459,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">Basics</a>
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Basics</a>
           
             <label for="__nav_2_1">
               <span class="md-nav__icon md-icon"></span>
@@ -478,7 +468,7 @@
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           Basics
@@ -493,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="010-hubctl-stack-init/" class="md-nav__link">
+      <a href="../010-hubctl-stack-init/" class="md-nav__link">
         First Deployment
       </a>
     </li>
@@ -507,7 +497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="015-hubctl-stack-configure/" class="md-nav__link">
+      <a href="../015-hubctl-stack-configure/" class="md-nav__link">
         Multiple Components
       </a>
     </li>
@@ -521,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="017-hubctl-stack-ls/" class="md-nav__link">
+      <a href="../017-hubctl-stack-ls/" class="md-nav__link">
         Manage Multiple Deployments
       </a>
     </li>
@@ -535,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="020-shell-component/" class="md-nav__link">
+      <a href="../020-shell-component/" class="md-nav__link">
         Create Your First Component
       </a>
     </li>
@@ -588,7 +578,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../reference/">Reference documentation</a>
+          <a href="../../reference/">Reference documentation</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -633,7 +623,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../reference/manifests/">Manifest files</a>
+          <a href="../../reference/manifests/">Manifest files</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -688,7 +678,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../reference/manifests/stack/">Stack</a>
+          <a href="../../reference/manifests/stack/">Stack</a>
           
             <label for="__nav_3_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -711,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/stack/meta/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/meta/" class="md-nav__link">
         meta
       </a>
     </li>
@@ -725,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/stack/requires/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/requires/" class="md-nav__link">
         requires
       </a>
     </li>
@@ -739,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/stack/components/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/components/" class="md-nav__link">
         components
       </a>
     </li>
@@ -753,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/stack/parameters/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -767,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/stack/outputs/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -781,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/stack/extensions/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/extensions/" class="md-nav__link">
         extensions
       </a>
     </li>
@@ -795,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/stack/lifecycle/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/lifecycle/" class="md-nav__link">
         lifecycle
       </a>
     </li>
@@ -846,7 +836,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../reference/manifests/component/">Component</a>
+          <a href="../../reference/manifests/component/">Component</a>
           
             <label for="__nav_3_2_3">
               <span class="md-nav__icon md-icon"></span>
@@ -869,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/component/meta/" class="md-nav__link">
+      <a href="../../reference/manifests/component/meta/" class="md-nav__link">
         meta
       </a>
     </li>
@@ -883,7 +873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/component/requires/" class="md-nav__link">
+      <a href="../../reference/manifests/component/requires/" class="md-nav__link">
         requires
       </a>
     </li>
@@ -897,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/component/provides/" class="md-nav__link">
+      <a href="../../reference/manifests/component/provides/" class="md-nav__link">
         provides
       </a>
     </li>
@@ -911,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/component/parameters/" class="md-nav__link">
+      <a href="../../reference/manifests/component/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -925,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/component/templates/" class="md-nav__link">
+      <a href="../../reference/manifests/component/templates/" class="md-nav__link">
         templates
       </a>
     </li>
@@ -939,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/manifests/component/outputs/" class="md-nav__link">
+      <a href="../../reference/manifests/component/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -999,7 +989,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../reference/components/">Components</a>
+          <a href="../../reference/components/">Components</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1022,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/components/terraform/" class="md-nav__link">
+      <a href="../../reference/components/terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -1036,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/components/kubernetes/" class="md-nav__link">
+      <a href="../../reference/components/kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -1050,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/components/helm/" class="md-nav__link">
+      <a href="../../reference/components/helm/" class="md-nav__link">
         Helm
       </a>
     </li>
@@ -1064,7 +1054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/components/kustomize/" class="md-nav__link">
+      <a href="../../reference/components/kustomize/" class="md-nav__link">
         Kustomize
       </a>
     </li>
@@ -1078,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/components/shell/" class="md-nav__link">
+      <a href="../../reference/components/shell/" class="md-nav__link">
         Shell
       </a>
     </li>
@@ -1092,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/components/makefile/" class="md-nav__link">
+      <a href="../../reference/components/makefile/" class="md-nav__link">
         Makefile
       </a>
     </li>
@@ -1106,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/components/arm/" class="md-nav__link">
+      <a href="../../reference/components/arm/" class="md-nav__link">
         ARM
       </a>
     </li>
@@ -1149,7 +1139,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../reference/design/">Configuration</a>
+          <a href="../../reference/design/">Configuration</a>
           
             <label for="__nav_3_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1172,7 +1162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/design/env/" class="md-nav__link">
+      <a href="../../reference/design/env/" class="md-nav__link">
         Environment Configuration
       </a>
     </li>
@@ -1186,7 +1176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/design/dns/" class="md-nav__link">
+      <a href="../../reference/design/dns/" class="md-nav__link">
         Domain Names
       </a>
     </li>
@@ -1263,7 +1253,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../hubctl/cli/">hubctl</a>
+          <a href="../../hubctl/cli/">hubctl</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1286,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-stack/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack/" class="md-nav__link">
         hubctl stack
       </a>
     </li>
@@ -1300,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-stack-init/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-init/" class="md-nav__link">
         hubctl stack init
       </a>
     </li>
@@ -1314,7 +1304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-stack-configure/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-configure/" class="md-nav__link">
         hubctl stack configure
       </a>
     </li>
@@ -1328,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-stack-deploy/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-deploy/" class="md-nav__link">
         hubctl stack deploy
       </a>
     </li>
@@ -1342,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-stack-undeploy/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-undeploy/" class="md-nav__link">
         hubctl stack undeploy
       </a>
     </li>
@@ -1356,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-stack-ls/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-ls/" class="md-nav__link">
         hubctl stack ls
       </a>
     </li>
@@ -1370,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-stack-set/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-set/" class="md-nav__link">
         hubctl stack set
       </a>
     </li>
@@ -1384,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-stack-rm/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-rm/" class="md-nav__link">
         hubctl stack rm
       </a>
     </li>
@@ -1398,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-stack-elaborate/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-elaborate/" class="md-nav__link">
         hubctl stack elaborate
       </a>
     </li>
@@ -1412,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-show/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-show/" class="md-nav__link">
         hubctl show
       </a>
     </li>
@@ -1426,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-toolbox/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-toolbox/" class="md-nav__link">
         hubctl toolbox
       </a>
     </li>
@@ -1440,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-extensions/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-extensions/" class="md-nav__link">
         hubctl extensions
       </a>
     </li>
@@ -1454,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-extensions-install/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-extensions-install/" class="md-nav__link">
         hubctl extensions install
       </a>
     </li>
@@ -1468,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-extensions-update/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-extensions-update/" class="md-nav__link">
         hubctl extensions update
       </a>
     </li>
@@ -1482,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hubctl/cli/hubctl-ext/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-ext/" class="md-nav__link">
         hubctl ext
       </a>
     </li>
@@ -1523,49 +1513,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deployment-basics" class="md-nav__link">
-    Deployment Basics
+  <a href="#in-this-tutorial" class="md-nav__link">
+    In This Tutorial
   </a>
-  
-    <nav class="md-nav" aria-label="Deployment Basics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#your-first-deployment" class="md-nav__link">
-    Your First Deployment
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#control-multiple-deployments" class="md-nav__link">
-    Control Multiple Deployments
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manage-multiple-deployments" class="md-nav__link">
-    Manage Multiple Deployments
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-your-first-component" class="md-nav__link">
-    Create Your First Component
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#kubernetes-tutorials" class="md-nav__link">
-    Kubernetes Tutorials
+  <a href="#install-rancher-desktop" class="md-nav__link">
+    Install Rancher Desktop
   </a>
   
 </li>
@@ -1588,20 +1544,75 @@
   
 
 
-<h1 id="getting-started">Getting Started</h1>
-<p>Got hubctl <a href="/install/">installed</a>? Great! Now let's get started with a quick tutorial.</p>
-<h2 id="deployment-basics">Deployment Basics</h2>
-<p>These tutorials describes how to use hubctl to deploy a stack and manage its configuration. These tutorials are deploying a simple <code>shell</code> component</p>
-<h3 id="your-first-deployment"><a href="010-hubctl-stack-init">Your First Deployment</a></h3>
-<p>Let's start with first deployment. We'll deploy a stack with one "hello, world" component.</p>
-<h3 id="control-multiple-deployments"><a href="015-hubctl-stack-configure">Control Multiple Deployments</a></h3>
-<p>This tutorial explains how to manage multiple deployment of the same stack with different configurations.</p>
-<h3 id="manage-multiple-deployments"><a href="017-hubctl-stack-ls">Manage Multiple Deployments</a></h3>
-<p>This tutorial explains how to manage multiple deployment with different configuration parameters.</p>
-<h3 id="create-your-first-component"><a href="020-shell-component">Create Your First Component</a></h3>
-<p>Here we learn how to create a first component using most simple component type: shell.</p>
-<h2 id="kubernetes-tutorials"><a href="030-kubernetes-rancher-desktop">Kubernetes Tutorials</a></h2>
+<h1 id="kubernetes-tutorials">Kubernetes Tutorials</h1>
 <p>This is a set of tutorials that describes how to use hubctl to deploy a stack on existing Kubernetes cluster.</p>
+<h2 id="in-this-tutorial">In This Tutorial</h2>
+<p>This tutorials covers the following topics:</p>
+<ul>
+<li>How to install and use Rancher Desktop Kubernetes</li>
+<li>How to use hubctl to deploy a stack on existing Kubernetes cluster</li>
+</ul>
+<h2 id="install-rancher-desktop">Install Rancher Desktop</h2>
+<p>Rancher Desktop is an app that provides container management and Kubernetes on the desktop. It is available for Mac (both on Intel and Apple Silicon), Windows, and Linux.
+You can read the full documentation about Rancher Desktop <a href="https://docs.rancherdesktop.io/">here</a>.</p>
+<p>An open-source desktop application for Mac, Windows and Linux. Rancher Desktop runs Kubernetes and container management on your desktop. You can choose the version of Kubernetes you want to run.
+Each component knows how to deploy itself and export facts about deployment configuration in the well-known form of parameters. So other component would use this as an input.</p>
+<p>How to install and configure Rancher Desktop on Windows OS:</p>
+<ol>
+<li>Open link with Rancher Desktop <a href="https://docs.rancherdesktop.io/1.6/getting-started/installation#windows">documentation</a></li>
+<li>You need to upgrate WSL2 version on your computer. 
+<a href="https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-1---enable-the-windows-subsystem-for-linux">Manual installation steps</a></li>
+<li>Install <a href="https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-6---install-your-linux-distribution-of-choice">Ubuntu</a></li>
+<li>Download and install Rancher Desktop https://rancherdesktop.io/</li>
+<li>Check your Rancher Desktop settings "Preferences"-&gt; WSL. WSL has to a checkbox with Ubuntu. </li>
+<li>Open Windows PowerShell as Administration and run </li>
+</ol>
+<pre><code class="language-PowerShell">wsl -l -v
+</code></pre>
+<p>Rancher-desktop and Ubuntu have to "Running" states.</p>
+<ul>
+<li>Open Ubuntu terminal and run commands</li>
+</ul>
+<pre><code class="language-bash">docker
+</code></pre>
+<pre><code class="language-bash">sudo apt-get update
+
+sudo apt install docker.io
+</code></pre>
+<ul>
+<li>Check the version of the docker</li>
+</ul>
+<pre><code class="language-bash">docker version
+</code></pre>
+<pre><code class="language-bash">docker ps
+</code></pre>
+<p>You have to see all containers related to rancher-desktop kubernetes.
+And  if you have a message "Got permission denied while trying to connect to the Docker ..."
+something needs to be done so $USER always runs in group <code>docker</code> on the <code>Ubuntu</code> WSL</p>
+<pre><code class="language-bash">sudo addgroup --system docker
+</code></pre>
+<pre><code class="language-bash">sudo adduser $USER docker
+</code></pre>
+<ul>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">Install kuberctl</a>. To test connectivity to a kubernetes cluster,
+   open <code>Ubuntu terminal</code> and run commands</li>
+</ul>
+<pre><code class="language-bash">kuberctl version
+</code></pre>
+<p>How to use hubctl to deploy a stack on existing Kubernetes cluster:
+1. Run the commands and test your Rancher Desktop Kubernetes:</p>
+<pre><code class="language-bash">rdctl version
+</code></pre>
+<pre><code class="language-bash">docker images
+</code></pre>
+<ol>
+<li>To run hubctl the use following commands:</li>
+</ol>
+<pre><code class="language-bash">hubctl stack init
+</code></pre>
+<pre><code class="language-bash">hubctl stack deploy
+</code></pre>
+<p>How to install hubctl on your local workstation you can find <a href="https://hubctl.io/install/">here</a></p>
 
   <hr>
 <div class="md-source-file">
@@ -1659,10 +1670,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
     
   </body>
