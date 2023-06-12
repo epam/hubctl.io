@@ -14,91 +14,84 @@ This tutorials covers the following topics:
 
 Similar to the tutorial the [previous](../../../tutorials/010-hello-hubctl/) tutorial, we will deploy a stack with one component.
 
-1. Create an empty directory and change your working directory to it.
+1) Create an empty directory and change your working directory to it.
 
-2. Initialize a stack with [`hubctl stack init`](../../../hubctl/cli/hubctl-stack-init/) command.
-
+2) Initialize a stack with [`hubctl stack init`](../../../hubctl/cli/hubctl-stack-init/) command.
 ```shell
 hubctl stack init -f "https://hutctl.io/tutorials/015-hubctl-stack-configure/hub.yaml"
 ```
-
 Wait when stack will be initialized and component will be downloaded in the directory `components/hello-hubctl`
 
-3. Now let's deploy this stack with the following commands:
-
+3) Now let's deploy this stack with the following command:
 ```bash
-hubctl stack configure
 hubctl stack deploy
 ```
-
-3. You can confirm stack has been deployed with command
-
+4) You can confirm stack has been deployed with command 
 ```shell
 hubctl show 
 ## ...
 ## status;
 ##   status: deployed
 ```
+As a result, you will see the deployment components with parameters and status.
 
 ## Add a New Component
 
-In this step we will add 
-
-2. Open the hubfile (hub.yaml) and add following:
- to `components` field: 
+5) Let's open the hubfile "hub.yaml" and add following to `components` field: 
 ```hub.yaml 
- 
-- name: my-second-component
+ - name: my-second-component
   source:
     dir: components/hello-hubctl
 ```  
 
-to `parameters` field: 
+and add following to `parameters` field of the hubfile "hub.yaml": 
 ```hub.yaml 
- 
-- name: message
+ - name: message
   component: my-second-component
   value: baz
-
 ```  
 
-3. Repeat deployment command
+6) Repeat deployment command
 
 ```shell
 hubctl stack deploy
-# Component my-first-component is saying: bar
-# Component my-first-component deployed successfully!
-# Component my-second-component is saying: baz
-# Component my-second-component deployed successfully!
 
 ```
+As a result, you will see the deployment components `my-first-component` and `my-second-component`.
+```results
+#--- File: deploy.sh
+#Component my-first-component is saying: foo
+#Component my-first-component deployed successfully!
 
-4. Inspect parameters for both components
+#Component my-second-component is saying: baz
+#Component my-second-component deployed successfully!
+```
+
+7) Inspect parameters for both components
 
 ```shell
 hubctl show -c "my-first-component"
-# add parameter value here
-
-hubctl sshow -c "my-second-component"
-# add parameter value here
 ```
 
-4. Now let's undeploy the second component and run the echo command.
+```shell
+hubctl show -c "my-second-component"
+```
+
+8) Now let's undeploy the second component and run the echo command.
 To start undeploying for one or more components (provided as a comma-separated value), run the following command.
 ```shell
 hubctl stack undeploy -c "my-second-component"
-
 ```
 Read more about undeploy [here](../../../hubctl/cli/hubctl-stack-undeploy/)
 
-5. Observe the result
+9) Observe the result
 
 ```shell
 hubctl show 
 # status: incomplete
 ```
 
-After we undeployed a second component, the stack status is changed from `deployed` to `incomplete`. This means one or more components are not deployed.
+After we undeploy a second component, the stack status is changed from `deployed` to `incomplete`. This means one or more components are not deployed.
 
 > Note: on the contrary, status `deployed` means all components of a stack are deployed.
 
