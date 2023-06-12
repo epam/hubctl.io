@@ -1438,8 +1438,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hubctl/cli/hubctl-stack-set/" class="md-nav__link">
-        hubctl stack set
+      <a href="../../../hubctl/cli/hubctl-stack-use/" class="md-nav__link">
+        hubctl stack use
       </a>
     </li>
   
@@ -1679,7 +1679,7 @@
 <h3 id="how-to-switch-between-configurations">How to Switch Between Configurations</h3>
 <p>Hubctl allows to switch between different configurations. For example, you can have different configurations for different environments. </p>
 <pre><code class="language-bash">hubctl stack ls # list all available stacks
-hubctl stack set &lt;stack-name&gt; # switch to the stack
+hubctl stack use &lt;stack-name&gt; # use the stack for the current directory
 </code></pre>
 <h2 id="configure-programmatically">Configure Programmatically</h2>
 <p>Hubctl extensions contains a <code>.env</code> parser written in bash. It has been available in <code>~/.hub/bin/dotenv</code> and automatically added to the <code>PATH</code> during the <code>hubctl stack &lt;any&gt;</code> command. You can use it to parse or set environment variables from your deployment hooks</p>
@@ -1701,7 +1701,7 @@ hubctl stack set &lt;stack-name&gt; # switch to the stack
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 12, 2023</span>
       
     
   </small>

@@ -96,12 +96,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hubctl.io/hubctl/cli/hubctl-stack-set/</loc>
+         <loc>https://hubctl.io/hubctl/cli/hubctl-stack-undeploy/</loc>
          <lastmod>2023-06-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hubctl.io/hubctl/cli/hubctl-stack-undeploy/</loc>
+         <loc>https://hubctl.io/hubctl/cli/hubctl-stack-use/</loc>
          <lastmod>2023-06-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
