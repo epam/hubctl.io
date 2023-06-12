@@ -1,0 +1,15 @@
+# Other settings can be found here
+# https://github.com/bitnami/charts/blob/main/bitnami/redis/values.yaml
+nameOverride: "${hub.componentName}"
+fullnameOverride: "${hub.componentName}"
+
+containerPorts:
+  redis: "${redis.port}"
+
+readReplicas:
+  replicaCount: 1
+
+serviceAccount:
+  create: true
+rbac:
+  create: false

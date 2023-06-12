@@ -1,0 +1,24 @@
+version: 1
+kind: stack
+
+requires:
+  - kubernetes
+  - helm
+
+components:
+  - name: redis
+    source:
+      dir: components/redis
+    
+    
+extensions:
+  include:
+    - params.yaml
+  configure:
+    - kubernetes
+    - bin/configure-cluster
+    - env
+  deploy:
+    before:
+      - kubernetes
+      - bin/check-cluster
