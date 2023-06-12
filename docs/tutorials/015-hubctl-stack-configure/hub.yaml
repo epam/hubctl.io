@@ -1,16 +1,18 @@
 kind: stack
 version: 1
 meta:
-  name: My first deployment
+  name: My second deployment
 components:
-- name: my-first-component
-  source:
-    dir: components/hello-hubctl
-     git:
-      remote: https://github.com/epam/hubctl.io/tree/main/docs/tutorials/015-hubctl-stack-configure/components/hello-hubctl
-      ref: main
-      subDir: hello-hubctl
+  - name: my-first-component
+    source:
+      dir: components/hello-hubctl
+      git:
+        remote: https://github.com/epam/hubctl.io.git
+        subDir: docs/tutorials/015-hubctl-stack-configure/components/hello-hubctl
+        ref: main
+
 parameters:
-- name: message
-  value: bar
-  
+  - name: message
+    value: foo
+    env: MESSAGE
+
