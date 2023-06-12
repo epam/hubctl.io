@@ -25,3 +25,7 @@ Here we learn how to create a first component using most simple component type: 
 ## [Kubernetes Tutorials](030-kubernetes-rancher-desktop)
 
 This is a set of tutorials that describes how to use hubctl to deploy a stack on existing Kubernetes cluster.
+
+### [Create Your First Component](030-redis-component)
+
+Here we learn how to configure component for deployment on Kubernetes. 

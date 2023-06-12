@@ -34,7 +34,7 @@ Note: This is a good practice to split parameters from hub.yaml into it's own fi
 
 ```yaml
 extension:
-  inclue:
+  include:
   - params.yaml
 ```
 

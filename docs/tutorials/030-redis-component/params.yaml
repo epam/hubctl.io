@@ -1,0 +1,12 @@
+parameters:
+- name: kubernetes.context
+  value: rancher-desktop
+- name: dns.domain
+  value: localhost
+- name: storage.class
+  brief: |
+    Name of the existing Kubernetes storage class.
+    This class will be used to provision PVs for Kubeflow such and notebooks and databases
+
+    To check for available storage classes run: `kubectl get sc`
+  fromEnv: STORAGE_CLASS
