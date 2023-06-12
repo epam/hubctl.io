@@ -17,5 +17,5 @@ Most likely the stack has been initialized with `hubctl stack init` command howe
 
 ## See also
 
-* [`hubctl stack set`](../hubctl-stack-set)
+* [`hubctl stack use`](../hubctl-stack-use)
 * [`hubctl stack`](../../stack)

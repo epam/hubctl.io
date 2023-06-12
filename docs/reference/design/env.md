@@ -52,7 +52,7 @@ Hubctl allows to switch between different configurations. For example, you can h
 
 ```bash
 hubctl stack ls # list all available stacks
-hubctl stack set <stack-name> # switch to the stack
+hubctl stack use <stack-name> # use the stack for the current directory
 ```
 
 ## Configure Programmatically

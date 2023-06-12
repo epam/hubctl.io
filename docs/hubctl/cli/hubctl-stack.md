@@ -13,7 +13,7 @@ Extensions provides following commands:
 | [`hubctl stack deploy`](../hubctl-stack-deploy) | Apply deployment to target infrastructure |
 | [`hubctl stack undeploy`](../hubctl-stack-undeploy) | Reverse deployment action |
 | [`hubctl stack ls`](../hubctl-stack-ls) | See other stacks that has been initialized for the working directory |
-| [`hubctl stack set`](../hubctl-stack-set) | Change a different current stack |
+| [`hubctl stack use`](../hubctl-stack-use) | Change a different current stack |
 | [`hubctl stack rm`](../hubctl-stack-rm) | Delete configuration of a stack from working directory. This commands is non-reversible, and __doesn't run [`undeploy`](../hubctl-stack-undeploy)__
 
 ## Advanced Commands

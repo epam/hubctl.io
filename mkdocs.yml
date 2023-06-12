@@ -90,7 +90,7 @@ nav:
         - hubctl stack deploy: hubctl/cli/hubctl-stack-deploy.md
         - hubctl stack undeploy: hubctl/cli/hubctl-stack-undeploy.md
         - hubctl stack ls: hubctl/cli/hubctl-stack-ls.md
-        - hubctl stack set: hubctl/cli/hubctl-stack-set.md
+        - hubctl stack use: hubctl/cli/hubctl-stack-use.md
         - hubctl stack rm: hubctl/cli/hubctl-stack-rm.md
         - hubctl stack elaborate: hubctl/cli/hubctl-stack-elaborate.md
         - hubctl show: hubctl/cli/hubctl-show.md
