@@ -3,14 +3,13 @@ kind: stack
 
 requires:
   - kubernetes
-  - helm
 
 components:
   - name: redis
     source:
       dir: components/redis
-    
-    
+
+
 extensions:
   include:
     - params.yaml

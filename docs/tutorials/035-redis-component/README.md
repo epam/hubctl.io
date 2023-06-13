@@ -102,8 +102,7 @@ version: 1
 
 requires:
   - kubernetes
-  - helm
-  - 
+  
 components:
 - name: redis
   source:
