@@ -1,0 +1,48 @@
+---
+version: 1
+kind: component
+
+requires:
+  - kubernetes
+  - helm
+
+parameters:
+- name: hub.componentName
+  env: COMPONENT_NAME
+- name: storage.class
+  empty: allow
+- name: redis
+  parameters:
+  - name: namespace
+    value: redis
+    env: NAMESPACE
+  - name: port
+    value: 6379
+  - name: username
+    value: test
+  - name: password
+    value: test
+ 
+- name: helm
+  parameters:
+  - name: repo
+    value: https://charts.bitnami.com/bitnami
+    env: HELM_REPO
+  - name: chart
+    value: redis
+    env: HELM_CHART
+  - name: version
+    value: 17.11.3
+    env: HELM_CHART_VERSION
+  - name: valuesFile
+    value: values.yaml
+    env: CHART_VALUES_FILE
+
+templates:
+  files:
+    - "*.template"
+
+lifecycle:
+  verbs:
+  - deploy
+  - undeploy
