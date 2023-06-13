@@ -2,6 +2,7 @@ kind: stack
 version: 1
 meta:
   name: My first deployment
+
 components:
   - name: hello-hubctl
     source:
@@ -14,7 +15,5 @@ components:
 parameters:
   - name: hello-hubctl
     parameters:
-      - name: hub.componentName
-        env: HUB_COMPONENT_NAME
       - name: message
-        env: MESSAGE
+        value: foo

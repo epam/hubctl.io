@@ -1,3 +1,4 @@
-#!/bin/sh
-echo "Component $HUB_COMPONENT_NAME is saying: $MESSAGE"
-echo "Component $HUB_COMPONENT_NAME deployed successfully!"
+#!/bin/sh -e
+
+echo "Component $HUB_COMPONENT is saying: $MESSAGE"
+echo "Component $HUB_COMPONENT deployed successfully!"
