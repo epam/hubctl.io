@@ -26,6 +26,6 @@ Here we learn how to create a first component using most simple component type: 
 
 This is a set of tutorials that describes how to use hubctl to deploy a stack on existing Kubernetes cluster.
 
-### [Create Your First Component](030-redis-component)
+### [Create Your First Component](035-redis-component)
 
 Here we learn how to configure component for deployment on Kubernetes. 

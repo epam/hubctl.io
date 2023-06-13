@@ -47,7 +47,9 @@ nav:
       - tutorials/015-hubctl-stack-configure/README.md
       - tutorials/017-hubctl-stack-ls/README.md
       - tutorials/020-shell-component/README.md
-      - tutorials/030-redis-component/README.md
+    - Kubernetes:
+      - tutorials/030-kubernetes-rancher-desktop/README.md
+      - tutorials/035-redis-component/README.md
   - Reference documentation:
     - reference/index.md
     - Manifest files:
