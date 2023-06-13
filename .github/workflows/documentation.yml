@@ -1,6 +1,10 @@
 name: Documentation
 on:
   push:
+    paths:
+      - "*/**.md"
+      - "requirements.txt"
+      - "mkdocs.yml"
     branches:
       - main
 
