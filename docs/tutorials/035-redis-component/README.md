@@ -11,9 +11,7 @@ The stack and component directory structure is as follows:
 ├── components                           # Directory with components
 │    └── redis                           # Directory with Redis-related configurations
 │        ├── charts                      # Directory contains helm charts archives
-│        ├── backup                      # Script to backup redis data
 │        ├── hub-component.yaml          # Parameters definitions
-│        ├── post-deploy                 # Post deploy script to restore data from backup file if provided
 │        ├── values-auth.yaml.template   # Redis auth helm values template
 │        └── values.yaml.template        # Base helm values template
 ├── hub.yaml
@@ -28,8 +26,6 @@ Hub component contains the following:
 
 1. `hub-component.yaml` - file with input and output parameters
 2. As we are going to use `helm` we don't have to provide provisioning script `deploy` and `undeploy`.
-3. `backup`, `post-deploy` you can specify these scripts for backup/restore. They are omitted at this tutorial
-
 
 In the nutshell - parameters defined in `hub-component.yaml` abstracts user from concrete provisioning technology and allows maintainer of the component improve or even change provisioning technology without breaking compatibility with the other components.
 
