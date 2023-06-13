@@ -1,9 +1,8 @@
 kind: component
 version: 1
+
 parameters:
-  - name: hub.componentName
-    value: hello-hubctl
-    env: HUB_COMPONENT_NAME
-  - name: message
-    value: foo
-    env: MESSAGE
+  - name: hello-hubctl
+    parameters:
+      - name: message
+        value: bar
