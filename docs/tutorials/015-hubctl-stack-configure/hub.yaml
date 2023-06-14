@@ -2,6 +2,7 @@ kind: stack
 version: 1
 meta:
   name: My second deployment
+
 components:
   - name: my-first-component
     source:
@@ -13,6 +14,7 @@ components:
 
 parameters:
   - name: message
-    value: foo
-    env: MESSAGE
-
+    value: baz
+  - name: message
+    component: my-first-component
+    value: baz-first
