@@ -1,0 +1,23 @@
+version: 1
+kind: stack
+
+requires:
+  - aws
+
+components:
+  - name: s3-bucket-example-hubrrrrrrrrr
+    source:
+      dir: components/s3-bucket
+
+
+#extensions:
+#  init:
+#  include:
+#    - params.yaml
+
+extensions:
+  init:
+    - aws
+  configure:
+    - aws
+    - env
