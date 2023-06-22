@@ -1,0 +1,26 @@
+kind: component
+version: 1
+
+requires:
+  - aws
+  - terraform
+
+parameters:
+  - name: hub.stackName
+    fromEnv: HUB_STACK_NAME
+  - name: bucket.name
+    value: "${hub.stackName}"
+    env: TF_VAR_name
+  - name: bucket.acl
+    value: "private"
+    env: TF_VAR_acl
+  - name: aws.region
+    default: "eu-central-1"
+    fromEnv: AWS_DEFAULT_REGION
+  - name: aws.serviceAccount
+    empty: allow
+    env: TF_VAR_service_account_name
+
+outputs:
+  - name: bucket.kind
+    value: s3

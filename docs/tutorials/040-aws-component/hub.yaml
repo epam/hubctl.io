@@ -1,0 +1,17 @@
+kind: stack
+version: 1
+
+requires:
+  - aws
+  - terraform
+
+components:
+  - name: my-awshubctl-component
+    source:
+      dir: components/s3-bucket
+
+extensions:
+  configure:
+    - aws
+    - env
+
