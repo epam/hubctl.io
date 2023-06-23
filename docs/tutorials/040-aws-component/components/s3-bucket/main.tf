@@ -15,6 +15,12 @@ variable "region" {
   default = "eu-central-1"
 }
 
+# Create a aws S3 acl variable
+variable "aws_s3_bucket_acl" {
+  type    = string
+  default = "private"
+}
+
 # Configure the AWS Provider
 provider "aws" {
   region  = var.region
@@ -39,4 +45,18 @@ resource "aws_s3_bucket" "example" {
     Name        = "Hubctl bucket"
     Environment = "Dev"
   }
+}
+
+resource "aws_s3_bucket_ownership_controls" "example" {
+  bucket = aws_s3_bucket.example.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+resource "aws_s3_bucket_acl" "example" {
+  depends_on = [aws_s3_bucket_ownership_controls.example]
+
+  bucket = aws_s3_bucket.example.id
+  acl    = var.aws_s3_bucket_acl
 }

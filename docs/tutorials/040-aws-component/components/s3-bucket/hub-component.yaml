@@ -15,3 +15,6 @@ parameters:
   - name: aws.serviceAccount
     empty: allow
     env: TF_VAR_service_account_name
+  - name: aws.bucketAcl
+    value: "private"
+    env: TF_VAR_aws_s3_bucket_acl
