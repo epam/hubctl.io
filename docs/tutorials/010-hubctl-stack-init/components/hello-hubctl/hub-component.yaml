@@ -2,7 +2,6 @@ kind: component
 version: 1
 
 parameters:
-  - name: hello-hubctl
-    parameters:
-      - name: message
-        value: bar
+  - name: message
+    value: foo
+    env: MESSAGE

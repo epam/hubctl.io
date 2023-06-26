@@ -1,7 +1,7 @@
 kind: component
 version: 1
+
 parameters:
-- name: hub.componentName
-  env: HUB_COMPONENT_NAME
-- name: message
-  env: MESSAGE
+  - name: message
+    value: foo
+    env: MESSAGE
