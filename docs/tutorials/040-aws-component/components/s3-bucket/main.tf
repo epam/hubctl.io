@@ -12,6 +12,11 @@ variable "acl" {
   description = "S3 bucket ACL"
 }
 
+variable "bucket_region" {
+  type = string
+  description = "s3 bucket region"
+}
+
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
@@ -27,7 +32,7 @@ module "s3_bucket" {
   }
 
   versioning = {
-    enabled = true
+    enabled = false
   }
 
   tags = {

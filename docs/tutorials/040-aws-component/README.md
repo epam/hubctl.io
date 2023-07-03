@@ -40,9 +40,17 @@ components:                                               # mandatory, list of c
       dir: components/s3-bucket                           # mandatory, local path where to find component
 
 extensions:                                               
+  init:                                                   # optional, steps activated during `hubctl stack init`
+    - aws
   configure:                                              # optional, steps activated during `hubctl stack configure`
     - aws
     - env
+  deploy:                                                 # optional, steps activated during `hubctl stack deploy
+    before:                                               # optional, steps activated on `hubctl stack deploy` but before actual deployment of components
+    - aws
+  undeploy:                                               # optional, steps activated during `hubctl stack undeploy
+    after:                                                # optional, steps activated on `hubctl stack undeploy` but after actual undeploy of components
+    - aws 
 
 ```
 
@@ -67,9 +75,15 @@ parameters:
   - name: bucket.acl                                 # parameter of the Access control list (ACL) of the bucket  
     value: "private"                                 # default value is private
     env: TF_VAR_acl                                  # Terraform environment variable for the acl
-  - name: aws.region                                 # parameter of the AWS region 
-    default: "eu-central-1"                          # default value is region
-    fromEnv: AWS_DEFAULT_REGION                      # Terraform environment variable for a region
+  - name: cloud.region                               # parameter of the AWS region 
+    value: "eu-central-1"                            # default value is region
+    fromEnv: AWS_REGION                              # environment variable AWS_REGION. It is an unique stack identifier
+  - name: cloud.profile                              # parameter of the specific AWS profile
+    value: "default"                                 # the default profile name is default
+    fromEnv: AWS_PROFILE                             # environment variable AWS_PROFILE. It is an unique stack identifier
+  - name: bucket.region                              # parameter of the AWS bucket region
+    value:  ${cloud.region}                          # value for the S3 bucket regin parameter from the cloud region
+    env: TF_VAR_bucket_region                        # Terraform environment variable for the bucket region
   - name: aws.serviceAccount                         # parameter of the service account 
     env: TF_VAR_service_account_name                 # Terraform environment variable of the service account name 
     empty: allow
@@ -77,6 +91,9 @@ parameters:
 outputs:
   - name: bucket.kind
     value: s3
+  - name: bucket.region
+    value: ${cloud.region}
+    brief: Amazon S3 bucket region   
 
 ```
 You can provide Terraform variables in two ways. Read more about it [here](../../../reference/components/terraform/#component-conventions)
@@ -102,6 +119,12 @@ variable "acl" {
   description = "S3 bucket ACL"
 }
 
+# Create a region variable
+variable "bucket_region" {
+  type = string
+  description = "s3 bucket region"
+}
+
 # Configure private bucket with versioning enabled, tags and website  
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
@@ -118,7 +141,7 @@ module "s3_bucket" {
   }
   
   versioning = {
-    enabled = true
+    enabled = false
   }
  
   tags = {
@@ -193,7 +216,7 @@ output "s3_bucket_website_domain" {
 ```
 - Inspect output values
   Terraform stores output values in the configuration's state file. In order to see these outputs, you need to update the state by applying this new configuration, even though the infrastructure will not change.
-Destroy your infrastructure with following commands:
+Deploy your infrastructure with following commands:
 ```shell
 hubctl stack configure
 ```
@@ -211,6 +234,13 @@ Notice the output after the apply:
 # s3_bucket_website_domain = "s3-website.eu-central-1.amazonaws.com"
 # s3_bucket_website_endpoint = "unique-bucket-name.s3-website.eu-central-1.amazonaws.com"
 ```
+
+You can destroy your infrastructure with following commands:
+
+```shell
+hubctl stack undeploy
+```
+
 ### Conclusions
 
 In this tutorial, you create the simple Amazon S3 bucket hubctl. Use Terraform to configure this AWS component.
@@ -218,4 +248,5 @@ In this tutorial, you create the simple Amazon S3 bucket hubctl. Use Terraform t
 
 ### See also
 - [Terraform Component](../../../reference/components/terraform/) 
+- [Article about AWS Components](../../../reference/design/aws/)
 

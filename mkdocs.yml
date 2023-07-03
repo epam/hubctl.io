@@ -50,6 +50,8 @@ nav:
     - Kubernetes:
       - tutorials/030-kubernetes-rancher-desktop/README.md
       - tutorials/035-redis-component/README.md
+    - Terraform:
+      - tutorials/040-aws-component/README.md
   - Reference documentation:
     - reference/index.md
     - Manifest files:
@@ -84,6 +86,7 @@ nav:
       - reference/design/index.md
       - reference/design/env.md
       - Domain Names: reference/design/dns.md
+      - AWS: reference/design/aws.md
   - hubctl:
       # - Overview: hubctl/index.md
         - hubctl: hubctl/cli/index.md

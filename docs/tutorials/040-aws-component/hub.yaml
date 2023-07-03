@@ -11,7 +11,15 @@ components:
       dir: components/s3-bucket
 
 extensions:
+  init:
+    - aws
   configure:
     - aws
     - env
+  deploy:
+    before:
+      - aws
+  undeploy:
+    after:
+      - aws
 
