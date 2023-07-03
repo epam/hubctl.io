@@ -84,6 +84,7 @@ nav:
       - reference/design/index.md
       - reference/design/env.md
       - Domain Names: reference/design/dns.md
+      - AWS: reference/design/aws.md
   - hubctl:
       # - Overview: hubctl/index.md
         - hubctl: hubctl/cli/index.md

@@ -11,6 +11,8 @@ components:
       dir: components/s3-bucket
 
 extensions:
+  init:
+    - aws
   configure:
     - aws
     - env
