@@ -218,4 +218,5 @@ In this tutorial, you create the simple Amazon S3 bucket hubctl. Use Terraform t
 
 ### See also
 - [Terraform Component](../../../reference/components/terraform/) 
+- [Article about AWS Components](../../../reference/design/aws/)
 

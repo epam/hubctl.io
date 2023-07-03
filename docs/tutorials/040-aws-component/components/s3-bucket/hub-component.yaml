@@ -14,7 +14,7 @@ parameters:
   - name: bucket.acl
     value: "private"
     env: TF_VAR_acl
-  - name: aws.region
+  - name: bucket.region
     default: "eu-central-1"
     fromEnv: AWS_DEFAULT_REGION
   - name: aws.serviceAccount
