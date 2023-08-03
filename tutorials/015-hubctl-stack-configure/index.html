@@ -550,6 +550,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#about" class="md-nav__link">
+    About
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deploy-stack-with-one-component" class="md-nav__link">
     Deploy Stack with one Component
   </a>
@@ -1673,6 +1680,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#about" class="md-nav__link">
+    About
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#deploy-stack-with-one-component" class="md-nav__link">
     Deploy Stack with one Component
   </a>
@@ -1729,61 +1743,130 @@
 <h2 id="in-this-tutorial">In This Tutorial</h2>
 <p>This tutorials covers the following topics:</p>
 <ul>
+<li>How to add parameters of stack and components</li>
 <li>How to deploy a stack with multiple components</li>
 <li>How to apply different configuration per component</li>
 </ul>
+<h2 id="about">About</h2>
+<p><code>hub.yaml</code> file has <code>components</code> and <code>parameters</code> fields where you describe your options.</p>
+<pre><code class="language-yaml">kind: stack                                                                   # mandatory, defines a stack manifest
+version: 1                                                                    # stack manifest schema version
+meta:                                                                         # optional
+  name: My second deployment                                                  # optional human readable name
+
+components:                                                                   # mandatory, list of components
+  - name: my-first-component                                                  # mandatory, name of the first component
+    source:                                                                   # mandatory, component source
+      dir: components/hello-hubctl                                            # mandatory, local path where to find component
+      git:                                                                    # optional, git source to download component from
+        remote: https://github.com/epam/hubctl.io.git                         # mandatory, git repository remote url
+        subDir: docs/tutorials/010-hubctl-stack-init/components/hello-hubctl  # mandatory, subdirectory in the repository
+        ref: main                                                             # optional, git reference (branch, tag, commit)
+  - name: my-second-component                                                 # mandatory, name of the second component
+    source:                                                                   # mandatory, component source
+      dir: components/hello-hubctl                                            # mandatory, local path where to find component
+
+parameters:                                                                   # optional, stack input parameters (best practice, split to separate file or files)
+  - name: message                                                             # mandatory, parameter name
+    value: baz                                                                # optional, value for parameter
+  - name: message                                                             # mandatory, parameter name
+    component: my-first-component                                             # optional, special parameter that always bounds to component name defined in `hub.yaml`
+    value: baz-first                                                          # optional, value for parameter
+</code></pre>
 <h2 id="deploy-stack-with-one-component">Deploy Stack with one Component</h2>
 <p>Similar to the tutorial the <a href="../../../tutorials/010-hello-hubctl/">previous</a> tutorial, we will deploy a stack with one component.</p>
-<p>1) Create an empty directory and change your working directory to it.</p>
-<p>2) Initialize a stack with <a href="../../../hubctl/cli/hubctl-stack-init/"><code>hubctl stack init</code></a> command.</p>
-<pre><code class="language-shell">hubctl stack init -f &quot;https://hutctl.io/tutorials/015-hubctl-stack-configure/hub.yaml&quot;
+<ul>
+<li>
+<p>Create an empty directory and change your working directory to it.</p>
+</li>
+<li>
+<p>Initialize a stack with <a href="../../../hubctl/cli/hubctl-stack-init/"><code>hubctl stack init</code></a> command.</p>
+</li>
+</ul>
+<pre><code class="language-shell">hubctl stack init -f &quot;https://raw.githubusercontent.com/epam/hubctl.io/main/docs/tutorials/015-hubctl-stack-configure/hub.yaml&quot;
 </code></pre>
 <p>Wait when stack will be initialized and component will be downloaded in the directory <code>components/hello-hubctl</code></p>
-<p>3) Now let's deploy this stack with the following command:</p>
+<ul>
+<li>Now let's update the configuration and deploy this stack with the following commands:</li>
+</ul>
+<pre><code class="language-bash">hubctl stack configure
+</code></pre>
 <pre><code class="language-bash">hubctl stack deploy
 </code></pre>
-<p>4) You can confirm stack has been deployed with command </p>
-<pre><code class="language-shell">hubctl show 
+<ul>
+<li>You can confirm stack has been deployed with command </li>
+</ul>
+<pre><code class="language-text">hubctl show 
 ## ...
-## status;
+##   hub.stackName: My first deployment
+##   message: baz-first
+## status:
 ##   status: deployed
 </code></pre>
-<p>As a result, you will see the deployment components with parameters and status.</p>
+<p>As a result, you will see the deployment components with parameters and status.
+The <code>my-first-component</code> message is "base-first" because "hub.yaml" has a special message parameter for the <code>my-first-component</code> component.</p>
 <h2 id="add-a-new-component">Add a New Component</h2>
-<p>5) Let's open the hubfile "hub.yaml" and add following to <code>components</code> field: </p>
-<pre><code class="language-hub.yaml"> - name: my-second-component
-  source:
-    dir: components/hello-hubctl
+<ul>
+<li>Let's open the hubfile "hub.yaml" and add following to <code>components</code> field: </li>
+</ul>
+<pre><code class="language-yaml"> -  name: my-second-component
+    source:
+        dir: components/hello-hubctl
 </code></pre>
-<p>and add following to <code>parameters</code> field of the hubfile "hub.yaml": </p>
-<pre><code class="language-hub.yaml"> - name: message
-  component: my-second-component
-  value: baz
+<ul>
+<li>Let's update the configuration and deploy the second component. Run the following commands:</li>
+</ul>
+<pre><code class="language-bash">hubctl stack configure
 </code></pre>
-<p>6) Repeat deployment command</p>
 <pre><code class="language-shell">hubctl stack deploy
-
 </code></pre>
 <p>As a result, you will see the deployment components <code>my-first-component</code> and <code>my-second-component</code>.</p>
-<pre><code class="language-results">#--- File: deploy.sh
-#Component my-first-component is saying: foo
-#Component my-first-component deployed successfully!
+<pre><code class="language-text">## --- File: deploy.sh
+# Component my-first-component is saying: baz-first
+# Component my-first-component deployed successfully!
 
-#Component my-second-component is saying: baz
-#Component my-second-component deployed successfully!
+# Component my-second-component is saying: baz
+# Component my-second-component deployed successfully!
 </code></pre>
-<p>7) Inspect parameters for both components</p>
+<ul>
+<li>Let's create a special parameter for the <code>my-second-component</code> component. To do this, add the following to the <code>parameters</code> field of the hub file "hub.yaml":</li>
+</ul>
+<pre><code class="language-yaml"> -  name: message
+    component: my-second-component    
+    value: baz-second
+</code></pre>
+<ul>
+<li>Update the configuration and deployment:</li>
+</ul>
+<pre><code class="language-bash">hubctl stack configure
+</code></pre>
+<pre><code class="language-shell">hubctl stack deploy
+</code></pre>
+<p>As you can see, the <code>message</code> parameter has changed for the <code>my-second-component</code> component</p>
+<pre><code class="language-text">## --- File: deploy.sh
+# Component my-second-component is saying: baz-second
+# Component my-second-component deployed successfully!
+</code></pre>
+<ul>
+<li>Inspect parameters for both components. 
+Run the following commands:</li>
+</ul>
 <pre><code class="language-shell">hubctl show -c &quot;my-first-component&quot;
 </code></pre>
 <pre><code class="language-shell">hubctl show -c &quot;my-second-component&quot;
 </code></pre>
-<p>8) Now let's undeploy the second component and run the echo command.
-To start undeploying for one or more components (provided as a comma-separated value), run the following command.</p>
+<ul>
+<li>Now let's undeploy the second component and run the echo command.
+To start undeploying for one or more components (provided as a comma-separated value), run the following command.</li>
+</ul>
 <pre><code class="language-shell">hubctl stack undeploy -c &quot;my-second-component&quot;
 </code></pre>
 <p>Read more about undeploy <a href="../../../hubctl/cli/hubctl-stack-undeploy/">here</a></p>
-<p>9) Observe the result</p>
+<ul>
+<li>Observe the result</li>
+</ul>
 <pre><code class="language-shell">hubctl show 
+## ...
 # status: incomplete
 </code></pre>
 <p>After we undeploy a second component, the stack status is changed from <code>deployed</code> to <code>incomplete</code>. This means one or more components are not deployed.</p>
@@ -1801,7 +1884,7 @@ Go to the <a href="../../../tutorials/020-shell-component/">next tutorial</a></p
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 12, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
       
     
   </small>

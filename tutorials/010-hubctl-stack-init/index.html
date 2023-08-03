@@ -544,6 +544,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#update-configuration" class="md-nav__link">
+    Update configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#deployment" class="md-nav__link">
     Deployment
   </a>
@@ -1688,6 +1695,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#update-configuration" class="md-nav__link">
+    Update configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#deployment" class="md-nav__link">
     Deployment
   </a>
@@ -1743,57 +1757,61 @@
 We will simply initialize and deploy hubctl with one pre-configured component.</p>
 <h2 id="about">About</h2>
 <p>At the first, let's understand what is the minimum configuration for hubctl.</p>
+<pre><code class="language-text">
+├── components                           # Directory with components
+│    └── hello-hubctl                    # Directory with configurations
+│        ├── hub-component.yaml          # Component manifest
+│        ├── deploy.sh                   # Shell script to deploy the component
+│        └── undeploy.sh                 # Shell script to undeploy the component
+└── hub.yaml                             # Stack manifest
+</code></pre>
 <ul>
 <li>A specific configuration defining a stack manifest in <code>hub.yaml</code> is the first thing needed. Such a file describes the components and options for deployment.</li>
 </ul>
-<pre><code class="language-yaml">kind: stack
-version: 1
-meta:
-  name: My first deployment
+<pre><code class="language-yaml">kind: stack                                                                   # mandatory, defines a stack manifest
+version: 1                                                                    # stack manifest schema version
+meta:                                                                         # optional
+  name: My first deployment                                                   # optional human readable name
 
-components:
-  - name: hello-hubctl
-    source:
-      dir: components/hello-hubctl
-      git:
-        remote: https://github.com/epam/hubctl.io.git
-        subDir: docs/tutorials/010-hubctl-stack-init/components/hello-hubctl
-        ref: main
-
-parameters:
-  - name: hello-hubctl
-    parameters:
-      - name: message
-        value: foo
+components:                                                                   # mandatory, list of components
+  - name: hello-hubctl                                                        # mandatory, name of the component
+    source:                                                                   # mandatory, component source
+      dir: components/hello-hubctl                                            # mandatory, local path where to find component
+      git:                                                                    # optional, git source to download component from
+        remote: https://github.com/epam/hubctl.io.git                         # mandatory, git repository remote url
+        subDir: docs/tutorials/010-hubctl-stack-init/components/hello-hubctl  # mandatory, subdirectory in the repository
+        ref: main                                                             # optional, git reference (branch, tag, commit)
 
 </code></pre>
-<p><code>hub.yaml</code> file has <code>components</code> and <code>parameters</code> fields where you describe your options.</p>
+<p><code>hub.yaml</code> file has <code>components</code> field where you describe your components.</p>
 <ul>
 <li>You will also need <code>hub-component.yaml</code>, this is a reusable component, it is generic and provides an abstraction with dependencies needed for deployment.</li>
 </ul>
-<pre><code class="language-yaml">kind: component
-version: 1
+<pre><code class="language-yaml">kind: component                                     # mandatory, defines a component manifest
+version: 1                                          # mandatory, manifest schema version
 
-parameters:
-  - name: hello-hubctl
-    parameters:
-      - name: message
-        value: bar
+parameters:                                         
+  - name: message                                   # mandatory, parameter name
+    value: foo                                      # optional, value for parameter 
+    env: MESSAGE                                    # optional, mapping to environment variable for use deployment script
 
 </code></pre>
 <p><code>hub-component.yaml</code> contains the <code>parameters</code> field for your configuration.</p>
 <p><a href="../../../reference/manifests/stack/parameters/">Parameters</a> are used to configure stack and components in both stack manifest <code>hub.yaml</code> and component manifest <code>hub-component.yaml</code>.</p>
-<p>If you are deploying using shell scripts, you need to create the expected scripts in the component folder: <code>deploy.sh</code> and <code>undeploy.sh</code>. Make sure they're executable <code>chmod +x deploy.sh</code>.
-Read more details <a href="../../../reference/components/shell/">here</a>.</p>
+<p>If you are deploying using shell scripts, you need to create the expected scripts in the component folder: 
+<code>deploy.sh</code> </p>
 <pre><code class="language-shell">#!/bin/sh -e
 
 echo &quot;Component $HUB_COMPONENT is saying: $MESSAGE&quot;
 echo &quot;Component $HUB_COMPONENT deployed successfully!&quot;
 </code></pre>
+<p>and <code>undeploy.sh</code></p>
 <pre><code class="language-shell">#!/bin/sh -e
 
 echo &quot;Component $HUB_COMPONENT undeployed successfully!&quot;
 </code></pre>
+<p>Make sure the <code>deploy.sh</code>, <code>undeploy.sh</code> are executable <code>chmod +x deploy.sh</code>, <code>chmod +x undeploy.sh</code>.
+Read more details <a href="../../../reference/components/shell/">here</a>.</p>
 <p>So, if you have a ready-made configuration with customized components, how can you launch them?
 The following commands are used for this:</p>
 <ul>
@@ -1808,18 +1826,22 @@ Download the minimal component from <a href="https://github.com/epam/hubctl.io/t
 <pre><code class="language-shell">hubctl stack init
 </code></pre>
 <p>or without download folders you can initialize the following command</p>
-<pre><code class="language-shell">hubctl stack init -f &quot;https://github.com/epam/hubctl.io/tree/main/docs/tutorials/010-hubctl-stack-init/hub.yaml&quot;
+<pre><code class="language-shell">hubctl stack init -f &quot;https://raw.github.com/epam/hubctl.io/tree/main/docs/tutorials/010-hubctl-stack-init/hub.yaml&quot;
 </code></pre>
 <p>Read more about <code>hubctl stack init</code> <a href="../../../hubctl/cli/hubctl-stack-init/">here</a></p>
+<h3 id="update-configuration">Update configuration</h3>
+<p>This step is to update your configuration with the following command:</p>
+<pre><code class="language-shell">hubctl stack configure
+</code></pre>
 <h3 id="deployment">Deployment</h3>
 <p>The next step is to run the deployment using the following command:</p>
 <pre><code class="language-shell">hubctl stack deploy
 </code></pre>
 <p>Read more about the command <code>hubctl stack deploy</code> <a href="../../../hubctl/cli/hubctl-stack-deploy/">here</a></p>
 <p>If you did everything correctly, the deployment worked without errors, then the command returns the name of the component that was deployed.</p>
-<pre><code class="language-text">--- File: deploy.sh
-Component hello-hubctl is saying: foo
-Component hello-hubctl deployed successfully!
+<pre><code class="language-text">## --- File: deploy.sh
+# Component hello-hubctl is saying: foo
+# Component hello-hubctl deployed successfully!
 </code></pre>
 <p>This command returns the name of the component <code>hello-hubctl</code> and the parameter with the value of the message <code>foo</code>.</p>
 <h3 id="undeploy">Undeploy</h3>
@@ -1828,8 +1850,8 @@ Component hello-hubctl deployed successfully!
 </code></pre>
 <p>Read more about the command <code>hubctl stack undeploy</code> <a href="../../../hubctl/cli/hubctl-stack-undeploy/">here</a></p>
 <p>The command returns the name of the component <code>hello-hubctl</code> that was undeploy.</p>
-<pre><code class="language-text">--- File: undeploy.sh
-Component hello-hubctl undeployed successfully!
+<pre><code class="language-text">## --- File: undeploy.sh
+# Component hello-hubctl undeployed successfully!
 </code></pre>
 <h2 id="conclusions">Conclusions</h2>
 <p>Using a simple example with a ready-made configuration for the <code>hub.yaml</code> and <code>hub-component.yaml</code> files, you learned what the minimum configuration for hubctl consists of, as well as how hubctl can be used. Go ahead.</p>
@@ -1842,7 +1864,7 @@ Go to the <a href="../../../tutorials/015-hubctl-stack-configure/">next tutorial
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 13, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
       
     
   </small>
