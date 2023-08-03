@@ -29,3 +29,7 @@ This is a set of tutorials that describes how to use hubctl to deploy a stack on
 ### [Create Your First Component](035-redis-component)
 
 Here we learn how to configure component for deployment on Kubernetes. 
+
+## [Terraform Tutorials](040-aws-component)
+
+This guide will help you set up a component to create an Amazon S3 bucket using Terraform.
