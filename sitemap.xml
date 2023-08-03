@@ -186,6 +186,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hubctl.io/reference/design/aws/</loc>
+         <lastmod>2023-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hubctl.io/reference/design/dns/</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
@@ -317,6 +322,11 @@
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/035-redis-component/</loc>
+         <lastmod>2023-08-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hubctl.io/tutorials/040-aws-component/</loc>
          <lastmod>2023-08-03</lastmod>
          <changefreq>daily</changefreq>
     </url>

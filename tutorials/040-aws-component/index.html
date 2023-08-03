@@ -12,21 +12,27 @@
         <meta name="author" content="EPAM Systems, Inc.">
       
       
+        <link rel="canonical" href="https://hubctl.io/tutorials/040-aws-component/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="prev" href="../035-redis-component/">
+      
+      
+        <link rel="next" href="../../reference/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Hubctl</title>
+        <title>Create Amazon S3 component with Terraform - Hubctl</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -42,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#create-amazon-s3-component-with-terraform" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -80,7 +91,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../.." title="Hubctl" class="md-header__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -99,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Create Amazon S3 component with Terraform
             
           </span>
         </div>
@@ -177,7 +188,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -186,6 +197,8 @@
       
         
   
+  
+    
   
 
 
@@ -198,7 +211,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/tutorials/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Getting Started
       </a>
     </li>
@@ -216,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/reference/" class="md-tabs__link">
+      <a href="../../reference/" class="md-tabs__link">
         Reference documentation
       </a>
     </li>
@@ -232,7 +245,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/hubctl/cli/" class="md-tabs__link">
+      <a href="../../hubctl/cli/" class="md-tabs__link">
         hubctl
       </a>
     </li>
@@ -260,7 +273,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
+    <a href="../.." title="Hubctl" class="md-nav__button md-logo" aria-label="Hubctl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -315,7 +328,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/.">Home</a>
+          <a href="../..">Home</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -338,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/install/" class="md-nav__link">
+      <a href="../../install/" class="md-nav__link">
         Install
       </a>
     </li>
@@ -352,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/what-is/" class="md-nav__link">
+      <a href="../../what-is/" class="md-nav__link">
         What Is Hubctl
       </a>
     </li>
@@ -366,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/use-cases/" class="md-nav__link">
+      <a href="../../use-cases/" class="md-nav__link">
         Use Cases
       </a>
     </li>
@@ -386,14 +399,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
         
@@ -410,7 +425,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Getting Started
@@ -457,7 +472,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/tutorials/">Basics</a>
+          <a href="../">Basics</a>
           
             <label for="__nav_2_1">
               <span class="md-nav__icon md-icon"></span>
@@ -480,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tutorials/010-hubctl-stack-init/" class="md-nav__link">
+      <a href="../010-hubctl-stack-init/" class="md-nav__link">
         First Deployment
       </a>
     </li>
@@ -494,7 +509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tutorials/015-hubctl-stack-configure/" class="md-nav__link">
+      <a href="../015-hubctl-stack-configure/" class="md-nav__link">
         Multiple Components
       </a>
     </li>
@@ -508,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tutorials/017-hubctl-stack-ls/" class="md-nav__link">
+      <a href="../017-hubctl-stack-ls/" class="md-nav__link">
         Manage Multiple Deployments
       </a>
     </li>
@@ -522,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tutorials/020-shell-component/" class="md-nav__link">
+      <a href="../020-shell-component/" class="md-nav__link">
         Create Your First Component
       </a>
     </li>
@@ -565,7 +580,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/tutorials/030-kubernetes-rancher-desktop/">Kubernetes</a>
+          <a href="../030-kubernetes-rancher-desktop/">Kubernetes</a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -588,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/tutorials/035-redis-component/" class="md-nav__link">
+      <a href="../035-redis-component/" class="md-nav__link">
         Create Helm Component
       </a>
     </li>
@@ -607,14 +622,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
       
       
         
@@ -626,12 +643,12 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="/tutorials/040-aws-component/">Terraform</a>
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Terraform</a>
           
         </div>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
           Terraform
@@ -685,7 +702,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/reference/">Reference documentation</a>
+          <a href="../../reference/">Reference documentation</a>
           
             <label for="__nav_3">
               <span class="md-nav__icon md-icon"></span>
@@ -730,7 +747,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/reference/manifests/">Manifest files</a>
+          <a href="../../reference/manifests/">Manifest files</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -785,7 +802,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/reference/manifests/stack/">Stack</a>
+          <a href="../../reference/manifests/stack/">Stack</a>
           
             <label for="__nav_3_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -808,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/stack/meta/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/meta/" class="md-nav__link">
         meta
       </a>
     </li>
@@ -822,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/stack/requires/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/requires/" class="md-nav__link">
         requires
       </a>
     </li>
@@ -836,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/stack/components/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/components/" class="md-nav__link">
         components
       </a>
     </li>
@@ -850,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/stack/parameters/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -864,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/stack/outputs/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -878,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/stack/extensions/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/extensions/" class="md-nav__link">
         extensions
       </a>
     </li>
@@ -892,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/stack/lifecycle/" class="md-nav__link">
+      <a href="../../reference/manifests/stack/lifecycle/" class="md-nav__link">
         lifecycle
       </a>
     </li>
@@ -943,7 +960,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/reference/manifests/component/">Component</a>
+          <a href="../../reference/manifests/component/">Component</a>
           
             <label for="__nav_3_2_3">
               <span class="md-nav__icon md-icon"></span>
@@ -966,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/component/meta/" class="md-nav__link">
+      <a href="../../reference/manifests/component/meta/" class="md-nav__link">
         meta
       </a>
     </li>
@@ -980,7 +997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/component/requires/" class="md-nav__link">
+      <a href="../../reference/manifests/component/requires/" class="md-nav__link">
         requires
       </a>
     </li>
@@ -994,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/component/provides/" class="md-nav__link">
+      <a href="../../reference/manifests/component/provides/" class="md-nav__link">
         provides
       </a>
     </li>
@@ -1008,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/component/parameters/" class="md-nav__link">
+      <a href="../../reference/manifests/component/parameters/" class="md-nav__link">
         parameters
       </a>
     </li>
@@ -1022,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/component/templates/" class="md-nav__link">
+      <a href="../../reference/manifests/component/templates/" class="md-nav__link">
         templates
       </a>
     </li>
@@ -1036,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/manifests/component/outputs/" class="md-nav__link">
+      <a href="../../reference/manifests/component/outputs/" class="md-nav__link">
         outputs
       </a>
     </li>
@@ -1096,7 +1113,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/reference/components/">Components</a>
+          <a href="../../reference/components/">Components</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1119,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/components/terraform/" class="md-nav__link">
+      <a href="../../reference/components/terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -1133,7 +1150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/components/kubernetes/" class="md-nav__link">
+      <a href="../../reference/components/kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -1147,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/components/helm/" class="md-nav__link">
+      <a href="../../reference/components/helm/" class="md-nav__link">
         Helm
       </a>
     </li>
@@ -1161,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/components/kustomize/" class="md-nav__link">
+      <a href="../../reference/components/kustomize/" class="md-nav__link">
         Kustomize
       </a>
     </li>
@@ -1175,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/components/shell/" class="md-nav__link">
+      <a href="../../reference/components/shell/" class="md-nav__link">
         Shell
       </a>
     </li>
@@ -1189,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/components/makefile/" class="md-nav__link">
+      <a href="../../reference/components/makefile/" class="md-nav__link">
         Makefile
       </a>
     </li>
@@ -1203,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/components/arm/" class="md-nav__link">
+      <a href="../../reference/components/arm/" class="md-nav__link">
         ARM
       </a>
     </li>
@@ -1248,7 +1265,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/reference/design/">Configuration</a>
+          <a href="../../reference/design/">Configuration</a>
           
             <label for="__nav_3_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1271,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/design/env/" class="md-nav__link">
+      <a href="../../reference/design/env/" class="md-nav__link">
         Environment Configuration
       </a>
     </li>
@@ -1285,7 +1302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/design/dns/" class="md-nav__link">
+      <a href="../../reference/design/dns/" class="md-nav__link">
         Domain Names
       </a>
     </li>
@@ -1299,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/design/aws/" class="md-nav__link">
+      <a href="../../reference/design/aws/" class="md-nav__link">
         AWS
       </a>
     </li>
@@ -1376,7 +1393,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/hubctl/cli/">hubctl</a>
+          <a href="../../hubctl/cli/">hubctl</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1399,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack/" class="md-nav__link">
         hubctl stack
       </a>
     </li>
@@ -1413,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-init/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-init/" class="md-nav__link">
         hubctl stack init
       </a>
     </li>
@@ -1427,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-configure/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-configure/" class="md-nav__link">
         hubctl stack configure
       </a>
     </li>
@@ -1441,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-deploy/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-deploy/" class="md-nav__link">
         hubctl stack deploy
       </a>
     </li>
@@ -1455,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-undeploy/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-undeploy/" class="md-nav__link">
         hubctl stack undeploy
       </a>
     </li>
@@ -1469,7 +1486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-ls/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-ls/" class="md-nav__link">
         hubctl stack ls
       </a>
     </li>
@@ -1483,7 +1500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-use/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-use/" class="md-nav__link">
         hubctl stack use
       </a>
     </li>
@@ -1497,7 +1514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-rm/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-rm/" class="md-nav__link">
         hubctl stack rm
       </a>
     </li>
@@ -1511,7 +1528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-stack-elaborate/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-stack-elaborate/" class="md-nav__link">
         hubctl stack elaborate
       </a>
     </li>
@@ -1525,7 +1542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-show/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-show/" class="md-nav__link">
         hubctl show
       </a>
     </li>
@@ -1539,7 +1556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-toolbox/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-toolbox/" class="md-nav__link">
         hubctl toolbox
       </a>
     </li>
@@ -1553,7 +1570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-extensions/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-extensions/" class="md-nav__link">
         hubctl extensions
       </a>
     </li>
@@ -1567,7 +1584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-extensions-install/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-extensions-install/" class="md-nav__link">
         hubctl extensions install
       </a>
     </li>
@@ -1581,7 +1598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-extensions-update/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-extensions-update/" class="md-nav__link">
         hubctl extensions update
       </a>
     </li>
@@ -1595,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hubctl/cli/hubctl-ext/" class="md-nav__link">
+      <a href="../../hubctl/cli/hubctl-ext/" class="md-nav__link">
         hubctl ext
       </a>
     </li>
@@ -1626,6 +1643,64 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-this-tutorial" class="md-nav__link">
+    In This Tutorial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about" class="md-nav__link">
+    About
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-stack-with-amazon-s3-component" class="md-nav__link">
+    Deploy Stack with Amazon S3 Component
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-terraform-outputs" class="md-nav__link">
+    Add Terraform Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Terraform Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    Conclusions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    See also
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1637,8 +1712,248 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="create-amazon-s3-component-with-terraform">Create Amazon S3 component with Terraform</h1>
+<p>This tutorial shows you how to create an Amazon S3 bucket hubctl component using Terraform.</p>
+<h2 id="in-this-tutorial">In This Tutorial</h2>
+<p>The tutorial covers the following topics:</p>
+<ul>
+<li>How to configure the simple Amazon S3 hubctl component </li>
+<li>How to configure Terraform for this AWS component </li>
+<li>How to deploy the stack with Amazon S3 components using Terraform</li>
+</ul>
+<h2 id="about">About</h2>
+<p>At the first, let's understand what is the minimum configuration for Amazon S3 component with Terraform.</p>
+<pre><code class="language-text">
+├── components                           # Directory with components
+│    └── s3-bucket                       # Directory with configurations
+│        ├── hub-component.yaml          # Component manifest
+│        ├── import                      # Special script that to import existing resources into Terraform state
+│        └── main.tf                     # Terraform code
+└── hub.yaml                             # Stack manifest
+</code></pre>
+<p>Read more about Terraform Component <a href="../../../reference/components/terraform/">here</a></p>
+<ul>
+<li>A specific configuration defining a stack manifest in <code>hub.yaml</code> is the first thing needed. Such a file describes the components and options for deployment.</li>
+</ul>
+<pre><code class="language-shell">kind: stack                                               # mandatory, defines a stack manifest
+version: 1                                                # stack manifest schema version
+
+requires:                                                 # optional, list of environment requirements 
+  - aws
+
+components:                                               # mandatory, list of components
+  - name: my-awshubctl-component                          # mandatory, name of the component
+    source:                                               # mandatory, component source
+      dir: components/s3-bucket                           # mandatory, local path where to find component
+
+extensions:                                               
+  init:                                                   # optional, steps activated during `hubctl stack init`
+    - aws
+  configure:                                              # optional, steps activated during `hubctl stack configure`
+    - aws
+    - env
+  deploy:                                                 # optional, steps activated during `hubctl stack deploy
+    before:                                               # optional, steps activated on `hubctl stack deploy` but before actual deployment of components
+    - aws
+  undeploy:                                               # optional, steps activated during `hubctl stack undeploy
+    after:                                                # optional, steps activated on `hubctl stack undeploy` but after actual undeploy of components
+    - aws 
+
+</code></pre>
+<p><code>hub.yaml</code> file has <code>components</code> field where you describe your components.</p>
+<ul>
+<li>You will also need <code>hub-component.yaml</code>, this is a reusable component, it is generic and provides an abstraction with dependencies needed for deployment.</li>
+</ul>
+<pre><code class="language-shell">kind: component                                     # mandatory, defines a component manifest
+version: 1                                          # mandatory, manifest schema version
+
+requires:
+  - aws
+  - terraform
+
+parameters:
+  - name: hub.stackName                              # parameter of the stack name
+    fromEnv: HUB_STACK_NAME                          # environment variable HUB_STACK_NAME is a name of the stack. It is an unique stack identifier
+  - name: bucket.name                                # parameter of the bucket name
+    value: &quot;${hub.stackName}&quot;                        # value for the S3 bucket name parameter from hub stack name. This name must be unique for S3
+    env: TF_VAR_name                                 # TF_VAR_* environment variable (recommended way), mapping to environment variable for use deployment script
+  - name: bucket.acl                                 # parameter of the Access control list (ACL) of the bucket  
+    value: &quot;private&quot;                                 # default value is private
+    env: TF_VAR_acl                                  # Terraform environment variable for the acl
+  - name: cloud.region                               # parameter of the AWS region 
+    value: &quot;eu-central-1&quot;                            # default value is region
+    fromEnv: AWS_REGION                              # environment variable AWS_REGION. It is an unique stack identifier
+  - name: cloud.profile                              # parameter of the specific AWS profile
+    value: &quot;default&quot;                                 # the default profile name is default
+    fromEnv: AWS_PROFILE                             # environment variable AWS_PROFILE. It is an unique stack identifier
+  - name: bucket.region                              # parameter of the AWS bucket region
+    value:  ${cloud.region}                          # value for the S3 bucket regin parameter from the cloud region
+    env: TF_VAR_bucket_region                        # Terraform environment variable for the bucket region
+  - name: aws.serviceAccount                         # parameter of the service account 
+    env: TF_VAR_service_account_name                 # Terraform environment variable of the service account name 
+    empty: allow
+
+outputs:
+  - name: bucket.kind
+    value: s3
+  - name: bucket.region
+    value: ${cloud.region}
+    brief: Amazon S3 bucket region   
+
+</code></pre>
+<p>You can provide Terraform variables in two ways. Read more about it <a href="../../../reference/components/terraform/#component-conventions">here</a></p>
+<p>Hubctl will automatically detect Terraform code when component contains one or more *.tf files. 
+Terraform configuration with <code>main.rf</code> file:</p>
+<pre><code class="language-shell"># Create a name variable
+variable &quot;name&quot; {
+  type = string
+}
+
+# Create a service_account_name variable
+variable &quot;service_account_name&quot; {
+  type    = string
+  default = &quot;&quot;
+}
+
+# Create a acl variable
+variable &quot;acl&quot; {
+  type = string
+  description = &quot;S3 bucket ACL&quot;
+}
+
+# Create a region variable
+variable &quot;bucket_region&quot; {
+  type = string
+  description = &quot;s3 bucket region&quot;
+}
+
+# Configure private bucket with versioning enabled, tags and website  
+module &quot;s3_bucket&quot; {
+  source = &quot;terraform-aws-modules/s3-bucket/aws&quot;
+
+  bucket = var.name
+  acl    = var.acl   
+
+  control_object_ownership = true
+  object_ownership         = &quot;ObjectWriter&quot;
+
+  website = {
+    index_document = &quot;index.html&quot;
+    error_document = &quot;error.html&quot;
+  }
+
+  versioning = {
+    enabled = false
+  }
+
+  tags = {
+    Name        = &quot;Hubctl bucket&quot;
+    Environment = &quot;Dev&quot;
+  }
+}
+</code></pre>
+<p>The <code>import</code> file is a necessary step to allow manage resources such as AWS S3 bucket. It is a special script that to import existing resources into Terraform state.</p>
+<pre><code class="language-shell">#!/bin/sh -e
+# shellcheck disable=SC2154
+
+if gsutil -q ls -b &quot;gs://$TF_VAR_name&quot; &gt; /dev/null 2&gt;&amp;1; then
+  terraform import 'aws_storage_bucket._' &quot;$TF_VAR_name&quot; || true
+fi
+
+</code></pre>
+<h2 id="deploy-stack-with-amazon-s3-component">Deploy Stack with Amazon S3 Component</h2>
+<p>You are now ready to run a deployment from the directory where hub.yaml is located.
+The following commands are used for this:</p>
+<ul>
+<li><code>hubctl stack init</code> - this command initializes the working directory with the <code>hub.yaml</code> file.</li>
+</ul>
+<pre><code class="language-shell">hubctl stack init
+</code></pre>
+<ul>
+<li><code>hubctl stack configure</code> - stack configuration before deployment</li>
+</ul>
+<pre><code class="language-shell">hubctl stack configure
+</code></pre>
+<ul>
+<li><code>hubctl stack deploy</code> - Runs a deployment for the entire stack, or updates the deployment of one or more components.</li>
+</ul>
+<pre><code class="language-shell">hubctl stack deploy
+</code></pre>
+<p>As a result, you could see the Amazon S3 bucket with the following command:</p>
+<pre><code class="language-shell">aws s3 ls
+</code></pre>
+<h2 id="add-terraform-outputs">Add Terraform Outputs</h2>
+<p>Create a file called <code>outputs.tf</code> in your components/s3-bucket directory. Add the configuration below to outputs.tf to define outputs for your S3 bucket's ID, Region, Website Endpoint and Website Domain .</p>
+<pre><code class="language-shell">output &quot;s3_bucket_name&quot; {
+  value       = module.s3_bucket.s3_bucket_id
+  description = &quot;The name of the bucket.&quot;
+}
+
+output &quot;s3_bucket_region&quot; {
+  value       = module.s3_bucket.s3_bucket_region
+  description = &quot;The AWS region this bucket resides in.&quot;
+}
+
+output &quot;s3_bucket_website_endpoint&quot; {
+  value       = module.s3_bucket.s3_bucket_website_endpoint
+  description = &quot;The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.&quot;
+}
+
+output &quot;s3_bucket_website_domain&quot; {
+  value       = module.s3_bucket.s3_bucket_website_domain
+  description = &quot;Name of the website bucket&quot;
+}
+</code></pre>
+<ul>
+<li>Inspect output values
+  Terraform stores output values in the configuration's state file. In order to see these outputs, you need to update the state by applying this new configuration, even though the infrastructure will not change.
+Deploy your infrastructure with following commands:</li>
+</ul>
+<pre><code class="language-shell">hubctl stack configure
+</code></pre>
+<pre><code class="language-shell">hubctl stack deploy
+</code></pre>
+<p>Notice the output after the apply:</p>
+<pre><code class="language-text">##Outputs:
+
+# s3_bucket_name = &quot;unique-bucket-name&quot;
+# s3_bucket_region = &quot;eu-central-1&quot;
+# s3_bucket_website_domain = &quot;s3-website.eu-central-1.amazonaws.com&quot;
+# s3_bucket_website_endpoint = &quot;unique-bucket-name.s3-website.eu-central-1.amazonaws.com&quot;
+</code></pre>
+<p>You can destroy your infrastructure with following commands:</p>
+<pre><code class="language-shell">hubctl stack undeploy
+</code></pre>
+<h3 id="conclusions">Conclusions</h3>
+<p>In this tutorial, you create the simple Amazon S3 bucket hubctl. Use Terraform to configure this AWS component.</p>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="../../../reference/components/terraform/">Terraform Component</a> </li>
+<li><a href="../../../reference/design/aws/">Article about AWS Components</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1679,10 +1994,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "/assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
     
   </body>
