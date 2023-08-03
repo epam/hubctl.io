@@ -1,23 +1,21 @@
-version: 1
 kind: stack
+version: 1
 
 requires:
   - kubernetes
+  - helm
 
 components:
   - name: redis
     source:
       dir: components/redis
 
+parameters:
+  - name: kubernetes.context
+    value: rancher-desktop
 
 extensions:
-  include:
-    - params.yaml
   configure:
     - kubernetes
-    - bin/configure-cluster
     - env
-  deploy:
-    before:
-      - kubernetes
-      - bin/check-cluster
+

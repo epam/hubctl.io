@@ -655,6 +655,19 @@
     Deploy a minimalistic component
   </a>
   
+    <nav class="md-nav" aria-label="Deploy a minimalistic component">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    Conclusions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1664,6 +1677,19 @@
     Deploy a minimalistic component
   </a>
   
+    <nav class="md-nav" aria-label="Deploy a minimalistic component">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    Conclusions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1685,25 +1711,23 @@
 
 
 <h1 id="create-helm-component">Create Helm Component</h1>
-<p>This tutorial will guide you through the process of creating a Helm component. We will use Redis, an in-memory data store, as an example.</p>
+<p>This tutorial will guide you through the process of creating a Helm component. You will use Redis, an in-memory data store, as an example.</p>
 <h2 id="stack-structure">Stack structure</h2>
 <p>The stack and component directory structure is as follows:</p>
 <pre><code class="language-text">.
 ├── components                           # Directory with components
 │    └── redis                           # Directory with Redis-related configurations
-│        ├── charts                      # Directory contains helm charts archives
-│        ├── hub-component.yaml          # Parameters definitions
-│        ├── values-auth.yaml.template   # Redis auth helm values template
+│        ├── hub-component.yaml          # Component manifest
 │        └── values.yaml.template        # Base helm values template
-├── hub.yaml
-└── params.yaml        
+└──  hub.yaml                            # Stack manifest
+
 </code></pre>
 <h2 id="component-structure">Component structure</h2>
 <p>Each component has to know how to deploy itself and export facts about deployment configuration in the well-known form of parameters. So other component would use this as an input.</p>
-<p>Hub component contains the following:</p>
+<p>Hubctl component contains the following:</p>
 <ol>
 <li><code>hub-component.yaml</code> - file with input and output parameters</li>
-<li>As we are going to use <code>helm</code> we don't have to provide provisioning script <code>deploy</code> and <code>undeploy</code>.</li>
+<li>As you are going to use <code>helm</code> you don't have to provide provisioning script <code>deploy</code> and <code>undeploy</code>.</li>
 </ol>
 <p>In the nutshell - parameters defined in <code>hub-component.yaml</code> abstracts user from concrete provisioning technology and allows maintainer of the component improve or even change provisioning technology without breaking compatibility with the other components.</p>
 <h2 id="deploy-a-minimalistic-component">Deploy a minimalistic component</h2>
@@ -1711,137 +1735,106 @@
 <li>Create a new directory <code>components/redis</code></li>
 <li>Create a file <code>components/redis/hub-component.yaml</code> </li>
 <li>In order to use helm we have to specify requirements: <code>helm</code> and <code>kubernetes</code></li>
-<li>Then we have to specify kubernetes namespace, for example: <code>redis</code></li>
-<li>Specifying component-specific parameters, for Redis in minimalistic way we set username/password, for example: <code>test</code></li>
-<li>For Helm we point out repository, chart version and values we want to use</li>
+<li>Then you have to specify kubernetes namespace, for example: <code>redis</code></li>
+<li>Specifying component-specific parameters, for Redis in minimalistic way you set username/password</li>
+<li>For Helm you point out repository, chart version and values you want to use</li>
 </ol>
-<pre><code class="language-yaml">version: 1
-kind: component
+<pre><code class="language-yaml">kind: component                                                # mandatory, defines a component manifest               
+version: 1                                                     # mandatory, manifest schema version
 
-requires:
-  - kubernetes
+requires:                                                     # optional, list of environment requirements 
+  - kubernetes                        
   - helm
 
 parameters:
-  - name: hub.componentName
-    env: COMPONENT_NAME
-  - name: storage.class
-    empty: allow
-  - name: redis
+  - name: redis                                               # parameter name of redis
     parameters:
-      - name: namespace
-        value: redis
-        env: NAMESPACE
-      - name: port
-        value: 6379
-      - name: username
-        value: test
-      - name: password
-        value: test
+      - name: namespace                                       # redis parameter name of namespace [redis.namespace] 
+        value: redis                                          # value for namespace parameter 
+        env: NAMESPACE                                        # environment variable of namespace
+      - name: port                                            # redis parameter name of port [redis.port] 
+        value: 6379                                           # value for port parameter 
+      - name: username                                        # redis parameter name of username [redis.username]
+        fromEnv: REDIS_USER                                   # optional, parameter value is taken from environment variable, this approach allows not to store exact value in version control.
+      - name: password                                        # redis parameter name of password [redis.password]
+        fromEnv: REDIS_PASSWORD                               # if the variable does not exist in the .env file and Hubctl prompts the user to enter a value and will save it in .env file.
+  - name: helm                                                # parameter name of helm
+    parameters:
+      - name: repo                                            # helm parameter name of repo [helm.repo] 
+        value: https://charts.bitnami.com/bitnami             # instructs hubctl to download helm chart from the helm repository
+        env: HELM_REPO                                        # environment variable HELM_REPO
+      - name: chart                                           # helm chart resolved via variable HELM_CHART
+        value: redis                                          # this can have multiple values, that corresponds to the helm chart location 
+        env: HELM_CHART                                       # environment variable HELM_CHART
 
-  - name: helm
-    parameters:
-      - name: repo
-        value: https://charts.bitnami.com/bitnami
-        env: HELM_REPO
-      - name: chart
-        value: redis
-        env: HELM_CHART
-      - name: version
-        value: 17.11.3
-        env: HELM_CHART_VERSION
-      - name: valuesFile
-        value: values.yaml
-        env: CHART_VALUES_FILE
 
 templates:
-  files:
-    - &quot;*.template&quot;
-
-lifecycle:
-  verbs:
-    - deploy
-    - undeploy
+  files:                                                      # mandatory, list of template files, supports globs
+    - &quot;*.template&quot;                                            # template files in current component directory
 </code></pre>
+<p>Read more about Helm <a href="../../../reference/components/helm/">here</a></p>
 <ol>
 <li>Add a component reference to Hubfile (<code>hub.yaml</code>)</li>
-<li>Set required technologies</li>
-<li>Include parameters file</li>
+<li>Set required technologies, parameters and extensions </li>
 </ol>
-<pre><code class="language-yaml">kind: stack
-version: 1
+<pre><code class="language-yaml">kind: stack                                                 # mandatory, defines a stack manifest
+version: 1                                                  # stack manifest schema version
 
-requires:
+requires:                                                   # optional, list of environment requirements
   - kubernetes
+  - helm
 
-components:
-- name: redis
-  source:
-    dir: components/redis
+components:                                                 # mandatory, list of components
+  - name: redis                                             # mandatory, name of the component
+    source:                                                 # mandatory, component source
+      dir: components/redis                                 # mandatory, local path where to find component
 
-extensions:
-  include:
-    - params.yaml
-</code></pre>
-<p>Then create a new parameters file params.yaml with the following</p>
-<pre><code class="language-yaml">parameters:
-- name: kubernetes.context
-  value: rancher-desktop
-- name: dns.domain
-  value: localhost
-- name: storage.class
-  brief: |
-    Name of the existing Kubernetes storage class.
-    This class will be used to provision PVs for Kubeflow such and notebooks and databases
+parameters:                                                 # optional, stack input parameters (best practice, split to separate file or files)
+  - name: kubernetes.context                                # mandatory, parameter name [kubernetes.context] 
+    value: rancher-desktop                                  # optional, value of parameter
 
-    To check for available storage classes run: `kubectl get sc`
-  fromEnv: STORAGE_CLASS
+extensions:                                                 # optional
+  configure:                                                # optional, steps activated during `hubctl stack configure`
+    - kubernetes                                            
+    - env                                                   
 </code></pre>
-<p>You are now ready to run a deployment from the directory where hub.yaml is located.</p>
-<pre><code class="language-bash">hubctl stack init 
-hubctl stack deploy
+<p>You are now ready to run a deployment from the directory where hub.yaml is located.
+The following commands are used for this:</p>
+<ul>
+<li><code>hubctl stack init</code> - this command initializes the working directory with the <code>hub.yaml</code> file.</li>
+</ul>
+<pre><code class="language-shell">hubctl stack init
 </code></pre>
-<p>If deployment went successfully, you are able to get created containers </p>
-<pre><code class="language-bash">docker ps | grep redis
-bcbc1e768483   0383c71164bc                           &quot;/bin/bash -c /opt/b…&quot;   19 minutes ago      Up 19 minutes                k8s_redis_redis-replicas-2_redis_ab402c47-2986-4f00-9167-c970481ec50a_0
-c170a048c969   rancher/mirrored-pause:3.6             &quot;/pause&quot;                 19 minutes ago      Up 19 minutes                k8s_POD_redis-replicas-2_redis_ab402c47-2986-4f00-9167-c970481ec50a_0
-bd2a014383c7   0383c71164bc                           &quot;/bin/bash -c /opt/b…&quot;   19 minutes ago      Up 19 minutes                k8s_redis_redis-replicas-1_redis_2c7fa2ac-0f22-4771-90b4-31a57db039c7_0
-c85c52901bc9   rancher/mirrored-pause:3.6             &quot;/pause&quot;                 19 minutes ago      Up 19 minutes                k8s_POD_redis-replicas-1_redis_2c7fa2ac-0f22-4771-90b4-31a57db039c7_0
-70d7a5aa6978   0383c71164bc                           &quot;/bin/bash -c /opt/b…&quot;   20 minutes ago      Up 20 minutes                k8s_redis_redis-master-0_redis_13989399-ee2f-4a07-9376-e866bd8c62f1_0
-637659151ce7   0383c71164bc                           &quot;/bin/bash -c /opt/b…&quot;   20 minutes ago      Up 20 minutes                k8s_redis_redis-replicas-0_redis_f7da61b8-c7ca-4530-b5b6-270a1f22c5e5_0
-9038c6cc7033   rancher/mirrored-pause:3.6             &quot;/pause&quot;                 20 minutes ago      Up 20 minutes                k8s_POD_redis-master-0_redis_13989399-ee2f-4a07-9376-e866bd8c62f1_0
-db1e1c2a29ef   rancher/mirrored-pause:3.6             &quot;/pause&quot;                 20 minutes ago      Up 20 minutes                k8s_POD_redis-replicas-0_redis_f7da61b8-c7ca-4530-b5b6-270a1f22c5e5_0
-
+<ul>
+<li><code>hubctl stack configure</code> - stack configuration before deployment</li>
+</ul>
+<pre><code class="language-shell">hubctl stack configure
 </code></pre>
-<p>We can see 4 redis pods with 1 master and 3 replicas have been created
-Let's connect to master pod and insert some data. Firstly authenticate using username we specified in <code>hub-component.yaml</code>. Then set some key-value</p>
-<pre><code class="language-bash">docker exec -it $REDIS_MASTER_CONTAINER_ID redis-cli
-
-redis-master&gt; AUTH test
-OK
-redis-master&gt; set ping pong
-OK
-redis-master&gt; get ping
-&quot;pong&quot;
-redis-master&gt; exit
+<ul>
+<li><code>hubctl stack deploy</code> - Runs a deployment for the entire stack, or updates the deployment of one or more components.</li>
+</ul>
+<pre><code class="language-shell">hubctl stack deploy
 </code></pre>
-<p>After that connect to any replica container. And check a value we set.</p>
-<pre><code class="language-bash">docker exec -it $REDIS_REPLICA_CONTAINER_ID redis-cli
-
-redis-replica&gt; AUTH test
-OK
-redis-replica&gt; get ping
-&quot;pong&quot;
-redis-replica&gt; exit
+<p>If the deployment status is deployed and the <code>redis</code> component is completed, you can to list of the namespaced objects, such as our pod <code>redis</code>. To do this, run the following command:</p>
+<pre><code class="language-shell">kubectl get pods --namespace=redis
 </code></pre>
-<p>Replica pod successfully returns value.</p>
+<p>You can see 4 redis pods with 1 master and 3 replicas have been created:</p>
+<pre><code class="language-text"># NAME               READY   STATUS    
+# redis-master-0     1/1     Running   
+# redis-replicas-2   1/1     Running  
+# redis-replicas-1   1/1     Running   
+# redis-replicas-0   1/1     Running   
+</code></pre>
+<h3 id="conclusions">Conclusions</h3>
+<p>In this tutorial, you created the Helm component. You configure the minimalistic component with using Redis, an in-memory data store, as an example. 
+You deployed it and made sure the new component was done.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 13, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
       
     
   </small>
