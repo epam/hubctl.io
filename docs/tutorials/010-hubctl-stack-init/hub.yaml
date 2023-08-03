@@ -11,9 +11,3 @@ components:
         remote: https://github.com/epam/hubctl.io.git
         subDir: docs/tutorials/010-hubctl-stack-init/components/hello-hubctl
         ref: main
-
-parameters:
-  - name: hello-hubctl
-    parameters:
-      - name: message
-        value: foo
