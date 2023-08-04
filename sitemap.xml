@@ -2,332 +2,332 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://hubctl.io/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/install/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/use-cases/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/what-is/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-ext/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-extensions-install/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-extensions-update/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-extensions/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-show/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-backup/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-configure/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-deploy/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-elaborate/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-init/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-invoke/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-ls/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-rm/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-undeploy/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack-use/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-stack/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/cli/hubctl-toolbox/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/design-and-architecture/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/extensions/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/hubctl/hooks/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/components/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/components/arm/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/components/helm/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/components/kubernetes/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/components/kustomize/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/components/lifecycle/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/components/makefile/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/components/shell/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/components/terraform/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/design/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/design/aws/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/design/dns/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/design/env/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/component/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/component/lifecycle/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/component/meta/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/component/outputs/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/component/parameters/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/component/provides/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/component/requires/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/component/templates/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/stack/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/stack/components/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/stack/extensions/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/stack/lifecycle/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/stack/meta/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/stack/outputs/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/stack/parameters/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/reference/manifests/stack/requires/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/stacks/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/010-hubctl-stack-init/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/015-hubctl-stack-configure/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/017-hubctl-stack-ls/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/020-shell-component/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/030-kubernetes-rancher-desktop/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/035-redis-component/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hubctl.io/tutorials/040-aws-component/</loc>
-         <lastmod>2023-08-03</lastmod>
+         <lastmod>2023-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
