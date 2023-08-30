@@ -1852,16 +1852,16 @@ components:                                                                   # 
 <pre><code class="language-yaml">kind: component                                     # mandatory, defines a component manifest
 version: 1                                          # mandatory, manifest schema version
 
-parameters:                                         
+parameters:
   - name: message                                   # mandatory, parameter name
-    value: foo                                      # optional, value for parameter 
+    value: foo                                      # optional, value for parameter
     env: MESSAGE                                    # optional, mapping to environment variable for use deployment script
 
 </code></pre>
 <p><code>hub-component.yaml</code> contains the <code>parameters</code> field for your configuration.</p>
-<p><a href="../../../reference/manifests/stack/parameters/">Parameters</a> are used to configure stack and components in both stack manifest <code>hub.yaml</code> and component manifest <code>hub-component.yaml</code>.</p>
-<p>If you are deploying using shell scripts, you need to create the expected scripts in the component folder: 
-<code>deploy.sh</code> </p>
+<p><a href="../../reference/manifests/stack/parameters/">Parameters</a> are used to configure stack and components in both stack manifest <code>hub.yaml</code> and component manifest <code>hub-component.yaml</code>.</p>
+<p>If you are deploying using shell scripts, you need to create the expected scripts in the component folder:
+<code>deploy.sh</code></p>
 <pre><code class="language-shell">#!/bin/sh -e
 
 echo &quot;Component $HUB_COMPONENT is saying: $MESSAGE&quot;
@@ -1873,7 +1873,7 @@ echo &quot;Component $HUB_COMPONENT deployed successfully!&quot;
 echo &quot;Component $HUB_COMPONENT undeployed successfully!&quot;
 </code></pre>
 <p>Make sure the <code>deploy.sh</code>, <code>undeploy.sh</code> are executable <code>chmod +x deploy.sh</code>, <code>chmod +x undeploy.sh</code>.
-Read more details <a href="../../../reference/components/shell/">here</a>.</p>
+Read more details <a href="../../reference/components/shell/">here</a>.</p>
 <p>So, if you have a ready-made configuration with customized components, how can you launch them?
 The following commands are used for this:</p>
 <ul>
@@ -1890,7 +1890,7 @@ Download the minimal component from <a href="https://github.com/epam/hubctl.io/t
 <p>or without download folders you can initialize the following command</p>
 <pre><code class="language-shell">hubctl stack init -f &quot;https://raw.github.com/epam/hubctl.io/tree/main/docs/tutorials/010-hubctl-stack-init/hub.yaml&quot;
 </code></pre>
-<p>Read more about <code>hubctl stack init</code> <a href="../../../hubctl/cli/hubctl-stack-init/">here</a></p>
+<p>Read more about <code>hubctl stack init</code> <a href="../../hubctl/cli/hubctl-stack-init/">here</a></p>
 <h3 id="update-configuration">Update configuration</h3>
 <p>This step is to update your configuration with the following command:</p>
 <pre><code class="language-shell">hubctl stack configure
@@ -1899,7 +1899,7 @@ Download the minimal component from <a href="https://github.com/epam/hubctl.io/t
 <p>The next step is to run the deployment using the following command:</p>
 <pre><code class="language-shell">hubctl stack deploy
 </code></pre>
-<p>Read more about the command <code>hubctl stack deploy</code> <a href="../../../hubctl/cli/hubctl-stack-deploy/">here</a></p>
+<p>Read more about the command <code>hubctl stack deploy</code> <a href="../../hubctl/cli/hubctl-stack-deploy/">here</a></p>
 <p>If you did everything correctly, the deployment worked without errors, then the command returns the name of the component that was deployed.</p>
 <pre><code class="language-text">## --- File: deploy.sh
 # Component hello-hubctl is saying: foo
@@ -1910,7 +1910,7 @@ Download the minimal component from <a href="https://github.com/epam/hubctl.io/t
 <p>You can also run undeploy with the following command:</p>
 <pre><code class="language-shell">hubctl stack undeploy
 </code></pre>
-<p>Read more about the command <code>hubctl stack undeploy</code> <a href="../../../hubctl/cli/hubctl-stack-undeploy/">here</a></p>
+<p>Read more about the command <code>hubctl stack undeploy</code> <a href="../../hubctl/cli/hubctl-stack-undeploy/">here</a></p>
 <p>The command returns the name of the component <code>hello-hubctl</code> that was undeploy.</p>
 <pre><code class="language-text">## --- File: undeploy.sh
 # Component hello-hubctl undeployed successfully!
@@ -1919,14 +1919,14 @@ Download the minimal component from <a href="https://github.com/epam/hubctl.io/t
 <p>Using a simple example with a ready-made configuration for the <code>hub.yaml</code> and <code>hub-component.yaml</code> files, you learned what the minimum configuration for hubctl consists of, as well as how hubctl can be used. Go ahead.</p>
 <h2 id="whats-next">What's Next?</h2>
 <p>You can change the hubctl config and deploy it with your parameters. Next, you will look at how to do this.
-Go to the <a href="../../../tutorials/015-hubctl-stack-configure/">next tutorial</a></p>
+Go to the <a href="../015-hubctl-stack-configure/">next tutorial</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 30, 2023</span>
       
     
   </small>

@@ -1723,8 +1723,8 @@
 <h2 id="in-this-tutorial">In This Tutorial</h2>
 <p>The tutorial covers the following topics:</p>
 <ul>
-<li>How to configure the simple Amazon S3 hubctl component </li>
-<li>How to configure Terraform for this AWS component </li>
+<li>How to configure the simple Amazon S3 hubctl component</li>
+<li>How to configure Terraform for this AWS component</li>
 <li>How to deploy the stack with Amazon S3 components using Terraform</li>
 </ul>
 <h2 id="about">About</h2>
@@ -1737,14 +1737,14 @@
 │        └── main.tf                     # Terraform code
 └── hub.yaml                             # Stack manifest
 </code></pre>
-<p>Read more about Terraform Component <a href="../../../reference/components/terraform/">here</a></p>
+<p>Read more about Terraform Component <a href="../../reference/components/terraform/">here</a></p>
 <ul>
 <li>A specific configuration defining a stack manifest in <code>hub.yaml</code> is the first thing needed. Such a file describes the components and options for deployment.</li>
 </ul>
 <pre><code class="language-shell">kind: stack                                               # mandatory, defines a stack manifest
 version: 1                                                # stack manifest schema version
 
-requires:                                                 # optional, list of environment requirements 
+requires:                                                 # optional, list of environment requirements
   - aws
 
 components:                                               # mandatory, list of components
@@ -1752,7 +1752,7 @@ components:                                               # mandatory, list of c
     source:                                               # mandatory, component source
       dir: components/s3-bucket                           # mandatory, local path where to find component
 
-extensions:                                               
+extensions:
   init:                                                   # optional, steps activated during `hubctl stack init`
     - aws
   configure:                                              # optional, steps activated during `hubctl stack configure`
@@ -1763,7 +1763,7 @@ extensions:
     - aws
   undeploy:                                               # optional, steps activated during `hubctl stack undeploy
     after:                                                # optional, steps activated on `hubctl stack undeploy` but after actual undeploy of components
-    - aws 
+    - aws
 
 </code></pre>
 <p><code>hub.yaml</code> file has <code>components</code> field where you describe your components.</p>
@@ -1783,10 +1783,10 @@ parameters:
   - name: bucket.name                                # parameter of the bucket name
     value: &quot;${hub.stackName}&quot;                        # value for the S3 bucket name parameter from hub stack name. This name must be unique for S3
     env: TF_VAR_name                                 # TF_VAR_* environment variable (recommended way), mapping to environment variable for use deployment script
-  - name: bucket.acl                                 # parameter of the Access control list (ACL) of the bucket  
+  - name: bucket.acl                                 # parameter of the Access control list (ACL) of the bucket
     value: &quot;private&quot;                                 # default value is private
     env: TF_VAR_acl                                  # Terraform environment variable for the acl
-  - name: cloud.region                               # parameter of the AWS region 
+  - name: cloud.region                               # parameter of the AWS region
     value: &quot;eu-central-1&quot;                            # default value is region
     fromEnv: AWS_REGION                              # environment variable AWS_REGION. It is an unique stack identifier
   - name: cloud.profile                              # parameter of the specific AWS profile
@@ -1795,8 +1795,8 @@ parameters:
   - name: bucket.region                              # parameter of the AWS bucket region
     value:  ${cloud.region}                          # value for the S3 bucket regin parameter from the cloud region
     env: TF_VAR_bucket_region                        # Terraform environment variable for the bucket region
-  - name: aws.serviceAccount                         # parameter of the service account 
-    env: TF_VAR_service_account_name                 # Terraform environment variable of the service account name 
+  - name: aws.serviceAccount                         # parameter of the service account
+    env: TF_VAR_service_account_name                 # Terraform environment variable of the service account name
     empty: allow
 
 outputs:
@@ -1804,11 +1804,11 @@ outputs:
     value: s3
   - name: bucket.region
     value: ${cloud.region}
-    brief: Amazon S3 bucket region   
+    brief: Amazon S3 bucket region
 
 </code></pre>
-<p>You can provide Terraform variables in two ways. Read more about it <a href="../../../reference/components/terraform/#component-conventions">here</a></p>
-<p>Hubctl will automatically detect Terraform code when component contains one or more *.tf files. 
+<p>You can provide Terraform variables in two ways. Read more about it <a href="../../reference/components/terraform/#component-conventions">here</a></p>
+<p>Hubctl will automatically detect Terraform code when component contains one or more *.tf files.
 Terraform configuration with <code>main.rf</code> file:</p>
 <pre><code class="language-shell"># Create a name variable
 variable &quot;name&quot; {
@@ -1833,12 +1833,12 @@ variable &quot;bucket_region&quot; {
   description = &quot;s3 bucket region&quot;
 }
 
-# Configure private bucket with versioning enabled, tags and website  
+# Configure private bucket with versioning enabled, tags and website
 module &quot;s3_bucket&quot; {
   source = &quot;terraform-aws-modules/s3-bucket/aws&quot;
 
   bucket = var.name
-  acl    = var.acl   
+  acl    = var.acl
 
   control_object_ownership = true
   object_ownership         = &quot;ObjectWriter&quot;
@@ -1934,8 +1934,8 @@ Deploy your infrastructure with following commands:</li>
 <p>In this tutorial, you create the simple Amazon S3 bucket hubctl. Use Terraform to configure this AWS component.</p>
 <h3 id="see-also">See also</h3>
 <ul>
-<li><a href="../../../reference/components/terraform/">Terraform Component</a> </li>
-<li><a href="../../../reference/design/aws/">Article about AWS Components</a></li>
+<li><a href="../../reference/components/terraform/">Terraform Component</a></li>
+<li><a href="../../reference/design/aws/">Article about AWS Components</a></li>
 </ul>
 
   <hr>
@@ -1943,7 +1943,7 @@ Deploy your infrastructure with following commands:</li>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 30, 2023</span>
       
     
   </small>

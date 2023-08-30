@@ -1863,10 +1863,10 @@
 - name: cloud.kind
   value: aws                          # set to value provided by user
 - name: cloud.regions                 # this parameter is only set for component `foo`
-  component: foo                      
+  component: foo
   value: [us-east-1, us-east-2]
-- name: kubernetes                    # nested parameters for kubernetes 
-  parameters: 
+- name: kubernetes                    # nested parameters for kubernetes
+  parameters:
   - name: worker.size
     fromEnv: KUBERNETES_WORKER_SIZE   # Source value form environment variable
     default: m5.large                 # Use default if value not provided
@@ -1892,7 +1892,7 @@ kubernetes.worker.size
   value: www.${dns.domain}
   # resolves to: www.example.com
 </code></pre>
-<p>or multiline parameters </p>
+<p>or multiline parameters</p>
 <pre><code class="language-yaml">parameters:
 - name: ingress.hosts
   value: |
@@ -1910,7 +1910,7 @@ kubernetes.worker.size
   default: kube-system
 </code></pre>
 <p>Parameter above will set value of parameter <code>kubernetes.namespace</code> to value of environment variable <code>NAMESPACE</code></p>
-<p>During <code>hubctl stack configure</code> user will be prompted to provide value for parameter <code>kubernetes.namespace</code> with default value <code>kube-system</code>. </p>
+<p>During <code>hubctl stack configure</code> user will be prompted to provide value for parameter <code>kubernetes.namespace</code> with default value <code>kube-system</code>.</p>
 <h3 id="parameter-env">Parameter <code>env</code></h3>
 <blockquote>
 <p><strong>Component Level only</strong></p>
@@ -1940,7 +1940,7 @@ kubernetes.worker.size
 <h3 id="parameter-kind-user">Parameter <code>kind: user</code></h3>
 <p>There are high-level user-provided parameters - the facts <code>user</code> do care about: which cloud and cloud account to use, what region to deploy to, etc.</p>
 <h3 id="parameter-kind-link">Parameter <code>kind: link</code></h3>
-<p>In general, preferred approach to resolve parameters provided as outputs from the component is through <code>components.depends</code> attribute. However sometimes you need to change parameter name as they are not match. </p>
+<p>In general, preferred approach to resolve parameters provided as outputs from the component is through <code>components.depends</code> attribute. However sometimes you need to change parameter name as they are not match.</p>
 <p>To map output to a different name use <code>kind: link</code> parameter. The interpretation of <code>value</code> will be deferred until parameter is used:</p>
 <pre><code class="language-yaml">parameters:
 - name: backend.image
@@ -1951,7 +1951,7 @@ kubernetes.worker.size
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../../stack">Stack Manifest</a></li>
-<li><a href="../../component">Component Manifest</a></li>
+<li><a href="../">Component Manifest</a></li>
 <li><a href="https://github.com/google/cel-go">CEL expressions</a></li>
 </ul>
 
@@ -1960,7 +1960,7 @@ kubernetes.worker.size
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 2, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 30, 2023</span>
       
     
   </small>

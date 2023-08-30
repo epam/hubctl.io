@@ -1791,7 +1791,7 @@
 </ol>
 <pre><code class="language-bash">hubctl stack configure
 </code></pre>
-<p>Or if you want to trigger only environment variables checks run the following command </p>
+<p>Or if you want to trigger only environment variables checks run the following command</p>
 <pre><code class="language-bash">hubctl stack configure -r &quot;env&quot;
 </code></pre>
 <p>Command above will check all parameters marked with <code>fromEnv</code> and will ask user to provide values for them. Hubctl will see if variable is not exist in <code>.env</code> file and prompt user. Hubctl will also provide convenience suggestion to the user based on the following algorithm</p>
@@ -1800,14 +1800,14 @@
 <li>If environment variable is not defined, then use <code>default</code> value</li>
 <li>If parameter has <code>empty: allow</code> then use empty value</li>
 <li>Use previously provided value from the same environment variable</li>
-<li>Use random value </li>
+<li>Use random value</li>
 </ol>
 <p>You can change the value prompted by the hubctl.</p>
 <blockquote>
 <p><strong>Note:</strong> After value has been set, you can always change it in <code>.env</code> file.</p>
 </blockquote>
 <h3 id="how-to-switch-between-configurations">How to Switch Between Configurations</h3>
-<p>Hubctl allows to switch between different configurations. For example, you can have different configurations for different environments. </p>
+<p>Hubctl allows to switch between different configurations. For example, you can have different configurations for different environments.</p>
 <pre><code class="language-bash">hubctl stack ls # list all available stacks
 hubctl stack use &lt;stack-name&gt; # use the stack for the current directory
 </code></pre>
@@ -1823,7 +1823,7 @@ hubctl stack use &lt;stack-name&gt; # use the stack for the current directory
 <ul>
 <li><a href="../../../hubctl/cli/hubctl-stack">hubctl stack</a> command</li>
 <li><a href="../../manifests/stack/parameters">Parameters</a> - reference guide</li>
-<li><a href="../../design">Hubctl Key Concepts</a></li>
+<li><a href="../">Hubctl Key Concepts</a></li>
 </ul>
 
   <hr>
@@ -1831,7 +1831,7 @@ hubctl stack use &lt;stack-name&gt; # use the stack for the current directory
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 12, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 30, 2023</span>
       
     
   </small>

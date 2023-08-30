@@ -1875,8 +1875,8 @@
 <p><code>hubctl stack init [options]</code></p>
 <p>This command will perform different initialization steps in order to prepare you current working directory for deployment</p>
 <h3 id="download-hubfiles">Download Hubfiles</h3>
-<p>Activated when flag: <code>-f URL</code> supplied. </p>
-<p>Hubctl will download a hubfile referenced with <code>-f</code> flag and save it to the current directory. Then it will download any other parameters file referenced in the hubfile and save it to the current directory. </p>
+<p>Activated when flag: <code>-f URL</code> supplied.</p>
+<p>Hubctl will download a hubfile referenced with <code>-f</code> flag and save it to the current directory. Then it will download any other parameters file referenced in the hubfile and save it to the current directory.</p>
 <pre><code class="language-yaml"># hub.yaml
 extensions:
   include:
@@ -1920,7 +1920,7 @@ extensions:
 </code></pre>
 <p>When hubfile refers component deployment hooks, hubctl will download them and save to the current directory</p>
 <h3 id="download-component-sources">Download Component Sources</h3>
-<p>Next steps hubctl will download components if directory referenced in the hubfile does not exist. </p>
+<p>Next steps hubctl will download components if directory referenced in the hubfile does not exist.</p>
 <pre><code class="language-yaml">components:
 - name: external-dns
   source:
@@ -1932,13 +1932,13 @@ extensions:
 </code></pre>
 <p>For more details see <a href="../../../reference/manifests/stack/components">Components Reference</a>.</p>
 <h2 id="initialize-from-remote-state">Initialize from Remote State</h2>
-<p>There is an option to initialize stack from remote state. This is useful when you do not have state locally or it has been deployed by someone else. </p>
+<p>There is an option to initialize stack from remote state. This is useful when you do not have state locally or it has been deployed by someone else.</p>
 <p>Run the command:</p>
 <pre><code class="language-bash">hubctl stack init &quot;&lt;remote-state-url&gt;&quot;
 </code></pre>
 <p>This command will download remote state and initialize <code>.env</code> variables from parameters listed in the state. Then you should be able to interact with the stack or it's components as usual.</p>
 <h2 id="stack-name-and-domain-names">Stack Name and Domain Names</h2>
-<p>When you initialize a stack, hubctl will generate a random stack name unless hubfile contains exact value of stack name. When stack is using a publicly available domain name, then hubctl will use it as a stack name. </p>
+<p>When you initialize a stack, hubctl will generate a random stack name unless hubfile contains exact value of stack name. When stack is using a publicly available domain name, then hubctl will use it as a stack name.</p>
 <p>See on how to autogenerate domain names here: <a href="../../../reference/design/dns">Domain Names</a></p>
 <h2 id="command-parameters">Command Parameters</h2>
 <table>
@@ -1997,7 +1997,7 @@ extensions:
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../hubctl-stack-configure"><code>hubctl stack configure</code></a></li>
-<li><a href="../../stack"><code>hubctl stack</code></a></li>
+<li><a href="../hubctl-stack"><code>hubctl stack</code></a></li>
 <li><a href="../../../reference/design/dns">Domain Names</a></li>
 </ul>
 
@@ -2006,7 +2006,7 @@ extensions:
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 4, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 30, 2023</span>
       
     
   </small>

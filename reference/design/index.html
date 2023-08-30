@@ -1739,13 +1739,13 @@
 <li><code>Azure ARM template</code></li>
 </ul>
 <h2 id="stack">Stack</h2>
-<p>In real life a single component is not enough to run as a service. Usually it requires other components to be deployed as well. For example a web server requires a database to store data. A queue requires a database to store messages. A cache requires a database to store cached data. </p>
+<p>In real life a single component is not enough to run as a service. Usually it requires other components to be deployed as well. For example a web server requires a database to store data. A queue requires a database to store messages. A cache requires a database to store cached data.</p>
 <p>This means component can import parameters either from environment or from the other components. This is where stack comes into play. Stack is a collection of components that are deployed together. Stack defines the order of deployment and parameters that are passed to the components.</p>
 <p>Stack can be deployed in three steps</p>
 <ol>
 <li><a href="../../hubctl/cli/hubctl-stack-init"><code>init</code></a> - initialize the stack, download components, hooks and other artifacts</li>
 <li><a href="../../hubctl/cli/hubctl-stack-configure"><code>configure</code></a> - configures stack requirements such as environment, access credentials, user input, etc. Anything that is required to deploy the stack</li>
-<li><a href="../../hubctl/cli/hubctl-stack-deploy"><code>deploy</code></a> - deploys the stack. You can also deploy series of individual components </li>
+<li><a href="../../hubctl/cli/hubctl-stack-deploy"><code>deploy</code></a> - deploys the stack. You can also deploy series of individual components</li>
 </ol>
 <h2 id="parameters">Parameters</h2>
 <p>Parameters are used to configure components. Parameters can be passed to the component from environment or from the other components. Parameters are a simple key value pairs and defined component level and overriden by the stack or upstream components. See more details in the <a href="../manifests/component/parameters">parameters configuration</a>.</p>
@@ -1754,20 +1754,20 @@
 <h2 id="deployment-hooks">Deployment Hooks</h2>
 <p>Hooks are used to execute custom logic before or after deployment of the component or a stack. Hooks are defined on the stack level. See more details in the <a href="../manifests/component">hooks configuration</a>.</p>
 <h2 id="toolbox">Toolbox</h2>
-<p>Both hubctl and components requires tools to be installed on a machine. This makes it hard to standartize the tool chain across all members of the team. Toolbox is a docker container that contains all required tools to run hubctl and components. </p>
+<p>Both hubctl and components requires tools to be installed on a machine. This makes it hard to standartize the tool chain across all members of the team. Toolbox is a docker container that contains all required tools to run hubctl and components.</p>
 <p>See how to run toolbox by running <a href="../../hubctl/cli/hubctl-toolbox"><code>hubctl toolbox</code></a>.</p>
 <h2 id="dns-bubbles">DNS Bubbles</h2>
 <p>DNS names has been supplied from: epam.devops.delivery</p>
-<p>After stack has been deployed user will want to access it. The most straightforward way is to use a DNS name. To access it with DNS name. </p>
+<p>After stack has been deployed user will want to access it. The most straightforward way is to use a DNS name. To access it with DNS name.</p>
 <p>DNS Bubbles is a web service that can grant a temporary random DNS name. These domain names are garbage collected every 72 hours unless refreshed. This makes it useful for ephemeral environments. Environment that user will discard after they do not need it anymore. Development or test environments are perfect examples of such environments.</p>
-<p>See more on how to configure DNS Bubbles in the <a href="../dns">DNS Bubbles configuration</a>.</p>
+<p>See more on how to configure DNS Bubbles in the <a href="./dns">DNS Bubbles configuration</a>.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 4, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 30, 2023</span>
       
     
   </small>

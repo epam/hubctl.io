@@ -1801,7 +1801,7 @@
 
 
 <h1 id="multiple-components">Multiple Components</h1>
-<p>This tutorial will show you how to configure hubctl with your simple component options. </p>
+<p>This tutorial will show you how to configure hubctl with your simple component options.</p>
 <h2 id="in-this-tutorial">In This Tutorial</h2>
 <p>This tutorials covers the following topics:</p>
 <ul>
@@ -1836,13 +1836,13 @@ parameters:                                                                   # 
     value: baz-first                                                          # optional, value for parameter
 </code></pre>
 <h2 id="deploy-stack-with-one-component">Deploy Stack with one Component</h2>
-<p>Similar to the tutorial the <a href="../../../tutorials/010-hello-hubctl/">previous</a> tutorial, we will deploy a stack with one component.</p>
+<p>Similar to the tutorial the <a href="../010-hubctl-stack-init">previous</a> tutorial, we will deploy a stack with one component.</p>
 <ul>
 <li>
 <p>Create an empty directory and change your working directory to it.</p>
 </li>
 <li>
-<p>Initialize a stack with <a href="../../../hubctl/cli/hubctl-stack-init/"><code>hubctl stack init</code></a> command.</p>
+<p>Initialize a stack with <a href="../../hubctl/cli/hubctl-stack-init/"><code>hubctl stack init</code></a> command.</p>
 </li>
 </ul>
 <pre><code class="language-shell">hubctl stack init -f &quot;https://raw.githubusercontent.com/epam/hubctl.io/main/docs/tutorials/015-hubctl-stack-configure/hub.yaml&quot;
@@ -1856,9 +1856,9 @@ parameters:                                                                   # 
 <pre><code class="language-bash">hubctl stack deploy
 </code></pre>
 <ul>
-<li>You can confirm stack has been deployed with command </li>
+<li>You can confirm stack has been deployed with command</li>
 </ul>
-<pre><code class="language-text">hubctl show 
+<pre><code class="language-text">hubctl show
 ## ...
 ##   hub.stackName: My first deployment
 ##   message: baz-first
@@ -1869,7 +1869,7 @@ parameters:                                                                   # 
 The <code>my-first-component</code> message is "base-first" because "hub.yaml" has a special message parameter for the <code>my-first-component</code> component.</p>
 <h2 id="add-a-new-component">Add a New Component</h2>
 <ul>
-<li>Let's open the hubfile "hub.yaml" and add following to <code>components</code> field: </li>
+<li>Let's open the hubfile "hub.yaml" and add following to <code>components</code> field:</li>
 </ul>
 <pre><code class="language-yaml"> -  name: my-second-component
     source:
@@ -1894,7 +1894,7 @@ The <code>my-first-component</code> message is "base-first" because "hub.yaml" h
 <li>Let's create a special parameter for the <code>my-second-component</code> component. To do this, add the following to the <code>parameters</code> field of the hub file "hub.yaml":</li>
 </ul>
 <pre><code class="language-yaml"> -  name: message
-    component: my-second-component    
+    component: my-second-component
     value: baz-second
 </code></pre>
 <ul>
@@ -1910,7 +1910,7 @@ The <code>my-first-component</code> message is "base-first" because "hub.yaml" h
 # Component my-second-component deployed successfully!
 </code></pre>
 <ul>
-<li>Inspect parameters for both components. 
+<li>Inspect parameters for both components.
 Run the following commands:</li>
 </ul>
 <pre><code class="language-shell">hubctl show -c &quot;my-first-component&quot;
@@ -1923,11 +1923,11 @@ To start undeploying for one or more components (provided as a comma-separated v
 </ul>
 <pre><code class="language-shell">hubctl stack undeploy -c &quot;my-second-component&quot;
 </code></pre>
-<p>Read more about undeploy <a href="../../../hubctl/cli/hubctl-stack-undeploy/">here</a></p>
+<p>Read more about undeploy <a href="../../hubctl/cli/hubctl-stack-undeploy/">here</a></p>
 <ul>
 <li>Observe the result</li>
 </ul>
-<pre><code class="language-shell">hubctl show 
+<pre><code class="language-shell">hubctl show
 ## ...
 # status: incomplete
 </code></pre>
@@ -1936,17 +1936,17 @@ To start undeploying for one or more components (provided as a comma-separated v
 <p>Note: on the contrary, status <code>deployed</code> means all components of a stack are deployed.</p>
 </blockquote>
 <h3 id="conclusions">Conclusions</h3>
-<p>In this tutorial, we added our own parameters and deployed a new configuration. We made sure that the new component was deployed and the next step was to undeploy this component. </p>
+<p>In this tutorial, we added our own parameters and deployed a new configuration. We made sure that the new component was deployed and the next step was to undeploy this component.</p>
 <h2 id="whats-next">What's Next?</h2>
 <p>Next, we will create a component from scratch, digging into hubctl and its additional features.
-Go to the <a href="../../../tutorials/020-shell-component/">next tutorial</a></p>
+Go to the <a href="../020-shell-component/">next tutorial</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 30, 2023</span>
       
     
   </small>
