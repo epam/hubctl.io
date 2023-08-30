@@ -2,7 +2,7 @@
 
 This command initializes working directory containing a hubfile (`hub.yaml`). This is the first command that you should run when you start working with a new stack.
 
-## Usage 
+## Usage
 
 Depending on your needs there are few ways to initialize a stack in the current directory:
 
@@ -12,9 +12,9 @@ This command will perform different initialization steps in order to prepare you
 
 ### Download Hubfiles
 
-Activated when flag: `-f URL` supplied. 
+Activated when flag: `-f URL` supplied.
 
-Hubctl will download a hubfile referenced with `-f` flag and save it to the current directory. Then it will download any other parameters file referenced in the hubfile and save it to the current directory. 
+Hubctl will download a hubfile referenced with `-f` flag and save it to the current directory. Then it will download any other parameters file referenced in the hubfile and save it to the current directory.
 
 ```yaml
 # hub.yaml
@@ -71,7 +71,7 @@ When hubfile refers component deployment hooks, hubctl will download them and sa
 
 ### Download Component Sources
 
-Next steps hubctl will download components if directory referenced in the hubfile does not exist. 
+Next steps hubctl will download components if directory referenced in the hubfile does not exist.
 
 ```yaml
 components:
@@ -89,7 +89,7 @@ For more details see [Components Reference](../../../reference/manifests/stack/c
 
 ## Initialize from Remote State
 
-There is an option to initialize stack from remote state. This is useful when you do not have state locally or it has been deployed by someone else. 
+There is an option to initialize stack from remote state. This is useful when you do not have state locally or it has been deployed by someone else.
 
 Run the command:
 
@@ -101,7 +101,7 @@ This command will download remote state and initialize `.env` variables from par
 
 ## Stack Name and Domain Names
 
-When you initialize a stack, hubctl will generate a random stack name unless hubfile contains exact value of stack name. When stack is using a publicly available domain name, then hubctl will use it as a stack name. 
+When you initialize a stack, hubctl will generate a random stack name unless hubfile contains exact value of stack name. When stack is using a publicly available domain name, then hubctl will use it as a stack name.
 
 See on how to autogenerate domain names here: [Domain Names](../../../reference/design/dns)
 
@@ -133,5 +133,5 @@ hubctl stack init -f "https://hubctl.io/tutorials/020-shell-component/hub.yaml"
 ## See also
 
 * [`hubctl stack configure`](../hubctl-stack-configure)
-* [`hubctl stack`](../../stack)
+* [`hubctl stack`](../hubctl-stack)
 * [Domain Names](../../../reference/design/dns)

@@ -11,17 +11,14 @@ Hubctl helps to manage your infrastructure as code by allowing to split your inf
 
 ## Installation
 
-To install hubctl follow the instructions on the installation [page](/install/).
+To install hubctl follow the instructions on the installation [page](./install/).
 
 ## Getting started
 
-To get started with hubctl, follow the [quickstart](/tutorials/) guide.
+To get started with hubctl, follow the [quickstart](./tutorials/) guide.
 
 ## Documentation
 
-* [Hubctl overview](hubctl/)
-* [Components](hubctl/components/)
-* [Stacks](stacks/)
-* [Extensions](hubctl/extensions/)
-* [Toolbox](toolbox/)
-* [Hooks](hubctl/hooks/)
+* [Hubctl overview](./hubctl/)
+* [Components](./reference/design/#component)
+* [Stacks](./reference/design/#stack)

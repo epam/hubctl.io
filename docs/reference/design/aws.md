@@ -69,4 +69,4 @@ exits with an error message.
 
 See more on how to configure DNS Bubbles in the [DNS Bubbles configuration](../dns).
 
-See more about [`configure`](../../hubctl/cli/hubctl-stack-configure)
+See more about [`configure`](../../../hubctl/cli/hubctl-stack-configure)

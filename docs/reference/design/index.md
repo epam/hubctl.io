@@ -26,7 +26,7 @@ Components can be written in any language and can be deployed with any tool. How
 
 ## Stack
 
-In real life a single component is not enough to run as a service. Usually it requires other components to be deployed as well. For example a web server requires a database to store data. A queue requires a database to store messages. A cache requires a database to store cached data. 
+In real life a single component is not enough to run as a service. Usually it requires other components to be deployed as well. For example a web server requires a database to store data. A queue requires a database to store messages. A cache requires a database to store cached data.
 
 This means component can import parameters either from environment or from the other components. This is where stack comes into play. Stack is a collection of components that are deployed together. Stack defines the order of deployment and parameters that are passed to the components.
 
@@ -34,7 +34,7 @@ Stack can be deployed in three steps
 
 1. [`init`](../../hubctl/cli/hubctl-stack-init) - initialize the stack, download components, hooks and other artifacts
 2. [`configure`](../../hubctl/cli/hubctl-stack-configure) - configures stack requirements such as environment, access credentials, user input, etc. Anything that is required to deploy the stack
-3. [`deploy`](../../hubctl/cli/hubctl-stack-deploy) - deploys the stack. You can also deploy series of individual components 
+3. [`deploy`](../../hubctl/cli/hubctl-stack-deploy) - deploys the stack. You can also deploy series of individual components
 
 ## Parameters
 
@@ -50,7 +50,7 @@ Hooks are used to execute custom logic before or after deployment of the compone
 
 ## Toolbox
 
-Both hubctl and components requires tools to be installed on a machine. This makes it hard to standartize the tool chain across all members of the team. Toolbox is a docker container that contains all required tools to run hubctl and components. 
+Both hubctl and components requires tools to be installed on a machine. This makes it hard to standartize the tool chain across all members of the team. Toolbox is a docker container that contains all required tools to run hubctl and components.
 
 See how to run toolbox by running [`hubctl toolbox`](../../hubctl/cli/hubctl-toolbox).
 
@@ -59,8 +59,8 @@ See how to run toolbox by running [`hubctl toolbox`](../../hubctl/cli/hubctl-too
 
 DNS names has been supplied from: epam.devops.delivery
 
-After stack has been deployed user will want to access it. The most straightforward way is to use a DNS name. To access it with DNS name. 
+After stack has been deployed user will want to access it. The most straightforward way is to use a DNS name. To access it with DNS name.
 
 DNS Bubbles is a web service that can grant a temporary random DNS name. These domain names are garbage collected every 72 hours unless refreshed. This makes it useful for ephemeral environments. Environment that user will discard after they do not need it anymore. Development or test environments are perfect examples of such environments.
 
-See more on how to configure DNS Bubbles in the [DNS Bubbles configuration](../dns).
+See more on how to configure DNS Bubbles in the [DNS Bubbles configuration](./dns).

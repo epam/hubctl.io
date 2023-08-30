@@ -21,4 +21,4 @@ hubctl stack ls
 ## See also
 
 * [`hubctl stack ls`](../hubctl-stack-ls)
-* [`hubctl stack`](../../stack)
+* [`hubctl stack`](../hubctl-stack)

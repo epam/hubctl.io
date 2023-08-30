@@ -7,7 +7,7 @@
 
 ## Components
 
-Hubctl core experience is about connecting various pieces of software - called components into a stack, each component developed independently yet designed to work together, via common set of parameters for inputs and outputs. See more about components [here](components)
+Hubctl core experience is about connecting various pieces of software - called components into a stack, each component developed independently yet designed to work together, via common set of parameters for inputs and outputs. See more about components [here](../reference/components)
 
 ## Stacks
 

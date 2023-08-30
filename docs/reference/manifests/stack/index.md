@@ -45,7 +45,7 @@ parameters:                                                   # optional, stack 
 outputs:                                                      # optional, stack output parameters
 - name: foo                                                   # mandatory, output name
   value: http://localhost:${pgweb.port}                       # mandatory, output value, supports interpolation
-  brief: Lorem ipsum                                          # optional, brief description for output       
+  brief: Lorem ipsum                                          # optional, brief description for output
 ```
 
 > Note: if optional section defined, it may have mandatory attributes
@@ -62,5 +62,5 @@ Follow each section separately to get more details:
 
 ## See Also
 
-* [Component Manifest](./component)
+* [Component Manifest](../component)
 

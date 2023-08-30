@@ -37,4 +37,4 @@ exit
 
 ## See also
 
-* [`hubctl`](../../hubctl)
+* [`hubctl`](../)

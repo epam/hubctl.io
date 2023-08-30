@@ -64,6 +64,6 @@ outputs:
 
 ## See also
 
-* [Hub Components](/hubctl/components/)
-* [Component Helm](/hubctl/components/helm)
-* [Component Kustomize](/hubctl/components/kustomize)
+* [Hub Components](../)
+* [Component Helm](../helm)
+* [Component Kustomize](../kustomize)

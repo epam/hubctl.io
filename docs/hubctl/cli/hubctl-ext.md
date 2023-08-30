@@ -14,7 +14,7 @@ EOF
 
 chmod +x ~/.hub/hub-hello
 
-hubctl ext hello 
+hubctl ext hello
 # Hello from custom extension
 ```
 
@@ -25,4 +25,4 @@ hubctl ext hello
 ## See Also
 
 * [`hubctl extensions`](../hubctl-extensions)
-* [`hubctl`](../../cli)
+* [`hubctl`](../)

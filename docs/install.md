@@ -65,7 +65,7 @@ Some components and extensions requires additional tools to be installed:
 
 ## What's Next
 
-* See our Getting Started [guide](/tutorials/)
+* See our Getting Started [guide](../tutorials/)
 
 [AWS CLI]: https://aws.amazon.com/cli/
 [Azure CLI]: https://docs.microsoft.com/en-us/cli/azure/

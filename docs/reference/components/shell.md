@@ -1,6 +1,6 @@
 # Shell Component
 
-Shell component is a component that can be deployed using shell scripts. This is the easiest and most flexible way how to deploy a component. 
+Shell component is a component that can be deployed using shell scripts. This is the easiest and most flexible way how to deploy a component.
 
 Minimal component structure would look liek the following
 
@@ -13,7 +13,7 @@ Minimal component structure would look liek the following
 
 ## Conventions
 
-There are no specific variables that are expected to be passed to the shell script. 
+There are no specific variables that are expected to be passed to the shell script.
 
 Scripts expected:
 
@@ -47,5 +47,5 @@ Parametrsise your configuration via templates.
 
 ## See Also
 
-* [hub stack](/hubctl/cli/hubctl-stack/)
-* [hub stack invoke](/hubctl/cli/hubctl-stack-invoke/)
+* [hub stack](../../../hubctl/cli/hubctl-stack/)
+* [hub stack invoke](../../../hubctl/cli/hubctl-stack-invoke/)

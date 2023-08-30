@@ -54,5 +54,5 @@ We do advise not to deploy CRD with the helm chart. Because component `undeploy`
 
 ## See also
 
-* [Hub Components](/hubctl/components)
-* [Kubernetes Configuration](/hubctl/components/kubernetes)
+* [Hub Components](../)
+* [Kubernetes Configuration](../kubernetes)

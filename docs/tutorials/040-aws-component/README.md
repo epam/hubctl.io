@@ -6,8 +6,8 @@ This tutorial shows you how to create an Amazon S3 bucket hubctl component using
 
 The tutorial covers the following topics:
 
-* How to configure the simple Amazon S3 hubctl component 
-* How to configure Terraform for this AWS component 
+* How to configure the simple Amazon S3 hubctl component
+* How to configure Terraform for this AWS component
 * How to deploy the stack with Amazon S3 components using Terraform
 
 ## About
@@ -23,15 +23,15 @@ At the first, let's understand what is the minimum configuration for Amazon S3 c
 │        └── main.tf                     # Terraform code
 └── hub.yaml                             # Stack manifest
 ```
-Read more about Terraform Component [here](../../../reference/components/terraform/)
+Read more about Terraform Component [here](../../reference/components/terraform/)
 
 - A specific configuration defining a stack manifest in `hub.yaml` is the first thing needed. Such a file describes the components and options for deployment.
 
 ```shell
 kind: stack                                               # mandatory, defines a stack manifest
 version: 1                                                # stack manifest schema version
-  
-requires:                                                 # optional, list of environment requirements 
+
+requires:                                                 # optional, list of environment requirements
   - aws
 
 components:                                               # mandatory, list of components
@@ -39,7 +39,7 @@ components:                                               # mandatory, list of c
     source:                                               # mandatory, component source
       dir: components/s3-bucket                           # mandatory, local path where to find component
 
-extensions:                                               
+extensions:
   init:                                                   # optional, steps activated during `hubctl stack init`
     - aws
   configure:                                              # optional, steps activated during `hubctl stack configure`
@@ -50,7 +50,7 @@ extensions:
     - aws
   undeploy:                                               # optional, steps activated during `hubctl stack undeploy
     after:                                                # optional, steps activated on `hubctl stack undeploy` but after actual undeploy of components
-    - aws 
+    - aws
 
 ```
 
@@ -72,10 +72,10 @@ parameters:
   - name: bucket.name                                # parameter of the bucket name
     value: "${hub.stackName}"                        # value for the S3 bucket name parameter from hub stack name. This name must be unique for S3
     env: TF_VAR_name                                 # TF_VAR_* environment variable (recommended way), mapping to environment variable for use deployment script
-  - name: bucket.acl                                 # parameter of the Access control list (ACL) of the bucket  
+  - name: bucket.acl                                 # parameter of the Access control list (ACL) of the bucket
     value: "private"                                 # default value is private
     env: TF_VAR_acl                                  # Terraform environment variable for the acl
-  - name: cloud.region                               # parameter of the AWS region 
+  - name: cloud.region                               # parameter of the AWS region
     value: "eu-central-1"                            # default value is region
     fromEnv: AWS_REGION                              # environment variable AWS_REGION. It is an unique stack identifier
   - name: cloud.profile                              # parameter of the specific AWS profile
@@ -84,8 +84,8 @@ parameters:
   - name: bucket.region                              # parameter of the AWS bucket region
     value:  ${cloud.region}                          # value for the S3 bucket regin parameter from the cloud region
     env: TF_VAR_bucket_region                        # Terraform environment variable for the bucket region
-  - name: aws.serviceAccount                         # parameter of the service account 
-    env: TF_VAR_service_account_name                 # Terraform environment variable of the service account name 
+  - name: aws.serviceAccount                         # parameter of the service account
+    env: TF_VAR_service_account_name                 # Terraform environment variable of the service account name
     empty: allow
 
 outputs:
@@ -93,12 +93,12 @@ outputs:
     value: s3
   - name: bucket.region
     value: ${cloud.region}
-    brief: Amazon S3 bucket region   
+    brief: Amazon S3 bucket region
 
 ```
-You can provide Terraform variables in two ways. Read more about it [here](../../../reference/components/terraform/#component-conventions)
+You can provide Terraform variables in two ways. Read more about it [here](../../reference/components/terraform/#component-conventions)
 
-Hubctl will automatically detect Terraform code when component contains one or more *.tf files. 
+Hubctl will automatically detect Terraform code when component contains one or more *.tf files.
 Terraform configuration with `main.rf` file:
 
 ```shell
@@ -125,25 +125,25 @@ variable "bucket_region" {
   description = "s3 bucket region"
 }
 
-# Configure private bucket with versioning enabled, tags and website  
+# Configure private bucket with versioning enabled, tags and website
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
   bucket = var.name
-  acl    = var.acl   
+  acl    = var.acl
 
   control_object_ownership = true
   object_ownership         = "ObjectWriter"
-  
+
   website = {
     index_document = "index.html"
     error_document = "error.html"
   }
-  
+
   versioning = {
     enabled = false
   }
- 
+
   tags = {
     Name        = "Hubctl bucket"
     Environment = "Dev"
@@ -189,7 +189,7 @@ As a result, you could see the Amazon S3 bucket with the following command:
 aws s3 ls
 ```
 
-## Add Terraform Outputs 
+## Add Terraform Outputs
 
 Create a file called `outputs.tf` in your components/s3-bucket directory. Add the configuration below to outputs.tf to define outputs for your S3 bucket's ID, Region, Website Endpoint and Website Domain .
 
@@ -247,6 +247,6 @@ In this tutorial, you create the simple Amazon S3 bucket hubctl. Use Terraform t
 
 
 ### See also
-- [Terraform Component](../../../reference/components/terraform/) 
-- [Article about AWS Components](../../../reference/design/aws/)
+- [Terraform Component](../../reference/components/terraform/)
+- [Article about AWS Components](../../reference/design/aws/)
 

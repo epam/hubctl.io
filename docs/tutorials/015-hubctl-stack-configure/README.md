@@ -1,6 +1,6 @@
 # Multiple Components
 
-This tutorial will show you how to configure hubctl with your simple component options. 
+This tutorial will show you how to configure hubctl with your simple component options.
 
 ## In This Tutorial
 
@@ -42,11 +42,11 @@ parameters:                                                                   # 
 
 ## Deploy Stack with one Component
 
-Similar to the tutorial the [previous](../../../tutorials/010-hello-hubctl/) tutorial, we will deploy a stack with one component.
+Similar to the tutorial the [previous](../010-hubctl-stack-init) tutorial, we will deploy a stack with one component.
 
 - Create an empty directory and change your working directory to it.
 
-- Initialize a stack with [`hubctl stack init`](../../../hubctl/cli/hubctl-stack-init/) command.
+- Initialize a stack with [`hubctl stack init`](../../hubctl/cli/hubctl-stack-init/) command.
 
 ```shell
 hubctl stack init -f "https://raw.githubusercontent.com/epam/hubctl.io/main/docs/tutorials/015-hubctl-stack-configure/hub.yaml"
@@ -64,10 +64,10 @@ hubctl stack configure
 hubctl stack deploy
 ```
 
-- You can confirm stack has been deployed with command 
+- You can confirm stack has been deployed with command
 
 ```text
-hubctl show 
+hubctl show
 ## ...
 ##   hub.stackName: My first deployment
 ##   message: baz-first
@@ -79,13 +79,13 @@ The `my-first-component` message is "base-first" because "hub.yaml" has a specia
 
 ## Add a New Component
 
-- Let's open the hubfile "hub.yaml" and add following to `components` field: 
+- Let's open the hubfile "hub.yaml" and add following to `components` field:
 
-```yaml 
+```yaml
  -  name: my-second-component
     source:
         dir: components/hello-hubctl
-```  
+```
 
 - Let's update the configuration and deploy the second component. Run the following commands:
 
@@ -109,11 +109,11 @@ As a result, you will see the deployment components `my-first-component` and `my
 
 - Let's create a special parameter for the `my-second-component` component. To do this, add the following to the `parameters` field of the hub file "hub.yaml":
 
-```yaml 
+```yaml
  -  name: message
-    component: my-second-component    
+    component: my-second-component
     value: baz-second
-```  
+```
 
 - Update the configuration and deployment:
 
@@ -132,7 +132,7 @@ As you can see, the `message` parameter has changed for the `my-second-component
 # Component my-second-component deployed successfully!
 ```
 
-- Inspect parameters for both components. 
+- Inspect parameters for both components.
 Run the following commands:
 ```shell
 hubctl show -c "my-first-component"
@@ -149,12 +149,12 @@ To start undeploying for one or more components (provided as a comma-separated v
 hubctl stack undeploy -c "my-second-component"
 ```
 
-Read more about undeploy [here](../../../hubctl/cli/hubctl-stack-undeploy/)
+Read more about undeploy [here](../../hubctl/cli/hubctl-stack-undeploy/)
 
 - Observe the result
 
 ```shell
-hubctl show 
+hubctl show
 ## ...
 # status: incomplete
 ```
@@ -165,9 +165,9 @@ After we undeploy a second component, the stack status is changed from `deployed
 
 ### Conclusions
 
-In this tutorial, we added our own parameters and deployed a new configuration. We made sure that the new component was deployed and the next step was to undeploy this component. 
+In this tutorial, we added our own parameters and deployed a new configuration. We made sure that the new component was deployed and the next step was to undeploy this component.
 
 ## What's Next?
 
 Next, we will create a component from scratch, digging into hubctl and its additional features.
-Go to the [next tutorial](../../../tutorials/020-shell-component/)
+Go to the [next tutorial](../020-shell-component/)

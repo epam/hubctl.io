@@ -15,4 +15,4 @@ These parameters applies across all extension commands
 
 ## See Also
 
-* [`hubctl`](../../cli)
+* [`hubctl`](../)

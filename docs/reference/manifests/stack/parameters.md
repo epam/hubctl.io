@@ -9,10 +9,10 @@ parameters:
 - name: cloud.kind
   value: aws                          # set to value provided by user
 - name: cloud.regions                 # this parameter is only set for component `foo`
-  component: foo                      
+  component: foo
   value: [us-east-1, us-east-2]
-- name: kubernetes                    # nested parameters for kubernetes 
-  parameters: 
+- name: kubernetes                    # nested parameters for kubernetes
+  parameters:
   - name: worker.size
     fromEnv: KUBERNETES_WORKER_SIZE   # Source value form environment variable
     default: m5.large                 # Use default if value not provided
@@ -50,7 +50,7 @@ parameters:
   # resolves to: www.example.com
 ```
 
-or multiline parameters 
+or multiline parameters
 
 ```yaml
 parameters:
@@ -60,7 +60,7 @@ parameters:
     www.example.com
 ```
 
-### Parameter `fromEnv` 
+### Parameter `fromEnv`
 
 > __Stack Level only__
 
@@ -75,7 +75,7 @@ parameters
 
 Parameter above will set value of parameter `kubernetes.namespace` to value of environment variable `NAMESPACE`
 
-During `hubctl stack configure` user will be prompted to provide value for parameter `kubernetes.namespace` with default value `kube-system`. 
+During `hubctl stack configure` user will be prompted to provide value for parameter `kubernetes.namespace` with default value `kube-system`.
 
 ### Parameter `env`
 
@@ -121,7 +121,7 @@ There are high-level user-provided parameters - the facts `user` do care about: 
 
 ### Parameter `kind: link`
 
-In general, preferred approach to resolve parameters provided as outputs from the component is through `components.depends` attribute. However sometimes you need to change parameter name as they are not match. 
+In general, preferred approach to resolve parameters provided as outputs from the component is through `components.depends` attribute. However sometimes you need to change parameter name as they are not match.
 
 To map output to a different name use `kind: link` parameter. The interpretation of `value` will be deferred until parameter is used:
 
@@ -137,5 +137,5 @@ parameters:
 ## See also
 
 * [Stack Manifest](../../stack)
-* [Component Manifest](../../component)
+* [Component Manifest](../)
 * [CEL expressions](https://github.com/google/cel-go)

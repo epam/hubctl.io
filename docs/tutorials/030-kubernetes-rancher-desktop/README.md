@@ -20,12 +20,12 @@ Each component knows how to deploy itself and export facts about deployment conf
 How to install and configure Rancher Desktop on Windows OS:
 
 1. Open link with Rancher Desktop [documentation](https://docs.rancherdesktop.io/1.6/getting-started/installation#windows)
-2. You need to upgrate WSL2 version on your computer. 
+2. You need to upgrate WSL2 version on your computer.
 [Manual installation steps](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-1---enable-the-windows-subsystem-for-linux)
 3. Install [Ubuntu](https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-6---install-your-linux-distribution-of-choice)
 4. Download and install Rancher Desktop https://rancherdesktop.io/
-5. Check your Rancher Desktop settings "Preferences"-> WSL. WSL has to a checkbox with Ubuntu. 
-6. Open Windows PowerShell as Administration and run 
+5. Check your Rancher Desktop settings "Preferences"-> WSL. WSL has to a checkbox with Ubuntu.
+6. Open Windows PowerShell as Administration and run
 ```PowerShell
 wsl -l -v
 ```
@@ -79,4 +79,4 @@ hubctl stack init
 ```bash
 hubctl stack deploy
 ```
-How to install hubctl on your local workstation you can find [here](https://hubctl.io/install/)
+How to install hubctl on your local workstation you can find [here](../../install)

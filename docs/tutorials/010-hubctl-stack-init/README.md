@@ -43,19 +43,19 @@ components:                                                                   # 
 kind: component                                     # mandatory, defines a component manifest
 version: 1                                          # mandatory, manifest schema version
 
-parameters:                                         
+parameters:
   - name: message                                   # mandatory, parameter name
-    value: foo                                      # optional, value for parameter 
+    value: foo                                      # optional, value for parameter
     env: MESSAGE                                    # optional, mapping to environment variable for use deployment script
 
 ```
 
   `hub-component.yaml` contains the `parameters` field for your configuration.
 
-[Parameters](../../../reference/manifests/stack/parameters/) are used to configure stack and components in both stack manifest `hub.yaml` and component manifest `hub-component.yaml`.
+[Parameters](../../reference/manifests/stack/parameters/) are used to configure stack and components in both stack manifest `hub.yaml` and component manifest `hub-component.yaml`.
 
-If you are deploying using shell scripts, you need to create the expected scripts in the component folder: 
-`deploy.sh` 
+If you are deploying using shell scripts, you need to create the expected scripts in the component folder:
+`deploy.sh`
 
 ```shell
 #!/bin/sh -e
@@ -73,7 +73,7 @@ echo "Component $HUB_COMPONENT undeployed successfully!"
 ```
 
 Make sure the `deploy.sh`, `undeploy.sh` are executable `chmod +x deploy.sh`, `chmod +x undeploy.sh`.
-Read more details [here](../../../reference/components/shell/).
+Read more details [here](../../reference/components/shell/).
 
 So, if you have a ready-made configuration with customized components, how can you launch them?
 The following commands are used for this:
@@ -99,7 +99,7 @@ or without download folders you can initialize the following command
 hubctl stack init -f "https://raw.github.com/epam/hubctl.io/tree/main/docs/tutorials/010-hubctl-stack-init/hub.yaml"
 ```
 
-Read more about `hubctl stack init` [here](../../../hubctl/cli/hubctl-stack-init/)
+Read more about `hubctl stack init` [here](../../hubctl/cli/hubctl-stack-init/)
 
 ### Update configuration
 
@@ -117,7 +117,7 @@ The next step is to run the deployment using the following command:
 hubctl stack deploy
 ```
 
-Read more about the command `hubctl stack deploy` [here](../../../hubctl/cli/hubctl-stack-deploy/)
+Read more about the command `hubctl stack deploy` [here](../../hubctl/cli/hubctl-stack-deploy/)
 
 If you did everything correctly, the deployment worked without errors, then the command returns the name of the component that was deployed.
 
@@ -137,7 +137,7 @@ You can also run undeploy with the following command:
 hubctl stack undeploy
 ```
 
-Read more about the command `hubctl stack undeploy` [here](../../../hubctl/cli/hubctl-stack-undeploy/)
+Read more about the command `hubctl stack undeploy` [here](../../hubctl/cli/hubctl-stack-undeploy/)
 
 The command returns the name of the component `hello-hubctl` that was undeploy.
 
@@ -153,4 +153,4 @@ Using a simple example with a ready-made configuration for the `hub.yaml` and `h
 ## What's Next?
 
 You can change the hubctl config and deploy it with your parameters. Next, you will look at how to do this.
-Go to the [next tutorial](../../../tutorials/015-hubctl-stack-configure/)
+Go to the [next tutorial](../015-hubctl-stack-configure/)

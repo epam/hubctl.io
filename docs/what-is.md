@@ -12,11 +12,11 @@ The hubctl workflow consists of following steps:
 
 * **Configure**: Configure your stack before deployment. This means supply all inputs from the environments defined in the previous step. Other input will be provided as components outputs. Hubctl will validate that all required inputs are provided, configure remote state, DNS and other resources.
 
-* **Deploy**: Deploy your stack. This will run deployment scripts for each component in the right order and carefully pass inputs from the environment or upstream component. 
+* **Deploy**: Deploy your stack. This will run deployment scripts for each component in the right order and carefully pass inputs from the environment or upstream component.
 
 ## Break Deployments Monolith
 
-Hubctl allows to break your deployments into smaller pieces. This allows to reuse components across multiple stacks. For example you can have a component that deploys a Kubernetes cluster and reuse it across multiple stacks. Or you can have a component that deploys a database and reuse it across multiple stacks. More about use cases see in [here](./use-cases).
+Hubctl allows to break your deployments into smaller pieces. This allows to reuse components across multiple stacks. For example you can have a component that deploys a Kubernetes cluster and reuse it across multiple stacks. Or you can have a component that deploys a database and reuse it across multiple stacks. More about use cases see in [here](../use-cases).
 
 ## See Also
 

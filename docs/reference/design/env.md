@@ -28,7 +28,7 @@ hubctl stack init --help
 hubctl stack configure
 ```
 
-Or if you want to trigger only environment variables checks run the following command 
+Or if you want to trigger only environment variables checks run the following command
 
 ```bash
 hubctl stack configure -r "env"
@@ -40,7 +40,7 @@ Command above will check all parameters marked with `fromEnv` and will ask user 
 3. If environment variable is not defined, then use `default` value
 3. If parameter has `empty: allow` then use empty value
 4. Use previously provided value from the same environment variable
-4. Use random value 
+4. Use random value
 
 You can change the value prompted by the hubctl.
 
@@ -48,7 +48,7 @@ You can change the value prompted by the hubctl.
 
 ### How to Switch Between Configurations
 
-Hubctl allows to switch between different configurations. For example, you can have different configurations for different environments. 
+Hubctl allows to switch between different configurations. For example, you can have different configurations for different environments.
 
 ```bash
 hubctl stack ls # list all available stacks
@@ -71,4 +71,4 @@ For more details check
 
 * [hubctl stack](../../../hubctl/cli/hubctl-stack) command
 * [Parameters](../../manifests/stack/parameters) - reference guide
-* [Hubctl Key Concepts](../../design)
+* [Hubctl Key Concepts](../)
