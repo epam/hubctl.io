@@ -12,8 +12,6 @@ File `hub-component.yaml` of the component should require `kubernetes` and expos
 requires:
 - kubernetes
 parameters:
-- name: dns.domain
-  env: HUB_DOMAIN_NAME
 - name: kubernetes.namespace # this parameter name can be anything
   value: kube-system         # this is example of kubenretes namespace
   env: NAMESPACE
@@ -60,6 +58,56 @@ outputs:
   - name: dns.domain
   - name: kubernetes.gke.cluster
   - name: kubernetes.api.endpoint
+```
+
+## Common Parameters
+
+Kubernetes components expects common soft interface. Soft means `hubctl` wont mandate user to require one or few parametrs from the table below. However such common form help you to build a well-designed component. So, user of the component would know what to expect from the component that requires `kubernetes`
+
+| Parameter   | Description | Possible Value
+| :-------- | :-------- | :--:
+| `kubernetes.namespace` | Target kubernetes namespace. Usually bound to `NAMESPACE` environment variable | `kube-system`
+| `kubernetes.serviceAccount` | Name of the service account to be used by the component | `default`
+| `kubernetes.replicas` | Number of replicas for the component | `1`
+| `kubernetes.requests` | List of whitespace separated `key=value` pairs to be used by component as a resource requests | `cpu=100m memory=128Mi`
+| `kubernetes.limits` | List of whitespace separated `key=value` pairs to be used by component as a resource limits | `cpu=100m memory=128Mi`
+| `kubernetes.labels` | List of whitespace separated `key=value` pairs to be used by component as a labels | `app=nginx instance=nginx`
+| `kubernetes.annotations` | List of whitespace separated `key=value` pairs to be used by component as a annotations | `app=nginx instance=nginx`
+| `ingress.class` | Kubernetes ingress class name. If empty then configured default will be used | `nginx`
+| `ingress.hosts` | List of whitespace separated hosts to be configured in ingress. Empty value means no igress needed | `myservice.example.com anotherservice.example.com`
+| `ingress.protocol` | Instructs if TLS configuration should be used for ingress | `https` or `http`
+| `storage.class` | Kubernetes storage class name. If empty then configured default will be used | `gp2`
+| `storage.size` | Size of the persistent storage to be allocated | `10Gi`
+
+## How to use `key=value` pairs
+
+1. Define parameter see example:
+
+```yaml
+parameters:
+- name: kubernetes.requests
+  value: >-
+    cpu=100m 
+    memory=128Mi
+```
+
+2. Define a gotemplate file with the following content. For instance `values.yaml.gotemplate` that will look like the following
+
+```yaml
+resources:
+  requests:
+{{- range .kubernetes.requests | splitList " "}}
+    {{. | replace "=" ": "}}
+{{- end}}
+```
+
+This will produce the following output
+
+```yaml
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
 ```
 
 ## See also
