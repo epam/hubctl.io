@@ -81,25 +81,24 @@ Kubernetes components expects common soft interface. Soft means `hubctl` wont ma
 
 ## How to use `key=value` pairs
 
+<!-- markdownlint-disable blanks-around-lists blanks-around-fences -->
 1. Define parameter see example:
-
-```yaml
-parameters:
-- name: kubernetes.requests
-  value: >-
-    cpu=100m 
+  ```yaml
+  parameters:
+  - name: kubernetes.requests
+    value: >-
+      cpu=100m
     memory=128Mi
-```
-
-2. Define a gotemplate file with the following content. For instance `values.yaml.gotemplate` that will look like the following
-
-```yaml
-resources:
-  requests:
-{{- range .kubernetes.requests | splitList " "}}
-    {{. | replace "=" ": "}}
-{{- end}}
-```
+  ```
+1. Define a gotemplate file with the following content. For instance `values.yaml.gotemplate` that will look like the following
+  ```yaml
+  resources:
+    requests:
+  {{- range .kubernetes.requests | splitList " "}}
+      {{. | replace "=" ": "}}
+  {{- end}}
+  ```
+<!-- markdownlint-enable blanks-around-lists blanks-around-fences -->
 
 This will produce the following output
 
