@@ -33,7 +33,13 @@ extensions:
 
 Hubctl aws init checks if AWS profile configured. Defines AWS profile and region for stack.
 
-See more about [`init`](../../hubctl/cli/hubctl-stack-init)
+Hubctl can init stack from existing state file stored in some https or S3 endpoint.
+
+```shell
+hubctl stack init s3://<aws-account-id>.superhub.io/melted-odyssey-792/hub/simple-aws/hub.state
+```
+
+See more about [`init`](../../../hubctl/cli/hubctl-stack-init)
 
 ### Hubctl configure
 
@@ -42,7 +48,6 @@ See more about [`init`](../../hubctl/cli/hubctl-stack-init)
 | Configure parameters      | Environment Variable          | Description                                                                                     |
 |---------------------------|-------------------------------|-------------------------------------------------------------------------------------------------
 | --aws-region              | `AWS_REGION`                  | AWS Region (defaults to value from: AWS_REGION)                                                 |
-| --aws-profile             | `AWS_PROFILE`                 | AWS Profile (defaults to value from: AWS_PROFILE)                                               |
 | --domain-name             | `HUB_DOMAIN_NAME`             | Custom DNS domain name under existing base domain                                               |
 | --base-domain-aws-profile | `HUB_BASE_DOMAIN_AWS_PROFILE` | AWS Profile for base domain (in case base domain hosted zone is located in another AWS account) |
 | --bubbles-secret-key      | `HUB_DOMAIN_SECRET`           | DNS manager secret                                                                              |
