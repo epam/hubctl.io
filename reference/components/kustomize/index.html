@@ -1819,9 +1819,9 @@
 <h2 id="component-conventions">Component Conventions</h2>
 <h3 id="kustomize-detection">Kustomize Detection</h3>
 <p>Because kustomize has been part of <code>kubectl -k ...</code> this compoenent doesn't require any specific configuration besides just a kubernetes. So hubfile should have</p>
-<pre><code class="language-yaml">requires:
-- kubernetes
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">requires</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
+</span></code></pre></div>
 <p>Kustomize component has been detected by hubctl if component has following files in it's root directory:  <code>kustomization.yaml</code>, <code>kustomization.yaml.template</code> or <code>kustomization.yaml.gotemplate</code></p>
 <p>Then hubctl will be able detect this component as helm component and call provisioning script: <a href="https://github.com/epam/hub-extensions/blob/master/hub-component-kustomize">hub-component-kustomize</a></p>
 <h3 id="input-parameters">Input parameters</h3>

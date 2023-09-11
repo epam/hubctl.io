@@ -1776,14 +1776,13 @@
 <p>This tutorial will guide you through the process of creating a Helm component. You will use Redis, an in-memory data store, as an example.</p>
 <h2 id="stack-structure">Stack structure</h2>
 <p>The stack and component directory structure is as follows:</p>
-<pre><code class="language-text">.
-├── components                           # Directory with components
-│    └── redis                           # Directory with Redis-related configurations
-│        ├── hub-component.yaml          # Component manifest
-│        └── values.yaml.template        # Base helm values template
-└──  hub.yaml                            # Stack manifest
-
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── components                           # Directory with components
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│    └── redis                           # Directory with Redis-related configurations
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│        ├── hub-component.yaml          # Component manifest
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│        └── values.yaml.template        # Base helm values template
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└──  hub.yaml                            # Stack manifest
+</span></code></pre></div>
 <h2 id="component-structure">Component structure</h2>
 <p>Each component has to know how to deploy itself and export facts about deployment configuration in the well-known form of parameters. So other component would use this as an input.</p>
 <p>Hubctl component contains the following:</p>
@@ -1801,92 +1800,94 @@
 <li>Specifying component-specific parameters, for Redis in minimalistic way you set username/password</li>
 <li>For Helm you point out repository, chart version and values you want to use</li>
 </ol>
-<pre><code class="language-yaml">kind: component                                                # mandatory, defines a component manifest
-version: 1                                                     # mandatory, manifest schema version
-
-requires:                                                     # optional, list of environment requirements
-  - kubernetes
-  - helm
-
-parameters:
-  - name: redis                                               # parameter name of redis
-    parameters:
-      - name: namespace                                       # redis parameter name of namespace [redis.namespace]
-        value: redis                                          # value for namespace parameter
-        env: NAMESPACE                                        # environment variable of namespace
-      - name: port                                            # redis parameter name of port [redis.port]
-        value: 6379                                           # value for port parameter
-      - name: username                                        # redis parameter name of username [redis.username]
-        fromEnv: REDIS_USER                                   # optional, parameter value is taken from environment variable, this approach allows not to store exact value in version control.
-      - name: password                                        # redis parameter name of password [redis.password]
-        fromEnv: REDIS_PASSWORD                               # if the variable does not exist in the .env file and Hubctl prompts the user to enter a value and will save it in .env file.
-  - name: helm                                                # parameter name of helm
-    parameters:
-      - name: repo                                            # helm parameter name of repo [helm.repo]
-        value: https://charts.bitnami.com/bitnami             # instructs hubctl to download helm chart from the helm repository
-        env: HELM_REPO                                        # environment variable HELM_REPO
-      - name: chart                                           # helm chart resolved via variable HELM_CHART
-        value: redis                                          # this can have multiple values, that corresponds to the helm chart location
-        env: HELM_CHART                                       # environment variable HELM_CHART
-
-
-templates:
-  files:                                                      # mandatory, list of template files, supports globs
-    - &quot;*.template&quot;                                            # template files in current component directory
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">component</span><span class="w">                                                </span><span class="c1"># mandatory, defines a component manifest</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">                                                     </span><span class="c1"># mandatory, manifest schema version</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">requires</span><span class="p">:</span><span class="w">                                                     </span><span class="c1"># optional, list of environment requirements</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helm</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span><span class="w">                                               </span><span class="c1"># parameter name of redis</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="w">                                       </span><span class="c1"># redis parameter name of namespace [redis.namespace]</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span><span class="w">                                          </span><span class="c1"># value for namespace parameter</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NAMESPACE</span><span class="w">                                        </span><span class="c1"># environment variable of namespace</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">port</span><span class="w">                                            </span><span class="c1"># redis parameter name of port [redis.port]</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6379</span><span class="w">                                           </span><span class="c1"># value for port parameter</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span><span class="w">                                        </span><span class="c1"># redis parameter name of username [redis.username]</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="nt">fromEnv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDIS_USER</span><span class="w">                                   </span><span class="c1"># optional, parameter value is taken from environment variable, this approach allows not to store exact value in version control.</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w">                                        </span><span class="c1"># redis parameter name of password [redis.password]</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="nt">fromEnv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">REDIS_PASSWORD</span><span class="w">                               </span><span class="c1"># if the variable does not exist in the .env file and Hubctl prompts the user to enter a value and will save it in .env file.</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helm</span><span class="w">                                                </span><span class="c1"># parameter name of helm</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">repo</span><span class="w">                                            </span><span class="c1"># helm parameter name of repo [helm.repo]</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://charts.bitnami.com/bitnami</span><span class="w">             </span><span class="c1"># instructs hubctl to download helm chart from the helm repository</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HELM_REPO</span><span class="w">                                        </span><span class="c1"># environment variable HELM_REPO</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chart</span><span class="w">                                           </span><span class="c1"># helm chart resolved via variable HELM_CHART</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span><span class="w">                                          </span><span class="c1"># this can have multiple values, that corresponds to the helm chart location</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HELM_CHART</span><span class="w">                                       </span><span class="c1"># environment variable HELM_CHART</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="nt">templates</span><span class="p">:</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">  </span><span class="nt">files</span><span class="p">:</span><span class="w">                                                      </span><span class="c1"># mandatory, list of template files, supports globs</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*.template&quot;</span><span class="w">                                            </span><span class="c1"># template files in current component directory</span>
+</span></code></pre></div>
 <p>Read more about Helm <a href="../../reference/components/helm/">here</a></p>
 <ol>
 <li>Add a component reference to Hubfile (<code>hub.yaml</code>)</li>
 <li>Set required technologies, parameters and extensions</li>
 </ol>
-<pre><code class="language-yaml">kind: stack                                                 # mandatory, defines a stack manifest
-version: 1                                                  # stack manifest schema version
-
-requires:                                                   # optional, list of environment requirements
-  - kubernetes
-  - helm
-
-components:                                                 # mandatory, list of components
-  - name: redis                                             # mandatory, name of the component
-    source:                                                 # mandatory, component source
-      dir: components/redis                                 # mandatory, local path where to find component
-
-parameters:                                                 # optional, stack input parameters (best practice, split to separate file or files)
-  - name: kubernetes.context                                # mandatory, parameter name [kubernetes.context]
-    value: rancher-desktop                                  # optional, value of parameter
-
-extensions:                                                 # optional
-  configure:                                                # optional, steps activated during `hubctl stack configure`
-    - kubernetes
-    - env
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stack</span><span class="w">                                                 </span><span class="c1"># mandatory, defines a stack manifest</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">                                                  </span><span class="c1"># stack manifest schema version</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nt">requires</span><span class="p">:</span><span class="w">                                                   </span><span class="c1"># optional, list of environment requirements</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helm</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nt">components</span><span class="p">:</span><span class="w">                                                 </span><span class="c1"># mandatory, list of components</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span><span class="w">                                             </span><span class="c1"># mandatory, name of the component</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w">                                                 </span><span class="c1"># mandatory, component source</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">components/redis</span><span class="w">                                 </span><span class="c1"># mandatory, local path where to find component</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nt">parameters</span><span class="p">:</span><span class="w">                                                 </span><span class="c1"># optional, stack input parameters (best practice, split to separate file or files)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes.context</span><span class="w">                                </span><span class="c1"># mandatory, parameter name [kubernetes.context]</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rancher-desktop</span><span class="w">                                  </span><span class="c1"># optional, value of parameter</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="nt">extensions</span><span class="p">:</span><span class="w">                                                 </span><span class="c1"># optional</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">  </span><span class="nt">configure</span><span class="p">:</span><span class="w">                                                </span><span class="c1"># optional, steps activated during `hubctl stack configure`</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">env</span>
+</span></code></pre></div>
 <p>You are now ready to run a deployment from the directory where hub.yaml is located.
 The following commands are used for this:</p>
 <ul>
-<li><code>hubctl stack init</code> - this command initializes the working directory with the <code>hub.yaml</code> file.</li>
+<li>
+<p><code>hubctl stack init</code> - this command initializes the working directory with the <code>hub.yaml</code> file.
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>init
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>hubctl stack configure</code> - stack configuration before deployment
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>configure
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>hubctl stack deploy</code> - Runs a deployment for the entire stack, or updates the deployment of one or more components.
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>deploy
+</span></code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-shell">hubctl stack init
-</code></pre>
-<ul>
-<li><code>hubctl stack configure</code> - stack configuration before deployment</li>
-</ul>
-<pre><code class="language-shell">hubctl stack configure
-</code></pre>
-<ul>
-<li><code>hubctl stack deploy</code> - Runs a deployment for the entire stack, or updates the deployment of one or more components.</li>
-</ul>
-<pre><code class="language-shell">hubctl stack deploy
-</code></pre>
 <p>If the deployment status is deployed and the <code>redis</code> component is completed, you can to list of the namespaced objects, such as our pod <code>redis</code>. To do this, run the following command:</p>
-<pre><code class="language-shell">kubectl get pods --namespace=redis
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--namespace<span class="o">=</span>redis
+</span></code></pre></div>
 <p>You can see 4 redis pods with 1 master and 3 replicas have been created:</p>
-<pre><code class="language-text"># NAME               READY   STATUS
-# redis-master-0     1/1     Running
-# redis-replicas-2   1/1     Running
-# redis-replicas-1   1/1     Running
-# redis-replicas-0   1/1     Running
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># NAME               READY   STATUS
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a># redis-master-0     1/1     Running
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a># redis-replicas-2   1/1     Running
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a># redis-replicas-1   1/1     Running
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a># redis-replicas-0   1/1     Running
+</span></code></pre></div>
 <h3 id="conclusions">Conclusions</h3>
 <p>In this tutorial, you created the Helm component. You configure the minimalistic component with using Redis, an in-memory data store, as an example.
 You deployed it and made sure the new component was done.</p>

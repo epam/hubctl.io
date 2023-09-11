@@ -1777,10 +1777,10 @@
 <p>Hubctl can deploy ARM templates as a component. Hubctl will use the <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI</a> to deploy the ARM template.</p>
 <h2 id="arm-conventions">ARM Conventions</h2>
 <p>To enable hubctl to recognize component as an ARM deployment component, User should add <code>arm</code> requirements to <code>hub-component.yaml</code> file:</p>
-<pre><code class="language-yaml">requires:
-- azure
-- arm
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">requires</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arm</span>
+</span></code></pre></div>
 <h3 id="input-parameters">Input parameters</h3>
 <p>There are number of well-known parameters that can be used to configure ARM deployment. These parameters are defined in <code>hub-component.yaml</code> file. Today there is no strict convention for parameter names. User is free to choose any parameter name they like, however these parameters should be bound to the specific environment variables.</p>
 <table>

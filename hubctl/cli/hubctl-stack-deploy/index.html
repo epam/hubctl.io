@@ -1974,21 +1974,21 @@
 <h3 id="hooks-for-before-deployment-and-after-deployment">Hooks for before-deployment and after-deployment</h3>
 <p>It is possible if user will decide to add one or more deployment hooks. This hooks will be executed before or after the deployment has been done.</p>
 <p>These deployment hooks has been defined via hubfile</p>
-<pre><code class="language-yaml">extensions:
-  deploy:
-    before:
-    - &lt;extension&gt;
-    after:
-    - &lt;extension&gt;
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">extensions</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">before</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;extension&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;extension&gt;</span>
+</span></code></pre></div>
 <p>example:</p>
-<pre><code class="language-yaml">extensions:
-  deploy:
-    before:
-    - kubernetes
-    after:
-    - inventory-configmap
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">extensions</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">before</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inventory-configmap</span>
+</span></code></pre></div>
 <p>Example above will run a kubernetes extension before the deployment to check connectivity to the desired cluster. It will also instruct a <code>hub</code> to save deployment state inside of the Kubernetes cluster as a <code>configmap</code>. This is viable alternative to the object storage and can be handy to store copy of a state for on-prem deployments.</p>
 <p>At the moment there are few extensions that supports before deployment or after deployemnt</p>
 <table>
@@ -2029,13 +2029,13 @@
 </ol>
 <p>However user can overwrite order by defining a custom run-list in the <code>hub.yaml</code> file</p>
 <p>Component run-list order has been defined in hubfile. It looks like below.  Then the User will maintain run-list order when they add or remove the component</p>
-<pre><code class="language-yaml">lifecycle:
-  order:
-  - component1
-  - component2
-  # ...
-  - componentN
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">lifecycle</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">order</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">component1</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">component2</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="c1"># ...</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">componentN</span>
+</span></code></pre></div>
 <h3 id="dyi-deployment-hook">DYI deployment hook</h3>
 <p>Q: Can I add my own deployment hook?
 A: Yes, easy!</p>
@@ -2092,11 +2092,11 @@ A: Make sure you follow the naming convention for file name</p>
 <p>If you want to build your own deployment profile, then put a script into the <code>.hub/profiles/&lt;profile-name&gt;</code> directory and add execution rights. Then update environment variable <code>HUB_DEPLOY_PROFILE</code> in the <code>.env</code></p>
 <h2 id="usage-example">Usage Example</h2>
 <p>To deploy all components in the run-list:</p>
-<pre><code class="language-bash">hubctl stack deploy
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>deploy
+</span></code></pre></div>
 <p>To deploy specific components with order defined in the run-list</p>
-<pre><code class="language-bash">hubctl stack deploy -c &quot;external-dns,cert-manager&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;external-dns,cert-manager&quot;</span>
+</span></code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../hubctl-stack-undeploy"><code>hubctl stack undeploy</code></a></li>

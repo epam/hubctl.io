@@ -1822,14 +1822,14 @@
 </table>
 <h2 id="usage-example">Usage Example</h2>
 <p>To show all parameters of a stac</p>
-<pre><code class="language-bash">hubctl show
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>hubctl<span class="w"> </span>show
+</span></code></pre></div>
 <p>To show domain name of a stack</p>
-<pre><code class="language-bash">hubctl show -q '.parameters.dns.domain'
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hubctl<span class="w"> </span>show<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;.parameters.dns.domain&#39;</span>
+</span></code></pre></div>
 <p>To show password of a <code>mysql</code> component in the stack</p>
-<pre><code class="language-bash">hubctl show -c 'mysql' -q '.outputs.component.mysql.password'
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>hubctl<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;mysql&#39;</span><span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;.outputs.component.mysql.password&#39;</span>
+</span></code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../hubctl-stack"><code>hubctl stack</code></a></li>

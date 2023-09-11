@@ -1705,54 +1705,50 @@ Each component knows how to deploy itself and export facts about deployment conf
 <li>Install <a href="https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-6---install-your-linux-distribution-of-choice">Ubuntu</a></li>
 <li>Download and install Rancher Desktop https://rancherdesktop.io/</li>
 <li>Check your Rancher Desktop settings "Preferences"-&gt; WSL. WSL has to a checkbox with Ubuntu.</li>
-<li>Open Windows PowerShell as Administration and run</li>
-</ol>
-<pre><code class="language-PowerShell">wsl -l -v
-</code></pre>
-<p>Rancher-desktop and Ubuntu have to "Running" states.</p>
-<ul>
-<li>Open Ubuntu terminal and run commands</li>
-</ul>
-<pre><code class="language-bash">docker
-</code></pre>
-<pre><code class="language-bash">sudo apt-get update
-
-sudo apt install docker.io
-</code></pre>
-<ul>
-<li>Check the version of the docker</li>
-</ul>
-<pre><code class="language-bash">docker version
-</code></pre>
-<pre><code class="language-bash">docker ps
-</code></pre>
-<p>You have to see all containers related to rancher-desktop kubernetes.
+<li>
+<p>Open Windows PowerShell as Administration and run
+<div class="language-PowerShell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">wsl</span> <span class="n">-l</span> <span class="n">-v</span>
+</span></code></pre></div>
+Rancher-desktop and Ubuntu have to "Running" states.</p>
+</li>
+<li>
+<p>Open Ubuntu terminal and run commands
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker.io
+</span></code></pre></div></p>
+</li>
+<li>Check the version of the docker
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>version
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>ps
+</span></code></pre></div>
+You have to see all containers related to rancher-desktop kubernetes.
 And  if you have a message "Got permission denied while trying to connect to the Docker ..."
-something needs to be done so $USER always runs in group <code>docker</code> on the <code>Ubuntu</code> WSL</p>
-<pre><code class="language-bash">sudo addgroup --system docker
-</code></pre>
-<pre><code class="language-bash">sudo adduser $USER docker
-</code></pre>
-<ul>
-<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">Install kuberctl</a>. To test connectivity to a kubernetes cluster,
-   open <code>Ubuntu terminal</code> and run commands</li>
-</ul>
-<pre><code class="language-bash">kuberctl version
-</code></pre>
-<p>How to use hubctl to deploy a stack on existing Kubernetes cluster:
-1. Run the commands and test your Rancher Desktop Kubernetes:</p>
-<pre><code class="language-bash">rdctl version
-</code></pre>
-<pre><code class="language-bash">docker images
-</code></pre>
-<ol>
-<li>To run hubctl the use following commands:</li>
+something needs to be done so $USER always runs in group <code>docker</code> on the <code>Ubuntu</code> WSL</li>
 </ol>
-<pre><code class="language-bash">hubctl stack init
-</code></pre>
-<pre><code class="language-bash">hubctl stack deploy
-</code></pre>
-<p>How to install hubctl on your local workstation you can find <a href="../../install">here</a></p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>addgroup<span class="w"> </span>--system<span class="w"> </span>docker
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>adduser<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span>docker
+</span></code></pre></div>
+* <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">Install kuberctl</a>. To test connectivity to a kubernetes cluster,
+   open <code>Ubuntu terminal</code> and run commands
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>kuberctl<span class="w"> </span>version
+</span></code></pre></div></p>
+<p>How to use hubctl to deploy a stack on existing Kubernetes cluster:
+1. Run the commands and test your Rancher Desktop Kubernetes:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>rdctl<span class="w"> </span>version
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>images
+</span></code></pre></div>
+2. To run hubctl the use following commands:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>init
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>deploy
+</span></code></pre></div>
+How to install hubctl on your local workstation you can find <a href="../../install">here</a></p>
 
   <hr>
 <div class="md-source-file">

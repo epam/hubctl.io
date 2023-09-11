@@ -1859,56 +1859,56 @@
 <h1 id="section-parameters">Section <code>parameters</code></h1>
 <p>Parameters are used to configure stack and components in both stack manifest (<code>hub.yaml</code>) and component manifest (<code>hub-component.yaml</code>).</p>
 <p>Parameters have a tree-like structure where leafs have values and nodes should have nested parameters:</p>
-<pre><code class="language-yaml">parameters:
-- name: cloud.kind
-  value: aws                          # set to value provided by user
-- name: cloud.regions                 # this parameter is only set for component `foo`
-  component: foo
-  value: [us-east-1, us-east-2]
-- name: kubernetes                    # nested parameters for kubernetes
-  parameters:
-  - name: worker.size
-    fromEnv: KUBERNETES_WORKER_SIZE   # Source value form environment variable
-    default: m5.large                 # Use default if value not provided
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cloud.kind</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws</span><span class="w">                          </span><span class="c1"># set to value provided by user</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cloud.regions</span><span class="w">                 </span><span class="c1"># this parameter is only set for component `foo`</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">us-east-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">us-east-2</span><span class="p p-Indicator">]</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes</span><span class="w">                    </span><span class="c1"># nested parameters for kubernetes</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker.size</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">fromEnv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KUBERNETES_WORKER_SIZE</span><span class="w">   </span><span class="c1"># Source value form environment variable</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m5.large</span><span class="w">                 </span><span class="c1"># Use default if value not provided</span>
+</span></code></pre></div>
 <p>Native YAML syntax could be used to short-circuit nested declarations. The above is effectively flattened into list of parameters:</p>
-<pre><code class="language-text">cloud.kind
-cloud.regions
-kubernetes.worker.size
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cloud.kind
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cloud.regions
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>kubernetes.worker.size
+</span></code></pre></div>
 <p>The values are in most cases plain text / scalar type, yet we support arrays and maps - data types native to JSON and YAML.</p>
 <h2 id="resolve-parameter-value">Resolve parameter value</h2>
 <p>Here we specify parameter types and their interpretation.</p>
 <p>This is the most common type of parameter. It is used to set parameter value to a literal:</p>
-<pre><code class="language-yaml">parameters:
-- name: kubernetes.namespace
-  value: kube-system
-</code></pre>
-<p>with interpolation</p>
-<pre><code class="language-yaml">parameters:
-- name: dns.domain
-  value: example.com
-- name: ingress.hosts
-  value: www.${dns.domain}
-  # resolves to: www.example.com
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes.namespace</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+</span></code></pre></div>
+<p>with interpolation
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dns.domain</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingress.hosts</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">www.${dns.domain}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="c1"># resolves to: www.example.com</span>
+</span></code></pre></div></p>
 <p>or multiline parameters</p>
-<pre><code class="language-yaml">parameters:
-- name: ingress.hosts
-  value: |
-    example.com
-    www.example.com
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingress.hosts</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="no">example.com</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="no">www.example.com</span>
+</span></code></pre></div>
 <h3 id="parameter-fromenv">Parameter <code>fromEnv</code></h3>
 <blockquote>
 <p><strong>Stack Level only</strong></p>
 </blockquote>
 <p>This parameter only forks for stack manifests (<code>hub.yaml</code> and <code>params-*.yaml</code>). It allows to set parameter value from environment variable:</p>
-<pre><code class="language-yaml">parameters
-- name: kubernetes.namespace
-  fromEnv: NAMESPACE
-  default: kube-system
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="l l-Scalar l-Scalar-Plain">parameters</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes.namespace</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">fromEnv</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NAMESPACE</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+</span></code></pre></div>
 <p>Parameter above will set value of parameter <code>kubernetes.namespace</code> to value of environment variable <code>NAMESPACE</code></p>
 <p>During <code>hubctl stack configure</code> user will be prompted to provide value for parameter <code>kubernetes.namespace</code> with default value <code>kube-system</code>.</p>
 <h3 id="parameter-env">Parameter <code>env</code></h3>
@@ -1916,21 +1916,21 @@ kubernetes.worker.size
 <p><strong>Component Level only</strong></p>
 </blockquote>
 <p>This parameter only works for component manifests (<code>hub-component.yaml</code>). It allows to set environment variables from parameter value:</p>
-<pre><code class="language-yaml">parameters:
-- name: kubernetes.namespace
-  env: NAMESPACE
-  value: kube-system
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes.namespace</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NAMESPACE</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+</span></code></pre></div>
 <p>Parameter above will define environment variable <code>NAMESPACE</code> with value <code>kube-system</code> as a default (unless stack will provide different name)</p>
 <h3 id="parameter-fromfile">Parameter <code>fromFile</code></h3>
 <p>Parameter value could be read from file <code>fromFile: config/stage/password</code>.</p>
 <h2 id="cel-expressions">CEL expressions</h2>
 <p>Parameter <code>value</code> support <a href="https://github.com/google/cel-go">CEL expressions</a> enclosed in <code>#{}</code> such as:</p>
-<pre><code class="language-yaml">parameters:
-- name: cloud.availabilityZones
-- name: cloud.availabilityZones.count
-  value: &quot;#{len(cloud.availabilityZones)}&quot;
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cloud.availabilityZones</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cloud.availabilityZones.count</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#{len(cloud.availabilityZones)}&quot;</span>
+</span></code></pre></div>
 <blockquote>
 <p>CEL has some unexpected results for corner cases, use <code>hubctl cel</code> to debug.</p>
 </blockquote>
@@ -1942,11 +1942,11 @@ kubernetes.worker.size
 <h3 id="parameter-kind-link">Parameter <code>kind: link</code></h3>
 <p>In general, preferred approach to resolve parameters provided as outputs from the component is through <code>components.depends</code> attribute. However sometimes you need to change parameter name as they are not match.</p>
 <p>To map output to a different name use <code>kind: link</code> parameter. The interpretation of <code>value</code> will be deferred until parameter is used:</p>
-<pre><code class="language-yaml">parameters:
-- name: backend.image
-  value: ${ecr:docker.image}
-  kind: link
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend.image</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${ecr:docker.image}</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">link</span>
+</span></code></pre></div>
 <p><code>ecr</code> is a component deployed prior to <code>backend</code>. There are several ECRs thus output is fully qualified.</p>
 <h2 id="see-also">See also</h2>
 <ul>

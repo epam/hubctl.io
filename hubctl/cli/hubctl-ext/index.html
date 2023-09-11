@@ -1718,16 +1718,16 @@
 <p>This is a utility command to manage user defined extensions.</p>
 <p>By default extensions installed in <code>~/.hub</code>. However this can be any directory available in the PATH.</p>
 <p>User can define their own extensions and place them in the extensions directory or in the <code>PATH</code>.</p>
-<pre><code class="language-bash">cat &lt;&lt; EOF &gt; ~/.hub/hub-hello
-#!/bin/sh
-echo &quot;Hello from custom extension&quot;
-EOF
-
-chmod +x ~/.hub/hub-hello
-
-hubctl ext hello
-# Hello from custom extension
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; ~/.hub/hub-hello</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s">#!/bin/sh</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s">echo &quot;Hello from custom extension&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s">EOF</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/.hub/hub-hello
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>hubctl<span class="w"> </span>ext<span class="w"> </span>hello
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Hello from custom extension</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>

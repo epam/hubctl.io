@@ -1730,10 +1730,10 @@
 <h3 id="split-parameters-into-separate-files">Split Parameters into Separate Files</h3>
 <p>This considered as a good practice for Stack Manifests.</p>
 <p>Parameter definitions for entire stack can be quite large. For convenience parameters of the stack into the <code>params.yaml</code> or in the group of <code>params-*.yaml</code> files. Then you can refer additional files in the <code>hub.yaml</code> as the following:</p>
-<pre><code class="language-yaml">extension:
-  include:
-  - params.yaml
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">extension</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">include</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">params.yaml</span>
+</span></code></pre></div>
 <p>See more in <a href="./stack/extensions">hubctl extensions</a></p>
 <blockquote>
 <p>Note: this is a good practice to split parameters from <code>hub.yaml</code> into it's own file <code>params.yaml</code> or even a series of <code>params.yaml</code> files. The parameter files can be referenced in <code>hub.yaml</code> as the following</p>

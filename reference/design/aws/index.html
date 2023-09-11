@@ -1809,17 +1809,17 @@
 </table>
 <h2 id="hubctl-steps">Hubctl steps</h2>
 <p>In order to use AWS configuring scripts, in <code>hub.yaml</code> at <code>extensions</code> defining of steps is required.</p>
-<pre><code class="language-yaml">extensions:
-  init:
-    - aws
-  configure:
-    - aws
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">extensions</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">init</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">configure</span><span class="p">:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws</span>
+</span></code></pre></div>
 <h3 id="hubctl-init">Hubctl init</h3>
 <p>Hubctl aws init checks if AWS profile configured. Defines AWS profile and region for stack.</p>
 <p>Hubctl can init stack from existing state file stored in some https or S3 endpoint.</p>
-<pre><code class="language-shell">hubctl stack init s3://&lt;aws-account-id&gt;.superhub.io/melted-odyssey-792/hub/simple-aws/hub.state
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>init<span class="w"> </span>s3://&lt;aws-account-id&gt;.superhub.io/melted-odyssey-792/hub/simple-aws/hub.state
+</span></code></pre></div>
 <p>See more about <a href="../../../hubctl/cli/hubctl-stack-init"><code>init</code></a></p>
 <h3 id="hubctl-configure">Hubctl configure</h3>
 <p><code>hubctl stack configure</code> works with parameters listed in table below</p>

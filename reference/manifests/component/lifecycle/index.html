@@ -1669,19 +1669,19 @@
 
 <h1 id="section-lifecycle">Section <code>lifecycle</code></h1>
 <p>Lifecycle, is a set of instructions to hubctl to control component deployment</p>
-<pre><code class="language-yaml">lifecycle:
-  verbs:                                # optional, add custom verbs for `hub invoke`. Defaults to [deploy, undeploy]
-  - deploy
-  - undeploy
-  bare: true                            # optional, instruction to allow component without deploy or undeploy implementation
-  readyConditions:                      # optional, conditions to check before declaring component deployed
-  - dns: api.${dns.domain}              # optional, checks if dns name has been resolved
-    url:  https://api.${dns.domain}/v1  # optional, uses http ping GET to check if url is available
-    pauseSeconds: 0                     # optional, pause in seconds before starting poll loop
-  options:                              # optional
-    random:                             # optional
-      bytes: 128                        # optional, see Manifest &gt; Outputs &gt; Securing outputs
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">lifecycle</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">verbs</span><span class="p">:</span><span class="w">                                </span><span class="c1"># optional, add custom verbs for `hub invoke`. Defaults to [deploy, undeploy]</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">undeploy</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">bare</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                            </span><span class="c1"># optional, instruction to allow component without deploy or undeploy implementation</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">readyConditions</span><span class="p">:</span><span class="w">                      </span><span class="c1"># optional, conditions to check before declaring component deployed</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api.${dns.domain}</span><span class="w">              </span><span class="c1"># optional, checks if dns name has been resolved</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">https://api.${dns.domain}/v1</span><span class="w">  </span><span class="c1"># optional, uses http ping GET to check if url is available</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">pauseSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">                     </span><span class="c1"># optional, pause in seconds before starting poll loop</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w">                              </span><span class="c1"># optional</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">random</span><span class="p">:</span><span class="w">                             </span><span class="c1"># optional</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">bytes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128</span><span class="w">                        </span><span class="c1"># optional, see Manifest &gt; Outputs &gt; Securing outputs</span>
+</span></code></pre></div>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="../">Component Manifest</a></li>

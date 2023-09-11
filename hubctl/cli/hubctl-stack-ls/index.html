@@ -1720,11 +1720,11 @@
 <p>Useful command when you have deployment multiple stacks from the one working directory it will help you to navigate across them</p>
 <p>It prints stack domain name as an identifier and marks which has been set as a active with the <code>*</code> symbol</p>
 <p>See example below</p>
-<pre><code class="language-bash">hubctl stack ls
-# ACTIVE  STACK                 STATUS      TIMESTAMP
-# *       disastrous-lundy-871  undeployed  2023-04-13T13:11:50
-#         funny-ray-ray-795     deployed    2023-04-13T13:09:14
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>ls
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># ACTIVE  STACK                 STATUS      TIMESTAMP</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># *       disastrous-lundy-871  undeployed  2023-04-13T13:11:50</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">#         funny-ray-ray-795     deployed    2023-04-13T13:09:14</span>
+</span></code></pre></div>
 <p>Most likely the stack has been initialized with <code>hubctl stack init</code> command however not yet configured (<code>hubctl stack configure</code>)</p>
 <h2 id="see-also">See also</h2>
 <ul>

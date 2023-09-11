@@ -1721,17 +1721,17 @@
 
 
 <h1 id="section-components">Section <code>components</code></h1>
-<pre><code class="language-yaml">components:
-- name: external-dns
-  source:
-    dir: components/external-dns
-    git:
-      remote: https://github.com/epam/hub-kubeflow-components.git
-      ref: main
-      subDir: external-dns
-  depends:
-  - cert-manager
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">components</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-dns</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">source</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">components/external-dns</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">git</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/epam/hub-kubeflow-components.git</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">subDir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-dns</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">depends</span><span class="p">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cert-manager</span>
+</span></code></pre></div>
 <p>Above you can see <code>external-dns</code> component sources are under <code>./components/external-dns/</code> directory.</p>
 <p>Section <code>components.source.git</code> section is optional. If not specified then <code>hubctl stack init</code> will not pull the component from git repository if this component does not exist. This operation happens during <code>hubctl stack init</code></p>
 <p>Section <code>components.depends</code> defines dependency between components. This takes effect on the:</p>
@@ -1741,18 +1741,18 @@
 </ul>
 <h2 id="component-deployment-hooks">Component Deployment Hooks</h2>
 <p>Sometimes before or after a component deployment, User need to perform an action that extends the component and often is environment or context-specific. To achieve that component lifecycle hooks were introduced. This approach allows keeping components KISS and if-less. Please refer to the example below:</p>
-<pre><code class="language-yaml">components:
-- name: external-dns
-  source:
-    dir: components/external-dns
-  hooks:                                # optional
-  - file: bin/do-something              # rmandatory, relative to stack manifest file
-    brief: Some description of my hook  # optional, brief description for hook
-    error: ignore                       # optional, default is `error: fail`
-    triggers:                           # mandatory, when hook should be triggered. Accepts wildcards sich as `*-deploy` or `post-*`
-    - pre-deploy
-    - post-undeploy
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">components</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-dns</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">source</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">components/external-dns</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">hooks</span><span class="p">:</span><span class="w">                                </span><span class="c1"># optional</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/do-something</span><span class="w">              </span><span class="c1"># rmandatory, relative to stack manifest file</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">brief</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Some description of my hook</span><span class="w">  </span><span class="c1"># optional, brief description for hook</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">error</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ignore</span><span class="w">                       </span><span class="c1"># optional, default is `error: fail`</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">triggers</span><span class="p">:</span><span class="w">                           </span><span class="c1"># mandatory, when hook should be triggered. Accepts wildcards sich as `*-deploy` or `post-*`</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-deploy</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post-undeploy</span>
+</span></code></pre></div>
 <p>There are 2 hooks in the example:</p>
 <ul>
 <li>File <code>pre-deploy-hook</code> from the <code>.hub</code> directory relative to the directory where the Hub manifest file is located (<code>hub.yaml</code>) will be executed BEFORE <code>external-dns</code> component is deployed. <code>error: ignore</code> means that stack deployment will continue even if there is an error in the hook (it exits with non 0 exit code)</li>

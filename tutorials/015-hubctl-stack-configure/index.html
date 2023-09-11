@@ -1811,30 +1811,30 @@
 </ul>
 <h2 id="about">About</h2>
 <p><code>hub.yaml</code> file has <code>components</code> and <code>parameters</code> fields where you describe your options.</p>
-<pre><code class="language-yaml">kind: stack                                                                   # mandatory, defines a stack manifest
-version: 1                                                                    # stack manifest schema version
-meta:                                                                         # optional
-  name: My second deployment                                                  # optional human readable name
-
-components:                                                                   # mandatory, list of components
-  - name: my-first-component                                                  # mandatory, name of the first component
-    source:                                                                   # mandatory, component source
-      dir: components/hello-hubctl                                            # mandatory, local path where to find component
-      git:                                                                    # optional, git source to download component from
-        remote: https://github.com/epam/hubctl.io.git                         # mandatory, git repository remote url
-        subDir: docs/tutorials/010-hubctl-stack-init/components/hello-hubctl  # mandatory, subdirectory in the repository
-        ref: main                                                             # optional, git reference (branch, tag, commit)
-  - name: my-second-component                                                 # mandatory, name of the second component
-    source:                                                                   # mandatory, component source
-      dir: components/hello-hubctl                                            # mandatory, local path where to find component
-
-parameters:                                                                   # optional, stack input parameters (best practice, split to separate file or files)
-  - name: message                                                             # mandatory, parameter name
-    value: baz                                                                # optional, value for parameter
-  - name: message                                                             # mandatory, parameter name
-    component: my-first-component                                             # optional, special parameter that always bounds to component name defined in `hub.yaml`
-    value: baz-first                                                          # optional, value for parameter
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stack</span><span class="w">                                                                   </span><span class="c1"># mandatory, defines a stack manifest</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">                                                                    </span><span class="c1"># stack manifest schema version</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">meta</span><span class="p">:</span><span class="w">                                                                         </span><span class="c1"># optional</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My second deployment</span><span class="w">                                                  </span><span class="c1"># optional human readable name</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">components</span><span class="p">:</span><span class="w">                                                                   </span><span class="c1"># mandatory, list of components</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-first-component</span><span class="w">                                                  </span><span class="c1"># mandatory, name of the first component</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w">                                                                   </span><span class="c1"># mandatory, component source</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">components/hello-hubctl</span><span class="w">                                            </span><span class="c1"># mandatory, local path where to find component</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">git</span><span class="p">:</span><span class="w">                                                                    </span><span class="c1"># optional, git source to download component from</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/epam/hubctl.io.git</span><span class="w">                         </span><span class="c1"># mandatory, git repository remote url</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">subDir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/tutorials/010-hubctl-stack-init/components/hello-hubctl</span><span class="w">  </span><span class="c1"># mandatory, subdirectory in the repository</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w">                                                             </span><span class="c1"># optional, git reference (branch, tag, commit)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-second-component</span><span class="w">                                                 </span><span class="c1"># mandatory, name of the second component</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w">                                                                   </span><span class="c1"># mandatory, component source</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">components/hello-hubctl</span><span class="w">                                            </span><span class="c1"># mandatory, local path where to find component</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="nt">parameters</span><span class="p">:</span><span class="w">                                                                   </span><span class="c1"># optional, stack input parameters (best practice, split to separate file or files)</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message</span><span class="w">                                                             </span><span class="c1"># mandatory, parameter name</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baz</span><span class="w">                                                                </span><span class="c1"># optional, value for parameter</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message</span><span class="w">                                                             </span><span class="c1"># mandatory, parameter name</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-first-component</span><span class="w">                                             </span><span class="c1"># optional, special parameter that always bounds to component name defined in `hub.yaml`</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baz-first</span><span class="w">                                                          </span><span class="c1"># optional, value for parameter</span>
+</span></code></pre></div>
 <h2 id="deploy-stack-with-one-component">Deploy Stack with one Component</h2>
 <p>Similar to the tutorial the <a href="../010-hubctl-stack-init">previous</a> tutorial, we will deploy a stack with one component.</p>
 <ul>
@@ -1845,92 +1845,92 @@ parameters:                                                                   # 
 <p>Initialize a stack with <a href="../../hubctl/cli/hubctl-stack-init/"><code>hubctl stack init</code></a> command.</p>
 </li>
 </ul>
-<pre><code class="language-shell">hubctl stack init -f &quot;https://raw.githubusercontent.com/epam/hubctl.io/main/docs/tutorials/015-hubctl-stack-configure/hub.yaml&quot;
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>init<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/epam/hubctl.io/main/docs/tutorials/015-hubctl-stack-configure/hub.yaml&quot;</span>
+</span></code></pre></div>
 <p>Wait when stack will be initialized and component will be downloaded in the directory <code>components/hello-hubctl</code></p>
 <ul>
 <li>Now let's update the configuration and deploy this stack with the following commands:</li>
 </ul>
-<pre><code class="language-bash">hubctl stack configure
-</code></pre>
-<pre><code class="language-bash">hubctl stack deploy
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>configure
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>deploy
+</span></code></pre></div>
 <ul>
 <li>You can confirm stack has been deployed with command</li>
 </ul>
-<pre><code class="language-text">hubctl show
-## ...
-##   hub.stackName: My first deployment
-##   message: baz-first
-## status:
-##   status: deployed
-</code></pre>
-<p>As a result, you will see the deployment components with parameters and status.
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>hubctl show
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>## ...
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>##   hub.stackName: My first deployment
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>##   message: baz-first
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>## status:
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>##   status: deployed
+</span></code></pre></div>
+As a result, you will see the deployment components with parameters and status.
 The <code>my-first-component</code> message is "base-first" because "hub.yaml" has a special message parameter for the <code>my-first-component</code> component.</p>
 <h2 id="add-a-new-component">Add a New Component</h2>
 <ul>
 <li>Let's open the hubfile "hub.yaml" and add following to <code>components</code> field:</li>
 </ul>
-<pre><code class="language-yaml"> -  name: my-second-component
-    source:
-        dir: components/hello-hubctl
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w"> </span><span class="p p-Indicator">-</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-second-component</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">source</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">components/hello-hubctl</span>
+</span></code></pre></div>
 <ul>
 <li>Let's update the configuration and deploy the second component. Run the following commands:</li>
 </ul>
-<pre><code class="language-bash">hubctl stack configure
-</code></pre>
-<pre><code class="language-shell">hubctl stack deploy
-</code></pre>
-<p>As a result, you will see the deployment components <code>my-first-component</code> and <code>my-second-component</code>.</p>
-<pre><code class="language-text">## --- File: deploy.sh
-# Component my-first-component is saying: baz-first
-# Component my-first-component deployed successfully!
-
-# Component my-second-component is saying: baz
-# Component my-second-component deployed successfully!
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>configure
+</span></code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>deploy
+</span></code></pre></div>
+<p>As a result, you will see the deployment components <code>my-first-component</code> and <code>my-second-component</code>.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>## --- File: deploy.sh
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a># Component my-first-component is saying: baz-first
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a># Component my-first-component deployed successfully!
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a># Component my-second-component is saying: baz
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a># Component my-second-component deployed successfully!
+</span></code></pre></div></p>
 <ul>
 <li>Let's create a special parameter for the <code>my-second-component</code> component. To do this, add the following to the <code>parameters</code> field of the hub file "hub.yaml":</li>
 </ul>
-<pre><code class="language-yaml"> -  name: message
-    component: my-second-component
-    value: baz-second
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w"> </span><span class="p p-Indicator">-</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-second-component</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baz-second</span>
+</span></code></pre></div>
 <ul>
 <li>Update the configuration and deployment:</li>
 </ul>
-<pre><code class="language-bash">hubctl stack configure
-</code></pre>
-<pre><code class="language-shell">hubctl stack deploy
-</code></pre>
-<p>As you can see, the <code>message</code> parameter has changed for the <code>my-second-component</code> component</p>
-<pre><code class="language-text">## --- File: deploy.sh
-# Component my-second-component is saying: baz-second
-# Component my-second-component deployed successfully!
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>configure
+</span></code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>deploy
+</span></code></pre></div>
+<p>As you can see, the <code>message</code> parameter has changed for the <code>my-second-component</code> component
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>## --- File: deploy.sh
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a># Component my-second-component is saying: baz-second
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a># Component my-second-component deployed successfully!
+</span></code></pre></div></p>
 <ul>
 <li>Inspect parameters for both components.
-Run the following commands:</li>
+Run the following commands:
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>hubctl<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;my-first-component&quot;</span>
+</span></code></pre></div></li>
 </ul>
-<pre><code class="language-shell">hubctl show -c &quot;my-first-component&quot;
-</code></pre>
-<pre><code class="language-shell">hubctl show -c &quot;my-second-component&quot;
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>hubctl<span class="w"> </span>show<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;my-second-component&quot;</span>
+</span></code></pre></div>
 <ul>
 <li>Now let's undeploy the second component and run the echo command.
 To start undeploying for one or more components (provided as a comma-separated value), run the following command.</li>
 </ul>
-<pre><code class="language-shell">hubctl stack undeploy -c &quot;my-second-component&quot;
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>undeploy<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;my-second-component&quot;</span>
+</span></code></pre></div>
 <p>Read more about undeploy <a href="../../hubctl/cli/hubctl-stack-undeploy/">here</a></p>
 <ul>
 <li>Observe the result</li>
 </ul>
-<pre><code class="language-shell">hubctl show
-## ...
-# status: incomplete
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>hubctl<span class="w"> </span>show
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="c1">## ...</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># status: incomplete</span>
+</span></code></pre></div>
 <p>After we undeploy a second component, the stack status is changed from <code>deployed</code> to <code>incomplete</code>. This means one or more components are not deployed.</p>
 <blockquote>
 <p>Note: on the contrary, status <code>deployed</code> means all components of a stack are deployed.</p>

@@ -1888,11 +1888,11 @@
 <p>Upon completion of configure command execution will ensure that all stack input parameters has been defined.</p>
 <h2 id="configuration-requirements">Configuration requirements</h2>
 <p>Input parameters can be supplied by various scripts. Which exactly and it's order has been defined in hubfile via requirements</p>
-<pre><code class="language-yaml">extensions:
-  configure:
-  - env
-  - gcp
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">extensions</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">configure</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">env</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp</span>
+</span></code></pre></div>
 <p>List of supported requirements for configuration</p>
 <table>
 <thead>
@@ -2187,26 +2187,26 @@
 <li>Write your script using: <code>shell</code> (preferably), <code>bash</code> or general purpose language of your choice.</li>
 <li>Add reference to the hub.yaml</li>
 </ol>
-<pre><code class="language-bash"># example
-mkdir -p &quot;.hub/mysuperextension&quot;
-touch &quot;.hub/mysuperextension/configure&quot;
-chmod +x &quot;.hub/mysuperextension/configure&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># example</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;.hub/mysuperextension&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>touch<span class="w"> </span><span class="s2">&quot;.hub/mysuperextension/configure&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>chmod<span class="w"> </span>+x<span class="w"> </span><span class="s2">&quot;.hub/mysuperextension/configure&quot;</span>
+</span></code></pre></div>
 <p>then feel free to add reference that looks like the following to the <code>hub.yaml</code></p>
-<pre><code class="language-yaml">extensions:
-  configure:
-  - mysuperextension
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">extensions</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">configure</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysuperextension</span>
+</span></code></pre></div>
 <h2 id="usage-example">Usage Example</h2>
 <p>Configure stack before deployment</p>
-<pre><code class="language-bash">hubctl stack configure
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>configure
+</span></code></pre></div>
 <p>Reload GCP configuration, and refresh TTL for bubble DNS service</p>
-<pre><code class="language-bash">hubctl stack configure -r &quot;gcp&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>configure<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;gcp&quot;</span>
+</span></code></pre></div>
 <p>Configure refresh kubeconfig for kubernetes cluster (if access rotated)</p>
-<pre><code class="language-bash">hubctl stack configure -r &quot;kubernetes&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>configure<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;kubernetes&quot;</span>
+</span></code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../hubctl-stack-init"><code>hubctl stack init</code></a></li>

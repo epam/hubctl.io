@@ -1666,50 +1666,49 @@
 
 <h1 id="hubfile-reference">Hubfile Reference</h1>
 <p>On top level stack manifest contains following sections:</p>
-<pre><code class="language-yaml">kind: component                            # mandatory, defines a component manifest
-version: 1                                 # mandatory, manifest schema version
-meta:                                      # optional, see Meta
-  name: foo-component                      # optional, component name
-  brief: Foo component                     # optional, brief description of the component
-  license: Apache 2.0                      # optional, license applied to component distribution
-requires:                                  # optional, list of requirements for component can be provided by environment (stack), or another component
-- gcp                                      # example of component requirement
-- terraform                                # example of component requirement
-provides:                                  # optional, list of capabilities provided by component
-- bucket                                   # example of component capability
-parameters:
-- name: hub.componentName                  # optional, special parameter that always bounds to component name defined in `hub.yaml`
-- name: bucket.name                        # mandatory, parameter name
-  value: ${hub.componentName}              # example, shows how to default
-  env: TF_VAR_name                         # optional, mapping to environment variable for use deployment script
-- name: bucket.region                      # example, shows mandatory paramer that have now default value
-- name: gcp.serviceAccount
-  empty: allow                             # example shows optional parameter that ca nbe empty
-outputs:                                   # optional, list of outputs provided by component
-- name: bucket.endpoint                    # mandatory, output name
-  value: https://storage.googleapis.com    # example, shows predefined output, parameter interpolation syntax is supported
-  breif: Well-knows GCP bucket endpoint    # optional, brief description for output
-- name: bucket.region
-  fromTfVar: location                      # example, shows how to map output to terraform variable
-- name: bucket.accessKey
-  fromTfVar: sensitive_access_key_id       # example, shows how to map output to sensitive variable
-- name: bucket.name                        # example, shows how to forward component parameter to output
-templates:                                 # optional, list of templates provided by component
-  kind: curly                              # mandatory, other values [mustache, go]
-  files:                                   # mandatory, list of template files, supports globs
-  - &quot;*.template&quot;                           # example of template files in current
-lifecycle:
-  verbs:                                   # optional, add custom verbs for `hub invoke`. Defaults to [deploy, undeploy]
-  - deploy
-  - undeploy
-  - backup
-  bare: true                                # optional, instruction to allow component without deploy or undeploy implementation
-  readyConditions:                          # optional, conditions to check before declaring component deployed
-  - dns: api.${dns.domain}                  # optional, checks if dns name has been resolved
-    url:  https://api.${dns.domain}/v1      # optional, uses http ping GET to check if url is available
-    pauseSeconds: 0                         # optional, pause in seconds before starting poll loop
-
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">component</span><span class="w">                            </span><span class="c1"># mandatory, defines a component manifest</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">                                 </span><span class="c1"># mandatory, manifest schema version</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">meta</span><span class="p">:</span><span class="w">                                      </span><span class="c1"># optional, see Meta</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo-component</span><span class="w">                      </span><span class="c1"># optional, component name</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">brief</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Foo component</span><span class="w">                     </span><span class="c1"># optional, brief description of the component</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Apache 2.0</span><span class="w">                      </span><span class="c1"># optional, license applied to component distribution</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">requires</span><span class="p">:</span><span class="w">                                  </span><span class="c1"># optional, list of requirements for component can be provided by environment (stack), or another component</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp</span><span class="w">                                      </span><span class="c1"># example of component requirement</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terraform</span><span class="w">                                </span><span class="c1"># example of component requirement</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">provides</span><span class="p">:</span><span class="w">                                  </span><span class="c1"># optional, list of capabilities provided by component</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bucket</span><span class="w">                                   </span><span class="c1"># example of component capability</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hub.componentName</span><span class="w">                  </span><span class="c1"># optional, special parameter that always bounds to component name defined in `hub.yaml`</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bucket.name</span><span class="w">                        </span><span class="c1"># mandatory, parameter name</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${hub.componentName}</span><span class="w">              </span><span class="c1"># example, shows how to default</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TF_VAR_name</span><span class="w">                         </span><span class="c1"># optional, mapping to environment variable for use deployment script</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bucket.region</span><span class="w">                      </span><span class="c1"># example, shows mandatory paramer that have now default value</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcp.serviceAccount</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="nt">empty</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">allow</span><span class="w">                             </span><span class="c1"># example shows optional parameter that ca nbe empty</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="nt">outputs</span><span class="p">:</span><span class="w">                                   </span><span class="c1"># optional, list of outputs provided by component</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bucket.endpoint</span><span class="w">                    </span><span class="c1"># mandatory, output name</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://storage.googleapis.com</span><span class="w">    </span><span class="c1"># example, shows predefined output, parameter interpolation syntax is supported</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nt">breif</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Well-knows GCP bucket endpoint</span><span class="w">    </span><span class="c1"># optional, brief description for output</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bucket.region</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="nt">fromTfVar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">location</span><span class="w">                      </span><span class="c1"># example, shows how to map output to terraform variable</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bucket.accessKey</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">  </span><span class="nt">fromTfVar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sensitive_access_key_id</span><span class="w">       </span><span class="c1"># example, shows how to map output to sensitive variable</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bucket.name</span><span class="w">                        </span><span class="c1"># example, shows how to forward component parameter to output</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="nt">templates</span><span class="p">:</span><span class="w">                                 </span><span class="c1"># optional, list of templates provided by component</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curly</span><span class="w">                              </span><span class="c1"># mandatory, other values [mustache, go]</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">  </span><span class="nt">files</span><span class="p">:</span><span class="w">                                   </span><span class="c1"># mandatory, list of template files, supports globs</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*.template&quot;</span><span class="w">                           </span><span class="c1"># example of template files in current</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="nt">lifecycle</span><span class="p">:</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">  </span><span class="nt">verbs</span><span class="p">:</span><span class="w">                                   </span><span class="c1"># optional, add custom verbs for `hub invoke`. Defaults to [deploy, undeploy]</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">undeploy</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">  </span><span class="nt">bare</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                                </span><span class="c1"># optional, instruction to allow component without deploy or undeploy implementation</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">  </span><span class="nt">readyConditions</span><span class="p">:</span><span class="w">                          </span><span class="c1"># optional, conditions to check before declaring component deployed</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">dns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api.${dns.domain}</span><span class="w">                  </span><span class="c1"># optional, checks if dns name has been resolved</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">https://api.${dns.domain}/v1</span><span class="w">      </span><span class="c1"># optional, uses http ping GET to check if url is available</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">    </span><span class="nt">pauseSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">                         </span><span class="c1"># optional, pause in seconds before starting poll loop</span>
+</span></code></pre></div>
 <h1 id="component-manifest">Component manifest:</h1>
 <p>Component manifest section described on more details</p>
 <ul>

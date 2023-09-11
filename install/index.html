@@ -1834,21 +1834,21 @@
 <h2 id="download-binary">Download Binary</h2>
 <p>To download the latest of hubctl run the following</p>
 <h3 id="curl">cURL</h3>
-<pre><code class="language-shell">curl -LJ &quot;https://github.com/epam/hubctl/releases/latest/download/hubctl_$(uname -s)_$(uname -m).tar.gz&quot; |\
-  tar xz -C /tmp &amp;&amp; sudo mv /tmp/hubctl /usr/local/bin
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-LJ<span class="w"> </span><span class="s2">&quot;https://github.com/epam/hubctl/releases/latest/download/hubctl_</span><span class="k">$(</span>uname<span class="w"> </span>-s<span class="k">)</span><span class="s2">_</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">.tar.gz&quot;</span><span class="w"> </span><span class="p">|</span><span class="se">\</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>tar<span class="w"> </span>xz<span class="w"> </span>-C<span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>/tmp/hubctl<span class="w"> </span>/usr/local/bin
+</span></code></pre></div>
 <h3 id="wget">Wget</h3>
-<pre><code class="language-shell">wget &quot;https://github.com/epam/hubctl/releases/latest/download/hubctl_$(uname -s)_$(uname -m).tar.gz&quot; -O - |\
-  tar xz -C /tmp &amp;&amp; sudo mv /tmp/hubctl /usr/local/bin
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>wget<span class="w"> </span><span class="s2">&quot;https://github.com/epam/hubctl/releases/latest/download/hubctl_</span><span class="k">$(</span>uname<span class="w"> </span>-s<span class="k">)</span><span class="s2">_</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">.tar.gz&quot;</span><span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="se">\</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>tar<span class="w"> </span>xz<span class="w"> </span>-C<span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>/tmp/hubctl<span class="w"> </span>/usr/local/bin
+</span></code></pre></div>
 <h2 id="homebrew-formula"><a href="https://brew.sh/">Homebrew</a> Formula</h2>
-<pre><code class="language-shell">brew tap epam/tap
-brew install epam/tap/hubctl
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew<span class="w"> </span>tap<span class="w"> </span>epam/tap
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>brew<span class="w"> </span>install<span class="w"> </span>epam/tap/hubctl
+</span></code></pre></div>
 <h2 id="extensions">Extensions</h2>
 <p>Extensions are the plugins for hubctl. It provides additional functionality to hubctl. To install extensions run:</p>
-<pre><code class="language-shell">hubctl extensions install
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hubctl<span class="w"> </span>extensions<span class="w"> </span>install
+</span></code></pre></div>
 <p>There are few common tools used across all extensions. Other tools are component specific</p>
 <ul>
 <li><a href="https://www.gnu.org/software/bash">bash</a></li>

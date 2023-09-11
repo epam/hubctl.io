@@ -1722,13 +1722,13 @@
 
 <h1 id="section-meta">Section: <code>meta</code></h1>
 <p>This section defines metadata for the component manifest. Metadata can be captured by automation tools</p>
-<pre><code class="language-yaml">version: 1                            # mandatory, component manifest schema version
-kind: component                       # mandatory, defines a component manifest
-meta:                                 # optional, metadata for the component
-  name: happy-meal                    # optional human readable name
-  brief: Happy Meal                   # optional, brief description of the component
-  license: Apache 2.0                 # optional, license applied to component distribution
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">                            </span><span class="c1"># mandatory, component manifest schema version</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">component</span><span class="w">                       </span><span class="c1"># mandatory, defines a component manifest</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">meta</span><span class="p">:</span><span class="w">                                 </span><span class="c1"># optional, metadata for the component</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">happy-meal</span><span class="w">                    </span><span class="c1"># optional human readable name</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">brief</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Happy Meal</span><span class="w">                   </span><span class="c1"># optional, brief description of the component</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Apache 2.0</span><span class="w">                 </span><span class="c1"># optional, license applied to component distribution</span>
+</span></code></pre></div>
 <p>Every component must define at least manifest <code>version</code> and <code>kind</code>. Other fields are optional.</p>
 <p>We took inspiration for manifest design from Kubernetes resources. However we do not enforce mandatory <code>metadata.name</code>. Everything besides <code>metadata</code> is optional and intended to be used by automation tools.</p>
 <h2 id="see-also">See Also:</h2>

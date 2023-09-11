@@ -1877,65 +1877,65 @@
 <h3 id="download-hubfiles">Download Hubfiles</h3>
 <p>Activated when flag: <code>-f URL</code> supplied.</p>
 <p>Hubctl will download a hubfile referenced with <code>-f</code> flag and save it to the current directory. Then it will download any other parameters file referenced in the hubfile and save it to the current directory.</p>
-<pre><code class="language-yaml"># hub.yaml
-extensions:
-  include:
-  - params.yaml
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># hub.yaml</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">extensions</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">include</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">params.yaml</span>
+</span></code></pre></div>
 <p>Example above shows a <code>parameter.yaml</code> referenced in hubfile. It will be downloaded and saved to the current directory. URL of this file will be interpreted as relative to the URL of the hubfile.</p>
 <p>If you have multiple hubfiles but you don't want to keep a direct reference in <code>hub.yaml</code> (when you have parameter files per environment, or your environments have different components). Then use flag <code>-f &lt;hubfile or URL&gt;</code> multiple times</p>
 <h3 id="download-configuration-scripts">Download Configuration Scripts</h3>
 <p>In a similar way hubctl will download a deployment hooks referenced in the hubfile</p>
-<pre><code class="language-yaml">extensions:
-  init:
-  - bin/my-init-script.sh
-  configure:
-  - bin/my-configure-script.sh
-  deploy:
-    before:
-    - bin/my-before-deploy-script.sh
-    after:
-    - bin/my-after-deploy-script.sh
-  undeploy:
-    before:
-    - bin/my-before-undeploy-script.sh
-    after:
-    - bin/my-cleanup-script.sh
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">extensions</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">init</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/my-init-script.sh</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">configure</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/my-configure-script.sh</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">before</span><span class="p">:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/my-before-deploy-script.sh</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/my-after-deploy-script.sh</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nt">undeploy</span><span class="p">:</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nt">before</span><span class="p">:</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/my-before-undeploy-script.sh</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/my-cleanup-script.sh</span>
+</span></code></pre></div>
 <ol>
 <li>Download init scripts referenced in the hubfile</li>
 <li>Download configure scripts referenced in the hubfile</li>
 <li>Download before and after deploy (undeploy)</li>
 </ol>
 <h3 id="download-deployment-hooks">Download Deployment Hooks</h3>
-<pre><code class="language-yaml">components:
-- name: external-dns
-  source:
-    dir: components/external-dns
-  hooks:
-  - file: bin/do-something
-    triggers:
-    - pre-deploy
-    - post-undeploy
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">components</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-dns</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">source</span><span class="p">:</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">components/external-dns</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">hooks</span><span class="p">:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bin/do-something</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">triggers</span><span class="p">:</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pre-deploy</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">post-undeploy</span>
+</span></code></pre></div>
 <p>When hubfile refers component deployment hooks, hubctl will download them and save to the current directory</p>
 <h3 id="download-component-sources">Download Component Sources</h3>
 <p>Next steps hubctl will download components if directory referenced in the hubfile does not exist.</p>
-<pre><code class="language-yaml">components:
-- name: external-dns
-  source:
-    dir: components/external-dns
-    git:
-      remote: https://github.com/epam/hub-kubeflow-components.git
-      ref: develop
-      subDir: external-dns
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">components</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-dns</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">source</span><span class="p">:</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">components/external-dns</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">git</span><span class="p">:</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/epam/hub-kubeflow-components.git</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">develop</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="nt">subDir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-dns</span>
+</span></code></pre></div>
 <p>For more details see <a href="../../../reference/manifests/stack/components">Components Reference</a>.</p>
 <h2 id="initialize-from-remote-state">Initialize from Remote State</h2>
 <p>There is an option to initialize stack from remote state. This is useful when you do not have state locally or it has been deployed by someone else.</p>
 <p>Run the command:</p>
-<pre><code class="language-bash">hubctl stack init &quot;&lt;remote-state-url&gt;&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>init<span class="w"> </span><span class="s2">&quot;&lt;remote-state-url&gt;&quot;</span>
+</span></code></pre></div>
 <p>This command will download remote state and initialize <code>.env</code> variables from parameters listed in the state. Then you should be able to interact with the stack or it's components as usual.</p>
 <h2 id="stack-name-and-domain-names">Stack Name and Domain Names</h2>
 <p>When you initialize a stack, hubctl will generate a random stack name unless hubfile contains exact value of stack name. When stack is using a publicly available domain name, then hubctl will use it as a stack name.</p>
@@ -1992,8 +1992,8 @@ extensions:
 </table>
 <h2 id="usage-example">Usage Example</h2>
 <p>Example on how to initialize a new stack to deploy a GKE cluster</p>
-<pre><code class="language-bash">hubctl stack init -f &quot;https://hubctl.io/tutorials/020-shell-component/hub.yaml&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>init<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;https://hubctl.io/tutorials/020-shell-component/hub.yaml&quot;</span>
+</span></code></pre></div>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="../hubctl-stack-configure"><code>hubctl stack configure</code></a></li>

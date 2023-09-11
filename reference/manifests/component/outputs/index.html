@@ -1750,37 +1750,36 @@
 
 <h1 id="section-outputs">Section <code>outputs</code></h1>
 <p>To bind input parameters of the <code>pgweb</code> to specific PostgreSQL, use <code>depends</code>:</p>
-<pre><code class="language-yaml">outputs:
-- name: ingress.hosts                     # mandatory, name of output parameter
-  brief: Ingress FQDN                     # optional, propagated to stack level outputs
-  value: ${dns.name}.${dns.baseDomain}    # optional, either `value` or `fromTfVar` must be defined
-  fromTfVar: fqdn                         # optional, either `value` or `fromTfVar` must be defined
-  kind: secret/token                      # optional, secret/&lt;kind&gt; is the only supported variation
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">outputs</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingress.hosts</span><span class="w">                     </span><span class="c1"># mandatory, name of output parameter</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">brief</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress FQDN</span><span class="w">                     </span><span class="c1"># optional, propagated to stack level outputs</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${dns.name}.${dns.baseDomain}</span><span class="w">    </span><span class="c1"># optional, either `value` or `fromTfVar` must be defined</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">fromTfVar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fqdn</span><span class="w">                         </span><span class="c1"># optional, either `value` or `fromTfVar` must be defined</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/token</span><span class="w">                      </span><span class="c1"># optional, secret/&lt;kind&gt; is the only supported variation</span>
+</span></code></pre></div>
 <p>When more than a single instance of the same component is deployed in the stack - think two PostgreSQL databases, then there is an ambiguity because both components provides same outputs, ie. <code>endpoint</code> and <code>password</code>.</p>
 <p>Where <code>brief</code> and <code>kind</code> will be propagated to stack level outputs if component:output syntax is used on hub.yaml level.</p>
 <h2 id="computed-outputs">Computed Outputs</h2>
 <p>When you need to output parameters from the deployment script (<code>deploy.sh</code>). Use the following syntax:</p>
-<pre><code class="language-bash">
-cat &lt;&lt; EOF
-
-Outputs:
-server_uptime = $(uptime)
-
-EOF
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cat<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s">Outputs:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s">server_uptime = $(uptime)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s">EOF</span>
+</span></code></pre></div>
 <p>And then link this with the <code>hub-component.yaml</code>:</p>
-<pre><code class="language-yaml">outputs:
-- name: message.uptime
-  fromTfVar: server_uptime
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">outputs</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message.uptime</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">fromTfVar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server_uptime</span>
+</span></code></pre></div>
 <p>Hubctl component deployment reads stdout for a specific Terraform like pattern. Once detected, it will capture response.</p>
 <h2 id="outputs-from-file">Outputs from File</h2>
 <p>To read outputs from a file use the following syntax, where parameter value prefixed with <code>file://</code>. See example below:</p>
-<pre><code class="language-yaml">outputs:
-- name: message.uptime
-  fromFile: file://uptime.txt
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">outputs</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message.uptime</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">fromFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file://uptime.txt</span>
+</span></code></pre></div>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="../">Component Manifest</a></li>

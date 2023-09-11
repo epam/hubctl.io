@@ -1722,11 +1722,11 @@
 
 <h1 id="section-outputs">Section <code>outputs</code></h1>
 <p>Stack outputs can be defined as the following</p>
-<pre><code class="language-yaml">outputs:
-- name: ingress.hosts                     # mandatory, name of output parameter
-  brief: Ingress FQDN                     # optional, meaningful description
-  value: ${dns.name}.${dns.baseDomain}    # mandatory, output of a stack
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">outputs</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingress.hosts</span><span class="w">                     </span><span class="c1"># mandatory, name of output parameter</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">brief</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress FQDN</span><span class="w">                     </span><span class="c1"># optional, meaningful description</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${dns.name}.${dns.baseDomain}</span><span class="w">    </span><span class="c1"># mandatory, output of a stack</span>
+</span></code></pre></div>
 <h2 id="see-also">See Also</h2>
 <ul>
 <li><a href="../">Stack Manifest</a></li>

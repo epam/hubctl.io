@@ -1749,11 +1749,11 @@
 <h1 id="shell-component">Shell Component</h1>
 <p>Shell component is a component that can be deployed using shell scripts. This is the easiest and most flexible way how to deploy a component.</p>
 <p>Minimal component structure would look liek the following</p>
-<pre><code class="language-text">./
-├── hub-component.yaml  # component manifest
-├── deploy.sh           # shell script to deploy the component
-└── undeploy.sh         # shell script to undeploy the component
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── hub-component.yaml  # component manifest
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── deploy.sh           # shell script to deploy the component
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└── undeploy.sh         # shell script to undeploy the component
+</span></code></pre></div>
 <h2 id="conventions">Conventions</h2>
 <p>There are no specific variables that are expected to be passed to the shell script.</p>
 <p>Scripts expected:</p>
@@ -1763,15 +1763,15 @@
 <li><code>&lt;verb&gt;.sh</code> - any other script that can be used to perform any other action</li>
 </ul>
 <p>You can define additional variables in the <code>hub-component.yaml</code> file.</p>
-<pre><code class="language-yaml">lifecycle:
-    verbs:
-    - deploy
-    - undeploy
-    - bar-verb
-</code></pre>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">lifecycle</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">verbs</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">undeploy</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar-verb</span>
+</span></code></pre></div>
 <p>You can call this verb by running the following command</p>
-<pre><code class="language-bash">hubctl stack invoke &quot;foo-component&quot; &quot;bar-verb&quot;
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>hubctl<span class="w"> </span>stack<span class="w"> </span>invoke<span class="w"> </span><span class="s2">&quot;foo-component&quot;</span><span class="w"> </span><span class="s2">&quot;bar-verb&quot;</span>
+</span></code></pre></div>
 <h2 id="best-practices">Best practices</h2>
 <p>Component should always have a <code>undeploy.sh</code> script. Good design says the deployment of any component should be revertible (verb: undeploy)</p>
 <p>Parametrise your shell scripts via environment variables. You can define environment variables in the <code>hub-component.yaml</code> file.</p>
